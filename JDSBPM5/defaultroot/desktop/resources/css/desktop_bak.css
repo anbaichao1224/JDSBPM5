@@ -1,0 +1,2663 @@
+/*--
+ * qWikiOffice Desktop 0.7.1
+ * Copyright(c) 2007-2008, Integrated Technologies, Inc.
+ * licensing@qwikioffice.com
+ * 
+ * http://www.qwikioffice.com/license
+ *
+ * NOTE:
+ * This code is based on code from the original Ext JS desktop demo.
+ * I have made many modifications/additions.
+ *
+ * The Ext JS licensing can be viewed here:
+ *
+ * Ext JS Library 2.0 Beta 2
+ * Copyright(c) 2006-2007, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ *
+ --*/
+
+html, body {
+	font: normal 12px tahoma, arial, verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	overflow: hidden;
+	height: 100%;
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+
+.transparent {
+	-moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+.wallpaper-tile {
+	background-repeat: repeat;
+	background-position: left top;
+}
+.wallpaper-center {
+	background-position: center;
+}
+.settings {
+	background-image: url(../images/default/icons/gears.png ) !important;
+}
+.bogus {
+	background-image: url(../images/default/icons/bogus.png) !important;
+}
+.logout {
+	background-image: url(../images/default/icons/logout.png) !important;
+}
+.x-icon-alert {
+	background-image: url(../images/default/icons/caution.gif) !important;
+}
+.x-icon-information {
+	background-image: url(../images/default/icons/quote.gif) !important;
+}
+.x-icon-waiting {
+	background-image: url(../images/default/icons/hourglass.gif) !important;
+}
+.x-icon-done {
+	background-image: url(../images/default/icons/clock.gif) !important;
+}
+
+#dpanels {
+	width: 250px;
+	float: right;
+}
+
+#dpanels .x-panel {
+	margin: 15px;
+}
+
+#dpanels .x-date-picker {
+	border: 0 none;
+	border-top: 0 none;
+	background: transparent;
+}
+
+#dpanels .x-date-picker td.x-date-active {
+	background: #ffffff;
+}
+
+#dpanels .x-date-picker {
+	width: 100% !important;
+}
+
+#x-desktop {
+	width: 100%;
+	height: 100%;
+	border: 0 none;
+	position: relative;
+    overflow:hidden;
+    zoom:1;
+     /*--
+	 background:#f9f9f9 url(../wallpapers/colorado-farm.jpg) no-repeat fixed center center;
+      --*/
+}
+
+#ux-taskbar .x-btn {
+	float: left;
+	margin: 1px 0 0 1px;
+    position:relative;
+}
+
+#ux-taskbar button {
+	/*-- width: 150px;
+	overflow: hidden; --*/
+	text-align: left;
+	color: #ffffff;
+}
+#title-bar-wrapper {
+	height:35px;
+}
+
+#title-bar {
+	color: #225599;
+	padding: 9px 7px;
+	font: bold 16px tahoma,arial,verdana,sans-serif;
+	float:left;
+}
+
+#x-logout {
+	float:right;
+	padding:6px 7px;
+}
+
+.x-btn-text-icon .x-btn-center .logout {
+	background-position:0pt 3px;
+	background-repeat:no-repeat;
+	padding:3px 0pt 3px 18px;
+}
+
+#ux-taskbar {
+	background:transparent none;
+	height:30px;
+	margin:0;
+	padding:0;
+	position:relative;
+	z-index:8999;
+	/*-- z-index:12001; --*/
+}
+
+/*-- begin: taskbutton --*/
+#ux-taskbuttons-panel .x-btn-icon .x-btn-center .x-btn-text{
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	cursor:pointer;
+	white-space: nowrap;
+    padding:0;
+}
+#ux-taskbuttons-panel .x-btn-icon .x-btn-center{
+	padding:1px;
+}
+#ux-taskbuttons-panel .x-btn-text-icon .x-btn-center .x-btn-text{
+	background-position: 0 6px;
+	background-repeat: no-repeat;
+	height:28px;
+	overflow:hidden;
+	padding:7px 0px 7px 20px;
+}
+#ux-taskbuttons-panel .x-btn-left, #ux-taskbuttons-panel .x-btn-right{
+	font-size:1px;
+    line-height:1px;
+}
+#ux-taskbuttons-panel .x-btn-left{
+	width:4px;
+	height:28px;
+	background:url(../images/default/taskbar/taskbutton.gif) no-repeat 0 0;
+}
+#ux-taskbuttons-panel .x-btn-right{
+	width:4px;
+	height:28px;
+	background:url(../images/default/taskbar/taskbutton.gif) no-repeat 0 -28px;
+}
+#ux-taskbuttons-panel .x-btn-left i, #ux-taskbuttons-panel .x-btn-right i{
+	display:block;
+    width:4px;
+    overflow:hidden;
+    font-size:1px;
+    line-height:1px;
+}
+#ux-taskbuttons-panel .x-btn-center{
+	background:url(../images/default/taskbar/taskbutton.gif) repeat-x 0 -56px;
+	vertical-align: middle;
+	text-align:center;
+	padding:0 5px;
+	cursor:pointer;
+	white-space:nowrap;
+}
+#ux-taskbuttons-panel .x-btn-left{ 
+	background-position:0 0;
+}
+#ux-taskbuttons-panel .x-btn-right{
+	background-position:0 -28px;
+}
+#ux-taskbuttons-panel .x-btn-center{
+	background-position:0 -56px;
+}
+#ux-taskbuttons-panel .x-btn-over .x-btn-left{
+	background-position:0 -252px;
+}
+#ux-taskbuttons-panel .x-btn-over  .x-btn-right{
+	background-position:0 -280px;
+}
+#ux-taskbuttons-panel .x-btn-over .x-btn-center{
+	background-position:0 -308px;
+}
+#ux-taskbuttons-panel .x-btn-click .x-btn-left{
+	background-position:0 -168px;
+}
+#ux-taskbuttons-panel .x-btn-click  .x-btn-right{
+	background-position:0 -196px;
+}
+#ux-taskbuttons-panel .x-btn-click .x-btn-center{
+	background-position:0 -224px;
+}
+#ux-taskbuttons-panel .active-win .x-btn-left{
+	background-position:0 -84px;
+}
+#ux-taskbuttons-panel .active-win  .x-btn-right{
+	background-position:0 -112px;
+}
+#ux-taskbuttons-panel .active-win .x-btn-center{
+	background-position:0 -140px;
+}
+#ux-taskbuttons-panel .active-win .x-btn-center button {
+    color:#fff;
+}
+/*-- end: taskbutton --*/
+
+
+
+#spacer {
+	height: 25px;
+	float: left;
+	width: 0;
+	overflow: hidden;
+	margin-top: 2px;
+}
+
+.x-window-body p,.x-panel-body p {
+	padding: 10px;
+	margin: 0;
+}
+/*-- fix for scrolling issue in firefox --*/
+.x-window-mc {
+	background:#ffffff none;
+	border:1px solid #000000;
+}
+.x-border-layout-ct {
+	background:transparent none;
+}
+.x-panel-body {
+	background:transparent none;
+}
+.x-tree .x-panel-body {
+	background-color:transparent;
+}
+/*-- end fix --*/
+
+.x-window-maximized .x-window-bc {
+	height:0;
+}
+
+.icon-grid {
+    background-image:url(../images/default/icons/grid.png) !important;
+}
+.add {
+    background-image:url(../../../Ext/shared/icons/fam/add.gif) !important;
+}
+.option {
+    background-image:url(../../../Ext/shared/icons/fam/plugin.gif) !important;
+}
+.remove {
+    background-image:url(../../../Ext/shared/icons/fam/delete.gif) !important;
+}
+.save {
+    background-image:url(../../../Ext/shared/icons/save.gif) !important;
+}
+.jame {
+    background-image:url(../images/default/icons/accordian.gif) !important;
+}
+.tabs {
+    background-image:url(../images/default/icons/tabs.gif) !important;
+}
+
+/*-- IM window icons --*/
+
+.user {
+    background-image:url(../images/default/icons/member.png) !important;
+}
+
+.user-add {
+    background-image:url(../../../Ext/shared/icons/fam/user_add.png) !important;
+}
+
+.user-delete {
+    background-image:url(../../../Ext/shared/icons/fam/user_delete.png) !important;
+}
+
+.connect {
+    background-image:url(../../../Ext/shared/icons/fam/connect.png) !important;
+}
+
+.user-girl {
+    background-image:url(../../../Ext/shared/icons/fam/user_female.png) !important;
+}
+
+.user-kid {
+    background-image:url(../../../Ext/shared/icons/fam/user_green.png) !important;
+}
+
+.user-suit {
+    background-image:url(../../../Ext/shared/icons/fam/user_suit.png) !important;
+}
+
+/*-- Begin: startmenu --*/
+.ux-start-menu {
+	background:transparent none !important;
+	border:0px none !important;
+	padding:0 !important;
+}
+.ux-start-menu-tl .x-window-header {
+	color:#f1f1f1;
+	font:bold 11px tahoma,arial,verdana,sans-serif;
+    padding:5px 0 4px 0;
+}
+.x-panel-tl .x-panel-icon, .ux-start-menu-tl .x-panel-icon {
+	background-position:0pt 4px;
+	background-repeat:no-repeat;
+	padding-left:20px !important;
+}
+.ux-start-menu-tl {
+	background: transparent url(../images/default/startmenu/left-corners.png) no-repeat 0 0;
+	padding-left:6px;
+    zoom:1;
+    z-index:1;
+    position:relative;
+}
+.ux-start-menu-tr {
+	background: transparent url(../images/default/startmenu/right-corners.png) no-repeat right 0;
+	padding-right:6px;
+}
+.ux-start-menu-tc {
+	background: transparent url(../images/default/startmenu/top-bottom.png) repeat-x 0 0;
+	overflow:hidden;
+    zoom:1;
+}
+.ux-start-menu-ml {
+	background: transparent url(../images/default/startmenu/left-right.png) repeat-y 0 0;
+	padding-left:6px;
+    zoom:1;
+}
+.ux-start-menu-bc {
+	background: transparent url(../images/default/startmenu/top-bottom.png) repeat-x 0 bottom;
+    zoom:1;
+}
+.ux-start-menu-bc .x-window-footer {
+    padding-bottom:6px;
+    zoom:1;
+    font-size:0;
+    line-height:0;
+}
+.ux-start-menu-bl {
+	background: transparent url(../images/default/startmenu/left-corners.png) no-repeat 0 bottom;
+	padding-left:6px;
+    zoom:1;
+}
+.ux-start-menu-br {
+	background: transparent url(../images/default/startmenu/right-corners.png) no-repeat right bottom;
+	padding-right:6px;
+    zoom:1;
+}
+.x-panel-nofooter .ux-start-menu-bc {
+	height:6px;
+}
+.ux-start-menu-splitbar-h {
+	background-color:#d0d0d0;
+}
+.ux-start-menu-bwrap {
+	background:transparent none !important;
+	border:0px none;
+}
+.ux-start-menu-body {
+	background:transparent none !important;
+	border:0px none;
+}
+.ux-start-menu-apps-panel {
+	background:#ffffff none;
+	border:1px solid #99bbe8;
+}
+.ux-start-menu-tools-panel {
+	border:0px none;
+	background:transparent url(../images/default/startmenu/right.png) repeat-y scroll right 0pt;
+}
+.ux-start-menu-apps-panel .x-menu-item-active {
+	background: #f5f8fb url(../images/default/startmenu/app-item-over.gif) repeat-x left bottom !important;
+	border:1px solid #b0c4ca !important;
+	padding:0 !important;
+}
+/*-- End: startmenu --*/
+
+
+
+/*-- Begin: taskbar --*/
+#ux-taskbar-start {
+	background:transparent url(../images/default/taskbar/taskbar-start-panel-bg.gif) repeat-x left top;
+	left:0px;
+	padding:0;
+	position:absolute;
+}
+#ux-quickstart-panel {
+	background:transparent url(../images/default/taskbar/taskbar-start-panel-bg.gif) repeat-x left top;
+	left:0px;
+	padding:0;
+	position:absolute;
+}
+#ux-taskbar-start .x-toolbar {
+	background: none;
+	padding:0px;
+	border:0px none;
+}
+#ux-taskbar-panel-wrap {
+	background:transparent none;
+}
+#ux-taskbuttons-panel {
+	background:transparent url(../images/default/taskbar/taskbuttons-panel-bg.gif) repeat-x left top;
+	padding-top:0;
+	position:relative;
+}
+#ux-taskbar .x-splitbar-h {
+	background:transparent url(../images/default/taskbar/taskbar-split-h.gif) no-repeat 0 0;
+	width:14px;
+}
+/*-- End: taskbar --*/
+
+
+
+.ux-quickstart-strip-wrap {
+	width:100%;
+    overflow:hidden;
+    position:relative;
+    zoom:1;
+}
+
+ul.ux-quickstart-strip {
+	display:block;
+	width:5000px;
+    zoom:1;
+}
+
+ul.ux-quickstart-strip li {
+    float:left;
+    margin-left:0px;
+}
+
+
+ul.ux-quickstart-strip li.ux-quickstart-edge {
+    float:left;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 none !important;
+    font-size:1px !important;
+    line-height:1px !important;
+    overflow:hidden;
+    zoom:1;
+    background:transparent !important;
+    width:1px;
+}
+
+.ux-taskbuttons-strip-wrap {
+	/*-- overflow:hidden;
+	position:relative;
+	width:100%; --*/
+	
+	width:100%;
+    overflow:hidden;
+    position:relative;
+    zoom:1;
+}
+
+ul.ux-taskbuttons-strip {
+	display:block;
+	width:5000px;
+    zoom:1;
+}
+
+ul.ux-taskbuttons-strip li {
+    float:left;
+    margin-left:2px;
+}
+
+
+ul.ux-taskbuttons-strip li.ux-taskbuttons-edge {
+    float:left;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 none !important;
+    font-size:1px !important;
+    line-height:1px !important;
+    overflow:hidden;
+    zoom:1;
+    background:transparent !important;
+    width:1px;
+}
+
+.x-clear {
+    clear:both;
+    height:0;
+    overflow:hidden;
+    line-height:0;
+    font-size:0;
+}
+
+.x-taskbuttons-scrolling {
+	position:relative;
+}
+
+.x-taskbuttons-scrolling .ux-taskbuttons-strip-wrap {
+	margin-left:18px;
+	margin-right:18px;
+}
+td.ux-taskButtons-edge {
+    /*--float:left;--*/
+    margin:0 !important;
+    padding:0 !important;
+    border:0 none !important;
+    font-size:1px !important;
+    line-height:1px !important;
+    overflow:hidden;
+    zoom:1;
+    background:transparent !important;
+    width:1px;
+}
+.ux-taskbuttons-scroller-left {
+    background: transparent url(../images/default/taskbar/scroll-left.gif) no-repeat -18px 0;
+    width:18px;
+    position:absolute;
+    left:1px;
+    top:0px;
+    z-index:10;
+    cursor:pointer;
+}
+.ux-taskbuttons-scroller-left-over {
+    background-position: 0 0;
+}
+.ux-taskbuttons-scroller-left-disabled {
+    background-position: -18px 0;
+    opacity:.5;
+    -moz-opacity:.5;
+    filter:alpha(opacity=50);
+    cursor:default;
+}
+.ux-taskbuttons-scroller-right {
+    background: transparent url(../images/default/taskbar/scroll-right.gif) no-repeat 0 0;
+    width:18px;
+    position:absolute;
+    right:0;
+    top:0px;
+    z-index:10;
+    cursor:pointer;
+}
+.ux-taskbuttons-scroller-right-over {
+    background-position: -18px 0;
+}
+.ux-taskbuttons-scroller-right-disabled {
+    background-position: 0 0;
+    opacity:.5;
+    -moz-opacity:.5;
+    filter:alpha(opacity=50);
+    cursor:default;
+}
+
+.ux-toolmenu-sep {
+	background-color:#18191a;
+	border-bottom:1px solid #858789;
+	display:block;
+	font-size:1px;
+	line-height:1px;
+	margin:2px 3px;
+}
+
+.x-menu .ux-start-menu-apps-panel a.x-menu-item {
+	color:#000000 !important;	
+}
+
+.ux-start-menu-tools-panel ul.x-menu-list li.x-menu-list-item a.x-menu-item {
+	color:#ffffff;
+}
+
+.ux-start-menu-tools-panel ul.x-menu-list li.x-menu-list-item .x-menu-item-active a.x-menu-item {
+	color:#000000;	
+}
+
+.x-window-header-text {
+	cursor:default;
+}
+
+/*-- Begin: startbutton --*/
+.start {
+	background-image: url(../images/default/taskbar/startbutton-icon.gif) !important;
+}
+#ux-taskbar-start .x-btn {
+	float: left;
+	margin: 0;
+	padding-left: 8px;
+    position:relative;
+}
+#ux-taskbar-start .x-btn-left, #ux-taskbar-start .x-btn-right{
+	font-size:1px;
+    line-height:1px;
+}
+#ux-taskbar-start .x-btn-left{
+	width:10px;
+		height:30px;
+	background:url(../images/default/taskbar/startbutton.gif) no-repeat 0 0;
+}
+#ux-taskbar-start .x-btn-right{
+	width:10px;
+	height:30px;
+	background:url(../images/default/taskbar/startbutton.gif) no-repeat 0 -28px;
+}
+#ux-taskbar-start .x-btn-left i, #ux-taskbar-start .x-btn-right i{
+	display:block;
+    width:10px;
+    overflow:hidden;
+    font-size:1px;
+    line-height:1px;
+}
+#ux-taskbar-start .x-btn-text-icon .x-btn-center .x-btn-text{
+	background-position: 0 4px;
+	background-repeat: no-repeat;
+	color:#000000 !important;
+	font-weight:bold;
+	padding:8px 0px 8px 28px;
+}
+#ux-taskbar-start .x-btn-center{
+	background:url(../images/default/taskbar/startbutton.gif) repeat-x 0 -56px;
+	vertical-align: middle;
+	text-align:center;
+	padding:0;
+	cursor:pointer;
+	white-space:nowrap;
+}
+#ux-taskbar-start .x-btn-left{ 
+	background-position:0 0;
+}
+#ux-taskbar-start .x-btn-right{
+	background-position:0 -30px;
+}
+#ux-taskbar-start .x-btn-center{
+	background-position:0 -60px;
+}
+#ux-taskbar-start .x-btn-over .x-btn-left{
+	background-position:0 -270px;
+}
+#ux-taskbar-start .x-btn-over  .x-btn-right{
+	background-position:0 -300px;
+}
+#ux-taskbar-start .x-btn-over .x-btn-center{
+	background-position:0 -330px;
+}
+#ux-taskbar-start .x-btn-click .x-btn-left{
+	background-position:0 -180px;
+}
+#ux-taskbar-start .x-btn-click  .x-btn-right{
+	background-position:0 -210px;
+}
+#ux-taskbar-start .x-btn-click .x-btn-center{
+	background-position:0 -240px;
+}
+#ux-taskbar-start .active-win .x-btn-left{
+	background-position:0 -90px;
+}
+#ux-taskbar-start .active-win  .x-btn-right{
+	background:url(../images/default/taskbar/startbutton.gif) no-repeat 0 -120px;
+}
+#ux-taskbar-start .active-win .x-btn-center{
+	background:url(../images/default/taskbar/startbutton.gif) repeat-x 0 -150px;
+}
+#ux-taskbar-start .active-win .x-btn-center button {
+    color:#fff;
+}
+#ux-taskbar-start .x-btn-text-icon .x-btn-with-menu .x-btn-center em {
+	background:transparent none;
+	display:block;
+	padding-right:0;
+}
+/*-- End: startbutton --*/
+
+
+
+/*-- Begin QuickStart button --*/
+#ux-quickstart-panel .x-btn-icon .x-btn-center .x-btn-text{
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	cursor:pointer;
+	white-space: nowrap;
+    padding:0;
+}
+#ux-quickstart-panel .x-btn-left, #ux-quickstart-panel .x-btn-right{
+	font-size:1px;
+    line-height:1px;
+}
+#ux-quickstart-panel .x-btn-left{
+	width:4px;
+	height:28px;
+	background:url(../images/default/taskbar/quickstart-button.gif) no-repeat 0 0;
+}
+#ux-quickstart-panel .x-btn-right{
+	width:4px;
+	height:28px;
+	background:url(../images/default/taskbar/quickstart-button.gif) no-repeat 0 -28px;
+}
+#ux-quickstart-panel .x-btn-left i, #ux-quickstart-panel .x-btn-right i{
+	display:block;
+    width:4px;
+    overflow:hidden;
+    font-size:1px;
+    line-height:1px;
+}
+#ux-quickstart-panel .x-btn-center{
+	background:url(../images/default/taskbar/quickstart-button.gif) repeat-x 0 -56px;
+	vertical-align: middle;
+	text-align:center;
+	padding:0;
+	cursor:pointer;
+	white-space:nowrap;
+}
+#ux-quickstart-panel .x-btn-left{ 
+	background-position:0 0;
+}
+#ux-quickstart-panel .x-btn-right{
+	background-position:0 0;
+}
+#ux-quickstart-panel .x-btn-center{
+	background-position:0 0;
+}
+#ux-quickstart-panel .x-btn-over .x-btn-left,
+#ux-quickstart-panel .x-btn-menu-active .x-btn-left{
+	background-position:0 -250px;
+}
+#ux-quickstart-panel .x-btn-over  .x-btn-right,
+#ux-quickstart-panel .x-btn-menu-active .x-btn-right{
+	background-position:0 -279px;
+}
+#ux-quickstart-panel .x-btn-over .x-btn-center,
+#ux-quickstart-panel .x-btn-menu-active .x-btn-center{
+	background-position:0 -308px;
+}
+#ux-quickstart-panel .x-btn-click .x-btn-left{
+	background-position:0 -163px;
+}
+#ux-quickstart-panel .x-btn-click  .x-btn-right{
+	background-position:0 -192px;
+}
+#ux-quickstart-panel .x-btn-click .x-btn-center{
+	background-position:0 -221px;
+}
+#ux-quickstart-panel .active-win .x-btn-left{
+	background-position:0 -84px;
+}
+#ux-quickstart-panel .active-win  .x-btn-right{
+	background-position:0 -112px;
+}
+#ux-quickstart-panel .active-win .x-btn-center{
+	background-position:0 -140px;
+}
+/*-- End: QuickStart button --*/
+ 
+ 
+ 
+/*-- Begin: quickstart menubutton --*/
+.ux-quickstart-menubutton-wrap {
+    position:absolute;
+    right:0;
+    top:0px;
+    z-index:10;
+}
+#ux-quickstart-panel .x-btn-with-menu .x-btn-center em {
+	background-image: url(../images/default/taskbar/quickstart-menubutton-icon.gif) !important;
+	display:block;
+	padding-right:0;
+}
+#ux-quickstart-panel .x-btn-with-menu .x-btn-center {
+	padding-right:0 !important;
+}
+/*-- End: quickstart menubutton --*/
+ 
+ 
+ 
+/*-- Begin: Start Menu Tool --*/
+.ux-start-menu-tools-panel .x-btn-over {
+	background:transparent none;
+	border-color:transparent;
+}
+.ux-start-menu-tools-panel .x-btn-icon .x-btn-center .x-btn-text{
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	cursor:pointer;
+	white-space: nowrap;
+    padding:0;
+}
+.ux-start-menu-tools-panel .x-btn-icon .x-btn-center{
+	padding:1px;
+}
+.ux-start-menu-tools-panel .x-btn-text-icon .x-btn-center .x-btn-text{
+	background-position: 0 6px;
+	background-repeat: no-repeat;
+	padding:7px 0px 7px 20px;
+}
+.ux-start-menu-tools-panel .x-btn .x-btn-center .x-btn-text {
+	color:#ffffff;
+	padding:6px 0px;
+	text-align:left;
+}
+.ux-start-menu-tools-panel .x-btn-left{
+	width:10px;
+	background:url(../images/default/startmenu/start-menu-tool.png) no-repeat 0 -81px;
+}
+.ux-start-menu-tools-panel .x-btn-over .x-btn-left{
+	background-position:0 0;
+}
+.ux-start-menu-tools-panel .x-btn-right{
+	width:10px;
+	background:url(../images/default/startmenu/start-menu-tool.png) no-repeat 0 -81px;
+}
+.ux-start-menu-tools-panel .x-btn-over .x-btn-right{
+	background-position:0 -27px;
+}
+.ux-start-menu-tools-panel .x-btn-left i, .ux-start-menu-tools-panel .x-btn-right i{
+    width:10px;
+}
+.ux-start-menu-tools-panel .x-btn-center{
+	background:url(../images/default/startmenu/start-menu-tool.png) repeat-x 0 -81px;
+	cursor:pointer;
+	padding:0 5px 0 0;
+	text-align:left;
+	vertical-align:bottom;
+	white-space:nowrap;
+}
+.ux-start-menu-tools-panel .x-btn-over .x-btn-center{
+	background-position:0 -54px;
+}
+/*-- End: Start Menu Tool --*/
+
+.x-resizable-proxy{
+    background:#C7DFFC;
+    opacity:.5;
+    -moz-opacity:.5;
+    filter:alpha(opacity=50);
+    border: 1px solid #3b5a82;
+}
+ 
+/*-- Begin: shortcuts --*/
+.ux-shortcut-item {
+	font:normal 10px tahoma,arial,verdana,sans-serif;
+	height:74px;
+	overflow:hidden;
+	position:absolute;
+	text-align:center;
+	width:64px;
+}
+.ux-shortcut-btn {
+	cursor:pointer;
+    width:64px;
+}
+.ux-shortcut-btn-text {
+    width:100%;
+    color:#000000;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    cursor:pointer;
+}
+.ext-ie .ux-shortcut-btn img {
+    background:transparent !important;
+}
+.ux-shortcut-btn img {
+	width:48px !important;
+    height:48px !important;
+}
+
+/*-- start: shortcuts --*/
+.jame-shortcut img {
+    background-image: url(js/desktop/resources/images/default/icons/gird3-2.gif);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='js/desktop/system/modules/acc-win/images/im48x48new.png', sizingMethod='scale');
+}
+
+
+
+ /*--会议室使用申请--*/
+.MeetroomApply1{background-image: url(js/desktop/resources/images/user/MeetroomApply1/MeetroomApply1_fr.gif)  !important;}
+.MeetroomApply1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/MeetroomApply1/MeetroomApply1_shortcut.gif', sizingMethod='scale');}
+
+ /*--部门通讯录--*/
+.addressBook{background-image: url(/js/desktop/resources/images/user/addressBook/addressBook_fr.gif)  !important;}
+.addressBook-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/addressBook/addressBook_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看值班表--*/
+.allmodule{background-image: url(/js/desktop/resources/images/user/allmodule/allmodule_fr.gif)  !important;}
+.allmodule-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/allmodule/allmodule_shortcut.gif', sizingMethod='scale');}
+
+ /*--suoyoudaiban--*/
+.allmyWorkList{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.allmyWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--请销假审批起草--*/
+.applyHolidayExamineList{background-image: url(/js/desktop/resources/images/user/applyHolidayExamineList/applyHolidayExamineList_fr.gif)  !important;}
+.applyHolidayExamineList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/applyHolidayExamineList/applyHolidayExamineList_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--审计动态--*/
+.shenjidongtai{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.shenjidongtai-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--审计要情--*/
+.shenjiyaoqing{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.shenjiyaoqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--办公室领导交办--*/
+.bangongshildjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.bangongshildjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--审计简报--*/
+.shenjijianbao{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.shenjijianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+ /*--办公室专项工作--*/
+.bangongshizxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.bangongshizxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--财务科工作动态管理--*/
+.caiwukegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.caiwukegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--财务科近期工作--*/
+.caiwukejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.caiwukejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--财务科领导交办--*/
+.caiwukeldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.caiwukeldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--财务科总结计划--*/
+.caiwukezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.caiwukezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--财务科专项工作--*/
+.caiwukzxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.caiwukzxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看日程--*/
+.calendarLook{background-image: url(/js/desktop/resources/images/user/calendarLook/calendarLook_fr.gif)  !important;}
+.calendarLook-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/calendarLook/calendarLook_shortcut.gif', sizingMethod='scale');}
+
+ /*--日程管理--*/
+.calendarManager{background-image: url(/js/desktop/resources/images/user/calendarManager/calendarManager_fr.gif)  !important;}
+.calendarManager-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/calendarManager/calendarManager_shortcut.gif', sizingMethod='scale');}
+
+ /*--车辆使用申请--*/
+.carApply{background-image: url(/js/desktop/resources/images/user/carApply/carApply_fr.gif)  !important;}
+.carApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/carApply/carApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已办会议纪要--*/
+.cempletedhuiyijiaoyao{background-image: url(/js/desktop/resources/images/user/cempletedhuiyijiaoyao/cempletedhuiyijiaoyao_fr.gif)  !important;}
+.cempletedhuiyijiaoyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/cempletedhuiyijiaoyao/cempletedhuiyijiaoyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看回执--*/
+.chakanhuizhi{background-image: url(/js/desktop/resources/images/user/chakanhuizhi/chakanhuizhi_fr.gif)  !important;}
+.chakanhuizhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/chakanhuizhi/chakanhuizhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--意见--*/
+.comments{background-image: url(/js/desktop/resources/images/user/comments/comments_fr.gif)  !important;}
+.comments-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/comments/comments_shortcut.gif', sizingMethod='scale');}
+
+ /*--起草申请--*/
+.comments1111111111111{background-image: url(/js/desktop/resources/images/user/comments1111111111111/comments1111111111111_fr.gif)  !important;}
+.comments1111111111111-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/comments1111111111111/comments1111111111111_shortcut.gif', sizingMethod='scale');}
+
+ /*--局专题会会议纪要--*/
+.commentslist1111{background-image: url(/js/desktop/resources/images/user/commentslist1111/commentslist1111_fr.gif)  !important;}
+.commentslist1111-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/commentslist1111/commentslist1111_shortcut.gif', sizingMethod='scale');}
+
+ /*--已办收文--*/
+.completedReceiveWorkList{background-image: url(/js/desktop/resources/images/user/completedReceiveWorkList/completedReceiveWorkList_fr.gif)  !important;}
+.completedReceiveWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/completedReceiveWorkList/completedReceiveWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已办发文--*/
+.completedSendWorkList{background-image: url(/js/desktop/resources/images/user/completedSendWorkList/completedSendWorkList_fr.gif)  !important;}
+.completedSendWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/completedSendWorkList/completedSendWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已办议题--*/
+.completedYitiZhengJiList{background-image: url(/js/desktop/resources/images/user/completedYitiZhengJiList/completedYitiZhengJiList_fr.gif)  !important;}
+.completedYitiZhengJiList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/completedYitiZhengJiList/completedYitiZhengJiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--己发送通知--*/
+.completenotice{background-image: url(/js/desktop/resources/images/user/completenotice/completenotice_fr.gif)  !important;}
+.completenotice-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/completenotice/completenotice_shortcut.gif', sizingMethod='scale');}
+
+ /*--近期工作--*/
+.currWorkList{background-image: url(/js/desktop/resources/images/user/currWorkList/currWorkList_fr.gif)  !important;}
+.currWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/currWorkList/currWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--待办会议--*/
+.daibanhuiyi{background-image: url(/js/desktop/resources/images/user/daibanhuiyi/daibanhuiyi_fr.gif)  !important;}
+.daibanhuiyi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/daibanhuiyi/daibanhuiyi_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议草稿--*/
+.defaulthuiyiList{background-image: url(/js/desktop/resources/images/user/defaulthuiyiList/defaulthuiyiList_fr.gif)  !important;}
+.defaulthuiyiList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/defaulthuiyiList/defaulthuiyiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--撰写议题--*/
+.demoInsert{background-image: url(/js/desktop/resources/images/user/demoInsert/demoInsert_fr.gif)  !important;}
+.demoInsert-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/demoInsert/demoInsert_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档收文--*/
+.demoReceiveEndlist{background-image: url(/js/desktop/resources/images/user/demoReceiveEndlist/demoReceiveEndlist_fr.gif)  !important;}
+.demoReceiveEndlist-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/demoReceiveEndlist/demoReceiveEndlist_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档发文--*/
+.demoSendEndlist{background-image: url(/js/desktop/resources/images/user/demoSendEndlist/demoSendEndlist_fr.gif)  !important;}
+.demoSendEndlist-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/demoSendEndlist/demoSendEndlist_shortcut.gif', sizingMethod='scale');}
+
+ /*--登记中心工作动态管理--*/
+.dengjizhongxingzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.dengjizhongxingzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/dengjizhongxingzdtgl/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--登记中心近期工作--*/
+.dengjizhongxinjqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.dengjizhongxinjqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--登记中心领导交办--*/
+.dengjizhongxinldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.dengjizhongxinldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--登记中心总结计划--*/
+.dengjizhongxinzjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.dengjizhongxinzjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--登记中心专项工作--*/
+.dengjizhongxinzxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.dengjizhongxinzxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--地籍科工作动态管理--*/
+.dijikegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.dijikegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--地籍科近期工作--*/
+.dijikejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.dijikejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jjinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--地籍科领导交办--*/
+.dijikeldjb2{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.dijikeldjb2-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--地籍科总结计划--*/
+.dijikezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.dijikezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--地籍科专项工作--*/
+.dijikezxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.dijikezxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--部门通讯录--*/
+.dr{background-image: url(/js/desktop/resources/images/user/dr/dr_fr.gif)  !important;}
+.dr-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/dr/dr_shortcut.gif', sizingMethod='scale');}
+
+ /*--请销假审批草稿--*/
+.draftApplyHolidayList{background-image: url(/js/desktop/resources/images/user/draftApplyHolidayList/draftApplyHolidayList_fr.gif)  !important;}
+.draftApplyHolidayList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftApplyHolidayList/draftApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--车辆使用申请草稿--*/
+.draftCarApply{background-image: url(/js/desktop/resources/images/user/draftCarApply/draftCarApply_fr.gif)  !important;}
+.draftCarApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftCarApply/draftCarApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--内部流转草稿--*/
+.draftInner{background-image: url(/js/desktop/resources/images/user/draftInner/draftInner_fr.gif)  !important;}
+.draftInner-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftInner/draftInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议室使用申请草稿--*/
+.draftMeetroomApplyList{background-image: url(/js/desktop/resources/images/user/draftMeetroomApplyList/draftMeetroomApplyList_fr.gif)  !important;}
+.draftMeetroomApplyList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftMeetroomApplyList/draftMeetroomApplyList_shortcut.gif', sizingMethod='scale');}
+
+ /*--信息草稿--*/
+.xinxicaogao{background-image: url(/js/desktop/resources/images/user/draftMessageExamineList/draftMessageExamineList_fr.gif)  !important;}
+.xinxicaogao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftMessageExamineList/draftMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--公文草稿--*/
+.draftgongwen{background-image: url(/js/desktop/resources/images/user/draftMessageGetList/draftMessageGetList_fr.gif)  !important;}
+.draftgongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftMessageGetList/draftMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--办公用品申请草稿--*/
+.draftOaApply{background-image: url(/js/desktop/resources/images/user/draftOaApply/draftOaApply_fr.gif)  !important;}
+.draftOaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftOaApply/draftOaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--印章使用申请草稿--*/
+.draftSealApply{background-image: url(/js/desktop/resources/images/user/draftSealApply/draftSealApply_fr.gif)  !important;}
+.draftSealApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftSealApply/draftSealApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--加班申请倒休草稿--*/
+.draftjiabanshenqing{background-image: url(/js/desktop/resources/images/user/draftjiabanshenqing/draftjiabanshenqing_fr.gif)  !important;}
+.draftjiabanshenqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/draftjiabanshenqing/draftjiabanshenqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件上传--*/
+.dzbk{background-image: url(/js/desktop/resources/images/user/dzbk/dzbk_fr.gif)  !important;}
+.dzbk-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/dzbk/dzbk_shortcut.gif', sizingMethod='scale');}
+
+ /*--发送通知--*/
+.fasongtongzhi{background-image: url(/js/desktop/resources/images/user/fasongtongzhi/fasongtongzhi_fr.gif)  !important;}
+.fasongtongzhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/fasongtongzhi/fasongtongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--发文办理--*/
+.fawenbanli{background-image: url(/js/desktop/resources/images/user/fawenbanli/fawenbanli_fr.gif)  !important;}
+.fawenbanli-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/fawenbanli/fawenbanli_shortcut.gif', sizingMethod='scale');}
+
+ /*--发文草稿--*/
+.fawendefaultWorkList{background-image: url(/js/desktop/resources/images/user/fawendefaultWorkList/fawendefaultWorkList_fr.gif)  !important;}
+.fawendefaultWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/fawendefaultWorkList/fawendefaultWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--发文查询--*/
+.fawenlook{background-image: url(/js/desktop/resources/images/user/fawenlook/fawenlook_fr.gif)  !important;}
+.fawenlook-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/fawenlook/fawenlook_shortcut.gif', sizingMethod='scale');}
+
+ /*--发文撰写--*/
+.writefawen{background-image: url(/js/desktop/resources/images/user/fawenzhuanxie/fawenzhuanxie_fr.gif)  !important;}
+.writefawen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/fawenzhuanxie/fawenzhuanxie_shortcut.gif', sizingMethod='scale');}
+
+ /*--服务大厅工作动态管理--*/
+.fuwudatinggzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.fuwudatinggzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--服务大厅近期工作--*/
+.fuwudatingjqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.fuwudatingjqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--服务大厅领导交办--*/
+.fuwudatingldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.fuwudatingldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--服务大厅总结计划--*/
+.fuwudatingzjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.fuwudatingzjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--服务大厅专项工作--*/
+.fuwudatingzxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.fuwudatingzxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ 
+
+/*--待办公文--*/
+.waitgongwen{background-image: url(/js/desktop/resources/images/user/gongwenchaxun/gongwenchaxun_fr.gif)  !important;}
+.waitgongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongwenchaxun/gongwenchaxun_shortcut.gif', sizingMethod='scale');}
+
+ /*--个人信息修改--*/
+.grxxxg{background-image: url(/js/desktop/resources/images/user/grxxxg/grxxxg_fr.gif)  !important;}
+.grxxxg-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/grxxxg/grxxxg_shortcut.gif', sizingMethod='scale');}
+
+ /*--所有已归档--*/
+.guidanggongwen{background-image: url(/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_fr.gif)  !important;}
+.guidanggongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_shortcut.gif', sizingMethod='scale');}
+
+ /*--规章制度--*/
+.guizhangzhidu{background-image: url(/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_fr.gif)  !important;}
+.guizhangzhidu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_shortcut.gif', sizingMethod='scale');}
+
+ /*--国土利用科工作动态管理--*/
+.guotuliyongkegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.guotuliyongkegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--国土利用科近期工作--*/
+.guotuliyongkejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.guotuliyongkejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--国土利用科领导交办--*/
+.guotuliyongkeldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.guotuliyongkeldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--国土利用科总结计划--*/
+.guotuliyongkezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.guotuliyongkezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--国土利用科专项工作--*/
+.guotuliyongkezxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.guotuliyongkezxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--图片库管理--*/
+.gzdt{background-image: url(/js/desktop/resources/images/user/gzdt/gzdt_fr.gif)  !important;}
+.gzdt-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gzdt/gzdt_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议纪要--*/
+.huiyijiyao{background-image: url(/js/desktop/resources/images/user/huiyijiyao/huiyijiyao_fr.gif)  !important;}
+.huiyijiyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyijiyao/huiyijiyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议签到--*/
+.huiyiqiandao{background-image: url(/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_fr.gif)  !important;}
+.huiyiqiandao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议签到单--*/
+.huiyiqiandaodan{background-image: url(/js/desktop/resources/images/user/huiyiqiandaodan/huiyiqiandaodan_fr.gif)  !important;}
+.huiyiqiandaodan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiqiandaodan/huiyiqiandaodan_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议通知--*/
+.huiyitongzhi{background-image: url(/js/desktop/resources/images/user/huiyitongzhi/huiyitongzhi_fr.gif)  !important;}
+.huiyitongzhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyitongzhi/huiyitongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--议题起草--*/
+.huiyiyitidemoInsert{background-image: url(/js/desktop/resources/images/user/huiyiyitidemoInsert/huiyiyitidemoInsert_fr.gif)  !important;}
+.huiyiyitidemoInsert-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiyitidemoInsert/huiyiyitidemoInsert_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议室预定--*/
+.huiyiyuding{background-image: url(/js/desktop/resources/images/user/huiyiyuding/huiyiyuding_fr.gif)  !important;}
+.huiyiyuding-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiyuding/huiyiyuding_shortcut.gif', sizingMethod='scale');}
+
+ /*--刊物浏览--*/
+.index{background-image: url(/js/desktop/resources/images/user/index/index_fr.gif)  !important;}
+.index-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/index/index_shortcut.gif', sizingMethod='scale');}
+
+ /*--加班申请倒休起草--*/
+.jiabansheqing{background-image: url(/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_fr.gif)  !important;}
+.jiabansheqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--接收通知--*/
+.jieshoutongzhi{background-image: url(/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_fr.gif)  !important;}
+.jieshoutongzhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--纪检科工作动态管理--*/
+.jijiankegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.jijiankegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--纪检科近期工作--*/
+.jijiankejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.jijiankejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--纪检科领导交办--*/
+.jijiankeldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.jijiankeldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--纪检科总结计划--*/
+.jijiankezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.jijiankezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--纪检科专项工作--*/
+.jijiankezxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.jijiankezxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--局内部文件--*/
+.juneibuwenjian{background-image: url(/js/desktop/resources/images/user/juneibuwenjian/juneibuwenjian_fr.gif)  !important;}
+.juneibuwenjian-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juneibuwenjian/juneibuwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--局长办公会会议纪要--*/
+.juzhanghuiyijiyao111{background-image: url(/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_fr.gif)  !important;}
+.juzhanghuiyijiyao111-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档信息--*/
+.ldrc{background-image: url(/js/desktop/resources/images/user/ldrc/ldrc_fr.gif)  !important;}
+.ldrc-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/ldrc/ldrc_shortcut.gif', sizingMethod='scale');}
+
+ /*--领导交办--*/
+.lingdaojiaoban{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.lingdaojiaoban-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--请销假审批查询--*/
+.lookApplyHolidayList{background-image: url(/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_fr.gif)  !important;}
+.lookApplyHolidayList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--车辆使用申请查询--*/
+.lookCarApply{background-image: url(/js/desktop/resources/images/user/lookCarApply/lookCarApply_fr.gif)  !important;}
+.lookCarApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookCarApply/lookCarApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--内部流转查询--*/
+.lookInner{background-image: url(/js/desktop/resources/images/user/lookInner/lookInner_fr.gif)  !important;}
+.lookInner-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookInner/lookInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议室使用申请查询--*/
+.lookMeetroomApplyList{background-image: url(/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_fr.gif)  !important;}
+.lookMeetroomApplyList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_shortcut.gif', sizingMethod='scale');}
+
+ /*--公文查询--*/
+.gongwenchaxun{background-image: url(/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_fr.gif)  !important;}
+.gongwenchaxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--baosongxinxichaxun--*/
+.yfxxcx{background-image: url(/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_fr.gif)  !important;}
+.yfxxcx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--发布排行--*/
+.fabupaihang{background-image: url(/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_fr.gif)  !important;}
+.fabupaihang-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_shortcut.gif', sizingMethod='scale');}
+
+
+/*--点击排行--*/
+.danjipaihang{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.danjipaihang-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--办公用品申请查询--*/
+.lookOaApply{background-image: url(/js/desktop/resources/images/user/lookOaApply/lookOaApply_fr.gif)  !important;}
+.lookOaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookOaApply/lookOaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--印章使用申请查询--*/
+.lookSealApply{background-image: url(/js/desktop/resources/images/user/lookSealApply/lookSealApply_fr.gif)  !important;}
+.lookSealApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookSealApply/lookSealApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看回执--*/
+.lookhuizi{background-image: url(/js/desktop/resources/images/user/lookhuizi/lookhuizi_fr.gif)  !important;}
+.lookhuizi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookhuizi/lookhuizi_shortcut.gif', sizingMethod='scale');}
+
+ /*--加班申请倒休查询--*/
+.lookjiabanshenqing{background-image: url(/js/desktop/resources/images/user/lookjiabanshenqing/lookjiabanshenqing_fr.gif)  !important;}
+.lookjiabanshenqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookjiabanshenqing/lookjiabanshenqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看新议题--*/
+.looknewyitiList{background-image: url(/js/desktop/resources/images/user/looknewyitiList/looknewyitiList_fr.gif)  !important;}
+.looknewyitiList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/looknewyitiList/looknewyitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--查看通知--*/
+.looknotice1{background-image: url(/js/desktop/resources/images/user/looknotice1/looknotice1_fr.gif)  !important;}
+.looknotice1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/looknotice1/looknotice1_shortcut.gif', sizingMethod='scale');}
+
+ /*--己办议题审批--*/
+.meetinlist{background-image: url(/js/desktop/resources/images/user/meetinlist/meetinlist_fr.gif)  !important;}
+.meetinlist-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/meetinlist/meetinlist_shortcut.gif', sizingMethod='scale');}
+
+ /*--通知管理--*/
+.mmxg{background-image: url(/js/desktop/resources/images/user/mmxg/mmxg_fr.gif)  !important;}
+.mmxg-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/mmxg/mmxg_shortcut.gif', sizingMethod='scale');}
+
+ /*--浏览图片库--*/
+.mtgxx{background-image: url(/js/desktop/resources/images/user/mtgxx/mtgxx_fr.gif)  !important;}
+.mtgxx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/mtgxx/mtgxx_shortcut.gif', sizingMethod='scale');}
+
+ /*--待审议题--*/
+.myWorkYitiZhenJiList{background-image: url(/js/desktop/resources/images/user/myWorkYitiZhenJiList/myWorkYitiZhenJiList_fr.gif)  !important;}
+.myWorkYitiZhenJiList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/myWorkYitiZhenJiList/myWorkYitiZhenJiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--办公用品申请--*/
+.oaApply{background-image: url(/js/desktop/resources/images/user/oaApply/oaApply_fr.gif)  !important;}
+.oaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/oaApply/oaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--个人通讯录--*/
+.person222{background-image: url(/js/desktop/resources/images/user/person222/person222_fr.gif)  !important;}
+.person222-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/person222/person222_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档请销假审批--*/
+.pigeonholedApplyHolidayList{background-image: url(/js/desktop/resources/images/user/pigeonholedApplyHolidayList/pigeonholedApplyHolidayList_fr.gif)  !important;}
+.pigeonholedApplyHolidayList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedApplyHolidayList/pigeonholedApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档车辆使用申请--*/
+.pigeonholedCarApply1{background-image: url(/js/desktop/resources/images/user/pigeonholedCarApply1/pigeonholedCarApply1_fr.gif)  !important;}
+.pigeonholedCarApply1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedCarApply1/pigeonholedCarApply1_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档内部流转--*/
+.pigeonholedInner{background-image: url(/js/desktop/resources/images/user/pigeonholedInner/pigeonholedInner_fr.gif)  !important;}
+.pigeonholedInner-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedInner/pigeonholedInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档会议室使用申请--*/
+.pigeonholedMeetroomList{background-image: url(/js/desktop/resources/images/user/pigeonholedMeetroomList/pigeonholedMeetroomList_fr.gif)  !important;}
+.pigeonholedMeetroomList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedMeetroomList/pigeonholedMeetroomList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档信息审批--*/
+.pigeonholedMessageExamineList{background-image: url(/js/desktop/resources/images/user/pigeonholedMessageExamineList/pigeonholedMessageExamineList_fr.gif)  !important;}
+.pigeonholedMessageExamineList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedMessageExamineList/pigeonholedMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已采用信息--*/
+.allowedinfo{background-image: url(/js/desktop/resources/images/user/pigeonholedMessageGetList/pigeonholedMessageGetList_fr.gif)  !important;}
+.allowedinfo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedMessageGetList/pigeonholedMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档办公用品申请--*/
+.pigeonholedOaApply{background-image: url(/js/desktop/resources/images/user/pigeonholedOaApply/pigeonholedOaApply_fr.gif)  !important;}
+.pigeonholedOaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedOaApply/pigeonholedOaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档印章使用申请--*/
+.pigeonholedSealApply{background-image: url(/js/desktop/resources/images/user/pigeonholedSealApply/pigeonholedSealApply_fr.gif)  !important;}
+.pigeonholedSealApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedSealApply/pigeonholedSealApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档会议纪要--*/
+.pigeonholedhuiyijiaoyao{background-image: url(/js/desktop/resources/images/user/pigeonholedhuiyijiaoyao/pigeonholedhuiyijiaoyao_fr.gif)  !important;}
+.pigeonholedhuiyijiaoyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedhuiyijiaoyao/pigeonholedhuiyijiaoyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--己归档签到单--*/
+.pigeonholedhuiyiqiandaodan{background-image: url(/js/desktop/resources/images/user/pigeonholedhuiyiqiandaodan/pigeonholedhuiyiqiandaodan_fr.gif)  !important;}
+.pigeonholedhuiyiqiandaodan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedhuiyiqiandaodan/pigeonholedhuiyiqiandaodan_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档加班申请倒休--*/
+.pigeonholedjiabanshenqing{background-image: url(/js/desktop/resources/images/user/pigeonholedjiabanshenqing/pigeonholedjiabanshenqing_fr.gif)  !important;}
+.pigeonholedjiabanshenqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/pigeonholedjiabanshenqing/pigeonholedjiabanshenqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--其他局内部文件--*/
+.qitajuneibuwenjian{background-image: url(/js/desktop/resources/images/user/qitajuneibuwenjian/qitajuneibuwenjian_fr.gif)  !important;}
+.qitajuneibuwenjian-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/qitajuneibuwenjian/qitajuneibuwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--其它文件资料--*/
+.qitawenjianziliao{background-image: url(/js/desktop/resources/images/user/qitajuneibuwenjian/qitajuneibuwenjian_fr.gif)  !important;}
+.qitawenjianziliao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/qitajuneibuwenjian/qitajuneibuwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--区委区政府--*/
+.quweiquzf{background-image: url(/js/desktop/resources/images/user/quweiquzf/quweiquzf_fr.gif)  !important;}
+.quweiquzf-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/quweiquzf/quweiquzf_shortcut.gif', sizingMethod='scale');}
+
+ /*--印章使用申请--*/
+.seakApply{background-image: url(/js/desktop/resources/images/user/seakApply/seakApply_fr.gif)  !important;}
+.seakApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/seakApply/seakApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件检索--*/
+.searchshow{background-image: url(/js/desktop/resources/images/user/searchshow/searchshow_fr.gif)  !important;}
+.searchshow-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/searchshow/searchshow_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发请销假审批--*/
+.sendedApplyHolidayExamineList{background-image: url(/js/desktop/resources/images/user/sendedApplyHolidayExamineList/sendedApplyHolidayExamineList_fr.gif)  !important;}
+.sendedApplyHolidayExamineList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedApplyHolidayExamineList/sendedApplyHolidayExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发车辆使用申请--*/
+.sendedCatApply{background-image: url(/js/desktop/resources/images/user/sendedCatApply/sendedCatApply_fr.gif)  !important;}
+.sendedCatApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedCatApply/sendedCatApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发内部流转--*/
+.sendedInner{background-image: url(/js/desktop/resources/images/user/sendedInner/sendedInner_fr.gif)  !important;}
+.sendedInner-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedInner/sendedInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发会议室使用申请--*/
+.sendedMeetroomList{background-image: url(/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_fr.gif)  !important;}
+.sendedMeetroomList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发信息审批--*/
+.sendedMessageExamineList{background-image: url(/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_fr.gif)  !important;}
+.sendedMessageExamineList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发公文--*/
+.sendedgongwen{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.sendedgongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发办公用品申请--*/
+.sendedOaApply{background-image: url(/js/desktop/resources/images/user/sendedOaApply/sendedOaApply_fr.gif)  !important;}
+.sendedOaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedOaApply/sendedOaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发印章使用申请--*/
+.sendedSealApply{background-image: url(/js/desktop/resources/images/user/sendedSealApply/sendedSealApply_fr.gif)  !important;}
+.sendedSealApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedSealApply/sendedSealApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发加班申请倒休--*/
+.sendedjiabanshenqing{background-image: url(/js/desktop/resources/images/user/sendedjiabanshenqing/sendedjiabanshenqing_fr.gif)  !important;}
+.sendedjiabanshenqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedjiabanshenqing/sendedjiabanshenqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--市局来文--*/
+.shijulaiwen{background-image: url(/js/desktop/resources/images/user/shijulaiwen/shijulaiwen_fr.gif)  !important;}
+.shijulaiwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/shijulaiwen/shijulaiwen_shortcut.gif', sizingMethod='scale');}
+
+ /*--收文办理--*/
+.shouwenbanli{background-image: url(/js/desktop/resources/images/user/shouwenbanli/shouwenbanli_fr.gif)  !important;}
+.shouwenbanli-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/shouwenbanli/shouwenbanli_shortcut.gif', sizingMethod='scale');}
+
+ /*--收文草稿--*/
+.shouwencaogao{background-image: url(/js/desktop/resources/images/user/shouwencaogao/shouwencaogao_fr.gif)  !important;}
+.shouwencaogao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/shouwencaogao/shouwencaogao_shortcut.gif', sizingMethod='scale');}
+
+ /*--收文查询--*/
+.shouwenchaxun{background-image: url(/js/desktop/resources/images/user/shouwenchaxun/shouwenchaxun_fr.gif)  !important;}
+.shouwenchaxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/shouwenchaxun/shouwenchaxun_shortcut.gif', sizingMethod='scale');}
+
+ /*--收文登记--*/
+.shuowendengji{background-image: url(/js/desktop/resources/images/user/shuowendengji/shuowendengji_fr.gif)  !important;}
+.shuowendengji-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/shuowendengji/shuowendengji_shortcut.gif', sizingMethod='scale');}
+
+ /*--上传值班表--*/
+.spjc{background-image: url(/js/desktop/resources/images/user/spjc/spjc_fr.gif)  !important;}
+.spjc-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/spjc/spjc_shortcut.gif', sizingMethod='scale');}
+
+ /*--土储中心工作动态管理--*/
+.tuchuzhongxingzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.tuchuzhongxingzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--土储中心近期工作--*/
+.tuchuzhongxinjqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.tuchuzhongxinjqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--土储中心领导交办--*/
+.tuchuzhongxinldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.tuchuzhongxinldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--土储中心总结计划--*/
+.tuchuzhongxinzjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.tuchuzhongxinzjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--土储中心专项工作--*/
+.tuchuzhongxinzxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.tuchuzhongxinzxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档申请--*/
+.tzcgx{background-image: url(/js/desktop/resources/images/user/tzcgx/tzcgx_fr.gif)  !important;}
+.tzcgx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/tzcgx/tzcgx_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发申请--*/
+.tzcx{background-image: url(/js/desktop/resources/images/user/tzcx/tzcx_fr.gif)  !important;}
+.tzcx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/tzcx/tzcx_shortcut.gif', sizingMethod='scale');}
+
+ /*--请销假审批待办--*/
+.waitApplyHolidayList{background-image: url(/js/desktop/resources/images/user/waitApplyHolidayList/waitApplyHolidayList_fr.gif)  !important;}
+.waitApplyHolidayList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitApplyHolidayList/waitApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--车辆使用申请待办--*/
+.waitCarApply{background-image: url(/js/desktop/resources/images/user/waitCarApply/waitCarApply_fr.gif)  !important;}
+.waitCarApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitCarApply/waitCarApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--待办内部流转--*/
+.waitInner{background-image: url(/js/desktop/resources/images/user/waitInner/waitInner_fr.gif)  !important;}
+.waitInner-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitInner/waitInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议室使用申请待办--*/
+.waitMeetroomList1{background-image: url(/js/desktop/resources/images/user/waitMeetroomList1/waitMeetroomList1_fr.gif)  !important;}
+.waitMeetroomList1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMeetroomList1/waitMeetroomList1_shortcut.gif', sizingMethod='scale');}
+
+ /*--交通信息--*/
+.jiaotongxinxi{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.jiaotongxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+/*--交通信息--*/
+.gongshangxingzhengglxx{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.gongshangxingzhengglxx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+
+/*--交通信息--*/
+.renshixinxi{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.renshixinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+/*--门头沟区体育局信息--*/
+.qutiyujuxinxi{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.qutiyujuxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+/*--信访信息--*/
+.xinfangxinxi{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.xinfangxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+/*--信访情况--*/
+.xinfangqingkuang{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.xinfangqingkuang-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--京西公路--*/
+
+.jingxigonglu{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.jingxigonglu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--门头沟卫生要情--*/
+.mentougouweishengyaoqing{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.mentougouweishengyaoqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*-- 司法行政信息--*/
+.sifaxingzhengxinxi{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.sifaxingzhengxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+
+/*--门头沟地税信息--*/
+.mtgdishuixinxi{background-image: url(/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_fr.gif)  !important;}
+.mtgdishuixinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageExamineList1/waitMessageExamineList1_shortcut.gif', sizingMethod='scale');}
+
+ /*--待办公文--*/
+.waitgongwen{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.waitgongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--办公用品申请待办--*/
+.waitOaApply{background-image: url(/js/desktop/resources/images/user/waitOaApply/waitOaApply_fr.gif)  !important;}
+.waitOaApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitOaApply/waitOaApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--待办收文--*/
+.waitReceiveWorkList{background-image: url(/js/desktop/resources/images/user/waitReceiveWorkList/waitReceiveWorkList_fr.gif)  !important;}
+.waitReceiveWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitReceiveWorkList/waitReceiveWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--印章使用申请待办--*/
+.waitSealApply{background-image: url(/js/desktop/resources/images/user/waitSealApply/waitSealApply_fr.gif)  !important;}
+.waitSealApply-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitSealApply/waitSealApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--待办发文--*/
+.waitSendWorkList{background-image: url(/js/desktop/resources/images/user/waitSendWorkList/waitSendWorkList_fr.gif)  !important;}
+.waitSendWorkList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitSendWorkList/waitSendWorkList_shortcut.gif', sizingMethod='scale');}
+
+ /*--待审会议--*/
+.waitWorkMeet{background-image: url(/js/desktop/resources/images/user/waitWorkMeet/waitWorkMeet_fr.gif)  !important;}
+.waitWorkMeet-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitWorkMeet/waitWorkMeet_shortcut.gif', sizingMethod='scale');}
+
+ /*--会议纪要待办--*/
+.waithuiyijiyao{background-image: url(/js/desktop/resources/images/user/waithuiyijiyao/waithuiyijiyao_fr.gif)  !important;}
+.waithuiyijiyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waithuiyijiyao/waithuiyijiyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--加班申请倒休待办--*/
+.waitjiabansheqing{background-image: url(/js/desktop/resources/images/user/waitjiabansheqing/waitjiabansheqing_fr.gif)  !important;}
+.waitjiabansheqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitjiabansheqing/waitjiabansheqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--所有会议待办--*/
+.waitsuoyouhuiyi{background-image: url(/js/desktop/resources/images/user/waitsuoyouhuiyi/waitsuoyouhuiyi_fr.gif)  !important;}
+.waitsuoyouhuiyi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitsuoyouhuiyi/waitsuoyouhuiyi_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件草稿--*/
+.wenjiancaogao{background-image: url(/js/desktop/resources/images/user/wenjiancaogao/wenjiancaogao_fr.gif)  !important;}
+.wenjiancaogao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjiancaogao/wenjiancaogao_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件查询--*/
+.wenjianchaxun{background-image: url(/js/desktop/resources/images/user/wenjianchaxun/wenjianchaxun_fr.gif)  !important;}
+.wenjianchaxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjianchaxun/wenjianchaxun_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件管理--*/
+.wenjianguanli{background-image: url(/js/desktop/resources/images/user/wenjianguanli/wenjianguanli_fr.gif)  !important;}
+.wenjianguanli-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjianguanli/wenjianguanli_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件起草--*/
+.wenjianqicao{background-image: url(/js/desktop/resources/images/user/wenjianqicao/wenjianqicao_fr.gif)  !important;}
+.wenjianqicao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjianqicao/wenjianqicao_shortcut.gif', sizingMethod='scale');}
+
+ /*--内部流转起草--*/
+.writeInneer{background-image: url(/js/desktop/resources/images/user/writeInneer/writeInneer_fr.gif)  !important;}
+.writeInneer-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeInneer/writeInneer_shortcut.gif', sizingMethod='scale');}
+
+ /*--报送新信息--*/
+.baogongnewinfo{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.baogongnewinfo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*-- baosongxinxitongji --*/
+.baosongxinxitongji{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.baosongxinxitongji-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+
+ /*--会议纪要起草--*/
+.writehuiyijiaoyao{background-image: url(/js/desktop/resources/images/user/writehuiyijiaoyao/writehuiyijiaoyao_fr.gif)  !important;}
+.writehuiyijiaoyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writehuiyijiaoyao/writehuiyijiaoyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--信息审批起草--*/
+.xinxishenpiqicao{background-image: url(/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_fr.gif)  !important;}
+.xinxishenpiqicao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_shortcut.gif', sizingMethod='scale');}
+
+ /*--文件下载--*/
+.xxzl{background-image: url(/js/desktop/resources/images/user/xxzl/xxzl_fr.gif)  !important;}
+.xxzl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/xxzl/xxzl_shortcut.gif', sizingMethod='scale');}
+
+ /*--所有已办--*/
+.yibangongwen{background-image: url(/js/desktop/resources/images/user/yibangongwen/yibangongwen_fr.gif)  !important;}
+.yibangongwen-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yibangongwen/yibangongwen_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发送文件--*/
+.yifasongwenjian{background-image: url(/js/desktop/resources/images/user/yifasongwenjian/yifasongwenjian_fr.gif)  !important;}
+.yifasongwenjian-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yifasongwenjian/yifasongwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--已归档文件--*/
+.yiguidangwenjian{background-image: url(/js/desktop/resources/images/user/yiguidangwenjian/yiguidangwenjian_fr.gif)  !important;}
+.yiguidangwenjian-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yiguidangwenjian/yiguidangwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--申请草稿--*/
+.yingzhangshiyongList{background-image: url(/js/desktop/resources/images/user/yingzhangshiyongList/yingzhangshiyongList_fr.gif)  !important;}
+.yingzhangshiyongList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yingzhangshiyongList/yingzhangshiyongList_shortcut.gif', sizingMethod='scale');}
+
+ /*--议题列表--*/
+.yitiList{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.yitiList-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--议题审批--*/
+.yitingshenpi{background-image: url(/js/desktop/resources/images/user/yitingshenpi/yitingshenpi_fr.gif)  !important;}
+.yitingshenpi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitingshenpi/yitingshenpi_shortcut.gif', sizingMethod='scale');}
+
+ /*--议题征集--*/
+.yitizhengji{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.yitizhengji-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+
+ /*--友情链接-cms--*/
+.youqinglianjie{background-image: url(/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_fr.gif)  !important;}
+.youqinglianjie-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_shortcut.gif', sizingMethod='scale');}
+
+ /*--已发信息--*/
+.yzapb{background-image: url(/js/desktop/resources/images/user/yzapb/yzapb_fr.gif)  !important;}
+.yzapb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yzapb/yzapb_shortcut.gif', sizingMethod='scale');}
+
+
+/*--已报送信息--*/
+.sendednewinfo{background-image: url(/js/desktop/resources/images/user/yzapb/yzapb_fr.gif)  !important;}
+.sendednewinfo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yzapb/yzapb_shortcut.gif', sizingMethod='scale');}
+
+
+/*--信息回执--*/
+.xinxihuizhi{background-image: url(/js/desktop/resources/images/user/yzapb/yzapb_fr.gif)  !important;}
+.xinxihuizhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yzapb/yzapb_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--信息起草--*/
+.zb{background-image: url(/js/desktop/resources/images/user/zb/zb_fr.gif)  !important;}
+.zb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zb/zb_shortcut.gif', sizingMethod='scale');}
+
+ /*--执法科工作动态管理--*/
+.zhifakegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.zhifakegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--执法科近期工作--*/
+.zhifakejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.zhifakejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--执法科领导交办--*/
+.zhifakeldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.zhifakeldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--执法科总结计划--*/
+.zhifakezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.zhifakezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--执法科专项工作--*/
+.zhifakezxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.zhifakezxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--刊物管理--*/
+.zhiwu{background-image: url(/js/desktop/resources/images/user/zhiwu/zhiwu_fr.gif)  !important;}
+.zhiwu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhiwu/zhiwu_shortcut.gif', sizingMethod='scale');}
+
+ /*--专项工作--*/
+.zhuanxianggongzuo{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.zhuanxianggongzuo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--综合科工作动态管理--*/
+.zonghekegzdtgl{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.zonghekegzdtgl-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--综合科近期工作--*/
+.zonghekejqgz{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.zonghekejqgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--综合科领导交办--*/
+.zonghekeldjb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.zonghekeldjb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--综合科总结计划--*/
+.zonghekezjjh{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.zonghekezjjh-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--综合科专项工作--*/
+.zonghekezxgz{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.zonghekezxgz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--申请查询--*/
+.zxtz{background-image: url(/js/desktop/resources/images/user/zxtz/zxtz_fr.gif)  !important;}
+.zxtz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zxtz/zxtz_shortcut.gif', sizingMethod='scale');}
+
+/*--weichaiyongxinxi--*/
+.unallowedinfo{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.unallowedinfo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+/*--撰写通知--*/
+.zhunaxietongzhi{background-image: url(/js/desktop/resources/images/user/zxtz/zxtz_fr.gif)  !important;}
+.zxtz-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zxtz/zxtz_shortcut.gif', sizingMethod='scale');}
+
+/*--撰写通知--*/
+.zhunaxietongzhi{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.zhunaxietongzhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--信息专报--*/
+.xinxizhuanbao{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.xinxizhuanbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--民政要情--*/
+.minzhengyaoqing{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.minzhengyaoqing-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--双拥简讯--*/
+.shuangyongjianxun{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.shuangyongjianxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--社区建设简讯--*/
+.shequjianshejianxun{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.shequjianshejianxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+
+ /*--民族宗教简讯--*/
+.minzuzongjiajianxun{background-image: url(/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_fr.gif)  !important;}
+.minzuzongjiajianxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_shortcut.gif', sizingMethod='scale');}
+
+ /*--水务信息--*/
+.shuiwuxinxi{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.shuiwuxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--法制工作--*/
+.fazhigongzuo{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.fazhigongzuo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+
+ /*--统计信息-调查报告--*/
+.tdiaochabaogao{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.tdiaochabaogao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+ /*--统计信息-调查报告刊物发布--*/
+.tjxxdcbgkwfb{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.tjxxdcbgkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--统计信息-研究报告--*/
+.tyanjiubaogao{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.tyanjiubaogao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--tongjixinxi-fenxi--*/
+.tfenxi{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.tfenxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+ /*--tongjixinxi-zwuxinxi--*/
+.tzhengwuxinxi{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.tzhengwuxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+ /*--统计信息-专业信息--*/
+.tzhuanyexinxi{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.tzhuanyexinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟药监信息--*/
+.mtgyaojianxinxi{background-image: url(/js/desktop/resources/images/user/zhiwu/zhiwu_fr.gif)  !important;}
+.mtgyaojianxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhiwu/zhiwu_shortcut.gif', sizingMethod='scale');}
+
+ /*--区情摘要--*/
+.quqingzhaiyao{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.quqingzhaiyao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--门头沟信息--*/
+.mtgxinxi{background-image: url(/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_fr.gif)  !important;}
+.mtgxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_shortcut.gif', sizingMethod='scale');}
+
+ /*--国税信息--*/
+.guoshuixinxi{background-image: url(/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_fr.gif)  !important;}
+.guoshuixinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--农发中心工作动态--*/
+.nonggazhonxingongzuodongtai{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.nonggazhonxingongzuodongtai-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+                                                                                                                                                                                                                                                                                                                                                         
+/*--所有信息浏览2--*/
+.suoyouxinxiliulanj{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.suoyouxinxiliulanj-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+                                                                                                                                                                   
+
+ /*--所有信息浏览--*/
+.allxinxiliuyan1{background-image: url(/js/desktop/resources/images/user/zb/zb_fr.gif)  !important;}
+.allxinxiliuyan1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zb/zb_shortcut.gif', sizingMethod='scale');}
+.suoyouxinxiliulanj{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.suoyouxinxiliulanj-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+.allxinxiliuyan{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.allxinxiliuyan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--zwuxinxiqicao--*/
+.writezhengwuxinxi1{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.writezhengwuxinxi1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+.writezhengwuxinxi{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.writezhengwuxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--政务信息列表--*/
+.listzhengwuxinxi{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.listzhengwuxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--拟刊列表--*/
+.kanwuliebiao{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.kanwuliebiao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+/*--拟刊--*/
+.nikan{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.nikan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--新信息列表--*/
+.newxinxilist{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.newxinxilist-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--信息回执--*/
+.xinxihuizhi{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.xinxihuizhi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--已报送信息--*/
+.sendednewinfo{background-image: url(/js/desktop/resources/images/user/zhiwu/zhiwu_fr.gif)  !important;}
+.sendednewinfo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhiwu/zhiwu_shortcut.gif', sizingMethod='scale');}
+
+ /*--科普快讯刊物发布--*/
+.kepukuaixunkwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.kepukuaixunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--科普快讯--*/
+.kepukuaixun{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.kepukuaixun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--王平动态--*/
+.wangpingdongtai{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.wangpingdongtai-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--王平动态刊物发布--*/
+.wangpingdongtaikwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.wangpingdongtaikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--门头沟法院信息刊物发布--*/
+.mtgfayuanxinxikwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.mtgfayuanxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+/*--mentoufayuanxin--*/
+.mtgfayuanxinxi1{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.mtgfayuanxinxi1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+.mtgfayuanxinxi{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.mtgfayuanxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ 
+ /*--门头沟区残疾人联合会情况简报刊物发布--*/
+.mtgqcanjirenlianheqingkuangjianbaokwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.mtgqcanjirenlianheqingkuangjianbaokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--门头沟区残疾人联合会情况简报--*/
+.cnajirenlianhehuiqingkuangjianbao{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.cnajirenlianhehuiqingkuangjianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+/*--门头沟区残疾人联合会工作动态刊物发布--*/
+.mtgqcanjirenlianhegongzuodongtaikwfb{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.mtgqcanjirenlianhegongzuodongtaikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+/*--门头沟区残疾人联合会工作动态--*/
+.canjirenliangongzuodongtai{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.canjirenliangongzuodongtai-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+/*--精神文明信息刊物发布--*/
+.jingshenwenmingxinxikwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.jingshenwenmingxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--jingshengwenmingwenjian--*/
+.jingshenwenmingwenjian1{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.jingshenwenmingwenjian1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+.jingshenwenmingwenjian{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.jingshenwenmingwenjian-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--精神文明文件刊物发布--*/
+.jignshenwenmingwenjiankwfb{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.jignshenwenmingwenjiankwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--精神文明信息--*/
+.jingshenwenmingxx{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.jingshenwenmingxx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--统战月刊--*/
+.tongzhanyuekan{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.tongzhanyuekan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--统战月刊刊物发布--*/
+.tongzhanyuekankwfb{background-image: url(/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_fr.gif)  !important;}
+.tongzhanyuekankwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_shortcut.gif', sizingMethod='scale');}
+
+ /*--雁翅新农村刊物发布--*/
+.yanchixinnongcunkwfb{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.yanchixinnongcunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--雁翅新农村--*/
+.yanchixinnongcun{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.yanchixinnongcun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--决策研究刊物发布--*/
+.jueceyanjiukwfb{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.jueceyanjiukwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--决策内容--*/
+.jueceneirong{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.jueceneirong-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--决策内容刊物发布--*/
+.jueceneirongkefb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.jueceneirongkefb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--决策研究--*/
+.jueceyanjiu1{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.jueceyanjiu1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+.jueceyanjiu{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.jueceyanjiu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--宣传工作刊物发布--*/
+.xuanchuangongzuokwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.xuanchuangongzuokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--宣传信息--*/
+.xuanchuanxinxi{background-image: url(/js/desktop/resources/images/user/zhiwu/zhiwu_fr.gif)  !important;}
+.xuanchuanxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhiwu/zhiwu_shortcut.gif', sizingMethod='scale');}
+
+ /*--宣传工作--*/
+.xuanchuangongzuo{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.xuanchuangongzuo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--宣传信息刊物发布--*/
+.xuanchuanxinxikwfb{background-image: url(/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_fr.gif)  !important;}
+.xuanchuanxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMeetroomList/sendedMeetroomList_shortcut.gif', sizingMethod='scale');}
+
+ /*--工作信息--*/
+.gongzuoxinxi{background-image: url(/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_fr.gif)  !important;}
+.gongzuoxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--工作信息刊物发布--*/
+.gongzuoxinxikefb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.gongzuoxinxikefb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--信息通报刊物发布--*/
+ 
+.xinxitongbaokwfb1{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.xinxitongbaokwfb1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--简报--*/
+.jianbao1{background-image: url(/js/desktop/resources/images/user/wenjianchaxun/wenjianchaxun_fr.gif)  !important;}
+.jianbao1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjianchaxun/wenjianchaxun_shortcut.gif', sizingMethod='scale');}
+.jianbao{background-image: url(/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_fr.gif)  !important;}
+.jianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageExamineList/sendedMessageExamineList_shortcut.gif', sizingMethod='scale');}
+.xinxitongbaokwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.xinxitongbaokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--信息通报--*/
+.xinxitongbao1{background-image: url(/js/desktop/resources/images/user/wenjianguanli/wenjianguanli_fr.gif)  !important;}
+.xinxitongbao1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/wenjianguanli/wenjianguanli_shortcut.gif', sizingMethod='scale');}
+.xinxitongbao{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.xinxitongbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--简报刊物发布--*/
+.jianbaokanwufabu{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.jianbaokanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟政法信息刊物发布--*/
+.mtgzhnengfaxinxikwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.mtgzhnengfaxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟政法信息--*/
+.mtgzhengfaxinxi{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.mtgzhengfaxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--中国红十字报刊物发布--*/
+.zhongguohszbkwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.zhongguohszbkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--北京市红十字报刊物发布--*/
+.beijingshihszbkwfb{background-image: url(/js/desktop/resources/images/user/writehuiyijiaoyao/writehuiyijiaoyao_fr.gif)  !important;}
+.beijingshihszbkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writehuiyijiaoyao/writehuiyijiaoyao_shortcut.gif', sizingMethod='scale');}
+
+ /*--北京市红十字报--*/
+.bjhongshizibao{background-image: url(/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_fr.gif)  !important;}
+.bjhongshizibao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_shortcut.gif', sizingMethod='scale');}
+
+ /*--中国红十字报--*/
+.zhongguohongshizibao{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.zhongguohongshizibao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--门头沟纪检监察信息--*/
+.mtgjijianjianchaxx1{background-image: url(/js/desktop/resources/images/user/yibangongwen/yibangongwen_fr.gif)  !important;}
+.mtgjijianjianchaxx1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yibangongwen/yibangongwen_shortcut.gif', sizingMethod='scale');}
+.mtgjijianjianchaxx{background-image: url(/js/desktop/resources/images/user/yibangongwen/yibangongwen_fr.gif)  !important;}
+.mtgjijianjianchaxx-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yibangongwen/yibangongwen_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟纪检监察信息刊物发布--*/
+.mtgjijianjianchaxinxikwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.mtgjijianjianchaxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商联通讯--*/
+.gongshangliantongxun{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.gongshangliantongxun-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+
+ /*--工商联专报刊物发布--*/
+.gongshanglianzhuanbaokwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.gongshanglianzhuanbaokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商联专报--*/
+.gongshanglianzhuanbao{background-image: url(/js/desktop/resources/images/user/yitiList/yitiList_fr.gif)  !important;}
+.gongshanglianzhuanbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitiList/yitiList_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商联信息刊物发布--*/
+.gongshanglianxinxikwfb{background-image: url(/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_fr.gif)  !important;}
+.gongshanglianxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/xinxishenpiqicao/xinxishenpiqicao_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商联信息--*/
+.gongshanglianxinxi{background-image: url(/js/desktop/resources/images/user/yitizhengji/yitizhengji_fr.gif)  !important;}
+.gongshanglianxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/yitizhengji/yitizhengji_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商联通讯刊物发布--*/
+.gongshangliantongxunkwfb{background-image: url(/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_fr.gif)  !important;}
+.gongshangliantongxunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/youqinglianjie/youqinglianjie_shortcut.gif', sizingMethod='scale');}
+
+ /*--共青团团信息刊物发布--*/
+.gongqingtuanxinxikwfb{background-image: url(/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_fr.gif)  !important;}
+.gongqingtuanxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_shortcut.gif', sizingMethod='scale');}
+
+
+/*--共青团团信息--*/
+.gongqingtuanxinxi{background-image: url(/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_fr.gif)  !important;}
+.gongqingtuanxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_shortcut.gif', sizingMethod='scale');}
+
+
+/*--区直机关信息--*/
+.quzhijiguanxinxi{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.quzhijiguanxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+
+/*--区直机关信息刊物发布--*/
+.quzhijiguanxinxikwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.quzhijiguanxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--组工简报--*/
+.zugongjianbao1{background-image: url(/js/desktop/resources/images/user/grxxxg/grxxxg_fr.gif)  !important;}
+.zugongjianbao1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/grxxxg/grxxxg_shortcut.gif', sizingMethod='scale');}
+.zugongjianbao{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.zugongjianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--探索--*/
+.tansuo1{background-image: url(/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_fr.gif)  !important;}
+.tansuo1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guidanggongwen/guidanggongwen_shortcut.gif', sizingMethod='scale');}
+.tansuo{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.tansuo-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--探索刊物发布--*/
+.tansuokanwufabu{background-image: url(/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_fr.gif)  !important;}
+.tansuokanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/guizhangzhidu/guizhangzhidu_shortcut.gif', sizingMethod='scale');}
+.tansuokanwufabu{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.tansuokanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--组工信息刊物发布--*/
+.zugongxinxikwfb{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.zugongxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--组工信息--*/
+.zugongxinxi{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.zugongxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--组工简报刊物发布--*/
+.zugongjianbaokwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.zugongjianbaokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--信息月谈刊物发布--*/
+.xinxiyuetankwfb1{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.xinxiyuetankwfb1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+.xinxiyuetankwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.xinxiyuetankwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--信息月谈--*/
+.xinxiyuetan1{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.xinxiyuetan1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+.xinxiyuetan{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.xinxiyuetan-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+ /*--门头沟信息--*/
+.mtgxinxi{background-image: url(/js/desktop/resources/images/user/gzdt/gzdt_fr.gif)  !important;}
+.mtgxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gzdt/gzdt_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟信息刊物发布--*/
+.cwkwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.cwkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+
+ /*--新农村建设简报刊物发布--*/
+.xinnongcunjianshejianbaokwfb{background-image: url(/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_fr.gif)  !important;}
+.xinnongcunjianshejianbaokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiqiandao/huiyiqiandao_shortcut.gif', sizingMethod='scale');}
+
+ /*--新农村建设简报--*/
+.xinnongcunjianshejianbao{background-image: url(/js/desktop/resources/images/user/huiyiqiandaodan/huiyiqiandaodan_fr.gif)  !important;}
+.xinnongcunjianshejianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiqiandaodan/huiyiqiandaodan_shortcut.gif', sizingMethod='scale');}
+
+ /*--交通信息刊物发布--*/
+.jtkwfb{background-image: url(/js/desktop/resources/images/user/huiyitongzhi/huiyitongzhi_fr.gif)  !important;}
+.jtkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyitongzhi/huiyitongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--人事信息刊物发布--*/
+.rskwfb{background-image: url(/js/desktop/resources/images/user/huiyiyitidemoInsert/huiyiyitidemoInsert_fr.gif)  !important;}
+.rskwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiyitidemoInsert/huiyiyitidemoInsert_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟区体育局信息刊物发布--*/
+.tykwfb{background-image: url(/js/desktop/resources/images/user/huiyiyuding/huiyiyuding_fr.gif)  !important;}
+.tykwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/huiyiyuding/huiyiyuding_shortcut.gif', sizingMethod='scale');}
+
+ /*--信访情况刊物发布--*/
+.xinfangbanxingfangqingkkwfb{background-image: url(/js/desktop/resources/images/user/index/index_fr.gif)  !important;}
+.xinfangbanxingfangqingkkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/index/index_shortcut.gif', sizingMethod='scale');}
+
+ /*--信访信息刊物发布--*/
+.xfbkwfb{background-image: url(/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_fr.gif)  !important;}
+.xfbkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--京西公路刊物发布--*/
+.glkwfb{background-image: url(/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_fr.gif)  !important;}
+.glkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟卫生要情刊物发布--*/
+.wskwfb{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.wskwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--司法行政信息刊物发布--*/
+.sfkwfb{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.sfkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟地税信息刊物发布--*/
+.dskwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.dskwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--审计动态刊物发布--*/
+.sjkwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.sjkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--审计要情刊物发布--*/
+.shenjiyaoqingkanwufabu1{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.shenjiyaoqingkanwufabu1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+.shenjiyaoqingkanwufabu{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.shenjiyaoqingkanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--审计简报刊物发布--*/
+.shenjijianbaokanwufabu{background-image: url(/js/desktop/resources/images/user/juneibuwenjian/juneibuwenjian_fr.gif)  !important;}
+.shenjijianbaokanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juneibuwenjian/juneibuwenjian_shortcut.gif', sizingMethod='scale');}
+
+ /*--工商行政管理信息刊物发布--*/
+.gskwfb{background-image: url(/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_fr.gif)  !important;}
+.gskwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_shortcut.gif', sizingMethod='scale');}
+
+ /*--信息专报刊物发布--*/
+.dakwfb{background-image: url(/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_fr.gif)  !important;}
+.dakwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_shortcut.gif', sizingMethod='scale');}
+
+ /*--社区建设简讯刊物发布--*/
+.shenqujianshejianxunkwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.shenqujianshejianxunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+ /*--双拥简讯刊物发布--*/
+.shuangyongjianxunkwfb1{background-image: url(/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_fr.gif)  !important;}
+.shuangyongjianxunkwfb1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+.shuangyongjianxunkwfb{background-image: url(/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_fr.gif)  !important;}
+.shuangyongjianxunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--民族宗教简讯刊物发布--*/
+.minzuzongjiaojianxunkwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.minzuzongjiaojianxunkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+ /*--民政要情刊物发布--*/
+.mzkwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.mzkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--水务信息刊物发布--*/
+.shuiwuxinxikanwufabu{background-image: url(/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_fr.gif)  !important;}
+.shuiwuxinxikanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_shortcut.gif', sizingMethod='scale');}
+
+ /*--法制工作刊物发布--*/
+.fzkwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.fzkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+ /*--统计信息-政务信息刊物发布--*/
+.tjxxzwxxkwfb{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.tjxxzwxxkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--统计信息-专业信息刊物发布--*/
+.tjkwfb{background-image: url(/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_fr.gif)  !important;}
+.tjkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zhuanxianggongzuo/zhuanxianggongzuo_shortcut.gif', sizingMethod='scale');}
+/*--统计信息-研究报告刊物发布--*/
+.tjxxyjbgkwfb{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.tjxxyjbgkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+/*--统计信息-分析刊物发布--*/
+.tjxxfxkwfb1{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.tjxxfxkwfb1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+.tjxxfxkwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.tjxxfxkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--门头沟药监信息刊物发布--*/
+.yjkwfb{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.yjkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+/*--原有OA系统登录--*/
+.yuanyouoaxitongdenglu{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.yuanyouoaxitongdenglu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+
+
+ /*--市政园林信息--*/
+.shizhengyuanlinxinxi{background-image: url(/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_fr.gif)  !important;}
+.shizhengyuanlinxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/juzhanghuiyijiyao111/juzhanghuiyijiyao111_shortcut.gif', sizingMethod='scale');}
+
+ /*--市政园林信息刊物发布--*/
+.shizhengyuanlinxinxikwfb{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.shizhengyuanlinxinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--重点工程工作动态刊物--*/
+.zhongdiangongchengkwfb{background-image: url(/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_fr.gif)  !important;}
+.zhongdiangongchengkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookApplyHolidayList/lookApplyHolidayList_shortcut.gif', sizingMethod='scale');}
+
+ /*--重点工程工作动态--*/
+.zhongdiangongcheng{background-image: url(/js/desktop/resources/images/user/lookCarApply/lookCarApply_fr.gif)  !important;}
+.zhongdiangongcheng-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookCarApply/lookCarApply_shortcut.gif', sizingMethod='scale');}
+
+ /*--国税信息刊物发布--*/
+.kanwufabuguosui{background-image: url(/js/desktop/resources/images/user/lookInner/lookInner_fr.gif)  !important;}
+.kanwufabuguosui-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookInner/lookInner_shortcut.gif', sizingMethod='scale');}
+
+ /*--农发中心工作动态刊物发布--*/
+.nyfzzxkwfb{background-image: url(/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_fr.gif)  !important;}
+.nyfzzxkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMeetroomApplyList/lookMeetroomApplyList_shortcut.gif', sizingMethod='scale');}
+
+ /*--环卫信息刊物发布--*/
+.quhjwsfwzxhuanweixinxikwfb{background-image: url(/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_fr.gif)  !important;}
+.quhjwsfwzxhuanweixinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageExamineList/lookMessageExamineList_shortcut.gif', sizingMethod='scale');}
+
+ /*--环卫信息--*/
+.huanweixinxi{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.huanweixinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--科技信息--*/
+.kejixinxi{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.kejixinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+/*--科技信息刊物发布--*/
+.kejixinxikwfb{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.kejixinxikwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--劳动保障工作简报--*/
+.laodongbaozhanggongzuojianbao{background-image: url(/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_fr.gif)  !important;}
+.laodongbaozhanggongzuojianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/sendedMessageGetList/sendedMessageGetList_shortcut.gif', sizingMeth
+/*--劳动保障工作简报刊物发布--*/
+.laodongbaozhanggongzuokwfb1{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.laodongbaozhanggongzuokwfb1-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+.laodongbaozhanggongzuokwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.laodongbaozhanggongzuokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+/*--劳动仲裁工作简报--*/
+.laodongzongcaigongzuojianbao{background-image: url(/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_fr.gif)  !important;}
+.laodongzongcaigongzuojianbao-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lookMessageGetList/lookMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+.laodongzongcaigongzuokwfb{background-image: url(/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_fr.gif)  !important;}
+.laodongzongcaigongzuokwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/writeMessageGetList/writeMessageGetList_shortcut.gif', sizingMethod='scale');}
+ /*--门头沟人口计生信息--*/
+.mtgrenkoujihuashengxinxi{background-image: url(/js/desktop/resources/images/user/index/index_fr.gif)  !important;}
+.mtgrenkoujihuashengxinxi-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/index/index_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟人口计生信息刊物发布--*/
+.rkhjhsywyhkwfb{background-image: url(/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_fr.gif)  !important;}
+.rkhjhsywyhkwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jiabansheqing/jiabansheqing_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟政务刊物发布--*/
+.mtgzhengwukwfb{background-image: url(/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_fr.gif)  !important;}
+.mtgzhengwukwfb-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jieshoutongzhi/jieshoutongzhi_shortcut.gif', sizingMethod='scale');}
+
+ /*--区情摘要刊物发布--*/
+.quqingzhaiyaokanwufabu{background-image: url(/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_fr.gif)  !important;}
+.quqingzhaiyaokanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/gongzuodongtai/gongzuodongtai_shortcut.gif', sizingMethod='scale');}
+
+ /*--其他刊物发布--*/
+.qitakanwufabu{background-image: url(/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_fr.gif)  !important;}
+.qitakanwufabu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/jinqizhongzuo/jinqizhongzuo_shortcut.gif', sizingMethod='scale');}
+
+ /*--门头沟政务--*/
+.mtgzhengwu{background-image: url(/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_fr.gif)  !important;}
+.mtgzhengwu-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/lingdaojiaoban/lingdaojiaoban_shortcut.gif', sizingMethod='scale');}
+
+ /*--其它--*/
+.qita{background-image: url(/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_fr.gif)  !important;}
+.qita-shortcut img { width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/zongjiejihua/zongjiejihua_shortcut.gif', sizingMethod='scale');}
+
+ /*--个人信息修改--*/
+.gerenixinxixiugai{background-image: url(/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_fr.gif)  !important;}
+.gerenixinxixiugai img{ width:48px; height:48px; background-image: url(images/im48x48new.png); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/js/desktop/resources/images/user/waitMessageGetList/waitMessageGetList_shortcut.gif', sizingMethod='scale');}
+
+
+
+--应用
+.11390 {background-image: url(/js/desktop/resources/images/user/tztg/tztg_fr.gif)  !important;}
+.17687 {background-image: url(/js/desktop/resources/images/user/wjzl/wjzl_fr.gif)  !important;}
+.14203 {background-image: url(/js/desktop/resources/images/user/nbxxkw/nbxxkw_fr.gif)  !important;}
+.19953 {background-image: url(/js/desktop/resources/images/user/ksgzdt/ksgzdt_fr.gif)  !important;}
+.14140 {background-image: url(/js/desktop/resources/images/user/gtlyk/gtlyk_fr.gif)  !important;}
+.14953 {background-image: url(/js/desktop/resources/images/user/jjjck/jjjck_fr.gif)  !important;}
+.10718 {background-image: url(/js/desktop/resources/images/user/cwk/cwk_fr.gif)  !important;}
+.19562 {background-image: url(/js/desktop/resources/images/user/zhk/zhk_fr.gif)  !important;}
+.10000 {background-image: url(/js/desktop/resources/images/user/djglk/djglk_fr.gif)  !important;}
+.15078 {background-image: url(/js/desktop/resources/images/user/bgs/bgs_fr.gif)  !important;}
+.10562 {background-image: url(/js/desktop/resources/images/user/tdcczx/tdcczx.gif)  !important;}
+.14015 {background-image: url(/js/desktop/resources/images/user/fwdt/fwdt_fr.gif)  !important;}
+.14078 {background-image: url(/js/desktop/resources/images/user/zfjck/zfjck_fr.gif)  !important;}
+.10250 {background-image: url(/js/desktop/resources/images/user/tdqsdjzx/tdqsdjzx.gif)  !important;}
+.15390 {background-image: url(/js/desktop/resources/images/user/jnbwj/jnbwj_fr.gif)  !important;}
+.17000 {background-image: url(/js/desktop/resources/images/user/zlglzxt/zlglzxt_fr.gif)  !important;}
+.10656 {background-image: url(/js/desktop/resources/images/user/fzbgzxt/fzbgzxt_fr.gif)  !important;}
+.18218 {background-image: url(/js/desktop/resources/images/user/xxcj/xxcj_fr.gif)  !important;}
+.15921 {background-image: url(/js/desktop/resources/images/user/xxsp/xxsp_fr.gif)  !important;}
+.14984 {background-image: url(/js/desktop/resources/images/user/ldrcap/ldrcap_fr.gif)  !important;}
+.12375 {background-image: url(/js/desktop/resources/images/user/txl/txl_fr.gif)  !important;}
+.13906 {background-image: url(/js/desktop/resources/images/user/tpk/tpk_fr.gif)  !important;}
+.18781 {background-image: url(/js/desktop/resources/images/user/zbb/zbb_fr.gif)  !important;}
+.10578 {background-image: url(/js/desktop/resources/images/user/xzzx/xzzx_fr.gif)  !important;}
+.13765 {background-image: url(/js/desktop/resources/images/user/hytz/hytz_fr.gif)  !important;}
+.10828 {background-image: url(/js/desktop/resources/images/user/ytzj/ytzj_fr.gif)  !important;}
+.19265 {background-image: url(/js/desktop/resources/images/user/ytsp/ytsp_fr.gif)  !important;}
+.12125 {background-image: url(/js/desktop/resources/images/user/xxglzxt/xxglzxt_fr.gif)  !important;}
+.12875 {background-image: url(/js/desktop/resources/images/user/swspzxt/swspzxt_fr.gif)  !important;}
+.18296 {background-image: url(/js/desktop/resources/images/user/swbl/swbl_fr.gif)  !important;}
+.19609 {background-image: url(/js/desktop/resources/images/user/fwbl/fwbl_fr.gif)  !important;}
+.10796 {background-image: url(/js/desktop/resources/images/user/nblz/nblz_fr.gif)  !important;}
+.12625 {background-image: url(/js/desktop/resources/images/user/sywjcz/sywjcz_fr.gif)  !important;}
+.16718 {background-image: url(/js/desktop/resources/images/user/gwglzxt/gwglzxt_fr.gif)  !important;}
+.19578 {background-image: url(/js/desktop/resources/images/user/yzsysq/yzsysq_fr.gif)  !important;}
+.15703 {background-image: url(/js/desktop/resources/images/user/bgypgl/bgypgl_fr.gif)  !important;}
+.10750 {background-image: url(/js/desktop/resources/images/user/hyssysq/hyssysq_fr.gif)  !important;}
+.12453 {background-image: url(/js/desktop/resources/images/user/clsysq/clsysq_fr.gif)  !important;}
+.10125 {background-image: url(/js/desktop/resources/images/user/kqgl/kqgl_fr.gif)  !important;}
+.12578 {background-image: url(/js/desktop/resources/images/user/qjsq/qjsq_fr.gif)  !important;}
+.18984 {background-image: url(/js/desktop/resources/images/user/jbdxsq/jbdxsq_fr.gif)  !important;}
+.11093 {background-image: url(/js/desktop/resources/images/user/hytz/hytz_fr.gif)  !important;}
+.19609 {background-image: url(/js/desktop/resources/images/user/19609/19609_fr.gif)  !important;}
+
+/*--考勤管理--*/
+.10125 {background-image: url(/js/desktop/resources/images/user/10125/10125_fr.gif)  !important;}
+
+/*--请销假审批--*/
+.12578 {background-image: url(/js/desktop/resources/images/user/12578/12578_fr.gif)  !important;}
+
+ /*--内部流转--*/
+.10796 {background-image: url(/js/desktop/resources/images/user/10796/10796_fr.gif)  !important;}
+
+/*--加班倒休申请--*/
+.18984 {background-image: url(/js/desktop/resources/images/user/18984/18984_fr.gif)  !important;}
+
+/*--印章使用申请--*/
+.19578 {background-image: url(/js/desktop/resources/images/user/19578/19578_fr.gif)  !important;}
+
+/*--办公用品管理--*/
+.15703 {background-image: url(/js/desktop/resources/images/user/15703/15703_fr.gif)  !important;}
+
+ /*--下载中心--*/
+.10578 {background-image: url(/js/desktop/resources/images/user/10578/10578_fr.gif)  !important;}
+
+ /*--议题征集--*/
+.10828 {background-image: url(/js/desktop/resources/images/user/10828/10828_fr.gif)  !important;}
+
+/*--通知通告--*/
+.11390 {background-image: url(/js/desktop/resources/images/user/11390/11390_fr.gif)  !important;}
+
+ /*--通讯录--*/
+.12375 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--车辆使用申请--*/
+.12453 {background-image: url(/js/desktop/resources/images/user/12453/12453_fr.gif)  !important;}
+
+/*--会议通知--*/
+.13765 {background-image: url(/js/desktop/resources/images/user/13765/13765_fr.gif)  !important;}
+
+/*--图片库--*/
+.13906 {background-image: url(/js/desktop/resources/images/user/13906/13906_fr.gif)  !important;}
+
+/*--内部信息刊物--*/
+.14203 {background-image: url(/js/desktop/resources/images/user/14203/14203_fr.gif)  !important;}
+
+/*--地税局--*/
+.fce051-11d9a58af8e-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/14984/14984_fr.gif)  !important;}
+
+/*--审计局--*/
+.fce051-11d9a59beeb-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/14984/14984_fr.gif)  !important;}
+/*--工商局--*/
+fce051-11d9a5a8a78-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/14984/14984_fr.gif)  !important;}
+
+/*--信息审批--*/
+.15921 {background-image: url(/js/desktop/resources/images/user/15921/15921_fr.gif)  !important;}
+
+/*--信息采集--*/
+.18218 {background-image: url(/js/desktop/resources/images/user/18218/18218_fr.gif)  !important;}
+
+/*--值班表--*/
+.18781 {background-image: url(/js/desktop/resources/images/user/18781/18781_fr.gif)  !important;}
+
+/*--议题审批--*/
+.19265 {background-image: url(/js/desktop/resources/images/user/19265/19265_fr.gif)  !important;}
+
+/*--人事局--*/
+.fce051-11d9a54cc70-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--工商局--*/
+.fce051-11d9a5a8a78-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+
+/*--体育局--*/
+.fce051-11d9a5522ae-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--信访办--*/
+.fce051-11d9a55e0be-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--公路局--*/
+.fce051-11d9a5625c6-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--交通局--*/
+.fce051-11d9a543e0b-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--卫生局--*/
+.fce051-11d9a56751f-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--司法局--*/
+.fce051-11d9a56bd15-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+/*--交通局--*/
+.fce051-11d9a543e0b-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+
+ /*--会议签到--*/
+.31190 {background-image: url(/js/desktop/resources/images/user/31190/31190_fr.gif)  !important;}
+
+ /*--公文收发--*/
+.1bb7081-11d93ddeff2-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/31199/31199_fr.gif)  !important;}
+
+/*--考勤管理--*/
+.10125 {background-image: url(/js/desktop/resources/images/user/10125/10125_fr.gif)  !important;}
+
+/*--请销假审批--*/
+.12578 {background-image: url(/js/desktop/resources/images/user/12578/12578_fr.gif)  !important;}
+
+ /*--内部流转--*/
+.10796 {background-image: url(/js/desktop/resources/images/user/10796/10796_fr.gif)  !important;}
+
+/*--加班倒休申请--*/
+.18984 {background-image: url(/js/desktop/resources/images/user/18984/18984_fr.gif)  !important;}
+
+/*--印章使用申请--*/
+.19578 {background-image: url(/js/desktop/resources/images/user/19578/19578_fr.gif)  !important;}
+
+/*--办公用品管理--*/
+.15703 {background-image: url(/js/desktop/resources/images/user/15703/15703_fr.gif)  !important;}
+
+ /*--下载中心--*/
+.10578 {background-image: url(/js/desktop/resources/images/user/10578/10578_fr.gif)  !important;}
+
+ /*--议题征集--*/
+.10828 {background-image: url(/js/desktop/resources/images/user/10828/10828_fr.gif)  !important;}
+
+/*--通知通告--*/
+.11390 {background-image: url(/js/desktop/resources/images/user/11390/11390_fr.gif)  !important;}
+
+ /*--通讯录--*/
+.12375 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--车辆使用申请--*/
+.12453 {background-image: url(/js/desktop/resources/images/user/12453/12453_fr.gif)  !important;}
+
+/*--会议通知--*/
+.13765 {background-image: url(/js/desktop/resources/images/user/13765/13765_fr.gif)  !important;}
+
+/*--图片库--*/
+.13906 {background-image: url(/js/desktop/resources/images/user/13906/13906_fr.gif)  !important;}
+
+/*--内部信息刊物--*/
+.14203 {background-image: url(/js/desktop/resources/images/user/14203/14203_fr.gif)  !important;}
+
+/*--领导日程安排--*/
+.14984 {background-image: url(/js/desktop/resources/images/user/14984/14984_fr.gif)  !important;}
+
+/*--信息审批--*/
+.15921 {background-image: url(/js/desktop/resources/images/user/15921/15921_fr.gif)  !important;}
+
+/*--信息采集--*/
+.18218 {background-image: url(/js/desktop/resources/images/user/18218/18218_fr.gif)  !important;}
+
+/*--值班表--*/
+.18781 {background-image: url(/js/desktop/resources/images/user/18781/18781_fr.gif)  !important;}
+
+/*--议题审批--*/
+.19265 {background-image: url(/js/desktop/resources/images/user/19265/19265_fr.gif)  !important;}
+
+/*--科室工作动态--*/
+.19953 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+ /*--会议签到--*/
+.31190 {background-image: url(/js/desktop/resources/images/user/31190/31190_fr.gif)  !important;}
+
+ /*--会议纪要--*/
+.31199 {background-image: url(/js/desktop/resources/images/user/31199/31199_fr.gif)  !important;}
+									/*--后面加的MTGOA--*/
+/*--档案局--*/
+.fce051-11d9a5b6d95-c52f632c547e2{background-image: url(/js/desktop/resources/images/user/31199/31199_fr.gif)  !important;}
+/*--民政局--*/
+.fce051-11d9a5bb30a-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10125/10125_fr.gif)  !important;}
+
+/*--水务局--*/
+.fce051-11d9a5cdfc2-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12578/12578_fr.gif)  !important;}
+
+ /*--法制办--*/
+.fce051-11d9a5d21ad-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10796/10796_fr.gif)  !important;}
+
+/*--统计局--*/
+.fce051-11d9a5ed7ca-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/tztg/tztg_fr.gif)  !important;}
+
+/*--药监局--*/
+.fce051-11d9a5f7e99-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19578/19578_fr.gif)  !important;}
+
+/*--财政局--*/
+.fce051-11d9a60515a-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/15703/15703_fr.gif)  !important;}
+
+ /*--国家税务局--*/
+.fce051-11d9a632fba-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10578/10578_fr.gif)  !important;}
+
+ /*--农业发展中心--*/
+.fce051-11d9a66a057-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10828/10828_fr.gif)  !important;}
+
+/*--环卫服务中心--*/
+.fce051-11d9a6788f2-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/11390/11390_fr.gif)  !important;}
+
+ /*--科学技术委员会--*/
+.fce051-11d9a68791f-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--劳动和社会保障局--*/
+.fce051-11d9a6a12ba-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12453/12453_fr.gif)  !important;}
+
+/*--人口和计划生育委员会--*/
+.fce051-11d9a6b4d5d-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/wjzl/wjzl_fr.gif)  !important;}
+/*--信息报送--*/
+.1bb7081-11d93e5a2b9-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/djglk/djglk_fr.gif)  !important;}
+/*--刊物发布--*/
+.1bb7081-11d93e86d7c-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/bgs/bgs_fr.gif)  !important;}
+/*--会议管理--*/
+.1cdae24-11d99c30d96-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/zhk/zhk_fr.gif)  !important;}
+/*--信息发布--*/
+.1bb7081-11d93de3db4-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/djglk/djglk_fr.gif)  !important;}
+
+
+
+
+/*--信息查看--*/
+.e77cbd-11db2e86d0e-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/14984/14984_fr.gif)  !important;}
+
+/*--会议管理--*/
+.1cdae24-11d99c30d96-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/15921/15921_fr.gif)  !important;}
+
+/*--信息发布--*/
+.1bb7081-11d93de3db4-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/18218/18218_fr.gif)  !important;}
+
+/*--政务信息--*/
+.1bb7081-11d93e5424a-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/18781/18781_fr.gif)  !important;}
+
+/*--信息报送--*/
+.1bb7081-11d93e5a2b9-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/19265/19265_fr.gif)  !important;}
+
+/*--刊物发布--*/
+.1bb7081-11d93e86d7c-d96c0d97c3119 {background-image: url(/js/desktop/resources/images/user/19953/19953_fr.gif)  !important;}
+ /*--科学技术协会--*/
+.1905690-11db36d44fd-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/31190/31190_fr.gif)  !important;}
+
+ /*--王平镇--*/
+.1905690-11db36dc038-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/31199/31199_fr.gif)  !important;}
+									/*--后面加的MTGOA--*/
+/*--法院--*/
+.1905690-11db36e056f-c52f632c547e2{background-image: url(/js/desktop/resources/images/user/31199/31199_fr.gif)  !important;}
+/*--残联--*/
+.1905690-11db3b8b7fe-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10125/10125_fr.gif)  !important;}
+
+/*--精神文明办--*/
+.1905690-11db3b94421-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12578/12578_fr.gif)  !important;}
+
+ /*--区委统战部--*/
+.1905690-11db3baca05-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10796/10796_fr.gif)  !important;}
+
+/*--雁翅镇--*/
+.1905690-11db3bba3fa-c52f632c547e2{background-image: url(/js/desktop/resources/images/user/tztg/tztg_fr.gif)  !important;}
+
+/*--区委研究室--*/
+.1905690-11db3bdf79e-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19578/19578_fr.gif)  !important;}
+
+/*--宣传部--*/
+.1905690-11db3be537a-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/19578/19578_fr.gif)  !important;}
+
+ /*--区工会--*/
+.1905690-11db3bed2eb-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10828/10828_fr.gif)  !important;}
+
+ /*--妇女联合会--*/
+.1905690-11db3bf3445-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/10828/10828_fr.gif)  !important;}
+
+/*--政法委--*/
+.1905690-11db3bfd25a-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/11390/11390_fr.gif)  !important;}
+
+ /*--红十字会--*/
+.1905690-11db3c02de7-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--纪委--*/
+.1905690-11db3c076c7-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12453/12453_fr.gif)  !important;}
+
+/*--工商业联合会--*/
+.1905690-11db3c0e6a8-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/wjzl/wjzl_fr.gif)  !important;}
+
+/*--团委办公室--*/
+.1905690-11db3c1556f-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--机关工委--*/
+.1905690-11db3c1d212-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--组织部--*/
+.1905690-11db3c22fa3-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--区委办公室--*/
+.1905690-11db3c297b3-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+/*--tanshishizhen--*/
+.1905690-11db3c3034e-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+/*--办公助手--*/
+.125659a-11dddbfcb4b-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+/*--市政管委--*/
+.fce051-11d9a60fdf5-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+/*--政府办信息科--*/
+.d49111-11dd6cf702a-c52f632c547e2 {background-image: url(/js/desktop/resources/images/user/12375/12375_fr.gif)  !important;}
+
+
+
+/*-- End: shortcuts --*/

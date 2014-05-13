@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<config>
+
+	<reload>false</reload>
+
+
+
+	<configid>mainserver</configid>
+	<mainserver>
+		<id>mainserver</id>
+		<name>主SERVER</name>
+        <desc>负责分发用户</desc>
+        <type>main</type>
+		<maxconnection>50</maxconnection>
+        <minconnection>50</minconnection>
+		<timeout>500</timeout>
+        <url>http://127.0.0.1:8888</url>
+        <status>RUN</status>
+		<userexpression>true</userexpression>
+	</mainserver>
+
+<clientreloadtime>5000</clientreloadtime>
+<userexperssion>false</userexperssion>
+
+   
+
+</config>

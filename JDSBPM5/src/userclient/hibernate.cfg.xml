@@ -1,0 +1,82 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    
+        <mapping  class="net.itjds.usm.persistence.model.Personrole"/>
+        <mapping  class="net.itjds.usm.persistence.model.Org"/>
+        <mapping  class="net.itjds.usm.persistence.model.Sysorg"/>
+        <mapping  class="net.itjds.usm.persistence.model.Moduleproperties"/>
+        <mapping  class="net.itjds.usm.persistence.model.Orgusergrp"/>
+        <mapping  class="net.itjds.usm.persistence.model.Orgrole"/>
+        <mapping  class="net.itjds.usm.persistence.model.Positionrole"/>
+        <mapping  class="net.itjds.usm.persistence.model.System"/>
+        <mapping  class="net.itjds.usm.persistence.model.Roleright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Appcatalogmodule"/>
+        <mapping  class="net.itjds.usm.persistence.model.Role"/>
+        <mapping  class="net.itjds.usm.persistence.model.Moduleright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Level"/>
+        <mapping  class="net.itjds.usm.persistence.model.Sysmodule"/>
+        <mapping  class="net.itjds.usm.persistence.model.Orgperson"/>
+        <mapping  class="net.itjds.usm.persistence.model.Personextaccount"/>
+        <mapping  class="net.itjds.usm.persistence.model.Application"/>
+        <mapping  class="net.itjds.usm.persistence.model.Duty"/>
+        <mapping  class="net.itjds.usm.persistence.model.Personaccount"/>
+        <mapping  class="net.itjds.usm.persistence.model.Usergroup"/>
+        <mapping  class="net.itjds.usm.persistence.model.Rolerightmatrix"/>
+        <mapping  class="net.itjds.usm.persistence.model.Personduty"/>
+        <mapping  class="net.itjds.usm.persistence.model.Position"/>
+        <mapping  class="net.itjds.usm.persistence.model.Personlevel"/>
+        <mapping  class="net.itjds.usm.persistence.model.Rightdisable"/>
+        <mapping  class="net.itjds.usm.persistence.model.Positionperson"/>
+        <mapping  class="net.itjds.usm.persistence.model.Appmodule"/>
+        <mapping  class="net.itjds.usm.persistence.model.Grpuser"/>
+        <mapping  class="net.itjds.usm.persistence.model.Module"/>
+        <mapping  class="net.itjds.usm.persistence.model.Grprole"/>
+        <mapping  class="net.itjds.usm.persistence.model.Person"/>
+        <!-- 权限所有表 -->
+        <mapping  class="net.itjds.usm.persistence.model.Dutyright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Levelright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Orgright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Persononmoduleadd"/>
+        <mapping  class="net.itjds.usm.persistence.model.Persononmoduledisable"/>
+        <mapping  class="net.itjds.usm.persistence.model.Personright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Positionright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Roleright"/>
+        <mapping  class="net.itjds.usm.persistence.model.Usergroupright"/>
+        <!-- 单点登录 -->
+        <mapping  class="net.itjds.usm.persistence.model.Sso"/>
+      
+        <!-- 多人办理收文办理 -->
+        <mapping class="com.kzxd.cpbl.module.BaseBean"></mapping>
+        <mapping class="com.kzxd.cpbl.module.CbBean"></mapping>
+        <mapping class="com.kzxd.cpbl.module.PbBean"></mapping>
+        		<!-- 安全权限管理 -->
+		<mapping class="net.itjds.usm.persistence.model.Personsecure" />
+		<mapping class="net.itjds.usm.persistence.model.Baserole" />
+		<mapping class="net.itjds.usm.persistence.model.Roletemp" />
+		<mapping class="net.itjds.usm.persistence.model.Postiontemp" />
+		<mapping class="net.itjds.usm.persistence.model.Dutytemp" />
+		<mapping class="net.itjds.usm.persistence.model.Orgtemp" />
+		<mapping class="net.itjds.usm.persistence.model.Leveltemp" />
+		<mapping class="net.itjds.usm.persistence.model.Usergrouptemp" />
+		<mapping class="net.itjds.usm.persistence.model.Moduletemp" />
+		<mapping class="net.itjds.usm.persistence.model.Persontemp" />
+		<!-- 安全权限管理结束 -->
+		<!-- 统计报表 -->
+		<mapping class="com.kzxd.tjbb.entity.TjbbBean" />
+		<!-- 窗口事项目录 -->
+		<mapping class="com.kzxd.tjbb.entity.CKSXMLBean" />
+		<!-- 考勤 -->
+	    <mapping class="com.kzxd.newkaoqin.entity.KaoQinBean" />
+	    <mapping class="com.kzxd.newkaoqin.entity.KaoQinShiJianBean" />
+	    <mapping class="com.kzxd.newkaoqin.entity.QingJiaMingxiBean2" />
+	    <!-- 工作日定义 -->
+	    <mapping class="com.kzxd.newkaoqin.entity.GzrdyBean" />
+	    <!-- 改密码 -->
+		<mapping class="com.kzxd.kaoqin.pojo.persona" />
+		
+    </session-factory>
+</hibernate-configuration>

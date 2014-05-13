@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	
+	
+	<!-- log4j-->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>600000</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>javass.webapp.root</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<!-- 
+	<filter>
+     	<filter-name>SessionFilter</filter-name>
+     	<filter-class>com.kzxd.filter.SessionFilter</filter-class>
+ 	</filter>
+ 	<filter-mapping>
+    	<filter-name>SessionFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+ 	</filter-mapping>
+ 	<listener>
+    <listener-class>com.kzxd.filter.RecordSessionListener</listener-class>
+	</listener>
+	 
+	-->
+	<!-- log4j-->
+
+	<display-name>BPM Engine</display-name>
+	<description>BPM Engine application</description>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:/applicationContext-resources.xml
+			classpath*:/applicationContext-dao.xml
+			classpath*:/applicationContext-service.xml
+			/WEB-INF/applicationContext*.xml
+		</param-value>
+	</context-param>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+
+	<display-name>struts 2.0 Example App</display-name>
+	<filter>
+		<filter-name>struts-cleanup</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ActionContextCleanUp
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>struts</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.FilterDispatcher
+		</filter-class>
+	</filter>
+	
+	<!-- ??restWebServicse -->
+	<servlet>
+	<servlet-name>JerseyServlet</servlet-name>
+	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>com.kzxd.JournalEditorial.action</param-value>
+	</init-param>
+	<init-param>
+		<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+		<param-value>true</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>JerseyServlet</servlet-name>
+	<url-pattern>/rest/*</url-pattern>
+</servlet-mapping>
+	
+	
+	<!--
+	
+	
+ 	
+-->
+	<!-- cas
+	<filter>
+		<filter-name>CAS Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.authentication.AuthenticationFilter
+		</filter-class>
+		<init-param>
+			<param-name>casServerLoginUrl</param-name>
+			<param-value>https://idp.com:9090/cas/login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>a.castest.com:82</param-value>
+		</init-param>
+		<init-param>
+			<param-name>renew</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>CAS Validation Filter</filter-name>
+		<filter-class>
+			org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter
+		</filter-class>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<param-value>https://idp.com:9090/cas</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>a.castest.com:82</param-value>
+		</init-param>
+	</filter>
+	
+	
+
+<filter>
+	<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+	<filter-class>
+		org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
+</filter>
+
+<filter-mapping>
+	<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+ -->
+<!-- cas
+	<filter-mapping>
+		<filter-name>CAS Filter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CAS Validation Filter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	
+
+<filter>
+	<filter-name>CAS Assertion Thread Local Filter</filter-name>
+	<filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>CAS Assertion Thread Local Filter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>-->
+	
+
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.IntrospectorCleanupListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	</listener>
+	<!-- 
+	<listener>
+		<listener-class>
+			com.kzxd.filter.LoginSessionListener
+		</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	-->
+	<servlet>
+		<servlet-name>BPMInitServlet</servlet-name>
+		<servlet-class>
+			net.itjds.bpm.client.BPMInitServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OARouteLogServlet</servlet-name>
+		<servlet-class>
+			net.itjds.oa.common.RouteLogServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OASelectBackRouteServlet</servlet-name>
+		<servlet-class>
+			net.itjds.oa.common.SelectBackRouteServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OAGetPersonServlet</servlet-name>
+		<servlet-class>
+			net.itjds.oa.common.GetPersonServlet
+		</servlet-class>
+	</servlet>
+
+
+	<!-- Apache Axis Servlet Start-->
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<display-name>Apache-Axis Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AxisServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FileDisplay</servlet-name>
+		<servlet-class>
+			net.itjds.userclient.common.util.FileDisplay
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>Axis Admin Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AdminServlet
+		</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ValidateServlet</servlet-name>
+		<servlet-class>mobile.servlet.ValidateServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ValidateServlet</servlet-name>
+		<url-pattern>/ValidateServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>FileDisplay</servlet-name>
+		<url-pattern>/servlet/FileDisplay</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>*.jws</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/servlet/AdminServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet-mapping>
+		<servlet-name>OASelectBackRouteServlet</servlet-name>
+		<url-pattern>/bpm/admin/common/SelectBackRoute</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OARouteLogServlet</servlet-name>
+		<url-pattern>/bpm/admin/common/RouteLog</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>OAGetPersonServlet</servlet-name>
+		<url-pattern>/bpm/admin/common/GetPersonServlet</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts-cleanup</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping> 
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	
+
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jnlp</extension>
+		<mime-type>application/x-java-jnlp-file</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>rar</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+         
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jws</welcome-file>
+	</welcome-file-list>
+	
+
+</web-app>

@@ -1,0 +1,1 @@
+FCKLang.Hello = "你好";

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JDSBPM5"
+  id="myeclipse.1199934072593"
+  context-root="/"
+  j2ee-spec="5.0"
+  archive="JDSBPM5.war">
+  <attributes>
+    <attribute name="webrootdir" value="/defaultroot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+ <!--
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.HSQLDialect
+                hibernate.query.substitutions=true 'Y', false 'N'
+                hibernate.cache.use_second_level_cache=true
+                hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+            </value>
+        </property>
+	-->	
+	<property name="hibernateProperties">   
+      <props>   
+        <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>   
+        <prop key="hibernate.show_sql">false</prop>   
+        <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>   
+        <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>   
+      </props>   
+    </property>   
+		
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="kaoqindao" class="com.kzxd.kaoqin.dao.impl.KaoQinDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="kaoqinservice" class="com.kzxd.kaoqin.service.impl.KaoQinServiceImpl" >
+    	<property name="kaoqindao" ref="kaoqindao"></property>
+    </bean>
+    
+
+
+</beans>

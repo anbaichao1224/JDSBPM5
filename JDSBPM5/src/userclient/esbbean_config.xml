@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<config>
+	<reload>false</reload>
+
+	<configid>ESBMANAGER</configid>
+	<ESBMANAGER>
+		<type>BEAN</type>
+		<cnname>总线资源管理器</cnname>
+		<desc>总线资源管理器</desc>
+		<path>*net.itjds.esb.consol</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	
+	</ESBMANAGER>
+	
+	<configid>JDSCRUD</configid>
+	<JDSCRUD>
+		<type>BEAN</type>
+		<cnname>快速开发应用服务</cnname>
+		<desc>字典表</desc>
+		<path>*net.itjds.usm2</path>
+		<expressionTemManager>
+		net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	</JDSCRUD>
+	
+
+	<configid>ORG</configid>
+	<ORG>
+		<type>BEAN</type>
+		<cnname>组织机构服务</cnname>
+		<desc>组织机构服务</desc>
+		<path>esb_orgtemplet_config.xml</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+		</expressionTemManager>
+	</ORG>
+	
+	<configid>FDT</configid>
+	<FDT>
+		<type>BEAN</type>
+		<cnname>表单服务</cnname>
+		<desc>表单服务</desc>
+		<path>esb_fdttemplet_config.xml</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+		</expressionTemManager>
+	</FDT>
+
+
+
+    <configid>mapping</configid>
+	<mapping>
+		<type>MAP</type>
+		<cnname>资源管理器映射管理</cnname>
+		<desc>资源管理器映射管理</desc>
+		<path>/WEB-INF/lib/itjds_explorer.jar</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	</mapping>
+
+ 
+
+   <configid>columnlist</configid>
+	<columnlist>
+		<type>BEAN</type>
+		<cnname>列定义</cnname>
+		<desc>列定义</desc>
+		<path>/WEB-INF/lib/itjds_worklist.jar;</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	</columnlist>
+	
+	
+	
+	<configid>SYSTEM</configid>
+	<SYSTEM>
+		<type>BEAN</type>
+		<cnname>系统内部函数</cnname>
+		<desc>系统内部函数</desc>
+		<path>esb_systemtemplet_config.xml</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+		</expressionTemManager>
+	</SYSTEM>
+	
+	<configid>ESB</configid>
+	<ESB>
+		<type>BEAN</type>
+		<cnname>总线内部方法</cnname>
+		<desc>总线内部方法</desc>
+		<path>esb_esbtemplet_config.xml</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+		</expressionTemManager>
+	</ESB>
+	
+	
+	<configid>BPMINNER</configid>
+	<BPMINNER>
+		<type>BEAN</type>
+		<cnname>工作流内部对象</cnname>
+		<desc>将工作流内部对象进行集成</desc>
+		<path>esb_bpminnertemplet_config.xml</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+		</expressionTemManager>
+	</BPMINNER>
+	
+	 <jspsrcpath>F:\rpzw\JDSBPM4\defaultroot</jspsrcpath>
+     <reload>true</reload>
+	<javabeansrcpath>F:\rpzw\JDSBPM4\src\userclient</javabeansrcpath>
+	<javabeanclasspath>net.itjds.form.mapdao</javabeanclasspath>
+
+
+
+</config>

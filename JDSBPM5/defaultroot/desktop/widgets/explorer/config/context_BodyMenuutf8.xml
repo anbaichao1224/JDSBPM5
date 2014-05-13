@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="10" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+		<MenuItem name="新建目录" src="cellProperty.gif"  id="diradd"/>
+        <divider id="contectlock"/>
+		<MenuItem name="上传文件" src="newfile.gif"  id="upload"/>
+
+     <MenuItem name="查看(V)"  id="main_file2" width="65px" panelWidth="110px" >
+              <MenuItem name="略缩图" id="imglist"/>
+               <MenuItem name="平铺" id="ficon"/>
+               <MenuItem name="列表" id="ftable"/>
+               <MenuItem name="图标" id="view_icons"/>
+               <MenuItem name="详细信息" id="grid"/>
+  </MenuItem>
+    <divider id="editcopy2"/>
+              <MenuItem name="排列图表" id="iconorder"  >
+				<MenuItem name="名称"  id="nameorder"/>
+                <MenuItem name="大小"  id="sizeorder"/>
+                <MenuItem name="类型"  id="typeorder"/>
+				<MenuItem name="修改时间" id="midorder"/>
+			  </MenuItem>
+</menu>

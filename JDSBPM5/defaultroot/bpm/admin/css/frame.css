@@ -1,0 +1,12 @@
+BODY          { margin:0px; margin-top:15px; background-color:#f4f5f5; font-size:12px; line-height:18px; }
+TABLE,TD      { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; }
+INPUT         { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; border:1px solid #555555; }
+SELECT        { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; border:1px solid #555555; }
+IMAGE         { border:0px; }
+
+.lm_1         { background:url(bglm.jpg); border:1px solid #BABABA; padding-left:8px; padding-top:3px; letter-spacing:2px; }
+
+A:link        { COLOR:#424242; TEXT-DECORATION:none; }
+A:visited     { COLOR:#424242; TEXT-DECORATION:none; }
+A:active      { COLOR:#424242; TEXT-DECORATION:none; }
+A:hover       { COLOR:#ff3300; TEXT-DECORATION:none; }

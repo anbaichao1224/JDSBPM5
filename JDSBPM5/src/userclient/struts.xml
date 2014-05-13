@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- Constants -->
+
+
+
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.action.extension" value="action,ajax,do" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources,errors" />
+	<constant name="struts.multipart.maxSize" value="20485760" />
+	<constant name="struts.ui.theme" value="css_xhtml" />
+	<!-- Include Struts defaults -->
+	<include file="struts-default.xml" />
+
+	<!-- Configuration for the default package. -->
+
+
+    <include file="struts_jame.xml" />
+    <include file="struts_desktop.xml" />
+    <include file="struts_explorer.xml" />
+	 <include file="struts_oldexplorer.xml" />
+    <include file="struts_bpm.xml" />
+
+    <include file="struts-usm.xml" />
+	<include file="struts_fdt.xml" />
+	<include file="struts_jdsfdt.xml" />
+	<include file="struts_worklist.xml" />
+	<include file="struts_owen.xml" />
+	<include file="struts_pdf.xml"/>
+    <include file="struts_zihao.xml"/>
+    <include file="struts_secure.xml"/>
+    <include file="struts_tjbb.xml"/>
+    <include file="struts_change.xml"/>
+    <include file="struts_kaoqin.xml"/>
+    <include file="struts_xzspjk.xml"/>
+    <include file="struts_wjzl.xml"/>
+</struts>

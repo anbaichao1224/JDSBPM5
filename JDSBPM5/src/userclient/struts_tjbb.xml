@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="tjbb" extends="struts-default">
+		<!-- 统计报表  -->
+	   <action  name="tjbbAdd" class="tjbb" method="add">
+	   	<result name="success">/czxzzxtjbb/result.jsp</result>
+		</action>
+		<action  name="tjbbSave" class="tjbb" method="save">
+	   	<result name="success">/czxzzxtjbb/result.jsp</result>
+		</action>
+		<action  name="tjbbAdd2" class="tjbb" method="add2">
+	   	<result name="success">/czxzzxtjbb/result2.jsp</result>
+		</action>
+		<action  name="tjbbFindAllByTjdwAction" class="tjbb" method="findAllByTjdw">
+		</action>
+		<action  name="tjbbFindAllByTjdwShangBaoAction" class="tjbb" method="FindAllByTjdwShangBao">
+		</action>
+		<action  name="ziXunShangBaoList" class="tjbb" method="FindAllByTjdwZiXun">
+		</action>
+		<action  name="tjbbFindAllHuiZongAction" class="tjbb" method="FindAllHuiZong">
+		</action>
+		<action  name="ziXunHuiZongFindAll" class="tjbb" method="FindAllByTjdwZiXunHuiZong">
+		</action>
+		<action  name="updateTjbbByUuid" class="tjbb" method="updateTjbbByUuid">
+		</action>
+		<action  name="findAllByYue" class="tjbb" method="findAllByYue">
+		<result name="success">/czxzzxtjbb/nianJiDuYueBaoBiao.jsp</result>
+		</action>
+		<action  name="findAllByNian" class="tjbb" method="findAllByNian">
+		<result name="success">/czxzzxtjbb/banJianHuiZongBaoBiao.jsp</result>
+		</action>
+		<action  name="shangBaoTjbb" class="tjbb" method="shangBaoTjbb">
+		</action>
+		<action  name="tuiHuiTjbb" class="tjbb" method="tuiHuiTjbb">
+		</action>
+		<action  name="chuangKouMingXiTJ" class="tjbb" method="chuangKouMingXiTJ">
+		<result name="success">/czxzzxtjbb/chuangKouMingXi.jsp</result>
+		</action>
+		<action  name="danWeiXiaLa" class="tjbb" method="DanWeiXiaLa">
+		<result name="success">/czxzzxtjbb/banJianHuiZongBaoBiao.jsp</result>
+		</action>
+		<action  name="yueDuShouLiYeWu" class="tjbb" method="YueDuShouLiYeWu">
+		<result name="success">/czxzzxtjbb/yueDuShouLiYeWu.jsp</result>
+		</action>
+		<action  name="nianDuShouLiYeWu" class="tjbb" method="NianDuShouLiYeWu">
+		<result name="success">/czxzzxtjbb/nianDuShouLiYeWu.jsp</result>
+		</action>
+		<action  name="HuoQuChuangKouXiaLa" class="tjbb" method="HuoQuChuangKouXiaLa">
+		</action>		
+	</package>
+	
+	<package name="cksxml" extends="struts-default">
+		<!-- 窗口事项  -->
+	    <action  name="finAllByBuMen" class="cksxml" method="finAllByBuMen">
+		<result name="success">/czxzzxtjbb/dataAdd.jsp</result>	    	
+		</action>
+		<action  name="finAllByBuMen2" class="cksxml" method="finAllByBuMen">
+		<result name="success">/czxzzxtjbb/ziXunShangBaoAdd.jsp</result>	    	
+		</action>
+		<action  name="cksxmlAdd" class="cksxml" method="cksxmlAdd">
+		<result name="success">/czxzzxtjbb/result.jsp</result>	    	
+		</action>
+		<action  name="shiXiangFindByBuMenAction" class="cksxml" method="shiXiangFindByBuMen">	    	
+		</action>
+		<action  name="delCksxml" class="cksxml" method="delCksxml">	    	
+		</action>
+		<action  name="huoQuXiaLaValue" class="cksxml" method="huoQuXiaLaValue">	    	
+		</action>
+	</package>
+	
+</struts>

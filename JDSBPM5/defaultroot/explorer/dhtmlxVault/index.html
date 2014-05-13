@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>文件上传</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">   
+    <link rel="stylesheet" type="text/css" href="../codebase/skins/dhtmlXVault.css" />
+    <script language="JavaScript" type="text/javascript" src="../codebase/dhtmlXVault.js"></script>
+    <script language="JavaScript" type="text/javascript">
+		var _GET = new Array();
+		var u=window.location.toString();
+		u=u.split('?');
+		if(typeof(u[1]) == 'string'){
+			u=u[1].split('&');
+			for(i=0;i<u.length;i++){
+   				s=u[i].split("=");
+   				eval('_GET["' + s[0] + '"]' + '="' + s[1]+'"');
+			}
+
+		}
+		var uploadpath = _GET['uploadpath'];
+       var vault = null;
+        
+        function doOnLoad() {
+             if(uploadpath==null ||uploadpath.length<2){
+            	alert("没有设置上传路径");
+            }else{
+            	vault = new dhtmlXVaultObject();
+            	vault.setImgPath("../codebase/imgs/dhtmlxVault");
+            	vault.setUploadPath(uploadpath);
+            	vault.setServerHandlers("UploadHandler.jsp", "GetInfoHandler.jsp", "GetIdHandler.jsp");
+            	vault.create("vault1");
+            }
+		}
+    </script>
+</head>
+<body onload="doOnLoad()">
+    <div id="vault1"> </div>
+</body>
+</html>
+

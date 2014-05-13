@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <handler name="WSListener" type="java:net.itjds.bpm.webservice.WSListener"/>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="EngineWebService" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="net.itjds.bpm.webservice.EngineWebService"/>
+    <parameter name="allowedMethods" value="*"/>
+ </service>
+ 
+  <service name="OABusinessCollectService" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="com.kzxd.xzsp.action.ReadXZSPShiXiang"/>
+    <parameter name="allowedMethods" value="*"/>
+ </service>
+ <service name="OADataBaseService" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="com.kzxd.db.action.WebService"/>
+    <parameter name="allowedMethods" value="*"/>
+ </service>
+ <service name="TyspBusinessCollectService" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="com.kzxd.xzsp.action.CheShi"/>
+    <parameter name="allowedMethods" value="*"/>
+ </service>
+ 
+  
+ 
+ 
+ 
+ <service name="JDSServer" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="net.itjds.userclient.usm.ws.JDSServer"/>
+    <parameter name="allowedMethods" value="*"/>
+ </service>
+ 
+ <service name="FDTWebService" provider="java:RPC">
+  <requestFlow>
+   <handler type="WSListener"/>
+  </requestFlow>
+  <responseFlow>
+   <handler type="WSListener"/>
+  </responseFlow>
+  "scope" value="application"/>
+  <parameter name="className" value="net.itjds.bpm.webservice.FDTWebService"/>
+  <parameter name="allowedMethods" value="*"/>
+       <typeMapping
+        xmlns:ns="http://xml.apache.org/xml-soap"
+        qname="ns:mapItem"
+        type="java:org.apache.xml.xml_soap.MapItem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+   </service>
+ 
+
+ 
+ 
+  <service name="MsgServerService" provider="java:RPC">  
+    <parameter name="scope" value="session"/>
+    <parameter name="className" value="net.itjds.userclient.usm.ws.MsgServerService"/>
+    <parameter name="allowedMethods" value="*"/>
+       <typeMapping
+        xmlns:ns="http://xml.apache.org/xml-soap"
+        deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" 
+     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" 
+     qname="ns:ListServerMsg" 
+     serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" 
+     type="java:ws.itjds.net.ServerMsg[]"/>
+     
+      <typeMapping
+        xmlns:ns="http://xml.apache.org/xml-soap"
+       serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" 
+     qname="ns:ServerMsg" 
+     deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+     type="java:ws.itjds.net.ServerMsg"/>
+ </service>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <service name="MapDAOWebService" provider="java:RPC">
+  <requestFlow>
+   <handler type="WSListener"/>
+  </requestFlow>
+  <responseFlow>
+   <handler type="WSListener"/>
+  </responseFlow>
+  
+  
+  <parameter name="scope" value="application"/>
+  <parameter name="className" value="net.itjds.bpm.data.mapdao.webservice.MapDAOWebService"/>
+  <parameter name="allowedMethods" value="*"/>
+       <typeMapping
+        xmlns:ns="http://xml.apache.org/xml-soap"
+        qname="ns:mapItem"
+        type="java:org.apache.xml.xml_soap.MapItem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  
+  
+ </service>
+ 
+ 
+ <service name="RightWebService" provider="java:RPC">
+  <parameter name="scope" value="application"/>
+  <parameter name="className" value="net.itjds.bpm.webservice.RightWebService"/>
+  <parameter name="allowedMethods" value="*"/>
+ </service>
+  <service name="ApplicationWebService" provider="java:RPC">
+  <parameter name="scope" value="application"/>
+  <parameter name="className" value="net.itjds.bpm.webservice.ApplicationWebService"/>
+  <parameter name="allowedMethods" value="*"/>
+ </service>
+ <service name="WSOrgManager" provider="java:RPC">
+
+  <operation name="connect" qname="ns1:connect" returnQName="connectReturn" returnType="xsd:string" xmlns:ns1="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+   <parameter name="person" type="ns2:WSPerson" xmlns:ns2="http://wsbean.org.bpm.risesoft.net"/>
+  </operation>
+  <operation name="getOrgByID" qname="ns4:getOrgByID" returnQName="getOrgByIDReturn" returnType="ns3:WSOrg" xmlns:ns3="http://wsbean.org.bpm.risesoft.net" xmlns:ns4="urn:WSOrgManager">
+   <parameter name="orgId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgLevelByID" qname="ns8:getOrgLevelByID" returnQName="getOrgLevelByIDReturn" returnType="ns7:WSOrgLevel" xmlns:ns7="http://wsbean.org.bpm.itjds.net" xmlns:ns8="urn:WSOrgManager">
+   <parameter name="orgLevelId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgLevelByName" qname="ns10:getOrgLevelByName" returnQName="getOrgLevelByNameReturn" returnType="ns9:WSOrgLevel" xmlns:ns10="urn:WSOrgManager" xmlns:ns9="http://wsbean.org.bpm.itjds.net">
+   <parameter name="orgLevelName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgLevels" qname="ns11:getOrgLevels" returnQName="getOrgLevelsReturn" returnType="ns11:ArrayOf_tns2_WSOrgLevel" xmlns:ns11="urn:WSOrgManager"/>
+  <operation name="getOrgLevelsByNum" qname="ns12:getOrgLevelsByNum" returnQName="getOrgLevelsByNumReturn" returnType="ns12:ArrayOf_tns2_WSOrgLevel" xmlns:ns12="urn:WSOrgManager">
+   <parameter name="orgLevelNum" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgRoleByID" qname="ns14:getOrgRoleByID" returnQName="getOrgRoleByIDReturn" returnType="ns13:WSOrgRole" xmlns:ns13="http://wsbean.org.bpm.itjds.net" xmlns:ns14="urn:WSOrgManager">
+   <parameter name="orgRoleId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgRoleByName" qname="ns16:getOrgRoleByName" returnQName="getOrgRoleByNameReturn" returnType="ns15:WSOrgRole" xmlns:ns15="http://wsbean.org.bpm.itjds.net" xmlns:ns16="urn:WSOrgManager">
+   <parameter name="orgRoleName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgRoles" qname="ns17:getOrgRoles" returnQName="getOrgRolesReturn" returnType="ns17:ArrayOf_tns2_WSOrgRole" xmlns:ns17="urn:WSOrgManager"/>
+  <operation name="getOrgs" qname="ns18:getOrgs" returnQName="getOrgsReturn" returnType="ns18:ArrayOf_tns2_WSOrg" xmlns:ns18="urn:WSOrgManager"/>
+  <operation name="getOrgsByOrgLevelID" qname="ns19:getOrgsByOrgLevelID" returnQName="getOrgsByOrgLevelIDReturn" returnType="ns19:ArrayOf_tns2_WSOrg" xmlns:ns19="urn:WSOrgManager">
+   <parameter name="levelId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgsByOrgLevelName" qname="ns20:getOrgsByOrgLevelName" returnQName="getOrgsByOrgLevelNameReturn" returnType="ns20:ArrayOf_tns2_WSOrg" xmlns:ns20="urn:WSOrgManager">
+   <parameter name="levelName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgsByOrgRoleID" qname="ns21:getOrgsByOrgRoleID" returnQName="getOrgsByOrgRoleIDReturn" returnType="ns21:ArrayOf_tns2_WSOrg" xmlns:ns21="urn:WSOrgManager">
+   <parameter name="roleId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getOrgsByOrgRoleName" qname="ns22:getOrgsByOrgRoleName" returnQName="getOrgsByOrgRoleNameReturn" returnType="ns22:ArrayOf_tns2_WSOrg" xmlns:ns22="urn:WSOrgManager">
+   <parameter name="roleName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonByAccount" qname="ns24:getPersonByAccount" returnQName="getPersonByAccountReturn" returnType="ns23:WSPerson" xmlns:ns23="http://wsbean.org.bpm.itjds.net" xmlns:ns24="urn:WSOrgManager">
+   <parameter name="personAccount" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonByID" qname="ns26:getPersonByID" returnQName="getPersonByIDReturn" returnType="ns25:WSPerson" xmlns:ns25="http://wsbean.org.bpm.itjds.net" xmlns:ns26="urn:WSOrgManager">
+   <parameter name="personId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonDuties" qname="ns27:getPersonDuties" returnQName="getPersonDutiesReturn" returnType="ns27:ArrayOf_tns2_WSPersonDuty" xmlns:ns27="urn:WSOrgManager"/>
+  <operation name="getPersonDutiesByNum" qname="ns28:getPersonDutiesByNum" returnQName="getPersonDutiesByNumReturn" returnType="ns28:ArrayOf_tns2_WSPersonDuty" xmlns:ns28="urn:WSOrgManager">
+   <parameter name="personDutyNum" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonDutyByID" qname="ns30:getPersonDutyByID" returnQName="getPersonDutyByIDReturn" returnType="ns29:WSPersonDuty" xmlns:ns29="http://wsbean.org.bpm.itjds.net" xmlns:ns30="urn:WSOrgManager">
+   <parameter name="personDutyId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonDutyByName" qname="ns32:getPersonDutyByName" returnQName="getPersonDutyByNameReturn" returnType="ns31:WSPersonDuty" xmlns:ns31="http://wsbean.org.bpm.itjds.net" xmlns:ns32="urn:WSOrgManager">
+   <parameter name="personDutyName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonGroupByID" qname="ns34:getPersonGroupByID" returnQName="getPersonGroupByIDReturn" returnType="ns33:WSPersonGroup" xmlns:ns33="http://wsbean.org.bpm.itjds.net" xmlns:ns34="urn:WSOrgManager">
+   <parameter name="personGroupId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonGroupByName" qname="ns36:getPersonGroupByName" returnQName="getPersonGroupByNameReturn" returnType="ns35:WSPersonGroup" xmlns:ns35="http://wsbean.org.bpm.itjds.net" xmlns:ns36="urn:WSOrgManager">
+   <parameter name="personGroupName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonGroups" qname="ns37:getPersonGroups" returnQName="getPersonGroupsReturn" returnType="ns37:ArrayOf_tns2_WSPersonGroup" xmlns:ns37="urn:WSOrgManager"/>
+  <operation name="getPersonLevelByID" qname="ns39:getPersonLevelByID" returnQName="getPersonLevelByIDReturn" returnType="ns38:WSPersonLevel" xmlns:ns38="http://wsbean.org.bpm.itjds.net" xmlns:ns39="urn:WSOrgManager">
+   <parameter name="personLevelId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonLevelByName" qname="ns41:getPersonLevelByName" returnQName="getPersonLevelByNameReturn" returnType="ns40:WSPersonLevel" xmlns:ns40="http://wsbean.org.bpm.itjds.net" xmlns:ns41="urn:WSOrgManager">
+   <parameter name="personLevelName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonLevels" qname="ns42:getPersonLevels" returnQName="getPersonLevelsReturn" returnType="ns42:ArrayOf_tns2_WSPersonLevel" xmlns:ns42="urn:WSOrgManager"/>
+  <operation name="getPersonLevelsByNum" qname="ns43:getPersonLevelsByNum" returnQName="getPersonLevelsByNumReturn" returnType="ns43:ArrayOf_tns2_WSPersonLevel" xmlns:ns43="urn:WSOrgManager">
+   <parameter name="personLevelNum" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonPositionByID" qname="ns45:getPersonPositionByID" returnQName="getPersonPositionByIDReturn" returnType="ns44:WSPersonPosition" xmlns:ns44="http://wsbean.org.bpm.itjds.net" xmlns:ns45="urn:WSOrgManager">
+   <parameter name="personPositionId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonPositionByName" qname="ns47:getPersonPositionByName" returnQName="getPersonPositionByNameReturn" returnType="ns46:WSPersonPosition" xmlns:ns46="http://wsbean.org.bpm.itjds.net" xmlns:ns47="urn:WSOrgManager">
+   <parameter name="personPositionName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonPositions" qname="ns48:getPersonPositions" returnQName="getPersonPositionsReturn" returnType="ns48:ArrayOf_tns2_WSPersonPosition" xmlns:ns48="urn:WSOrgManager"/>
+  <operation name="getPersonRoleByID" qname="ns50:getPersonRoleByID" returnQName="getPersonRoleByIDReturn" returnType="ns49:WSPersonRole" xmlns:ns49="http://wsbean.org.bpm.itjds.net" xmlns:ns50="urn:WSOrgManager">
+   <parameter name="personRoleId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonRoleByName" qname="ns52:getPersonRoleByName" returnQName="getPersonRoleByNameReturn" returnType="ns51:WSPersonRole" xmlns:ns51="http://wsbean.org.bpm.itjds.net" xmlns:ns52="urn:WSOrgManager">
+   <parameter name="personRoleName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonRoles" qname="ns53:getPersonRoles" returnQName="getPersonRolesReturn" returnType="ns53:ArrayOf_tns2_WSPersonRole" xmlns:ns53="urn:WSOrgManager"/>
+  <operation name="getPersons" qname="ns54:getPersons" returnQName="getPersonsReturn" returnType="ns54:ArrayOf_tns2_WSPerson" xmlns:ns54="urn:WSOrgManager"/>
+  <operation name="getPersonsByOrgID" qname="ns55:getPersonsByOrgID" returnQName="getPersonsByOrgIDReturn" returnType="ns55:ArrayOf_tns2_WSPerson" xmlns:ns55="urn:WSOrgManager">
+   <parameter name="orgId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonDutyID" qname="ns57:getPersonsByPersonDutyID" returnQName="getPersonsByPersonDutyIDReturn" returnType="ns57:ArrayOf_tns2_WSPerson" xmlns:ns57="urn:WSOrgManager">
+   <parameter name="personDutyId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonDutyName" qname="ns58:getPersonsByPersonDutyName" returnQName="getPersonsByPersonDutyNameReturn" returnType="ns58:ArrayOf_tns2_WSPerson" xmlns:ns58="urn:WSOrgManager">
+   <parameter name="personDutyName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonGroupID" qname="ns59:getPersonsByPersonGroupID" returnQName="getPersonsByPersonGroupIDReturn" returnType="ns59:ArrayOf_tns2_WSPerson" xmlns:ns59="urn:WSOrgManager">
+   <parameter name="personGroupId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonGroupName" qname="ns60:getPersonsByPersonGroupName" returnQName="getPersonsByPersonGroupNameReturn" returnType="ns60:ArrayOf_tns2_WSPerson" xmlns:ns60="urn:WSOrgManager">
+   <parameter name="personGroupName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonLevelID" qname="ns61:getPersonsByPersonLevelID" returnQName="getPersonsByPersonLevelIDReturn" returnType="ns61:ArrayOf_tns2_WSPerson" xmlns:ns61="urn:WSOrgManager">
+   <parameter name="personLevelId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonLevelName" qname="ns62:getPersonsByPersonLevelName" returnQName="getPersonsByPersonLevelNameReturn" returnType="ns62:ArrayOf_tns2_WSPerson" xmlns:ns62="urn:WSOrgManager">
+   <parameter name="personLevelName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonPositionID" qname="ns63:getPersonsByPersonPositionID" returnQName="getPersonsByPersonPositionIDReturn" returnType="ns63:ArrayOf_tns2_WSPerson" xmlns:ns63="urn:WSOrgManager">
+   <parameter name="personPositionId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonPositionName" qname="ns64:getPersonsByPersonPositionName" returnQName="getPersonsByPersonPositionNameReturn" returnType="ns64:ArrayOf_tns2_WSPerson" xmlns:ns64="urn:WSOrgManager">
+   <parameter name="personPositionName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonRoleID" qname="ns65:getPersonsByPersonRoleID" returnQName="getPersonsByPersonRoleIDReturn" returnType="ns65:ArrayOf_tns2_WSPerson" xmlns:ns65="urn:WSOrgManager">
+   <parameter name="personRoleId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getPersonsByPersonRoleName" qname="ns66:getPersonsByPersonRoleName" returnQName="getPersonsByPersonRoleNameReturn" returnType="ns66:ArrayOf_tns2_WSPerson" xmlns:ns66="urn:WSOrgManager">
+   <parameter name="personRoleName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <operation name="getTopOrgs" qname="ns67:getTopOrgs" returnQName="getTopOrgsReturn" returnType="ns67:ArrayOf_tns2_WSOrg" xmlns:ns67="urn:WSOrgManager">
+ 
+   <requestFlow>
+   <handler type="WSListener"/>
+  </requestFlow>
+  <responseFlow>
+   <handler type="WSListener"/>
+  </responseFlow>
+  </operation>
+  <operation name="getOrgIDs" qname="operNS:getOrgIDs" xmlns:operNS="urn:WSOrgManager" returnQName="getOrgIDsReturn" returnType="rtns:ArrayOf_xsd_string" xmlns:rtns="urn:WSOrgManager"/>
+  <operation name="isSupportOrgLevel" qname="ns68:isSupportOrgLevel" returnQName="isSupportOrgLevelReturn" returnType="xsd:boolean" xmlns:ns68="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportOrgRole" qname="ns69:isSupportOrgRole" returnQName="isSupportOrgRoleReturn" returnType="xsd:boolean" xmlns:ns69="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportPersonDuty" qname="ns70:isSupportPersonDuty" returnQName="isSupportPersonDutyReturn" returnType="xsd:boolean" xmlns:ns70="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportPersonGroup" qname="ns71:isSupportPersonGroup" returnQName="isSupportPersonGroupReturn" returnType="xsd:boolean" xmlns:ns71="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportPersonLevel" qname="ns72:isSupportPersonLevel" returnQName="isSupportPersonLevelReturn" returnType="xsd:boolean" xmlns:ns72="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportPersonPosition" qname="ns73:isSupportPersonPosition" returnQName="isSupportPersonPositionReturn" returnType="xsd:boolean" xmlns:ns73="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="isSupportPersonRole" qname="ns74:isSupportPersonRole" returnQName="isSupportPersonRoleReturn" returnType="xsd:boolean" xmlns:ns74="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <operation name="verifyPerson" qname="ns75:verifyPerson" returnQName="verifyPersonReturn" returnType="xsd:boolean" xmlns:ns75="urn:WSOrgManager" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter name="account" type="xsd:string"/>
+   <parameter name="password" type="xsd:string"/>
+  </operation>
+  <parameter name="allowedMethods" value="*"/>
+  <parameter name="wsdlPortType" value="WSOrgManager"/>
+  <parameter name="scope" value="application"/>
+  <parameter name="className" value="net.itjds.common.org.service.WSOrgManagerSoapBindingImpl"/>
+  <parameter name="wsdlServicePort" value="WSOrgManager"/>
+  <parameter name="wsdlTargetNamespace" value="urn:WSOrgManager"/>
+  <parameter name="wsdlServiceElement" value="WSOrgManagerService"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns76:ArrayOf_tns2_WSOrgRole" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrgRole[]" xmlns:ns76="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns77:WSPersonRole" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonRole" xmlns:ns77="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns78:WSPersonGroup" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonGroup" xmlns:ns78="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns79:ArrayOf_tns2_WSPersonGroup" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonGroup[]" xmlns:ns79="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns80:ArrayOf_tns2_WSPerson" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPerson[]" xmlns:ns80="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns81:WSOrg" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrg" xmlns:ns81="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns82:ArrayOf_tns2_WSOrgLevel" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrgLevel[]" xmlns:ns82="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns83:ArrayOf_tns2_WSPersonDuty" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonDuty[]" xmlns:ns83="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns84:ArrayOf_tns2_WSPersonLevel" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonLevel[]" xmlns:ns84="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns85:WSPersonLevel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonLevel" xmlns:ns85="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns86:WSPersonDuty" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonDuty" xmlns:ns86="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns87:WSPerson" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPerson" xmlns:ns87="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns88:ArrayOf_xsd_string" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:java.lang.String[]" xmlns:ns88="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns89:WSOrgLevel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrgLevel" xmlns:ns89="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns90:WSPersonPosition" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonPosition" xmlns:ns90="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns91:ArrayOf_tns2_WSOrg" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrg[]" xmlns:ns91="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns92:ArrayOf_tns2_WSPersonPosition" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonPosition[]" xmlns:ns92="urn:WSOrgManager"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns93:WSOrgRole" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:net.itjds.common.org.wsbean.WSOrgRole" xmlns:ns93="http://wsbean.org.bpm.itjds.net"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns94:ArrayOf_tns2_WSPersonRole" serializer="org.apache.axis.encoding.ser.ArraySerializerFactory" type="java:net.itjds.common.org.wsbean.WSPersonRole[]" xmlns:ns94="urn:WSOrgManager"/>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbar> 
+	<item id="upload" type="button" text="文件上传" img="new.gif" imgDis="fwd_dis.gif"/>   
+	<item id="levelup" type="button"  img="levelup.gif" imgDis="lup_dis.gif"/>   
+	<item id="search" type="button" text="搜索" img="search.gif" imgDis="search_dis.gif"/>   
+	<item id="folders" type="button" text="文件夹" img="folders.gif" imgDis="folders_dis.gif"/>   
+  <divider id="font">        </divider>
+	<item id="view" type="buttonSelect" text="视图" img="view.gif" imgDis="list_dis.gif">
+		<item id="view_dlist" type="button" text="列表" selected="true" img="list.gif"/>   
+		<item id="view_icons" type="button" text="小图标" img="icons.gif"/>   
+		<item id="view_tiles" type="button" text="大图标" img="tiles.gif"/>      
+	</item>
+    <item id="delete" type="button" text="删除" img="delete.gif" imgDis="fwd_dis.gif"/>    
+</toolbar>

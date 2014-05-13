@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="text3" type="text" text="起始时间"/>
+	<item id="from" type="buttonInput" value="" width="90" title="输入要查询的起始时间"/>
+	<item id="sep3" type="separator"/>
+	<item id="text4" type="text" text="截止时间"/>
+	<item id="to" type="buttonInput" value="" width="90" title="输入要查询的截止时间"/>
+	<item id="sep4" type="separator"/>
+	<item id="text1" type="text" text="日志类型"/>
+	<item id="rztype" type="buttonInput" value="" width="120" title="输入要过滤的日志类型关键词"/>
+	<item id="sep1" type="separator"/>
+	<item id="text2" type="text" text="日志内容"/>
+	<item id="content" type="buttonInput" value="" width="120" title="输入要过滤的日志内容关键词"/>
+	<item id="sep2" type="separator"/>
+	<item id="search"   type="button"   img="search.gif"  imgdis="open_dis.gif"  text="搜索"  />
+</toolbar>
+

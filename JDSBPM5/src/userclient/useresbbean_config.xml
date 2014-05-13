@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<config>
+	<reload>false</reload>
+	
+
+
+	<configid>USERSERVICE</configid>
+	<USERSERVICE>
+		<type>BEAN</type>
+		<cnname>用户应用服务</cnname>
+		<desc>用户应用服务</desc>
+		<path>*net.itjds.fdt.service</path>
+		<expressionTemManager>
+		net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	</USERSERVICE>
+	
+   <configid>worklist</configid>
+	<worklist>
+		<type>MAP</type>
+		<cnname>工作流列表</cnname>
+		<desc>工作流列表</desc>
+		<path>*net.itjds.userclient.list</path>
+		<expressionTemManager>
+			net.itjds.bpm.data.xmlproxy.ExpressionTempAnnotationProxy
+		</expressionTemManager>
+	</worklist>
+
+		
+  <configid>CRUD</configid>
+	<CRUD>
+		<type>CODE</type>
+		<cnname>数据库应用</cnname>
+		<desc>数据库应用</desc>
+		<path>esb_jdsform_config.xml</path>
+		<expressionTemManager>
+		net.itjds.bpm.data.xmlproxy.USMTempXmlProxy
+		</expressionTemManager>
+		<formClassManager>
+	   net.itjds.bpm.data.xmlproxy.FormClassBUSXmlProxy
+		</formClassManager>
+	</CRUD>
+
+
+
+    <configid>FDTFORM</configid>
+	<FDTFORM>
+		<type>FORM</type>
+		<cnname>智能表单对象</cnname>
+		<desc>由表单工具生成的智能表单对象</desc>
+		<path>daotemplet_config.xml</path>
+		<expressionTemManager>
+		net.itjds.bpm.data.xmlproxy.MapDAOTempXmlProxy
+		</expressionTemManager>
+		<formClassManager>
+			net.itjds.bpm.data.xmlproxy.FormClassBUSXmlProxy
+		</formClassManager>
+	</FDTFORM>
+ 
+	<javabeansrcpath>F:\rpzw\JDSBPM4\src\userclient</javabeansrcpath>
+
+</config>

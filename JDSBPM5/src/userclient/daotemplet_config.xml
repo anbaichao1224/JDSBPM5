@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+    <reload>true</reload>
+
+    <jdsbpm>
+    <packagename>net.itjds.fdt.dao</packagename>
+	<flowtype>fawen</flowtype>
+	<listftl>mapdaotemplate.ftl:tempbean.flowType+"/"+tempbean.id +"MapDAO":MapDAO容器:db</listftl>
+  	<tableftl>daotemplate.ftl:tempbean.flowType+"/"+className + "DAO":库表映射:db</tableftl>
+  
+
+	<schema>bpm</schema>
+          <templet>      
+		  	<!-- <templetid>Fdtfwbl</templetid>
+            <Fdtfwbl>
+                <templetname>发文办理</templetname>
+				<tablenames>FDT_OA_FWBL</tablenames>
+            </Fdtfwbl>-->
+                <templetid>Fdthqgwg</templetid>
+            <Fdthqgwg>
+                <templetname>会签公文稿</templetname>
+				<tablenames>FDT_OA_HQGWG</tablenames>
+            </Fdthqgwg>
+            
+                <templetid>Fdthqsw</templetid>
+            <Fdthqsw>
+                <templetname>会签收文办理</templetname>
+				<tablenames>FDT_OA_HQSW</tablenames>
+            </Fdthqsw>
+            <templetid>Fdtqjt</templetid>
+            <Fdtqjt>
+                <templetname>请假条</templetname>
+				<tablenames>FDT_OA_QJT</tablenames>
+            </Fdtqjt>
+            
+            <templetid>Fdtgwg</templetid>
+            <Fdtgwg>
+                <templetname>公文稿</templetname>
+				<tablenames>FDT_OA_GWG</tablenames>
+            </Fdtgwg>
+		    
+		    <templetid>Fdtspcs</templetid>
+            <Fdtspcs>
+                <templetname>审批测试</templetname>
+				<tablenames>FDT_OA_SPCS</tablenames>
+            </Fdtspcs>
+		    
+		    <templetid>Fdtnmswbl</templetid>
+            <Fdtnmswbl>
+                <templetname>收文办理</templetname>
+				<tablenames>FDT_OA_NMSWBL</tablenames>
+            </Fdtnmswbl>
+            
+            <templetid>Fdtywbl</templetid>
+            <Fdtywbl>
+                <templetname>阅文办理</templetname>
+				<tablenames>FDT_OA_YWBL</tablenames>
+            </Fdtywbl>
+            
+            <templetid>Fdtnmfwbl</templetid>
+            <Fdtnmfwbl>
+                <templetname>内蒙发文办理</templetname>
+				<tablenames>FDT_OA_NMFWBL</tablenames>
+            </Fdtnmfwbl>
+            <!--<templetid>Fdtnmtylc</templetid>
+             <Fdtnmfwbl>
+                <templetname>内蒙发文办理</templetname>
+				<tablenames>FDT_OA_TYLC</tablenames>
+            </Fdtnmfwbl> -->
+            
+          <templetid>Fdtnmwsxtsp</templetid>
+          <Fdtnmwsxtsp>
+            <templetname>网上协同审批</templetname>
+			<tablenames>FDT_OA_WSXTSP</tablenames>
+          </Fdtnmwsxtsp>
+	      </templet>
+    </jdsbpm>
+</config>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>iconDock 0.8b Example</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="jquery.dock-0.8b.source.js"></script>
+<script type="text/javascript">
+<!--
+var confDock = {
+	iconMinSide : 35,
+	iconMaxSide : 70,
+	distAttDock : 100,
+	coefAttDock : 2,	
+	veloOutDock : 500,
+	valign: 'top'
+}
+
+var confDock2 = {
+	iconMinSide : 20,
+	iconMaxSide : 100,
+	distAttDock : 100,
+	coefAttDock : 3,	
+	veloOutDock : 500,
+	valign: 'middle'
+}
+
+var confDock3 = {
+	iconMinSide : 25,
+	iconMaxSide : 70,
+	distAttDock : 50,
+	coefAttDock : 1,	
+	veloOutDock : 500,
+	valign: 'bottom'
+}
+
+jQuery(function() {
+ 	jQuery("#BarraPersonalitzada").addDockEffect(confDock);
+	jQuery("#BarraPersonalitzada2").addDockEffect(confDock2);
+	jQuery("#BarraPersonalitzada3").addDockEffect(confDock3);
+});
+-->
+</script>
+</head>
+
+<body>
+<div id="container" style="margin:0 auto;">
+<center>
+<a href="http://icon.cat/wiki" target="_top"><img src="../img/iconcat.png" alt="icon.cat" longdesc="Imatge i Comunicaci&oacute; ON-line" border="0" /></a>
+<h1><a href="http://icon.cat/software/iconDock" target="_top">iconDock <em>'dock effect'</em> jQuery plugin</a></h1>
+<p>by Isaac Roca (<a href="mailto:isaac+icondock@icon.cat">e-mail</a>, <a href="http://siknus.com">web</a>) </p>
+<h2>Version 0.8b Examples</h2>
+</center>
+<pre><code>
+var confDock = {
+	iconMinSide : 35, iconMaxSide : 70,
+	distAttDock : 100, coefAttDock : 2,	
+	veloOutDock : 500, valign: 'top'
+}
+</code></pre>
+	<div id="BarraPersonalitzada">
+	<a href="http://siknus.com/1" name="Alertes_name" title="Google alertes">
+		<img src="../img/alerts_35.gif" alt="Campana_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/2" name="Escriptori_name" title="Google Escriptori">
+		<img src="../img/desktop_35.gif" alt="Escriptori_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/3" name="Compres_name" title="Google compres">
+		<img src="../img/froogle_35.gif" alt="Froogle_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/4" name="GMail_name" title="Google mail">
+		<img src="../img/gmail_35.gif" alt="Gmail_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/5" name="Grups_name" title="Google grups">
+		<img src="../img/groups_35.gif" alt="Grups_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/6" name="Linux_name" title="Linux">
+		<img src="../img/special_35.gif" alt="Especial_alt" border="0" />
+	</a>
+	</div>
+<pre><code>
+var confDock2 = {
+	iconMinSide : 20, iconMaxSide : 100,
+	distAttDock : 100, coefAttDock : 3,	
+	veloOutDock : 500, valign: 'middle'
+}
+</code></pre>
+	<div id="BarraPersonalitzada2">
+	<a href="http://siknus.com/1" name="Alertes_name" title="Google alertes">
+		<img src="../img/alerts_35.gif" alt="Campana_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/2" name="Escriptori_name" title="Google Escriptori">
+		<img src="../img/desktop_35.gif" alt="Escriptori_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/3" name="Compres_name" title="Google compres">
+		<img src="../img/froogle_35.gif" alt="Froogle_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/4" name="GMail_name" title="Google mail">
+		<img src="../img/gmail_35.gif" alt="Gmail_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/5" name="Grups_name" title="Google grups">
+		<img src="../img/groups_35.gif" alt="Grups_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/6" name="Linux_name" title="Linux">
+		<img src="../img/special_35.gif" alt="Especial_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/1" name="Alertes_name" title="Google alertes">
+		<img src="../img/alerts_35.gif" alt="Campana_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/2" name="Escriptori_name" title="Google Escriptori">
+		<img src="../img/desktop_35.gif" alt="Escriptori_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/2" name="Escriptori_name" title="Google Escriptori">
+		<img src="../img/desktop_35.gif" alt="Escriptori_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/1" name="Alertes_name" title="Google alertes">
+		<img src="../img/alerts_35.gif" alt="Campana_alt" border="0" />
+	</a>
+	</div>
+<pre><code>
+var confDock3 = {
+	iconMinSide : 25, iconMaxSide : 70,
+	distAttDock : 50, coefAttDock : 1,	
+	veloOutDock : 500, valign: 'bottom'
+}
+</code></pre>
+	<div id="BarraPersonalitzada3">
+	<a href="http://siknus.com/1" name="Alertes_name" title="Google alertes">
+		<img src="../img/alerts_35.gif" alt="Campana_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/2" name="Escriptori_name" title="Google Escriptori">
+		<img src="../img/desktop_35.gif" alt="Escriptori_alt" border="0" />
+	</a>
+	<a href="http://siknus.com/3" name="Compres_name" title="Google compres">
+		<img src="../img/froogle_35.gif" alt="Froogle_alt" border="0" />
+	</a>
+	</div>
+</div>
+
+</script>
+<script type="text/javascript">
+</script>
+</body>
+</html>

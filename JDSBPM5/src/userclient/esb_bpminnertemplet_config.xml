@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+    <reload>true</reload>
+    <jdsbpm>
+        <templet>      
+		
+		  
+		  
+		  
+		  
+			 <templetid>CTX</templetid>
+			 <CTX>
+                <templetdesc>工作流当前环境值</templetdesc>
+                <templetname>工作流当前环境值</templetname>
+                <expressionArr>
+                   CTX()
+                </expressionArr>
+                <returntype>CTX</returntype>
+                <class>net.itjds.service.bpm.GetCTX</class>
+                <datatype>action</datatype>
+            </CTX>
+            
+            	 <templetid>flowType</templetid>
+			 <flowType>
+                <templetdesc>获取所有工作流定义</templetdesc>
+                <templetname>获取所有工作流定义</templetname>
+                <expressionArr>
+                   GetFlowType(BPMC(),R("personId"))
+                </expressionArr>
+                <returntype>GetFlowType</returntype>
+                <class>net.itjds.service.bpm.GetFlowType</class>
+                <datatype>action</datatype>
+            </flowType>
+			
+		   <templetid>BPMC</templetid>
+            <BPMC>
+                <templetdesc>获取工作流用户接口</templetdesc>
+                <templetname>获取工作流用户接口</templetname>
+                <expressionArr>
+                   BPMC()
+                </expressionArr>
+                <returntype>BPMC</returntype>
+                <class>net.itjds.service.bpm.GetBPMClient</class>
+                <datatype>action</datatype>
+            </BPMC>
+					     
+       
+			 <templetid>startPerson</templetid>
+            <startPerson>
+                <templetname>获得流程启动人</templetname>
+                <templetdesc>获得流程启动人</templetdesc>
+                <expressionArr>
+                 GetStartPerson($currProcessInst())
+                </expressionArr>
+                <returntype>GetStartPerson</returntype>
+	             <class>net.itjds.service.bpm.GetStartPerson</class>
+                <datatype>action</datatype>
+            </startPerson>
+		
+		
+
+           
+            <templetid>currActivityInst</templetid>
+
+<templetid>activityPerformPerson</templetid>
+            <activityPerformPerson>
+                <templetname>取得指定活动办理人</templetname>
+                <templetdesc>取得指定活动办理人</templetdesc>
+                <expressionArr>
+                   GetActivityPerformPerson(R("activityInstId"))
+                </expressionArr>
+                <returntype>GetActivityPerformPerson</returntype>
+              <class>net.itjds.service.bpm.GetActivityPerformPerson</class>
+                <datatype>action</datatype>
+            </activityPerformPerson>
+              
+            <templetid>currProcessInst</templetid>
+            <currActivityInst>
+                <templetname>当前活动实例</templetname>
+                <templetdesc>当前活动实例</templetdesc>
+                <expressionArr>
+                   GetCurrActivityInst(BPMC(),R("activityInstId"))
+                </expressionArr>
+                <returntype>GetCurrActivityInst</returntype>
+              <class>net.itjds.service.bpm.GetCurrActivityInst</class>
+               <datatype>action</datatype>
+            </currActivityInst>
+            
+			 <templetid>currRouteDef</templetid>
+            <currRouteDef>
+                <templetname>当前选择的路由定义</templetname>
+                <templetdesc>当前选择的路由定义</templetdesc>
+                <expressionArr>
+                   GetCurrRouteDef(BPMC(),R("routeDefId"))
+                </expressionArr>
+                <returntype>GetCurrRouteDef</returntype>
+              <class>net.itjds.service.bpm.GetCurrRouteDef</class>
+               <datatype>action</datatype>
+            </currRouteDef>
+			
+			
+			
+            <templetid>currActivityInstHistory</templetid>
+            <currActivityInstHistory>
+                <templetname>当前活动实例历史</templetname>
+                <templetdesc>当前活动实例历史</templetdesc>
+                <expressionArr>
+                   GetCurrActivityInstHistory(BPMC(),R("activityInstHistoryId"))
+                </expressionArr>
+                <returntype>GetCurrActivityInstHistory</returntype>
+              <class>net.itjds.service.bpm.GetCurrActivityInstHistory</class>
+               <datatype>action</datatype>
+            </currActivityInstHistory>
+			
+			
+			 <templetid>lastPerformPerson</templetid>
+            <lastPerformPerson>
+                <templetname>取得上一活动办理人</templetname>
+                <templetdesc>取得上一活动办理人</templetdesc>
+                <expressionArr>
+                   GetLastPerformPerson(BPMC(),R("activityInstId"))
+                </expressionArr>
+                <returntype>GetLastPerformPerson</returntype>
+              <class>net.itjds.service.bpm.GetLastPerformPerson</class>
+                <datatype>action</datatype>
+            </lastPerformPerson>
+              
+            <templetid>currProcessInst</templetid>
+            <currProcessInst>
+                <templetname>当前流程实例</templetname>
+                <templetdesc>当前流程实例</templetdesc>
+                <expressionArr>
+                    GetCurrProcessInst($currActivityInst(),$currActivityInstHistory())
+                </expressionArr>
+                <returntype>GetCurrProcessInst</returntype>
+              <class>net.itjds.service.bpm.GetCurrProcessInst</class>
+                <datatype>action</datatype>
+            </currProcessInst>
+				
+			  <templetid>GetRouteToBean</templetid>
+            <GetRouteToBean>
+                <templetname>获取流程发送数据</templetname>
+                <templetdesc>获取流程发送数据</templetdesc>
+                <expressionArr>
+                    GetRouteToBean(
+					BPMC(),
+					R("startActivityInstId"),
+					Split(R("toActivityDefIds"),";"),
+					Splits(Split(R("performPersonIdList"),";"),","),
+					Splits(Split(R("readPersonIdList"),";"),",")
+					)
+                </expressionArr>
+                <returntype>GetRouteToBean</returntype>
+              <class>net.itjds.service.bpm.GetRouteToBean</class>
+                <datatype>action</datatype>
+				
+				 
+            </GetRouteToBean>
+			
+			
+	
+		 <templetid>startProcess</templetid>
+			 <startProcess>
+                <templetname>工作流WEB启动（返回JSON）</templetname>
+                <templetdesc>工作流WEB启动（返回JSON）</templetdesc>
+                <expressionArr>
+                   StartProcess($BPMC(),R("processDefId"))
+                </expressionArr>
+                <returntype>StartProcess</returntype>
+              <class>net.itjds.service.bpm.StartProcess</class>
+                <datatype>action</datatype>
+            </startProcess>
+		
+		
+			  <templetid>routeTo</templetid>
+			 <routeTo>
+                <templetname>工作流WEB发送</templetname>
+                <templetdesc>工作流WEB发送</templetdesc>
+                <expressionArr>
+                    RouteToCommond(
+					BPMC(),
+				    R("activityInstId"),
+					R("activityDefId")
+					)
+                </expressionArr>
+                <returntype>RouteToCommond</returntype>
+              <class>net.itjds.service.bpm.RouteToCommond</class>
+                <datatype>action</datatype>
+            </routeTo>
+			
+			
+             </templet>   
+	
+
+        <classproxy>
+            <expressionTemManager>
+                net.itjds.bpm.data.xmlproxy.ExpressionTempXmlProxy
+            </expressionTemManager>
+        </classproxy>
+    </jdsbpm>
+</config>

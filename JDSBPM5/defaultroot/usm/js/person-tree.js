@@ -1,0 +1,10 @@
+﻿[
+{"id":"2","text":"区领导","cls":"forum-ct","iconCls":"forum-parent","checked":false,"expanded":false,"children":
+	[
+	{"id":"21","text":"霍祝云1","cls":"forum","iconCls":"icon-forum","checked":false,"totalPosts":15346,"leaf":true},
+	{"id":"22","text":"霍祝云2","cls":"forum","iconCls":"icon-forum","checked":false,"totalPosts":8923,"leaf":true}]},
+{"id":"3","text":"区人大","cls":"forum-ct","iconCls":"forum-parent","checked":false,"expanded":false,"children":
+	[
+	{"id":"31","text":"人大","cls":"forum","iconCls":"icon-forum","checked":false,"totalPosts":83152,"leaf":true},
+	{"id":"33","text":"黄静3","cls":"forum","iconCls":"icon-forum","checked":false,"totalPosts":9320,"leaf":true}]}
+]

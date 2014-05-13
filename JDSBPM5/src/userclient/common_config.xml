@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="GBK"?>
+<config>
+
+     
+
+	<bpm>
+	 	
+		<filePath>d:/jdsbpm4/file</filePath>
+		<!--  
+		<fileServer>http://127.0.0.1:8888/</fileServer>
+	    -->
+			<database> 
+			<!--
+		<connectionProvider>
+			<className>net.itjds.common.database.JNDIDataSourceProvider</className>
+		</connectionProvider>
+		<JNDIProvider>
+			<name>xwgtbpm</name>
+		</JNDIProvider>
+		
+			-->		
+		<defaultProvider>
+				<driver>oracle.jdbc.driver.OracleDriver</driver>
+				<serverURL>
+					jdbc:oracle:thin:@127.0.0.1:1521:orcl
+				</serverURL>
+				<username>jdsbpm5</username>
+				<password>1</password>
+				<minConnections>1</minConnections>
+				<maxConnections>10</maxConnections>
+				<connectionTimeout>1000</connectionTimeout>
+			</defaultProvider>
+		
+			<sequenceManager>
+				<implementationClass>
+					net.itjds.common.database.DBSequenceMgr
+				</implementationClass>
+				<blockSize>1</blockSize>
+			</sequenceManager>
+			
+		</database>
+		<log>
+			<logFactory>
+				net.itjds.common.logging.impl.LogFactoryImpl
+			</logFactory>
+			<logger>net.itjds.common.logging.impl.SimpleLog</logger>
+		</log>
+		<cache>
+			<enabled>true</enabled>
+			<ActivityDefCache>
+				<!-- 5/4 MB -->
+				<size>1179648</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ActivityDefCache>
+			<ActivityInstCache>
+				<!-- 5/4 MB -->
+				<size>1179648</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ActivityInstCache>
+			<ActivityInstHistoryCache>
+				<!-- 1/2 MB -->
+				<size>524288</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ActivityInstHistoryCache>
+			<ProcessAttributeDefCache>
+				<!-- 5/4 MB -->
+				<size>1179648</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessAttributeDefCache>
+			<ActivityAttributeDefCache>
+				<!-- 5/4 MB -->
+				<size>1179648</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ActivityAttributeDefCache>
+			<RouteAttributeDefCache>
+				<!-- 5/4 MB -->
+				<size>1179648</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</RouteAttributeDefCache>
+			<ProcessAttributeInstCache>
+				<!-- 1/2 MB -->
+				<size>524288</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessAttributeInstCache>
+			<ActivityAttributeInstCache>
+				<!-- 1/2 MB -->
+				<size>524288</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ActivityAttributeInstCache>
+			<ProcessDefCache>
+				<!-- 1/2 MB -->
+				<size>524288</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessDefCache>
+			<ProcessDefVersionCache>
+				<!-- 1/4 MB -->
+				<size>262144</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessDefVersionCache>
+			<ProcessInstCache>
+				<!-- 1/2 MB -->
+				<size>524288</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessInstCache>
+			<ProcessInstHistoryCache>
+				<!-- 1/4 MB -->
+				<size>262144</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</ProcessInstHistoryCache>
+			<RouteDefCache>
+				<!-- 1/4 MB -->
+				<size>262144</size>
+				<!-- 6 hours -->
+				<lifeTime>3600000</lifeTime>
+			</RouteDefCache>
+		</cache>
+	</bpm>
+	
+	
+	
+  <fdt>	
+	     <database> 
+	    <ref>bpm</ref>
+		</database>
+     </fdt>
+	<org>
+		<database>
+			 
+	    	<defaultProvider>
+				<driver>oracle.jdbc.driver.OracleDriver</driver>
+				<serverURL>
+					jdbc:oracle:thin:@127.0.0.1:1521:orcl
+				</serverURL>
+				<username>jdsbpm5</username>
+				<password>1</password>
+				<minConnections>1</minConnections>
+				<maxConnections>10</maxConnections>
+				<connectionTimeout>1000</connectionTimeout>
+			</defaultProvider>
+	
+        </database>
+		<sequenceManager>
+			<implementationClass>net.itjds.common.database.SequenceManager</implementationClass>
+		</sequenceManager>
+		<log>
+			<logFactory>net.itjds.common.logging.impl.LogFactoryImpl</logFactory>
+			<logger>net.itjds.common.logging.impl.SimpleLog</logger>
+		</log>
+		<cache>
+			<!--life time for personrole, personduty etc. -->
+			<!-- 1 hour-->
+			<lifeTime>3600000</lifeTime>
+		  	<enabled>true</enabled>
+		  	<OrgCache>
+		  		<size>1024000</size>
+		  		<!-- 6 hours -->
+		  		<lifeTime>18000000</lifeTime>
+		  	</OrgCache>
+		  	<PersonCache>
+		  		<size>1024000</size>
+		  		<!-- 6 hours -->
+		  		<lifeTime>18000000</lifeTime>
+		  	</PersonCache>
+		</cache>
+		<OrgManager>
+			<factoryClassName>net.itjds.common.org.impl.database.DbOrgManagerFactory</factoryClassName>
+			<implClassName>net.itjds.common.org.impl.database.DbOrgManagerImpl</implClassName>
+		</OrgManager>
+	</org>
+	<HTTPCACHE>
+		<database>
+			<defaultProvider>
+				<driver>org.hsqldb.jdbcDriver</driver>
+				<serverURL>jdbc:hsqldb:hsql://localhost/</serverURL>
+				<username>SA</username>
+				<password></password>
+				<minConnections>1</minConnections>
+				<maxConnections>1000</maxConnections>
+				<connectionTimeout>1000</connectionTimeout>
+			</defaultProvider>
+			<sequenceManager>
+				<implementationClass>
+					net.itjds.common.database.DBSequenceMgr
+				</implementationClass>
+				<blockSize>1</blockSize>
+			</sequenceManager>
+		</database>
+	</HTTPCACHE>
+	<PFCACHE>
+		<database>
+			<defaultProvider>
+				<driver>org.hsqldb.jdbcDriver</driver>
+				<serverURL>jdbc:hsqldb:.</serverURL>
+				<username>SA</username>
+				<password></password>
+				<minConnections>1</minConnections>
+				<maxConnections>1000</maxConnections>
+				<connectionTimeout>1000</connectionTimeout>
+			</defaultProvider>
+			<sequenceManager>
+				<implementationClass>
+					net.itjds.common.database.DBSequenceMgr
+				</implementationClass>
+				<blockSize>1</blockSize>
+			</sequenceManager>
+		</database>
+	</PFCACHE>
+
+
+
+	<commonConfigKey>common</commonConfigKey>
+	<common>
+		<log>
+			<logFactory>
+				net.itjds.common.logging.impl.LogFactoryImpl
+			</logFactory>
+			<logger>net.itjds.common.logging.impl.SimpleLog</logger>
+		</log>
+	</common>
+	<compressors>
+		<compressor>
+			net.itjds.common.compress.impl.RarCompressor
+		</compressor>
+		<compressor>
+			net.itjds.common.compress.impl.ZipCompressor
+		</compressor>
+	</compressors>
+	<extractors>
+		<extractor>
+			net.itjds.common.text.extraction.impl.WordExtractor
+		</extractor>
+		<extractor>
+			net.itjds.common.text.extraction.impl.PDFExtractor
+		</extractor>
+		<extractor>
+			net.itjds.common.text.extraction.impl.ExcelExtractor
+		</extractor>
+	</extractors>
+	<risedbserver>
+		<timeout>3</timeout>
+	</risedbserver>
+</config>
+

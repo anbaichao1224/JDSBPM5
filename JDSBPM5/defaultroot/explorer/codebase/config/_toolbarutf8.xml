@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<toolbar name=" " width="100%" disableType="image" absolutePosition="auto" toolbarAlign="left">
+		<!--
+  <ImageTextButton src="codebase/imgs/toolbar/undo.gif" height="25" content="后退"  width="60" id="goback" tooltip="后退" disableImage="codebase/imgs/toolbar/undo1.gif"/>
+    <ImageTextButton src="codebase/imgs/toolbar/redo.gif" height="25" content="前进"  width="60" id="goaway" tooltip="前进"  disableImage="codebase/imgs/toolbar/redo1.gif"/>
+	-->
+    <ImageButton src="codebase/imgs/toolbar/FolderUp.gif"  height="25" width="25" id="folderUp" tooltip="向上"  disableImage="codebase/imgs/toolbar/FolderUp.gif"/>
+   <divider id="layoutbtn"/>
+   
+   	<!--
+  <ImageTextButton src="codebase/imgs/toolbar/search.gif" content="搜索" height="25" width="60" id="search" tooltip="查找" disableImage="imgs/dhtmlxToolbar/search1.gif"/>
+  <ImageTextButton src="codebase/imgs/toolbar/Folder.gif" content="文件夹" height="25" width="70" id="folder" tooltip="文件夹"  disableImage="codebase/imgs/toolbar/Folder.gif"/>
+ 	-->
+ 
+  <divider id="edit"/>
+  	<!--
+<SelectButton id="viewType" width="80px" height="12px">
+		<option value="ftable">平铺</option>
+		<option value="view_tiles">列表</option>
+		<option value="view_icons">图标</option>
+	
+		<option value="grid">详细信息</option>
+		
+    
+  </SelectButton>
+	-->
+
+</toolbar>

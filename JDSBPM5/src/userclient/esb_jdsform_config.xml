@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config>
+    <reload>true</reload>
+
+    <jdsbpm>
+    <packagename>net.itjds.fdt</packagename>
+	
+	<schema>org</schema>
+<!--数据库模板-->
+   
+ 		<listftl>dbtemp/bean.ftl:+'db/'+tempbeanid+'/'+className:数据库BEAN接口:db</listftl>
+		<listftl>dbtemp/ei.ftl:+'db/'+tempbeanid+'/inner/EI'+className:代理对象接口:db</listftl>
+		<listftl>dbtemp/beanproxy.ftl:+'db/'+tempbeanid+'/proxy/'+className+'Proxy':代理对象:db</listftl>		
+		<listftl>dbtemp/manager.ftl:+'db/'+tempbeanid+'/database/Db'+className+'Manager':数据库管理器:db</listftl>
+        <listftl>dbtemp/list.ftl:+'db/'+tempbeanid+'/database/'+className+'List':数据查询数据接口:db</listftl>
+		<listftl>dbtemp/eimanager.ftl:+'db/'+tempbeanid+'/inner/EI'+className+'Manager':用户管理器接口:db</listftl>
+        <listftl>dbtemp/usmserviceImpl.ftl:+'db/'+tempbeanid+'/impl/'+className+'UsmServiceImpl':用户管理器:db</listftl>           
+		<listftl>dbtemp/dao.ftl:'db/'+tempbeanid+'/database/'+className+'DAO':数据库映射对象:db</listftl>
+	
+<!--数据库模板-->	
+
+ 
+<!-- EXT视图模板  -->	
+		<listftl>viewtemp/fdtform/formPop.ftl:'fdtview/'+tempbeanid+"/"+className + "PopForm":数据编辑:view</listftl>
+		<listftl>viewtemp/fdtform/grid.ftl:'view/'+tempbeanid+"/"+className + "Grid":数据列表:view</listftl>
+		<listftl>viewtemp/fdtform/viewport.ftl:'view/'+tempbeanid+"/"+className + "Viewport":界面布局:view</listftl>
+		<listftl>viewtemp/fdtform/cartpanel.ftl:'view/'+tempbeanid+"/"+className + "CartPanel":可切换布局容器:view</listftl>
+	
+<!--EXT视图模板		
+
+	 <templet>   
+      	<templetid>fdtoafwbl</templetid>
+            <fdtoafwbl>
+                <templetdesc>发文办理</templetdesc>
+                <templetname>发文办理</templetname>
+                <expressionArr>
+                    GetSampleMapdao(request,\"fwbl\")
+                </expressionArr>
+				<maintable>FDT_OA_FWBL</maintable>
+				<tablenames></tablenames>
+                <returntype>GetSampleMapdao</returntype>       
+                <datatype>action</datatype>
+            </fdtoafwbl>
+	 
+      
+	</templet>  
+	--> 
+    </jdsbpm>
+</config>

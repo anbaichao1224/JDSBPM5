@@ -1,0 +1,22 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="13" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+		<MenuItem name="当前行后前插入一行" src="addRow.gif"  id="addRow"/>
+		<MenuItem name="删除该行" src="delRow.gif"  id="delRow"/>
+       <divider id="contextCopyExpressiondiv"/>
+        <MenuItem name="复制" src="copy.gif"  id="contextsave"/>
+		<MenuItem name="粘贴" src="paste.gif"  id="contextpaste"/>
+		<MenuItem name="清除" src="cut.gif"  id="contextcut"/>
+     <divider id="contectlock"/>
+     <MenuItem name="锁定行" src="lock.gif"  id="lockRow"/>
+      <MenuItem name="解除锁定" src="unLock.gif"  id="lockRow"/>
+       <divider id="cRowHeightdiv"/>
+     <MenuItem name="调整行高" src="cRowHeight.gif"  id="cRowHeight"/>
+       <divider id="rowPropertydiv"/>
+  <MenuItem name="编辑行属性" src="rowProperty.gif"  id="rowProperty"/>
+  <MenuItem name="编辑行单元格属性" src="rowProperty.gif"  id="rowCellProperty"/> 
+  
+  <divider id="tabLayOutdiv"/>
+  <MenuItem name="设为表头" src="rowProperty.gif"  id="setTableHead"/>
+  <MenuItem name="设为列头" src="rowProperty.gif"  id="setColHead"/>
+  <MenuItem name="设为表尾" src="rowProperty.gif"  id="setTableFoot"/>
+</menu>

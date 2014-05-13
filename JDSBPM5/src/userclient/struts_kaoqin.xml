@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+ <package name="kaoqin" extends="struts-default">
+ 	<action  name="kaoQinTimeSheDingAdd" class="kaoqin" method="kaoQinTimeSheDingAdd">
+	   	<result name="success">/KaoQin/Result.jsp</result>
+	   	<result name="shedingyichang">/KaoQin/SheDingYiChang.jsp</result>
+	</action>
+ 	<action  name="KaoQinSave1" class="kaoqin" method="KaoQinSave1">
+	   	<result name="success">/KaoQin/QianDaoChengGong.jsp</result>
+	   	<result name="notnull">/KaoQin/YiQianDao.jsp</result>
+	   	<result name="bushishangwuqiandaoshijian">/KaoQin/NotShangWuQianDaoTime.jsp</result>
+	</action>
+ 	<action  name="KaoQinSave2" class="kaoqin" method="KaoQinSave2">
+	   	<result name="success">/KaoQin/QianTuiChengGong.jsp</result>
+	   	<result name="bushishangwuqiantuishijian">/KaoQin/NotShangWuQianTuiTime.jsp</result>
+	</action>
+ 	<action  name="KaoQinSave3" class="kaoqin" method="KaoQinSave3">
+	   	<result name="success">/KaoQin/QianDaoChengGong.jsp</result>
+	   	<result name="notnull">/KaoQin/YiQianDao.jsp</result>
+	   	<result name="bushixiawuqiandaoshijian">/KaoQin/NotXiaWuQianDaoTime.jsp</result>
+	</action>
+ 	<action  name="KaoQinSave4" class="kaoqin" method="KaoQinSave4">
+	   	<result name="success">/KaoQin/QianTuiChengGong.jsp</result>
+	   	<result name="bushixiawuqiantuishijian">/KaoQin/NotXiaWuQianTuiTime.jsp</result>
+	</action>
+ 	<action  name="KaoQinList" class="kaoqin" method="KaoQinList">
+	</action>
+ 	<action  name="KaoQinTimeList" class="kaoqin" method="KaoQinTimeList">
+	</action>
+ 	<action  name="updateKaoQinTimeByUuid" class="kaoqin" method="updateKaoQinTimeByUuid">
+	</action>
+ 	<action  name="updateKaoQinByUuid" class="kaoqin" method="updateKaoQinByUuid">
+	</action>
+ 	<action  name="kaoQinBaoBiao" class="kaoqin" method="KaoQinBaoBiao">
+ 		<result name="success">/KaoQin/KaoQinBaoBiao.jsp</result>
+	</action>
+ </package>
+</struts>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 
+      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+     
+      	<!-- 承办批办 -->
+	<bean id="CpAction" class="com.kzxd.cpbl.action.CpAction"
+		scope="prototype">
+		<property name="cbManager" ref="cbManager" />
+		<property name="pbManager" ref="pbManager" />
+	</bean>
+	<!-- 安全监控人员 -->
+	<bean id="PersonsecureAction"
+		class="net.itjds.usm.persistence.action.PersonsecureAction"
+		scope="prototype">
+		<property name="personsecureManager" ref="personsecureManager" />
+		<property name="personManager" ref="personManager"></property>
+	</bean>
+	<bean id="RoletempAction"
+		class="net.itjds.usm.persistence.action.RoletempAction"
+		scope="prototype">
+		<property name="baseroleManager" ref="baseroleManager" />
+		<property name="personManager" ref="personManager" />
+		<property name="roletempManager" ref="roletempManager" />
+		<property name="moduleManager" ref="moduleManager"></property>
+		<property name="roleManager" ref="roleManager"></property>
+		<property name="postiontempManager" ref="postiontempManager"></property>
+		<property name="positionManager" ref="positionManager"></property>
+		<property name="rolerightManager" ref="rolerightManager"></property>
+		<property name="positionrightManager"
+			ref="positionrightManager">
+		</property>
+		<property name="dutytempManager" ref="dutytempManager"></property>
+		<property name="dutyrightManager" ref="dutyrightManager"></property>
+		<property name="dutyManager" ref="dutyManager"></property>
+		<property name="leveltempManager" ref="leveltempManager"></property>
+		<property name="levelrightManager" ref="levelrightManager"></property>
+		<property name="levelManager" ref="levelManager"></property>
+		<property name="orgtempManager" ref="orgtempManager"></property>
+		<property name="orgrightManager" ref="orgrightManager"></property>
+		<property name="orgManager" ref="orgManager"></property>
+		<property name="usergrouptempManager"
+			ref="usergrouptempManager">
+		</property>
+		<property name="usergrouprightManager"
+			ref="usergrouprightManager">
+		</property>
+		<property name="usergroupManager" ref="usergroupManager"></property>
+		<property name="moduletempManager" ref="moduletempManager">
+		</property>
+		<property name="persononmoduleaddManager"
+			ref="persononmoduleaddManager">
+		</property>
+		<property name="persononmoduledisableManager"
+			ref="persononmoduledisableManager">
+		</property>
+	</bean>
+	<!-- 岗位的配置 -->
+	<bean id="PositionAction"
+		class="net.itjds.usm.persistence.action.PositionAction"
+		scope="prototype">
+		<property name="positionManager" ref="positionManager" />
+		<property name="personManager" ref="personManager" />
+		<property name="positionpersonManager"
+			ref="positionpersonManager" />
+	</bean>
+	<!-- 职务的配置 -->
+	<bean id="DutyAction"
+		class="net.itjds.usm.persistence.action.DutyAction"
+		scope="prototype">
+		<property name="dutyManager" ref="dutyManager" />
+		<property name="persondutyManager" ref="persondutyManager" />
+	</bean>
+	<!-- 用户组的配置 -->
+	<bean id="UserGroupAction"
+		class="net.itjds.usm.persistence.action.UserGroupAction"
+		scope="prototype">
+		<property name="usergroupManager" ref="usergroupManager" />
+		<property name="orgusergrpManager" ref="orgusergrpManager" />
+		<property name="grpuserManager" ref="grpuserManager" />
+	</bean>
+	<!-- 子系统注册 -->
+	<bean id="SystemAction"
+		class="net.itjds.usm.persistence.action.SystemAction"
+		scope="prototype">
+		<property name="systemManager" ref="systemManager"></property>
+		<property name="moduleManager" ref="moduleManager"></property>
+		<property name="sysmoduleManager" ref="sysmoduleManager"></property>
+		<property name="sysorgManager" ref="sysorgManager"></property>
+		<property name="orgManager" ref="orgManager"></property>
+		<property name="personManager" ref="personManager"></property>
+
+	</bean>
+	<!-- 资源扩展属性模块 -->
+	<bean id="ModulepropertiesAction"
+		class="net.itjds.usm.persistence.action.ModulepropertiesAction"
+		scope="prototype">
+		<property name="modulepropertiesManager"
+			ref="modulepropertiesManager">
+		</property>
+	</bean>
+	<!-- 资源模块 -->
+	<bean id="ModuleAction"
+		class="net.itjds.usm.persistence.action.ModuleAction"
+		scope="prototype">
+		<property name="moduleManager" ref="moduleManager"></property>
+		<property name="sysmoduleManager" ref="sysmoduleManager"></property>
+		<property name="appcatalogmoduleManager"
+			ref="appcatalogmoduleManager">
+		</property>
+		<property name="modulepropertiesManager"
+			ref="modulepropertiesManager">
+		</property>
+	</bean>
+	<!-- 登入 -->
+	<bean id="LogonAction"
+		class="net.itjds.usm.persistence.action.LogonAction"
+		scope="prototype">
+		<property name="systemManager" ref="systemManager"></property>
+		<property name="sysmoduleManager" ref="sysmoduleManager"></property>
+		<property name="personManager" ref="personManager"></property>
+		<property name="personaccountManager"
+			ref="personaccountManager">
+		</property>
+		<property name="personextaccountManager"
+			ref="personextaccountManager">
+		</property>
+		<property name="personsecureManager"
+			ref="personsecureManager">
+		</property>
+
+	</bean>
+	<!-- 管理员帐号 -->
+	<bean id="PersonextaccountAction"
+		class="net.itjds.usm.persistence.action.PersonextaccountAction"
+		scope="prototype">
+		<property name="personextaccountManager"
+			ref="personextaccountManager">
+		</property>
+		<property name="personManager" ref="personManager"></property>
+
+	</bean>
+
+
+	<!-- 组织机构配置 -->
+	<bean id="departAction"
+		class="net.itjds.usm.persistence.action.DepartAction"
+		scope="prototype">
+		<property name="orgManager" ref="orgManager"></property>
+		<property name="personManager" ref="personManager"></property>
+	</bean>
+
+	<bean id="personAction"
+		class="net.itjds.usm.persistence.action.PersonAction"
+		scope="prototype">
+		<property name="personManager" ref="personManager"></property>
+		<property name="personaccountManager"
+			ref="personaccountManager">
+		</property>
+		<property name="orgManager" ref="orgManager"></property>
+		<property name="orgpersonManager" ref="orgpersonManager"></property>
+	</bean>
+
+	<bean id="dutyLevelAction"
+		class="net.itjds.usm.persistence.action.DutyLevelAction"
+		scope="prototype">
+		<property name="levelManager" ref="levelManager"></property>
+		<property name="personlevelManager" ref="personlevelManager"></property>
+	</bean>
+
+	<bean id="roleAction"
+		class="net.itjds.usm.persistence.action.RoleAction"
+		scope="prototype">
+		<property name="roleManager" ref="roleManager"></property>
+		<property name="personroleManager" ref="personroleManager"></property>
+		<property name="positionroleManager"
+			ref="positionroleManager">
+		</property>
+		<property name="grproleManager" ref="grproleManager"></property>
+		<property name="orgroleManager" ref="orgroleManager"></property>
+	</bean>
+	<!-- sso -->
+	<bean id="ssoAction"
+		class="net.itjds.usm.persistence.action.SsoAction"
+		scope="prototype">
+		<property name="ssoManager" ref="ssoManager"></property>
+	</bean>
+	<!--  -->
+	<bean id="ApplicationAction"
+		class="net.itjds.usm.persistence.action.ApplicationAction"
+		scope="prototype">
+		<property name="applicationManager" ref="applicationManager"></property>
+		<property name="systemManager" ref="systemManager"></property>
+		<property name="appcatalogmoduleManager"
+			ref="appcatalogmoduleManager">
+		</property>
+		<property name="moduleManager" ref="moduleManager"></property>
+		<property name="rolerightManager" ref="rolerightManager"></property>
+		<property name="dutyrightManager" ref="dutyrightManager"></property>
+		<property name="positionrightManager"
+			ref="positionrightManager">
+		</property>
+		<property name="personrightManager" ref="personrightManager"></property>
+		<property name="orgrightManager" ref="orgrightManager"></property>
+		<property name="usergrouprightManager"
+			ref="usergrouprightManager">
+		</property>
+		<property name="levelrightManager" ref="levelrightManager"></property>
+		<property name="persononmoduleaddManager"
+			ref="persononmoduleaddManager">
+		</property>
+		<property name="persononmoduledisableManager"
+			ref="persononmoduledisableManager">
+		</property>
+		<property name="roletempManager" ref="roletempManager">
+		</property>
+		<property name="postiontempManager" ref="postiontempManager">
+		</property>
+		<property name="dutytempManager" ref="dutytempManager">
+		</property>
+		<property name="leveltempManager" ref="leveltempManager">
+		</property>
+		<property name="orgtempManager" ref="orgtempManager"></property>
+		<property name="usergrouptempManager"
+			ref="usergrouptempManager">
+		</property>
+		<property name="persontempManager" ref="persontempManager">
+		</property>
+		<property name="moduletempManager" ref="moduletempManager">
+		</property>
+
+	</bean>
+	
+	
+	<!-- 统计报表 -->
+	<bean id="tjbb" class="com.kzxd.tjbb.action.TjbbAction">
+	   <property name="tjMsgimpl" ref="tjMsg"></property>
+	</bean>
+	
+	<bean id="tjMsg" class="com.kzxd.tjbb.serviceimpl.TjjbbMsgimpl">
+	   <property name="tjdaoimpl" ref="tjdao"></property>
+	</bean>
+	
+	<bean id="tjdao" class="com.kzxd.tjbb.daoimpl.Tjbbdaoimpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 窗口事项 -->
+	<bean id="cksxml" class="com.kzxd.tjbb.action.CKSXMLAction">
+	   <property name="cksxmlmsgimpl" ref="cksxmlMsg"></property>
+	</bean>
+	
+	<bean id="cksxmlMsg" class="com.kzxd.tjbb.serviceimpl.CKSXMLMsgimpl">
+	   <property name="CKSXMLDaoimpl" ref="cksxmldao"></property>
+	</bean>
+	
+	<bean id="cksxmldao" class="com.kzxd.tjbb.daoimpl.CKSXMLDaoimpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 考勤 -->
+	<bean id="kaoqin" class="com.kzxd.newkaoqin.action.KaoQinAction">
+	   <property name="kqMsgImpl" ref="kqMsg"></property>
+	    <property name="kqsjMsgImpl" ref="kqsjMsg"></property>
+	    <property name="gzrdyMsgImpl" ref="gzrdyMsg"></property>
+	    <property name="qjmxMsgImpl" ref="qjmxMsg"></property>
+	</bean>
+	
+	<bean id="kqMsg" class="com.kzxd.newkaoqin.service.impl.KaoQinMsgImpl">
+	   <property name="kqDaoImpl" ref="kqdao"></property>
+	</bean>
+	
+	<bean id="kqdao" class="com.kzxd.newkaoqin.dao.impl.KaoQinDaoImpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 考勤时间设定 -->
+	<bean id="kqsjMsg" class="com.kzxd.newkaoqin.service.impl.KaoQinShiJianMsgImpl">
+	   <property name="kqsjDaoImpl" ref="kqsjdao"></property>
+	</bean>
+	
+	<bean id="kqsjdao" class="com.kzxd.newkaoqin.dao.impl.KaoQinShiJianDaoImpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<!-- 工作日定义 -->	
+	<bean id="gzrdyMsg" class="com.kzxd.newkaoqin.service.impl.GzrdyMsgImpl">
+	   <property name="gzrdyDaoImpl" ref="gzrdydao"></property>
+	</bean>
+	
+	<bean id="gzrdydao" class="com.kzxd.newkaoqin.dao.impl.GzrdyDaoImpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<!-- 请假明细 -->	
+	<bean id="qjmxMsg" class="com.kzxd.newkaoqin.service.impl.QingJiaMingXiMsgImpl">
+	   <property name="qjmxDaoImpl" ref="qjmxdao"></property>
+	</bean>
+	
+	<bean id="qjmxdao" class="com.kzxd.newkaoqin.dao.impl.QingJiaMingXiDaoImpl">
+	   <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<!-- 行政审批定时数据发送 
+	<bean id="checkEmail" class="com.kzxd.timertask.CheckEmailAddresses">
+    	<property name="emailAddresses">
+        	<list>
+            	<value>test@springframework.org</value>
+            	<value>foo@bar.com</value>
+            	<value>john@doe.net</value>
+        	</list>
+    	</property>
+	</bean>
+ 
+	<bean id="scheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+    	<property name="delay" value="60000" />
+    	<property name="period" value="300000" />
+    	<property name="timerTask" ref="doIt" />
+	</bean>
+	
+	<bean id="doIt" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+    	<property name="targetObject" ref="exampleBusinessObject" />
+    	<property name="targetMethod" value="doIt" />
+	</bean>
+	
+	<bean id="exampleBusinessObject" class="com.kzxd.timertask.BusinessObject">
+	</bean>
+	
+	<bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+	    <property name="scheduledTimerTasks">
+	        <list>
+	            <ref bean="scheduledTask" />
+	        </list>
+	    </property>
+	</bean>
+	-->
+	
+	
+	<!-- 定时查询数据库连接
+		
+	<bean id="checkEmail2" class="com.kzxd.db.action.CheckEmailAddresses">
+    	<property name="emailAddresses">
+        	<list>
+            	<value>test@springframework.org</value>
+            	<value>foo@bar.com</value>
+            	<value>john@doe.net</value>
+        	</list>
+    	</property>
+	</bean>
+
+	<bean id="scheduledTask2" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+    	<property name="delay" value="60000" />
+    	<property name="period" value="10000" />
+    	<property name="timerTask" ref="doIt2" />
+	</bean>
+	
+	<bean id="doIt2" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+    	<property name="targetObject" ref="exampleBusinessObject2" />
+    	<property name="targetMethod" value="doIt" />
+	</bean>
+	
+	<bean id="exampleBusinessObject2" class="com.kzxd.db.action.BusinessObject">
+	</bean>
+	
+	<bean id="timerFactory2" class="org.springframework.scheduling.timer.TimerFactoryBean">
+	    <property name="scheduledTimerTasks">
+	        <list>
+	            <ref bean="scheduledTask2" />
+	        </list>
+	    </property>
+	</bean>	
+	
+		-->	
+</beans>

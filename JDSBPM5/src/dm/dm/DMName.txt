@@ -1,0 +1,21 @@
+//-------------------------------------活动实例 begin ------------------------
+//活动实例运行时间状况
+ActivityInst_RUNSTATUS = /bpm/activityinst/runstatus
+//活动实例状态
+ActivityInst_STATE = /bpm/activityinst/state
+//活动实例接收方式
+ActivityInst_RECEIVEMETHOD = /bpm/activityinst/receivemethod
+//活动实例办理方式
+ActivityInst_DEALMETHOD = /bpm/activityinst/dealmethod
+//-------------------------------------活动实例 end ------------------------
+
+//-------------------------------------流程实例 begin ------------------------
+//流程实例运行时间状况
+ProcessInst_RUNSTATUS = /bpm/processinst/runstatus
+//流程实例状态
+ProcessInst_STATE = /bpm/processinst/state
+
+//-------------------------------------流程实例 end ------------------------
+
+//公式参数类型
+ExpressionParameterType = /bpm/expression/parametertype

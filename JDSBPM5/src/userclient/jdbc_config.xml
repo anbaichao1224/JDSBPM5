@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GBK"?>
+<config>
+	<jdbc>
+		<driver>oracle.jdbc.driver.OracleDriver</driver>
+		<url>jdbc:oracle:thin:@127.0.0.1:1521:orcl</url>
+		<username>jdsbpm5</username>
+		<password>1</password>
+	</jdbc>
+</config>
+

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script>
+			function submit(){
+				var msg=document.getElementById('body').value;
+				 msg=msg.replace(new RegExp("(<img.+?)(src=['|\"])http://.+?" + context, "gi"), "$1$2" + context);
+				 msg=msg.replace(/(\'|\")/g,"\\$1");
+         msg=msg.replace(/\n|\r/g,"<br>");
+        document.getElementById('body').value=msg;
+        
+				}
+		</script>
+		</head>
+	<body>
+		<form id="sendMsg" method="get" action="expression.jsp?expression=$HttpMsgService" >
+		<table>
+			<tr><td>发送用户ID</td><td><input id="fasongUserId" value="6140" name="personId"/></td></tr>
+				<tr><td>接收用户ID</td><td><input id="jieshouUserId"  value="6140"  name="to"/></td></tr>
+				<tr><td>接收用户ID</td><td><input id="jieshouUserId"  value="6140"  name="to"/></td></tr>
+				<tr><td>内容</td><td><textarea id="body" name="body"></textarea></td></tr>
+			</table>
+			<input type=button value="提交" onclick="submit()">
+			</form>
+		
+		</body>
+	</html>

@@ -1,0 +1,153 @@
+/*================================================*/
+/*   设定主页面的一些属性			  */
+/*================================================*/
+BODY{
+	FONT-SIZE: 12px;		    	      /*设定页面默认的字体大小*/
+	font-family:"宋体", "Verdana", "Arial";       /*设定字体的默认值*/
+	margin:0;
+}
+p{font-size:12px;}
+/*================================================*/
+/*  设定form的属性 */
+/*================================================*/
+button
+{
+	FONT-SIZE: 12px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+input
+{
+	FONT-SIZE: 12px;
+	height:19px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+select
+{
+	FONT-SIZE: 12px;
+	height:19px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+TEXTAREA
+{
+	font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+}
+/*================================================*/
+/*  设定Tablble题目的属性 */
+/*================================================*/
+TABLE
+{
+    FONT-SIZE: 12px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+td
+{
+	font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	line-height:150%
+}
+/*================================================*/
+/*  设定Table的题目的属性 */
+/*================================================*/
+.TrTitle
+{
+    FONT-SIZE: 9pt;
+    font-family:"宋体", "Verdana", "Arial";
+}
+
+/*================================================*/
+/*  设定Table偶数行的属性 */
+/*================================================*/
+.TrOdd
+{
+    FONT-SIZE: 12px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+
+/*================================================*/
+/*  设定Table奇数行的属性*/
+/*================================================*/
+.TrEven
+{
+    FONT-SIZE: 12px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+
+/*================================================*/
+/* 设定Table的HEAD属性 */
+/*================================================*/
+.TrHead
+{
+    FONT-SIZE: 12px;
+    font-family:"宋体", "Verdana", "Arial";
+}
+
+
+/*================================================*/
+/*  设定超连的属性 */
+/*================================================*/
+A  {
+	font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	text-decoration : none;	
+}
+A:active
+{
+    font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	text-decoration : none;
+}
+A:link
+{
+    font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	text-decoration : none;
+}
+A:visited
+{
+    font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	text-decoration : none;
+}
+A:hover
+{
+    font-size:12px;
+	font-family:"宋体", "Verdana", "Arial";
+	text-decoration : none;
+}
+
+/*================================================*/
+/* 设置其他的属性*/
+/*================================================*/
+li{
+	text-align:left;
+	font-size:12px
+}
+center{font-size:12px}
+.big {font-size:18px}
+
+.bt {
+	border-color: #FFFFFF #666666 #666666 #FFFFFF;
+	cursor: hand;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px
+}
+.tx { 
+	font-size: 9pt;
+	border-style: groove;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px
+}
+FIELDSET {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	MARGIN-BOTTOM: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	boarder: 0
+}

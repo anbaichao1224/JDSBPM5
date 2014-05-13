@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="8" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+
+        <MenuItem name="复制" src="copy.gif"  id="contextsave"/>
+		<MenuItem name="粘贴" src="paste.gif"  id="contextpaste"/>
+		<MenuItem name="清除" src="cut.gif"  id="contextcut"/>
+     <divider id="contecthebig"/>
+     <MenuItem name="合并单元格" src="hebing.gif"  id="hebing"/>
+       <divider id="cRowHeightdiv"/>
+  <MenuItem name="编辑块属性" src="rowProperty.gif"  id="colProperty"/>
+
+</menu>
+    

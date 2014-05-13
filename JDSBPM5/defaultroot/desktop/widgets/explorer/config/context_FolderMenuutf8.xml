@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="13" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+	
+      <MenuItem name="打开" src="open.gif"  id="open"/>
+     <divider id="contectlock"/>
+        <MenuItem name="复制" src="copy.gif"  id="copy"/>
+		<MenuItem name="粘贴" src="paste.gif"  id="paste"/>
+     <divider id="contectlock"/>
+		<MenuItem name="删除" src="delete.gif"  id="delete"/>
+            <divider id="contecthebig"/>
+        <MenuItem name="重命名" src="copytoblock.gif"  id="rename"/>
+
+</menu>

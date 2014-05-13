@@ -1,0 +1,49 @@
+
+<div id="ld" style="position:absolute; left:-1px; top:1px; width:1032px; height:694px; background-color:#FFFFFF; z-index:1000;"> 
+<div id="center" style="position:absolute;width: 60%; height: 30%;">
+<table border="0" height="100%" align="center">
+<tr><td height="40%">&nbsp;</td></tr>
+<tr><td height="30%" ><span id="disp">页面加载中,请等待</span></td></tr>
+<tr><td height="30%" ><img src="images/05043119.gif"></td></tr>
+</table>
+</div> 
+</div> 
+<script language="JavaScript">
+<!--
+//self.resizeTo(screen.availWidth,screen.availHeight);  
+//center.style.left=document.body.clientWidth/2;
+//center.style.top=document.body.clientHeight/2;
+var sum=0;
+var isLoaded=0; 
+var tmp;
+var start = new Date().getTime(); 
+load(); 
+function load() 
+{ 
+sum++;
+time = setTimeout("load()",100); 
+if (isLoaded==1) 
+{  
+   clearTimeout(time);
+   tmp=setTimeout("loaded()",1500); 
+    var a = new Date().getTime()-start;
+    a=(a/1000).toFixed(2);
+    disp.innerHTML="加载完毕，耗时"+a+"秒，转向主界面........";
+}else{
+    if(sum<10)
+     disp.innerHTML=disp.innerHTML+"..";
+    else{
+     sum=0;
+     disp.innerHTML="页面加载中,请等待..";
+    }
+     
+}  
+}
+function loaded(){
+  ld.style.display="none";
+  clearTimeout(tmp); 
+}  
+--> 
+</script>
+<body  style="overflow-x:hidden;overflow-y:hidden" >
+</body>

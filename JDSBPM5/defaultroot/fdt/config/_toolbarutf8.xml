@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<toolbar name=" " width="100%" disableType="image" absolutePosition="auto" toolbarAlign="left">
+<!--
+  <ImageButton src="/jdsbpm/imgs/formDef/openfile.gif" height="25" width="25" id="open" tooltip="打开"  disableImage="/jdsbpm/imgs/formDef/open1.gif"/>
+   -->
+ <ImageButton src="imgs/save.gif" height="25" width="25" id="save" tooltip="保存"  disableImage="/imgs/formDef/save1.gif"/>
+<!--
+
+   <divider id="layoutbtn"/>
+
+        <ImageButton src="/jdsbpm/imgs/formDef/createLayoutTree.gif" height="25" width="25" id="createLayoutTree" tooltip="生成布局树"  disableImage="/jdsbpm/imgs/formDef/createLayoutTree.gif"/>
+        <ImageButton src="/jdsbpm/imgs/formDef/resetLayoutBtn.gif" height="25" width="25" id="resetLayoutBtn" tooltip="重置布局"  disableImage="/jdsbpm/imgs/formDef/resetLayoutBtn1.gif"/>
+        <ImageButton src="/jdsbpm/imgs/formDef/generateCode.gif" height="25" width="25" id="generateCode" tooltip="生成报表模型"  disableImage="/jdsbpm/imgs/formDef/generateCode1.gif"/>
+    -->
+<!--
+        <ImageButton src="/jdsbpm/imgs/formDef/createEmptyLayoutTree.gif" height="25" width="25" id="createEmptyLayoutTree" tooltip="生成基本布局树"  disableImage="/jdsbpm/imgs/formDef/createEmptyLayoutTree1.gif"/>
+
+ <divider id="edit"/>
+
+    <ImageButton src="/jdsbpm/imgs/formDef/copy.gif" height="25" width="25" id="copy" tooltip="复制"  disableImage="/jdsbpm/imgs/formDef/copy1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/paste.gif" height="25" width="25" id="paste" tooltip="粘贴"  disableImage="/jdsbpm/imgs/formDef/paste1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/cut.gif" height="25" width="25" id="cut" tooltip="剪切"  disableImage="/jdsbpm/imgs/formDef/cut1.gif"/>
+
+
+    <divider id="unredo"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/undo.gif" height="25" width="25" id="undo" tooltip="复原"  disableImage="/jdsbpm/imgs/formDef/undo1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/redo.gif" height="25" width="25" id="redo" tooltip="重做"  disableImage="/jdsbpm/imgs/formDef/redo1.gif"/>
+
+     <divider id="table"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/tablestyle.gif" height="25" width="25" id="tablestyle" tooltip="表格样式"  disableImage="/jdsbpm/imgs/formDef/tablestyle1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/hebing.gif" height="25" width="25" id="hebing" tooltip="表格合并"  disableImage="/jdsbpm/imgs/formDef/hebing1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/caifen.gif" height="25" width="25" id="caifen" tooltip="表格裁分"  disableImage="/jdsbpm/imgs/formDef/caifen1.gif"/>
+
+    <divider id="font">        </divider>
+	<SelectButton id="font_select" width="100px" height="12px">
+		<option value="arial">字体</option>
+		<option value="宋体">宋体</option>
+		<option value="黑体">黑体</option>
+		<option value="隶书">隶书</option>
+    </SelectButton>
+    <SelectButton id="fontsize_select" width="60px" height="12px">
+        <option value="">字号</option>
+		<option value="9">9 px</option>
+		<option value="10">10 px</option>
+		<option value="12">12 px</option>
+        <option value="14">14 px</option>
+        <option value="16">16 px</option>
+        <option value="18">18 px</option>
+        <option value="20">20 px</option>
+		<option value="24">24 px</option>
+		<option value="36">36 px</option>
+    </SelectButton>
+
+    <divider id="fontStyle"/>
+       <TwoStateButton src="/jdsbpm/imgs/formDef/fontB.gif,/jdsbpm/imgs/formDef/fontB.gif" height="25" width="25" id="fontB" tooltip="粗体"  disableImage="/jdsbpm/imgs/formDef/fontB1.gif"/>
+     <TwoStateButton src="/jdsbpm/imgs/formDef/fontI.gif,/jdsbpm/imgs/formDef/fontI.gif" height="25" width="25" id="fontI" tooltip="斜体"  disableImage="/jdsbpm/imgs/formDef/fontI.gif"/>
+     <TwoStateButton src="/jdsbpm/imgs/formDef/fontU.gif,/jdsbpm/imgs/formDef/fontU.gif" height="25" width="25" id="fontU" tooltip="下划线"  disableImage="/jdsbpm/imgs/formDef/fontU1.gif"/>
+       <divider id="color"/>
+      <ImageButton src="/jdsbpm/imgs/formDef/fontColor.gif" height="25" width="25" id="fontColor" tooltip="字体颜色"  disableImage="/jdsbpm/imgs/formDef/fontColor1.gif"/>
+      <ImageButton src="/jdsbpm/imgs/formDef/bgColor.gif" height="25" width="25" id="bgColor" tooltip="填充背景色"  disableImage="/jdsbpm/imgs/formDef/bgColor1.gif"/>
+
+      <divider id="align"/>
+     <TwoStateButton src="/jdsbpm/imgs/formDef/alignLeft.gif,/jdsbpm/imgs/formDef/alignLeft.gif" height="25" width="25" id="alignLeft" tooltip="居左"  disableImage="/jdsbpm/imgs/formDef/alignLeft1.gif"/>
+     <TwoStateButton src="/jdsbpm/imgs/formDef/alignCenter.gif,/jdsbpm/imgs/formDef/alignCenter.gif" height="25" width="25" id="alignCenter" tooltip="居中"  disableImage="/jdsbpm/imgs/formDef/alignCenter1.gif"/>
+     <TwoStateButton src="/jdsbpm/imgs/formDef/alignRight.gif,/jdsbpm/imgs/formDef/alignRight.gif" height="25" width="25" id="alignRight" tooltip="居右"  disableImage="/jdsbpm/imgs/formDef/alignRight1.gif"/>
+
+    <divider id="div_2"/>
+    <ImageButton src="/jdsbpm/imgs/formDef/search.gif" height="25" width="25" id="search" tooltip="查找" disableImage="imgs/dhtmlxToolbar/search1.gif"/>
+	<TwoStateButton src="/jdsbpm/imgs/formDef/selectbolck.gif,/jdsbpm/imgs/formDef/selectbolck.gif" height="25" width="25" id="selectbolck" tooltip="选定块" disableImage="imgs/dhtmlxToolbar/selectbolck1.gif"/>
+	<ImageButton src="/jdsbpm/imgs/formDef/lock.gif" height="25" width="25" id="bolck" tooltip="锁定块" disableImage="imgs/dhtmlxToolbar/lock1.gif"/>
+
+     <divider id="row"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/addRow.gif" height="25" width="25" id="addRow" tooltip="添加一行"  disableImage="/jdsbpm/imgs/formDef/addRow1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/delRow.gif" height="25" width="25" id="delRow" tooltip="删除选中行"  disableImage="/jdsbpm/imgs/formDef/delRow1.gif"/>
+     <ImageButton src="/jdsbpm/imgs/formDef/addCol.gif" height="25" width="25" id="addClo" tooltip="添加一列"  disableImage="/jdsbpm/imgs/formDef/addCol1.gif"/>
+      <ImageButton src="/jdsbpm/imgs/formDef/delCol.gif" height="25" width="25" id="delClo" tooltip="删除选中列"  disableImage="/jdsbpm/imgs/formDef/delCol1.gif"/>
+
+
+    <divider id="expression"/>
+        <ImageButton src="/jdsbpm/imgs/formDef/editExpression.gif" height="25" width="25" id="editExpression" tooltip="编辑公式"  disableImage="/jdsbpm/imgs/formDef/editExpression1.gif"/>
+        <ImageButton src="/jdsbpm/imgs/formDef/searchExpression.gif" height="25" width="25" id="searchExpression" tooltip="查找公式"  disableImage="/jdsbpm/imgs/formDef/searchExpression1.gif"/>
+        <ImageButton src="/jdsbpm/imgs/formDef/debugExpression.gif" height="25" width="25" id="debugExpression" tooltip="调试公式"  disableImage="/jdsbpm/imgs/formDef/debugExpression1.gif"/>
+
+
+<ImageButton src="/jdsbpm/imgs/formDef/save.gif" height="25" width="25" id="save" tooltip="保存"  disableImage="/jdsbpm/imgs/formDef/save1.gif"/>
+
+-->
+
+</toolbar>

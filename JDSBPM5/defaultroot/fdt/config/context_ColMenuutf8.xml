@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="11" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+
+
+		<MenuItem name="当前列后前插入一列" src="addCol.gif"  id="addCol"/>
+		<MenuItem name="删除该列" src="delCol.gif"  id="delRow"/>
+       <divider id="contextCopyExpressiondiv"/>
+        <MenuItem name="复制" src="copy.gif"  id="contextsave"/>
+		<MenuItem name="粘贴" src="paste.gif"  id="contextpaste"/>
+		<MenuItem name="清除" src="cut.gif"  id="contextcut"/>
+
+     <divider id="contectlock"/>
+     <MenuItem name="锁定列" src="lock.gif"  id="lockRow"/>
+      <MenuItem name="解除锁定" src="unLock.gif"  id="lockRow"/>
+       <divider id="cRowHeightdiv"/>
+     <MenuItem name="调整列宽" src="cRowHeight.gif"  id="cColHeight"/>
+       <divider id="rowPropertydiv"/>
+  <MenuItem name="编辑列属性" src="rowProperty.gif"  id="colProperty"/>
+  <MenuItem name="编辑列单元格属性" src="rowProperty.gif"  id="colCellProperty"/>
+  <divider id="tabLayOutdiv"/>
+  <MenuItem name="设为行头" src="rowProperty.gif"  id="setRowHead"/>
+
+</menu>

@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="owen" extends="struts-default">
+
+		<action name="takebackroute"
+			class="net.itjds.userclient.bpm.TakebackRouteAction">
+			<result name="success">
+				/desktop/widgets/bpm/viewroute/takebackroute.jsp
+			</result>
+		</action>
+		<!-- 工作列表  -->
+		<action name="kzxdbpmDataProcessBind"
+			class="net.itjds.owen.list.action.KZXDBPMClientDataProcessBinding">
+		</action>
+	</package>
+	<package name="upload" extends="struts-default">
+		<action name="uploadAction"
+			class="net.itjds.owen.list.action.UpFile">
+			<result name="success">
+				/desktop/widgets/bpm/form/comments/mycomment.jsp
+			</result>
+		</action>
+	</package>
+
+	<!-- 自定义打开已办理流程表单 开始-->
+	<package name="kzxdform" extends="struts-default">
+		<action name="kzxdformdisplay"
+			class="com.kzxd.liuchengjiankong.BPMClientDisplayAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+		<action name="kzxdBPMClientFormDisplayAction"
+			class="com.kzxd.liuchengjiankong.BPMClientFormDisplayAction">
+			<result name="success">/fdt/display/formDisplay.jsp</result>
+		</action>
+	</package>
+	<!-- 自定义打开已办理流程表单 结束-->
+	<!-- 报送相关 -->
+	<package name="xxkgz" extends="struts-default">
+		<action name="xxkgzAction"
+			class="com.kzxd.Baosong.action.XxkPFGZaction">
+			<result name="success">/desktop/testdata.jsp</result>
+		</action>
+		<!--  
+			<action  name="xxkksgzAction"  class="com.kzxd.Baosong.action.Testg" >
+			<result name="success">/desktop/baosongpingfen/xxkgz.jsp</result>
+			</action>
+		-->
+		<action name="xxkgzInfoAction"
+			class="com.kzxd.Baosong.action.XxkPFGZInfoAction">
+			<result name="success">
+				/desktop/baosongpingfen/xxkgzInfo.jsp
+			</result>
+		</action>
+		<action name="xxkgzInfolistAction"
+			class="com.kzxd.Baosong.action.XxkPFGZInfoAction"
+			method="getByBiaohao">
+			<result name="success">/desktop/testdata.jsp</result>
+		</action>
+		<action name="xxkgzSaveAndUpdateAction"
+			class="com.kzxd.Baosong.action.XxkPFGZInfoAction"
+			method="saveAndUpdate">
+			<result name="success">
+				/desktop/baosongpingfen/xxkgzInfo.jsp
+			</result>
+		</action>
+	</package>
+	<package name="xxkbsbd" extends="struts-default">
+		<!-- 根据uuid得到具体 -->
+		<action name="getbsbdAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="getByUuid">
+			<result name="success">
+				/desktop/baosongbiaodan/xxkbsbdcg.jsp
+			</result>
+			<result name="baosong">
+				/desktop/baosongbiaodan/xxkbsbdhis.jsp
+			</result>
+		</action>
+		<!-- 根据状态得到列表 -->
+		<action name="getbsbdlistAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="getByZT">
+			<result name="success">
+				/desktop/baosongbiaodan/bdgriddatacg.jsp
+			</result>
+		</action>
+		<action name="tocaogaoAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="toCaogao">
+			<result name="success">
+				/desktop/baosongbiaodan/bdqicao.jsp
+			</result>
+		</action>
+
+		<action name="tobiaodanAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="toBiaodan">
+			<result name="success">
+				/desktop/baosongbiaodan/xxkbsbd.jsp
+			</result>
+		</action>
+
+		<!-- 保存 -->
+		<action name="savebsbdAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="saveInfo">
+			<result name="success">
+				/desktop/baosongbiaodan/bdgrid.jsp
+			</result>
+		</action>
+		<!-- 报送 -->
+		<action name="basongbdAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction"
+			method="baosongInfo">
+			<result name="success">/desktop/testdata.jsp</result>
+		</action>
+		<!-- 列表跳转action -->
+		<action name="liebiaoAction"
+			class="com.kzxd.Baosong.action.XxkbsdwbdAction" method="liebiao">
+			<result name="success">
+				/desktop/baosongbiaodan/bdgrid.jsp
+			</result>
+		</action>
+	</package>
+	<package name="xxkbsbh" extends="struts-default">
+		<action name="tobhbiaodanAction"
+			class="com.kzxd.Baosong.action.XxkbsbdbhAction" method="toBiaoDan">
+			<result name="success">
+				/desktop/baosongbiaodan/formbiaodan.jsp
+			</result>
+		</action>
+		<!-- 根据uuid得到具体 -->
+		<action name="getbsbhAction"
+			class="com.kzxd.Baosong.action.XxkbsbdbhAction" method="getByUuid">
+			<result name="success">
+				/desktop/baosongbiaodan/xxkbsbdbh.jsp
+			</result>
+		</action>
+
+		<!-- 根据状态得到列表 -->
+		<action name="getAllBydwAction"
+			class="com.kzxd.Baosong.action.XxkbsbdbhAction" method="getBydw">
+			<result name="success">
+				/desktop/baosongbiaodan/bhgriddatacg.jsp
+			</result>
+		</action>
+		<!-- 评分 -->
+		<action name="updatetjAction"
+			class="com.kzxd.Baosong.action.XxkbsbdbhAction" method="updateTj">
+			<result name="success">
+				/desktop/baosongbiaodan/bhgriddatacg.jsp
+			</result>
+		</action>
+		<!-- 退回 -->
+		<action name="xxktuihuiAction"
+			class="com.kzxd.Baosong.action.XxkbsbdbhAction" method="tuihui">
+			<result name="success">
+				/desktop/baosongbiaodan/bhgriddatacg.jsp
+			</result>
+		</action>
+	</package>
+	<package name="xxkbstj" extends="struts-default">
+		<!-- 统计跳转grid -->
+		<action name="xxkbstjAction"
+			class="com.kzxd.Baosong.action.XxkPfTjAction">
+			<result name="success">
+				/desktop/baosongpingfen/tjgrid.jsp
+			</result>
+		</action>
+		<action name="getAllTjAction"
+			class="com.kzxd.Baosong.action.XxkPfTjAction" method="getAllTj">
+			<result name="success">
+				/desktop/baosongpingfen/tjgrid.jsp
+			</result>
+		</action>
+	</package>
+	<!-- 报送相关结束 -->
+	<!-- 在线编辑 -->
+	<package name="self" extends="struts-default">
+		<interceptors>
+			<interceptor name="fileUpload1"
+				class="org.apache.struts2.interceptor.FileUploadInterceptor">
+				<param name="allowedTypes"></param>
+				<param name="maximumSize">20485760</param>
+			</interceptor>
+			<interceptor-stack name="fileUploadStack1">
+				<interceptor-ref name="fileUpload1" />
+			</interceptor-stack>
+		</interceptors>
+		<!--
+			<action name="documentAction"
+			class="net.itjds.userclient.document.DocumentAction"> <result
+			name="success"> /desktop/widgets/bpm/form/document/testself.jsp
+			</result> </action>
+		-->
+
+		<action name="selfsave"
+			class="net.itjds.userclient.list.UpdateDocunment">
+			<interceptor-ref name="fileUploadStack1" />
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<action name="selfdocumentAction"
+			class="net.itjds.userclient.list.SelfDocumentAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/testself.jsp
+			</result>
+		</action>
+
+		<action name="selfdocinclude"
+			class="net.itjds.userclient.list.Docinclude">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/docinclude.jsp
+			</result>
+		</action>
+		<!--
+			<action name="openAction"
+			class="net.itjds.userclient.document.OpenDocumentAction"> <result
+			name="success"> /desktop/widgets/bpm/form/document/createDocument.jsp
+			</result> </action>
+		-->
+
+		<action name="selfopenAction"
+			class="net.itjds.userclient.list.OpenDocument">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/createDocument.jsp
+			</result>
+		</action>
+
+		<action name="downLoadfileAction"
+			class="net.itjds.userclient.usm.action.downLoadfileAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+
+			</result>
+			<result name="error">
+				/desktop/widgets/bpm/form/attachment/index.jsp
+			</result>
+		</action>
+
+		<action name="documentmodel"
+			class="kzxd.documentmodel.action.KZXDDocumentModelAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/documentmodel.jsp
+			</result>
+		</action>
+
+		<action name="documentmodelupload"
+			class="kzxd.documentmodel.action.DocumentModelUpload">
+			<result>
+				/desktop/widgets/bpm/form/document/documentmodelupload.jsp
+			</result>
+		</action>
+		<action name="docupload"
+			class="kzxd.documentmodel.action.DocFileUpload">
+			<result>
+				/desktop/widgets/bpm/form/document/documentmodelupload.jsp
+			</result>
+		</action>
+
+
+		<action name="docupload_*"
+			class="kzxd.documentmodel.action.DocFileUpload" method="{1}">
+			<result name="success" type="redirect-action">
+				<param name="actionName">documentmodelupload</param>
+				<param name="namespace">/</param>
+
+			</result>
+		</action>
+	</package>
+	<package name="metting" extends="struts-default">
+		<!-- bpmmatteraction -->
+		<action name="bpmmatter_*"
+			class="net.itjds.owen.metting.action.BpmMatterAction" method="{1}">
+			<result name="success">
+				/desktop/widgets/metting/createMetting.jsp<!-- getMatterById -->
+			</result>
+			<result name="treesuccess">
+				/desktop/widgets/metting/blmatter.jsp<!-- matterInfoById -->
+			</result>
+			<result name="update">
+				/desktop/widgets/metting/updatematter.jsp<!-- "matterInfoById" -->
+			</result>
+			<result name="addmatter">
+				/desktop/widgets/metting/addmatter.jsp<!-- "matterInfoById" -->
+			</result>
+		</action>
+
+		<action name="savematter"
+			class="net.itjds.owen.metting.action.SaveMatterAction">
+			<result name="success">
+				/desktop/widgets/metting/createMetting.jsp
+			</result>
+		</action>
+
+
+
+		<action name="savemetting"
+			class="net.itjds.owen.metting.action.SaveMettingAction"
+			method="saveMetting">
+			<result name="success">
+				/desktop/widgets/metting/createMetting.jsp
+			</result>
+		</action>
+
+		<!-- BpmMettingAction -->
+
+		<action name="metting_*"
+			class="net.itjds.owen.metting.action.BpmMettingAction"
+			method="{1}">
+			<result name="bjsuccess"><!--  mettingBj-->
+				/desktop/widgets/metting/addlist.jsp?status=5
+			</result>
+			<result name="findmettingbyid"><!--  getById-->
+				/desktop/widgets/metting/updateMetting.jsp
+			</result>
+			<result name="success"><!--  mettingTreeSuccess-->
+				/usm/depart/treejson.jsp
+			</result>
+		</action>
+
+
+		<action name="mettingLbTree"
+			class="net.itjds.owen.metting.action.BpmMatterBLAction"
+			method="mettingLbTreeSuccess">
+			<result name="success">/usm/depart/treejson.jsp</result>
+		</action>
+		<action name="saveBlInfo"
+			class="net.itjds.owen.metting.action.BpmMatterBLInfoAction"
+			method="saveInfo">
+			<result name="success" type="redirect-action">
+				<param name="actionName">
+					bpmmatter_matterInfoById.action
+				</param>
+				<param name="namespace">/</param>
+				<param name="uuid">${sxxxid}</param>
+				<param name="sxstatus">${sxstatus}</param>
+			</result>
+
+		</action>
+
+		<!-- BpmMatterInfoAction -->
+		<action name="matterinfo_*"
+			class="net.itjds.owen.metting.action.BpmMatterInfoAction"
+			method="{1}">
+			<result name="updateInfo11"><!-- updateInfo -->
+				/desktop/widgets/metting/updatematter.jsp
+			</result>
+			<result name="updateInfo" type="redirect-action">
+				<param name="actionName">
+					bpmmatter_matterInfoById.action
+				</param>
+				<param name="namespace">/</param>
+				<param name="uuid">${uuid}</param>
+				<param name="sxstatus">6</param>
+			</result>
+			<result name="getModule"><!-- getModule -->
+				/desktop/widgets/metting/ceshi.jsp
+			</result>
+			<result name="bjmatter" type="redirect-action">
+				<param name="actionName">
+					bpmmatter_matterInfoById.action
+				</param>
+				<param name="namespace">/</param>
+				<param name="uuid">${uuid}</param>
+				<param name="sxstatus">5</param>
+			</result>
+			<result name="reblmatter" type="redirect-action">
+				<param name="actionName">
+					bpmmatter_matterInfoById.action
+				</param>
+				<param name="namespace">/</param>
+				<param name="uuid">${uuid}</param>
+				<param name="sxstatus">6</param>
+			</result>
+		</action>
+
+		<!-- 获取实例id -->
+		<action name="demoInserSelf"
+			class="net.itjds.owen.metting.action.BPMClientInsertAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/initdisplay.jsp
+			</result>
+		</action>
+
+		<action name="getHistory"
+			class="net.itjds.owen.metting.action.BpmClinentInstAction"
+			method="getProcessInstById">
+			<result name="success">
+				/desktop/widgets/metting/BPMRouteLog.jsp
+			</result>
+		</action>
+
+		<action name="BPMClientFormDisplaySelf"
+			class="net.itjds.owen.metting.action.BPMClientFormDisplayAction">
+			<result name="success">/fdt/display/formDisplay.jsp</result>
+
+		</action>
+		<!-- 附件 -->
+		<action name="mfileinclude"
+			class="net.itjds.owen.metting.attachment.FileIncludeAction">
+			<result name="success">
+				/desktop/widgets/metting/file/fileinclude.jsp
+			</result>
+		</action>
+		<action name="sfileinclude"
+			class="net.itjds.owen.metting.attachment.SFileIncludeAction">
+			<result name="success">
+				/desktop/widgets/metting/file/fileinclude.jsp
+			</result>
+		</action>
+
+		<action name="docexchangefileinclude"
+			class="net.itjds.owen.metting.attachment.FileIncludeAction">
+			<result name="success">
+				/desktop/widgets/metting/file1/fileinclude.jsp
+			</result>
+		</action>
+
+		<action name="sdocexchangefileinclude"
+			class="net.itjds.owen.metting.attachment.SFileIncludeAction">
+			<result name="success">
+				/desktop/widgets/metting/file1/fileinclude.jsp
+			</result>
+		</action>
+		<action name="mdownloadfile"
+			class="net.itjds.owen.metting.attachment.DownLoadAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">
+				/desktop/widgets/metting/file/index.jsp
+			</result>
+		</action>
+
+		<action name="mfileList"
+			class="net.itjds.owen.metting.attachment.FileListAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/metting/file/filelist.jsp
+			</result>
+		</action>
+		<action name="mfiledisplay"
+			class="net.itjds.owen.metting.attachment.FileDisplayAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/metting/file/filedisplay.jsp
+			</result>
+		</action>
+		<action name="mfiledel"
+			class="net.itjds.owen.metting.attachment.DelFileAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/metting/file/filedel.jsp
+			</result>
+		</action>
+		<action name="mattachUpload"
+			class="net.itjds.owen.metting.attachment.UploadAttachmentAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<action name="mattachUpload1"
+			class="net.itjds.owen.metting.attachment.UploadAttachmentAction1">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+
+		<!--工作日志 -->
+		<action name="gzrzAction_*"
+			class="com.kzxd.rcap.action.gzrzAction" method="{1}">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!-- 日程安排 -->
+		<action name="rcapAction_*"
+			class="com.kzxd.rcap.action.rcapAction" method="{1}">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!-- 工作日定义 -->
+		<action name="gzrdyAction_*"
+			class="com.kzxd.rcap.action.gzrdyAction" method="{1}">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!-- 工作事项提醒-->
+		<action name="sxtxAction_*"
+			class="com.kzxd.rcap.action.sxtxAction" method="{1}">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!--输出excel -->
+		<action name="exportExcelAction"
+			class="com.kzxd.rcap.action.exportExcelAction"
+			method="exportExcel">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		
+		
+		
+		
+		<!-- 电子档案管理 -->
+		<action name="category_*"
+			class="kzxd.electronicfile.action.RecordCategoryAction"
+			method="{1}">
+			<result name="success">
+				/desktop/widgets/electronicfile/recordcategory/treejson.jsp
+			</result>
+			<result name="categoryDetail">
+				/desktop/widgets/electronicfile/recordcategory/addCategory.jsp
+			</result>
+		</action>
+		<action name="roll_*"
+			class="kzxd.electronicfile.action.RollManagerAction" method="{1}">
+			<result name="rolllist">
+				/desktop/widgets/electronicfile/rollmanager/rolllist.jsp
+			</result>
+			<result name="rolldetail">
+				/desktop/widgets/electronicfile/rollmanager/addRoll.jsp
+			</result>
+			<result name="rolldetailbyapp">
+				/desktop/widgets/electronicfile/rollmanager/rollDetailByApp.jsp
+			</result>
+			<result name="select">
+				/desktop/widgets/electronicfile/datalist/selectRoll.jsp
+			</result>
+			<result name="treelist">
+				/desktop/widgets/electronicfile/datalist/jsondata.jsp
+			</result>
+		</action>
+
+		<action name="data_*"
+			class="kzxd.electronicfile.action.RecordDataAction" method="{1}">
+			<result name="datalist">
+				/desktop/widgets/electronicfile/datalist/waitrolllist.jsp
+			</result>
+			<result name="createDocument">
+				/desktop/widgets/electronicfile/datalist/createDocument.jsp
+			</result>
+			<result name="addData">
+				/desktop/widgets/electronicfile/datalist/dataDetail.jsp
+			</result>
+			<result name="error">
+				/desktop/widgets/electronicfile/datalist/error.jsp
+			</result>
+		</action>
+
+
+		<!-- 附件配置 -->
+		<action name="rfileinclude"
+			class="kzxd.electronicfile.file.FileIncludeAction">
+			<result name="success">
+				/desktop/widgets/electronicfile/datalist/file/fileinclude.jsp
+			</result>
+		</action>
+		<action name="rdownloadfile_*"
+			class="kzxd.electronicfile.file.DownLoadAction" method="{1}">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">
+				/desktop/widgets/electronicfile/datalist/file/index.jsp
+			</result>
+		</action>
+		<action name="rfileList"
+			class="kzxd.electronicfile.file.FileListAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/electronicfile/datalist/file/filelist.jsp
+			</result>
+		</action>
+		<action name="rfiledisplay"
+			class="kzxd.electronicfile.file.FileDisplayAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/electronicfile/datalist/file/filedisplay.jsp
+			</result>
+		</action>
+		<action name="rfiledel"
+			class="kzxd.electronicfile.file.DelFileAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/electronicfile/datalist/file/filedel.jsp
+			</result>
+		</action>
+		<action name="rattachUpload"
+			class="kzxd.electronicfile.file.UploadAttachmentAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!-- 改写正文下载类 -->
+		<action name="mdownLoadfileAction"
+			class="net.itjds.userclient.usm.action.downLoadElectronicfileAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+
+			</result>
+			<result name="error">
+				/desktop/widgets/bpm/form/attachment/index.jsp
+			</result>
+		</action>
+
+		<!-- 档案权限 -->
+		<action name="pepodom_*"
+			class="kzxd.electronicfile.action.RollPepodomAction" method="{1}">
+			<result name="rolllist">
+				/desktop/widgets/electronicfile/pepodom/rolllist.jsp
+			</result>
+			<result name="recordlist">
+				/desktop/widgets/electronicfile/pepodom/applicantRecordlist.jsp
+			</result>
+			<result name="verilist">
+				/desktop/widgets/electronicfile/pepodom/applicantmanagerlist.jsp
+			</result>
+			<result name="treelist">
+				/desktop/widgets/electronicfile/datalist/jsondata.jsp
+			</result>
+			<result name="apppass">
+				/desktop/widgets/electronicfile/pepodom/applicantpasslist.jsp
+			</result>
+		</action>
+		
+	</package>
+
+	
+
+
+
+
+
+	<!-- 全文检索-->
+	<package name="search" extends="struts-default">
+		<action name="searchAction_*"
+			class="com.kzxd.index.action.searchAction" method="{1}">
+			<result name="success">
+				/desktop/widgets/search/rolllist.jsp
+			</result>
+		</action>
+		<action name="search_*" class="kzxd.lucenetest.SearchAction"
+			method="{1}">
+			<result name="success">
+				/desktop/widgets/search/rolllist.jsp
+			</result>
+			<result name="search">
+				/desktop/widgets/search/search.jsp
+			</result>
+		</action>
+
+		<!-- rtx推送消息 -->
+		<action name="rtxAction_*" class="kzxd.rtx.SendNotify"
+			method="{1}">
+			<result name="success">
+				/desktop/widgets/search/rolllist.jsp
+			</result>
+			<result name="keySvr">/desktop/SessionKeySvr.jsp</result>
+		</action>
+
+
+		<action name="testPdf"
+			class="kzxd.electronicfile.action.TestGetPdfUrl">
+			<result name="success">
+				/desktop/widgets/search/rolllist.jsp
+			</result>
+		</action>
+
+	</package>
+
+	<package name="monitorcs" extends="struts-default">
+		<action name="bpmAdminDataProcessBindself"
+			class="net.itjds.userclient.usm.action.BPMAdminDataProcessBinding">
+		</action>
+	</package>
+
+	<package name="tj" extends="struts-default">
+		<action name="gwtjAction"
+			class="net.itjds.userclient.usm.action.GwTjAction" method="tj">
+			<result name="tjshow">/desktop/tj/tjresultlist.jsp</result>
+		</action>
+		<action name="findChildDept"
+			class="net.itjds.userclient.usm.action.GwTjAction"
+			method="findChildDept">
+			<result name="tjshow">/desktop/tj/tjresultlist.jsp</result>
+		</action>
+		<action name="findPersonByDept"
+			class="net.itjds.userclient.usm.action.GwTjAction"
+			method="findPersonByDept">
+			<result name="tjshow">/desktop/tj/tjresultlist.jsp</result>
+		</action>
+		<action name="findGwType"
+			class="net.itjds.userclient.usm.action.GwTjAction"
+			method="findGwType">
+
+		</action>
+	</package>
+
+	<package name="ttmanager" extends="struts-default">
+		<action name="ttManagerAction_*"
+			class="kzxd.ttinfo.action.TtInfoAction" method="{1}">
+			<result name="success">
+				/desktop/widgets/ttmanager/documentmodelupload.jsp
+			</result>
+			<result name="selectlist">
+				/desktop/widgets/ttmanager/documentmodel.jsp
+			</result>
+			<result name="addHong" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="doctopdf_*"
+			class="net.itjds.userclient.document.DocToPdf" method="{1}">
+			<result name="showpdf">
+				/desktop/widgets/bpm/form/document/pdfTaoHong.jsp
+			</result>
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${downloadFileName}"
+				</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	<!-- 导入rtx数据 -->
+	<package name="exportpac" namespace="/usm"
+		extends="struts-default">
+		<action name="orgExportToRtx"
+			class="net.itjds.usm.persistence.action.DepartAction"
+			method="orgExportToRtx">
+		</action>
+		<action name="rccx"
+			class="net.itjds.usm.persistence.action.DepartAction"
+			method="rccx">
+			<result name="success">
+				/desktop/widgets/schedule/treejson.jsp
+			</result>
+		</action>
+		<action name="getOrgName"
+			class="net.itjds.usm.persistence.action.DepartAction"
+			method="getOrgName">
+			<result name="addlist">
+				/desktop/widgets/schedule/addlist.jsp
+			</result>
+		</action>
+
+		<!-- ajax长轮询 -->
+		<action name="ajaxGetMsg" class="kzxd.ttinfo.action.TestAction"
+			method="getMsg">
+		</action>
+		<action name="ajaxPuttMsg" class="kzxd.ttinfo.action.TestAction"
+			method="putMsg">
+		</action>
+	</package>
+	<!-- ajax长轮询结束 -->
+	<!-- 即时提醒 -->
+	<package name="tixing" extends="struts-default">
+		<action name="tixing_*" class="kzxd.tixing.action.TiXingAction"
+			method="{1}">
+		</action>
+	</package>
+	<!-- 即时提醒结束 -->
+
+	<!-- 删除正文 -->
+	<package name="zhengwen" extends="struts-default">
+		<action name="zhengwen_*" class="com.kzxd.bpm.document.Document"
+			method="{1}">
+		</action>
+	</package>
+	<!-- 删除正文结束 -->
+
+	<!-- 终止流程 -->
+	<package name="abortPro" namespace="/abortPro"
+		extends="struts-default">
+		<action name="abortProcess"
+			class="com.kzxd.abortprocess.action.AbortProcessAction"
+			method="abort">
+			<result name=""></result>
+		</action>
+	</package>
+	<!-- 终止流程 -->
+
+	
+
+	<!-- 拟办意见 -->
+	<package name="NbyjAction" extends="struts-default">
+		<action name="nbyjAction_*"
+			class="com.kzxd.nbyj.action.NbyjAction" method="{1}">
+			<result name="nbyj">/desktop/widgets/nbyj/nbyj.jsp</result>
+		</action>
+	</package>
+	<!-- 拟办意见 -->
+
+	
+<package name="GxTx" extends="struts-default">
+		<action name="GxTx_*"
+			class="kzxd.tixing.action.GxTx" method="{1}">
+		</action>
+	</package>
+</struts>

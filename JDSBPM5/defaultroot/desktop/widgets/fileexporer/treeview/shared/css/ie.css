@@ -1,0 +1,54 @@
+FIELDSET {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	MARGIN-BOTTOM: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	boarder: 0;
+}
+.bt { 
+	border-color: #FFFFFF #808080 #808080 #FFFFFF;
+	cursor: hand;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px
+}
+.tx {
+	font-size: 9pt;
+	border-style: groove;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+.img {
+	cursor: hand;
+	border: 0;
+	border-color: buttonface;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px
+}
+.img_over {
+	border-color: #FFFFFF #808080 #808080 #FFFFFF;
+	cursor: hand;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px
+}
+.img_down {
+	border-color: #808080 #FFFFFF #FFFFFF #808080;
+	cursor: hand;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	/*border: 1 inset white;*/
+}

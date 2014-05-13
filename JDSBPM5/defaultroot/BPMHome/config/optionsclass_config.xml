@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<config>
+  <class>
+    <name>oa.common.TestOptionsMap</name>
+    <desc>总行一级部门全称选项的类</desc>
+  </class>
+  <class>
+    <name>oa.common.ShortNameOptionsMap</name>
+    <desc>总行一级部门简称选项的类</desc>
+  </class>
+</config>

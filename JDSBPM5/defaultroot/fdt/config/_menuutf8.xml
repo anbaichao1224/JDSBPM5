@@ -1,0 +1,119 @@
+﻿<?xml version='1.0' ?>
+<menu maxItems="12" name="表单定义工具" mixedImages="yes" withoutImages="yes">
+	<MenuItem name="文件(F)"  panelWidth="110px"   id="main_file"  width="65px"  withoutImages="yes">
+			
+          
+			<MenuItem name="保存" src="save.gif" id="save"/>
+<!--
+  <MenuItem name="打开" id="open"/>
+            <MenuItem name="新建" src="newfile.gif" id="newfile"/>
+            <MenuItem name="导入" src="excel.gif" id="excel"/>
+
+        	<MenuItem name="关闭" src="close.gif" id="close"/>
+            <divider id="file"/>
+           <MenuItem name="另存为" id="saveAs"/>
+            <MenuItem name="导出为" id="pagego"/>
+			<MenuItem name="打印" id="preview"/>
+
+
+
+-->
+	</MenuItem>
+	<MenuItem name="编辑(E)"  id="main_file1" width="65px" panelWidth="110px" withoutImages="yes">
+
+        <divider id="clear"/>
+             <MenuItem name="打开运行路径" id="edittmp"/>
+		    <MenuItem name="打开编译器路径" id="editjsp"/>
+             <divider id="tablehebing"/>
+            <MenuItem name="清除缓存" id="clear"/>
+			<MenuItem name="覆盖所有活动配置" id="copy"/>
+<!--			
+<MenuItem name="撤销" src="undo.gif" id="edit_undo"/>
+			<MenuItem name="恢复" src="redo.gif"  id="edit_redo"/>
+          
+
+
+  <divider id="editcopy"/>
+            <MenuItem name="复制" src="copy.gif" id="copy"/>
+			<MenuItem name="剪切" src="cut.gif" id="cut"/>
+        	<MenuItem name="粘贴" src="paste.gif" id="paste"/>
+           <divider id="editcopy2"/>
+            <MenuItem name="复制到粘贴板" src="copytoblock.gif" id="copytoblock"/>
+			<MenuItem name="从粘贴板复制" src="blocktocut.gif" id="blocktocut"/>
+        <divider id="clear"/>
+            <MenuItem name="清除全部内容" id="copytoblock"/>
+             <MenuItem name="清除所选内容" id="blocktocut"/>
+         <divider id="clear"/>
+             <MenuItem name="删除行" id="delSelecedtLine"/>
+		    <MenuItem name="删除列" id="delSelecedtCol"/>
+                <divider id="tablehebing"/>
+            <MenuItem name="合并单元格" id="hebing"/>
+			<MenuItem name="拆分单元格" id="caifen"/>
+         <divider id="tablelock"/>
+            <MenuItem name="锁定区域" id="lockBlock"/>
+			<MenuItem name="锁定行" id="lockRow"/>
+            <MenuItem name="锁定列" id="lockCol"/>
+-->
+
+    </MenuItem>
+<!--
+	<MenuItem name="格式(O)"  id="main_file2" width="65px" panelWidth="110px" withoutImages="yes">
+              <MenuItem name="单元格" id="cellStyle"/>
+              <MenuItem name="行" id="rowStyle"  withoutImages="yes">
+				<MenuItem name="行高"  id="rowHeigth"/>
+                <MenuItem name="自动行高"  id="AutoRowHeigth"/>
+                <MenuItem name="隐藏"  id="doRowHide"/>
+				<MenuItem name="取消隐藏"  id="doRowShow"/>
+			  </MenuItem>
+
+            <MenuItem name="列" id="colStyle">
+               <MenuItem name="列宽"  id="colWidth"/>
+               <MenuItem name="标准列宽"  id="AutoColWidth"/>
+                <MenuItem name="隐藏"  id="doRColHide"/>
+				<MenuItem name="取消隐藏"  id="doColShow"/>
+			</MenuItem>
+           <MenuItem name="工作表" id="tableStyle">
+                <MenuItem name="底色"  id="backClore"/>
+                <MenuItem name="背景"  id="backimg"/>
+                <MenuItem name="样式"  id="style"/>
+			</MenuItem>
+
+           <MenuItem name="选中块" id="blockStyle">
+                <MenuItem name="底色"  id="blockbackClore"/>
+                <MenuItem name="背景"  id="blockbackimg"/>
+                <MenuItem name="样式"  id="blockstyle"/>
+           </MenuItem>
+       </MenuItem>
+
+     <MenuItem name="查看(V)"  id="main_file2" width="65px" panelWidth="110px" withoutImages="yes">
+         <MenuItem name="显示/隐藏公式" id="hideExpression"/>
+		<MenuItem name="显示/隐藏 锁" id="hideLokRow"/>
+        <MenuItem name="单元格属性" id="property"/>
+
+    </MenuItem>
+	<MenuItem name="公式(G)" id="expression"  width="65px" panelWidth="110px">
+			<MenuItem name="查找公式" id="findexpression"/>
+			<MenuItem name="编辑公式"  id="editexpression" />
+			<divider id="yewu"/>
+			<MenuItem name="查看业务数据模型" id="cut"/>
+			<MenuItem name="修改业务数据模型" id="copy"/>
+
+	</MenuItem>
+   
+	<MenuItem name="帮助(H)" id="main_help" width="65px" panelWidth="110px">
+			<MenuItem name="索引" width="120px" src="help.gif"  id="help_index"/>
+			<divider id="div_5"/>	
+			<MenuItem name="查找"  id="help_about"/>
+           <MenuItem name="版本信息"  id="help_about"/>
+    </MenuItem>
+
+   <MenuItem name="布局" id="main_layout" width="65px" panelWidth="110px" withoutImages="yes">
+
+		<MenuItem name="生成基本布局树" width="120px"  id="createEmptyLayoutTree"/>
+
+		<MenuItem name="生成布局树"  id="createLayoutTree"/>
+		<MenuItem name="重置布局"  id="resetLayoutMenu"/>
+		<MenuItem name="生成报表模型"  id="generateCode"/>
+	</MenuItem>
+-->
+</menu>

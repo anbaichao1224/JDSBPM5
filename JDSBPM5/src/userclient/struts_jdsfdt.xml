@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE struts PUBLIC    
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+    
+<struts>   
+	<package name="update" extends="struts-default" >
+		<action name="update" class="net.itjds.usm2.action.UpdateAction" method="update">
+			<result>/jsondata.jsp</result>
+		
+		</action>	
+		
+		<action name="updateUsmData" class="net.itjds.usm2.action.UpdateUsmDataAction" >
+		<result>/jsondata.jsp</result>
+		
+		</action>	
+	
+		
+		
+			<action name="fdtattachUpload"
+			class="net.itjds.fdt.attachment.UploadAttachmentAction">			 
+			<result name="input">	
+			</result>
+			<result name="success">		
+			</result>
+		</action>
+		
+			<action name="fdtfileList"
+			class="net.itjds.fdt.attachment.FileListAction">
+			<result name="input"></result>
+			<result name="success">
+				/fdt/attachment/filelist.jsp
+			</result>
+		</action>
+		<action name="fdtfiledisplay"
+			class="net.itjds.fdt.attachment.FileDisplayAction">
+			<result name="input"></result>
+			<result name="success">
+				/fdt/common/attachment/filedisplay.jsp
+			</result>
+		</action>
+		<action name="fdtfiledel"
+			class="net.itjds.fdt.attachment.DelFileAction">
+			<result name="input"></result>
+			<result name="success">/fdt/attachment/filedel.jsp			
+			</result>
+		</action>
+   
+		<action name="fdtfileinclude"
+			class="net.itjds.fdt.attachment.FileIncludeAction">
+			<result name="success">
+				/fdt/attachment/fileinclude.jsp
+			</result>
+		</action>
+		<action name="fdtdownloadfile" class="net.itjds.fdt.attachment.DownLoadAction"> 
+		<result name="success" type="stream"> 
+			<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+		</result> 
+		</action>
+		
+		
+     
+		
+    </package>  
+</struts>   

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<config>
+  <plugin>
+    <id>fdt_webword_display</id>
+    <title>插入WebWord</title>
+    <imgFileName>fdt_webword_icon.gif</imgFileName>
+    <codeFileName>fdt_webword_code.txt</codeFileName>
+  </plugin>
+  <plugin>
+    <id>fdt_attachManage_plugin</id>
+    <title>附件管理插件</title>
+    <imgFileName>fdt_test.gif</imgFileName>
+    <codeFileName>fdt_attachManage_code.txt</codeFileName>
+  </plugin>
+</config>

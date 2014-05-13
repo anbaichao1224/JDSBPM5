@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="owen" location="0,0" size="0,0">
+    <action name="kzxdbpmDataProcessBind" location="0,0" size="0,0" />
+  </package>
+  <package name="upload" location="0,0" size="0,0">
+    <action name="uploadAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mycomment.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="kzxdform" location="0,0" size="0,0">
+    <action name="kzxdformdisplay" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="display.jsp" />
+      </result>
+    </action>
+    <action name="kzxdBPMClientFormDisplayAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="formDisplay.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="xxkgz" location="0,0" size="0,0">
+    <action name="xxkgzAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="testdata.jsp" />
+      </result>
+    </action>
+    <action name="xxkgzInfoAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="xxkgzInfo.jsp" />
+      </result>
+    </action>
+    <action name="xxkgzInfolistAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="testdata.jsp" />
+      </result>
+    </action>
+    <action name="xxkgzSaveAndUpdateAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="xxkgzInfo.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="xxkbsbd" location="0,0" size="0,0">
+    <action name="getbsbdAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="xxkbsbdcg.jsp" />
+      </result>
+      <result name="baosong">
+        <resourceEdge source="baosong" routing="0" target="xxkbsbdhis.jsp" />
+      </result>
+    </action>
+    <action name="getbsbdlistAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bdgriddatacg.jsp" />
+      </result>
+    </action>
+    <action name="tocaogaoAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bdqicao.jsp" />
+      </result>
+    </action>
+    <action name="tobiaodanAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="xxkbsbd.jsp" />
+      </result>
+    </action>
+    <action name="savebsbdAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bdgrid.jsp" />
+      </result>
+    </action>
+    <action name="basongbdAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="testdata.jsp" />
+      </result>
+    </action>
+    <action name="liebiaoAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bdgrid.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="xxkbsbh" location="0,0" size="0,0">
+    <action name="tobhbiaodanAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="formbiaodan.jsp" />
+      </result>
+    </action>
+    <action name="getbsbhAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="xxkbsbdbh.jsp" />
+      </result>
+    </action>
+    <action name="getAllBydwAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bhgriddatacg.jsp" />
+      </result>
+    </action>
+    <action name="updatetjAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bhgriddatacg.jsp" />
+      </result>
+    </action>
+    <action name="xxktuihuiAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="bhgriddatacg.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="xxkbstj" location="0,0" size="0,0">
+    <action name="xxkbstjAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="tjgrid.jsp" />
+      </result>
+    </action>
+    <action name="getAllTjAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="tjgrid.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="self" location="0,0" size="0,0">
+    <action name="selfsave" location="0,0" size="0,0" />
+    <action name="selfdocumentAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="testself.jsp" />
+      </result>
+    </action>
+    <action name="selfdocinclude" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="docinclude.jsp" />
+      </result>
+    </action>
+    <action name="selfopenAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="createDocument.jsp" />
+      </result>
+    </action>
+    <action name="downLoadfileAction" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="documentmodel" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="documentmodel.jsp" />
+      </result>
+    </action>
+    <action name="documentmodelupload" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="documentmodelupload.jsp" />
+      </result>
+    </action>
+    <action name="docupload" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="documentmodelupload.jsp" />
+      </result>
+    </action>
+    <action name="docupload_*" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="metting" location="0,0" size="0,0">
+    <action name="bpmmatter_*" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="createMetting.jsp" />
+      </result>
+      <result name="treesuccess">
+        <resourceEdge source="treesuccess" routing="0" target="blmatter.jsp" />
+      </result>
+      <result name="update">
+        <resourceEdge source="update" routing="0" target="updatematter.jsp" />
+      </result>
+      <result name="addmatter">
+        <resourceEdge source="addmatter" routing="0" target="addmatter.jsp" />
+      </result>
+    </action>
+    <action name="savematter" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="createMetting.jsp" />
+      </result>
+    </action>
+    <action name="savemetting" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="createMetting.jsp" />
+      </result>
+    </action>
+    <action name="metting_*" location="0,0" size="0,0">
+      <result name="bjsuccess" />
+      <result name="findmettingbyid" />
+      <result name="success" />
+    </action>
+    <action name="mettingLbTree" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="saveBlInfo" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="matterinfo_*" location="0,0" size="0,0">
+      <result name="updateInfo11" />
+      <result name="updateInfo" />
+      <result name="getModule" />
+      <result name="bjmatter" />
+      <result name="reblmatter" />
+    </action>
+    <action name="demoInserSelf" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getHistory" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="BPMClientFormDisplaySelf" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="mfileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="sfileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="docexchangefileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="sdocexchangefileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="mdownloadfile" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="mfileList" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="mfiledisplay" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="mfiledel" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="mattachUpload" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="mattachUpload1" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="gzrzAction_*" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="rcapAction_*" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="gzrdyAction_*" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="sxtxAction_*" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="exportExcelAction" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="noticeAction_*" location="0,0" size="0,0">
+      <result name="list" />
+      <result name="receiveview" />
+      <result name="sentview" />
+      <result name="deleteQxAll" />
+      <result name="deleteQx" />
+    </action>
+    <action name="reply_*" location="0,0" size="0,0">
+      <result name="list" />
+      <result name="view" />
+      <result name="findreply" />
+    </action>
+    <action name="NoticedeptAction_*" location="0,0" size="0,0">
+      <result name="depttree" />
+      <result name="deptLeadertree" />
+      <result name="deptkytree" />
+    </action>
+    <action name="djdeptAction_*" location="0,0" size="0,0">
+      <result name="depttree" />
+    </action>
+    <action name="category_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="categoryDetail" />
+    </action>
+    <action name="roll_*" location="0,0" size="0,0">
+      <result name="rolllist" />
+      <result name="rolldetail" />
+      <result name="rolldetailbyapp" />
+      <result name="select" />
+      <result name="treelist" />
+    </action>
+    <action name="data_*" location="0,0" size="0,0">
+      <result name="datalist" />
+      <result name="createDocument" />
+      <result name="addData" />
+      <result name="error" />
+    </action>
+    <action name="rfileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="rdownloadfile_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="rfileList" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="rfiledisplay" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="rfiledel" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="rattachUpload" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="mdownLoadfileAction" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="pepodom_*" location="0,0" size="0,0">
+      <result name="rolllist" />
+      <result name="recordlist" />
+      <result name="verilist" />
+      <result name="treelist" />
+      <result name="apppass" />
+    </action>
+    <action name="hqdeptAction_*" location="0,0" size="0,0">
+      <result name="depttree" />
+    </action>
+    <action name="HqYewuAction_*" location="0,0" size="0,0">
+      <result name="hqck" />
+      <result name="swhqck" />
+      <result name="hqjbl" />
+      <result name="swhqjbl" />
+      <result name="hqqs" />
+      <result name="swhqqs" />
+    </action>
+    <action name="ztAction" location="0,0" size="0,0">
+      <result name="zt" />
+    </action>
+    <action name="listztAction" location="0,0" size="0,0" />
+    <action name="listckztAction" location="0,0" size="0,0" />
+    <action name="ckztAction" location="0,0" size="0,0">
+      <result name="ckzt" />
+    </action>
+    <action name="hqFW" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hqJBL" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hqSW" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hqswJBL" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="zhengwen" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hqzhengwen" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="zwhqdownloadfile" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="hqdocexchangefileinclude" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="hqmfileList" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+    <action name="hqdownloadfile" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error" />
+    </action>
+  </package>
+  <package name="" location="0,0" size="0,0">
+    <action name="SwdjAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="addpage" />
+      <result name="showmanagne" />
+      <result name="djck" />
+      <result name="znbgw" />
+      <result name="updatepage" />
+    </action>
+    <action name="startP" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="gotoP" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="LwdjAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="showmanagne" />
+      <result name="addpage" />
+      <result name="updatepage" />
+    </action>
+    <action name="djBPMClientFormDisplay" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="jbl" location="0,0" size="0,0">
+    <action name="JblAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="jblck" />
+    </action>
+    <action name="startP" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="gotoP" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="jblBPMClientFormDisplay" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="search" location="0,0" size="0,0">
+    <action name="searchAction_*" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="search_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="search" />
+    </action>
+    <action name="rtxAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="keySvr" />
+    </action>
+    <action name="testPdf" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="monitorcs" location="0,0" size="0,0">
+    <action name="bpmAdminDataProcessBindself" location="0,0" size="0,0" />
+  </package>
+  <package name="tj" location="0,0" size="0,0">
+    <action name="gwtjAction" location="0,0" size="0,0">
+      <result name="tjshow" />
+    </action>
+    <action name="findChildDept" location="0,0" size="0,0">
+      <result name="tjshow" />
+    </action>
+    <action name="findPersonByDept" location="0,0" size="0,0">
+      <result name="tjshow" />
+    </action>
+    <action name="findGwType" location="0,0" size="0,0" />
+  </package>
+  <package name="ttmanager" location="0,0" size="0,0">
+    <action name="ttManagerAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="selectlist" />
+      <result name="addHong" />
+    </action>
+    <action name="doctopdf_*" location="0,0" size="0,0">
+      <result name="showpdf" />
+      <result name="success" />
+    </action>
+  </package>
+  <package name="exportpac" location="0,0" size="0,0">
+    <action name="orgExportToRtx" location="0,0" size="0,0" />
+    <action name="rccx" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOrgName" location="0,0" size="0,0">
+      <result name="addlist" />
+    </action>
+    <action name="ajaxGetMsg" location="0,0" size="0,0" />
+    <action name="ajaxPuttMsg" location="0,0" size="0,0" />
+  </package>
+  <package name="tixing" location="0,0" size="0,0">
+    <action name="tixing_*" location="0,0" size="0,0" />
+  </package>
+  <package name="zhengwen" location="0,0" size="0,0">
+    <action name="zhengwen_*" location="0,0" size="0,0" />
+  </package>
+  <package name="abortPro" location="0,0" size="0,0">
+    <action name="abortProcess" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="gwjhAction" location="0,0" size="0,0">
+    <action name="gwjhAction_*" location="0,0" size="0,0">
+      <result name="gwjhpage" />
+      <result name="sendContent" />
+      <result name="inceptContent" />
+      <result name="inceptysContent" />
+      <result name="cancelbackContent" />
+      <result name="addHzPage" />
+      <result name="replyContent" />
+      <result name="addBackPage" />
+      <result name="backContent" />
+      <result name="addBmPage" />
+      <result name="taddBmPage" />
+      <result name="toBMList" />
+      <result name="toNotBMList" />
+    </action>
+    <action name="deptAction_*" location="0,0" size="0,0">
+      <result name="depttree" />
+      <result name="addbmtree" />
+      <result name="depttreehq" />
+    </action>
+    <action name="TzlcAction_*" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="toGwjh" />
+      <result name="swtoGwjh" />
+      <result name="toTZGG" />
+      <result name="transSWDJ" />
+    </action>
+    <action name="CljAction_*" location="0,0" size="0,0">
+      <result name="createDocument" />
+    </action>
+    <action name="rattachUpload1" location="0,0" size="0,0">
+      <result name="input" />
+      <result name="success" />
+    </action>
+  </package>
+  <package name="nbgwjhAction" location="0,0" size="0,0">
+    <action name="nbgwjhAction_*" location="0,0" size="0,0">
+      <result name="addnewPage" />
+      <result name="sendContent" />
+      <result name="inceptContent" />
+      <result name="cancelbackContent" />
+      <result name="addHzPage" />
+      <result name="replyContent" />
+      <result name="addBackPage" />
+      <result name="backContent" />
+    </action>
+    <action name="nbgwjhdeptAction_*" location="0,0" size="0,0">
+      <result name="depttree" />
+    </action>
+  </package>
+  <package name="phoneloginAction" location="0,0" size="0,0">
+    <action name="phoneloginAction_*" location="0,0" size="0,0" />
+    <action name="IOSAndAndroidResult_*" location="0,0" size="0,0" />
+    <action name="IOSAndAndroidCompleted_*" location="0,0" size="0,0" />
+    <action name="IOSAndAndroidInformation_*" location="0,0" size="0,0" />
+    <action name="CommentsAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="CommonComments" location="0,0" size="0,0">
+    <action name="CommonComments" location="0,0" size="0,0" />
+  </package>
+  <package name="PhoneSMS" location="0,0" size="0,0">
+    <action name="PhoneSMS_*" location="0,0" size="0,0" />
+    <action name="phonenoticeAction_*" location="0,0" size="0,0" />
+    <action name="phonengwjhAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="SendSMS" location="0,0" size="0,0">
+    <action name="SendSMS_*" location="0,0" size="0,0" />
+  </package>
+  <package name="CopyFileAction" location="0,0" size="0,0">
+    <action name="CopyFileAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="CommentsAction" location="0,0" size="0,0">
+    <action name="CommentsAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="DelcommentsAction" location="0,0" size="0,0">
+    <action name="DelcommentsAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="UpcommentsAction" location="0,0" size="0,0">
+    <action name="UpcommentsAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="BPMClientUpdateAction" location="0,0" size="0,0">
+    <action name="BPMClientUpdateAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="SelectPerformer" location="0,0" size="0,0">
+    <action name="SelectPerformer_*" location="0,0" size="0,0" />
+  </package>
+  <package name="deptAction1" location="0,0" size="0,0">
+    <action name="deptAction1_*" location="0,0" size="0,0" />
+  </package>
+  <package name="PhonegwjhAction" location="0,0" size="0,0">
+    <action name="PhonegwjhAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="PhoneHqYewuAction" location="0,0" size="0,0">
+    <action name="PhoneHqYewuAction_*" location="0,0" size="0,0" />
+  </package>
+  <package name="NbyjAction" location="0,0" size="0,0">
+    <action name="nbyjAction_*" location="0,0" size="0,0">
+      <result name="nbyj" />
+    </action>
+  </package>
+  <package name="tbm" location="0,0" size="0,0">
+    <action name="RootAction_*" location="0,0" size="0,0">
+      <result name="addRoot" />
+      <result name="addRootCatalog" />
+      <result name="showListRoot" />
+      <result name="deleteRoot" />
+      <result name="rootTree" />
+      <result name="updateRoot" />
+    </action>
+    <action name="tbmAction_*" location="0,0" size="0,0">
+      <result name="toAddZml" />
+      <result name="toUpdateYm" />
+      <result name="isRoot" />
+      <result name="muluTree" />
+    </action>
+    <action name="personAction_*" location="0,0" size="0,0">
+      <result name="toAddPerson" />
+      <result name="toUpdatePerson" />
+    </action>
+  </package>
+  <webResource name="mycomment.jsp" path="/desktop/widgets/bpm/form/comments/mycomment.jsp" location="0,0" size="0,0" />
+  <webResource name="display.jsp" path="/desktop/widgets/bpm/form/display/display.jsp" location="0,0" size="0,0" />
+  <webResource name="formDisplay.jsp" path="/fdt/display/formDisplay.jsp" location="0,0" size="0,0" />
+  <webResource name="testdata.jsp" path="/desktop/testdata.jsp" location="0,0" size="0,0" />
+  <webResource name="xxkgzInfo.jsp" path="/desktop/baosongpingfen/xxkgzInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="xxkbsbdcg.jsp" path="/desktop/baosongbiaodan/xxkbsbdcg.jsp" location="0,0" size="0,0" />
+  <webResource name="xxkbsbdhis.jsp" path="/desktop/baosongbiaodan/xxkbsbdhis.jsp" location="0,0" size="0,0" />
+  <webResource name="bdgriddatacg.jsp" path="/desktop/baosongbiaodan/bdgriddatacg.jsp" location="0,0" size="0,0" />
+  <webResource name="bdqicao.jsp" path="/desktop/baosongbiaodan/bdqicao.jsp" location="0,0" size="0,0" />
+  <webResource name="xxkbsbd.jsp" path="/desktop/baosongbiaodan/xxkbsbd.jsp" location="0,0" size="0,0" />
+  <webResource name="bdgrid.jsp" path="/desktop/baosongbiaodan/bdgrid.jsp" location="0,0" size="0,0" />
+  <webResource name="formbiaodan.jsp" path="/desktop/baosongbiaodan/formbiaodan.jsp" location="0,0" size="0,0" />
+  <webResource name="xxkbsbdbh.jsp" path="/desktop/baosongbiaodan/xxkbsbdbh.jsp" location="0,0" size="0,0" />
+  <webResource name="bhgriddatacg.jsp" path="/desktop/baosongbiaodan/bhgriddatacg.jsp" location="0,0" size="0,0" />
+  <webResource name="tjgrid.jsp" path="/desktop/baosongpingfen/tjgrid.jsp" location="0,0" size="0,0" />
+  <webResource name="testself.jsp" path="/desktop/widgets/bpm/form/document/testself.jsp" location="0,0" size="0,0" />
+  <webResource name="docinclude.jsp" path="/desktop/widgets/bpm/form/document/docinclude.jsp" location="0,0" size="0,0" />
+  <webResource name="createDocument.jsp" path="/desktop/widgets/bpm/form/document/createDocument.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/desktop/widgets/bpm/form/attachment/index.jsp" location="0,0" size="0,0" />
+  <webResource name="documentmodel.jsp" path="/desktop/widgets/bpm/form/document/documentmodel.jsp" location="0,0" size="0,0" />
+  <webResource name="documentmodelupload.jsp" path="/desktop/widgets/bpm/form/document/documentmodelupload.jsp" location="0,0" size="0,0" />
+  <webResource name="createMetting.jsp" path="/desktop/widgets/metting/createMetting.jsp" location="0,0" size="0,0" />
+  <webResource name="blmatter.jsp" path="/desktop/widgets/metting/blmatter.jsp" location="0,0" size="0,0" />
+  <webResource name="updatematter.jsp" path="/desktop/widgets/metting/updatematter.jsp" location="0,0" size="0,0" />
+  <webResource name="addmatter.jsp" path="/desktop/widgets/metting/addmatter.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

@@ -1,0 +1,66 @@
+﻿<?xml version='1.0' ?>
+<menu maxItems="12" name="资源管理器" mixedImages="yes" withoutImages="yes">
+	<MenuItem name="文件(F)"  panelWidth="110px"   id="main_file"  width="65px"  withoutImages="yes">	
+            <MenuItem name="打开" src=".gif" id="open"/>
+            <MenuItem name="新建" src="newfile.gif" id="newfile"/>
+            <MenuItem name="导入" src="excel.gif" id="excel"/>
+           <divider id="fileopen"/>
+             <MenuItem name="导出" id="pagego"/>
+           <divider id="filepagego"/>
+			<MenuItem name="删除" id="delete"/>
+           <divider id="filepreview"/>
+           <MenuItem name="关闭" src="close.gif" id="close"/>
+	</MenuItem>
+
+	<MenuItem name="编辑(E)"  id="main_file1" width="65px" panelWidth="110px" withoutImages="yes">
+			
+            <MenuItem name="复制" src="copy.gif" id="copy"/>
+			<MenuItem name="剪切" src="cut.gif" id="cut"/>
+        	<MenuItem name="粘贴" src="paste.gif" id="paste"/>
+            <divider id="editcopy2"/>
+           <MenuItem name="移动到文件夹" id="copytofolder"/>
+			<MenuItem name="复制到文件夹" id="cuttofolder"/>
+        <divider id="editcopy2"/>
+            <MenuItem name="全部选定" src="copytoblock.gif" id="copytoblock"/>
+			<MenuItem name="反向选择" src="blocktocut.gif" id="blocktocut"/>
+    </MenuItem>
+	<MenuItem name="查看(V)"  id="main_file2" width="65px" panelWidth="110px" withoutImages="yes">
+              <MenuItem name="略缩图" id="imglist"/>
+               <MenuItem name="平铺" id="ficon"/>
+               <MenuItem name="列表" id="ftable"/>
+               <MenuItem name="图标" id="view_icons"/>
+               <MenuItem name="详细信息" id="tablelist"/>
+    <divider id="editcopy2"/>
+              <MenuItem name="排列图表" id="iconorder"  withoutImages="yes">
+				<MenuItem name="名称"  id="nameorder"/>
+                <MenuItem name="大小"  id="sizeorder"/>
+                <MenuItem name="类型"  id="typeorder"/>
+				<MenuItem name="修改时间"  id="midorder"/>
+			  </MenuItem>
+    <divider id="editcopy2"/>
+            <MenuItem name="转到" id="goto">
+               <MenuItem name="根目录"  id="gohome"/>
+               <MenuItem name="上级目录"  id="goup"/>
+                <MenuItem name="后退"  id="goback"/>
+				<MenuItem name="前进"  id="goon"/>
+			</MenuItem>
+              <divider id="editcopy2"/> 
+           <MenuItem name="刷新" id="refreshView">
+            
+           </MenuItem>
+       </MenuItem>
+
+	<MenuItem name="工具(T)" id="expression"  width="65px" panelWidth="90px">
+			<MenuItem name="同步本地文件" id="findexpression"/>
+			<MenuItem name="同步服务器文件"  id="editexpression" />
+		</MenuItem>
+   
+	<MenuItem name="帮助(H)" id="main_help" width="65px" panelWidth="110px">
+			<MenuItem name="索引" width="120px" src="help.gif"  id="help_index"/>
+			<divider id="div_5"/>	
+			<MenuItem name="查找"  id="help_about"/>
+           <MenuItem name="版本信息"  id="help_about"/>
+    </MenuItem>
+
+  
+</menu>

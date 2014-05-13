@@ -1,0 +1,9 @@
+open  运行中
+running 办理中
+notRunning 未办理
+notStarted 草稿
+suspended 挂起
+closed 未运行
+aborted 取消
+terminated 中止
+completed 已完成

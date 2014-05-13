@@ -1,0 +1,17 @@
+﻿<?xml version='1.0' ?>
+<menu absolutePosition="auto" mode="popup" maxItems="10" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+		<MenuItem name="复制" src="copy.gif"  id="copy"/>
+		<MenuItem name="粘贴" src="paste.gif"  id="paste"/>
+		<MenuItem name="清除" src="cut.gif"  id="contextcut"/>
+   <divider id="contextCopyExpressiondiv"/>
+        <MenuItem name="复制到粘贴板" src="contextCopy2Block.gif"  id="contextCopy2Block"/>
+		<MenuItem name="从粘贴板复制" src="contextCopy4Block.gif"  id="contextCopy4Block"/>
+    <divider id="copyExpressiondiv"/>
+      <MenuItem name="复制公式" src="copyExpression.gif" id="copyExpression" width="120px" panelWidth="120"></MenuItem>
+        <MenuItem name="编辑公式" src="contexteditExpression.gif"  id="contextEditExpression"/>
+    <divider id="editExpressiondiv"/>
+
+        <MenuItem name="编辑属性" src="cellProperty.gif"  id="contextEditProperty"/>
+      <divider id="caifenExpressiondiv"/>
+        <MenuItem name="拆分单元格" src="caifen.gif"  id="contextCaifen"/>
+</menu>

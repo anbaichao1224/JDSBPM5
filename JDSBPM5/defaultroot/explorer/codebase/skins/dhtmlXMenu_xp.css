@@ -1,0 +1,232 @@
+/*button text - all levels*/
+ .menuButtonSecond td,  .menuButton td,  .menuButtondown td, .menuButtonover td {
+	  border-top :  1px ;
+	border-left: 1px  ;
+	border-right:1px   ;
+	border-bottom:1px  ; 
+	cursor:default;
+}
+/*menu text - all levels*/
+ .defaultMenuText{
+	font: 11px Tahoma,Arial;
+	padding-left:10px;
+	padding-right:5px;
+}
+/*menu caption if any*/
+ .menuName{
+	color : gray;
+	letter-spacing : 7px;
+	font : 11px Arial,sans-serif;
+	padding-left : 10px;
+	padding-right : 10px;
+}
+/*========= BUTTONS ======================*/
+
+/*plain button state - top level*/
+ .menuButton {
+ border: 1px;
+	border : solid 0px #808080;
+}
+/*down button state - top level*/
+ .menuButtondown {
+     
+    border-top : solid 1px #ffffff;
+	border-left: 1px solid #ffffff ;
+	border-right:1px outset  #808080;
+	border-bottom:1px outset #808080; 
+	color:#000000;
+	cursor : default;
+}
+/*mouse over button state - top level*/
+ .menuButtonover {
+	     border-top : solid 1px #ffffff;
+			border: 1px solid #ffffff ;
+			border-right:1px outset  #808080;
+			border-bottom:1px outset #808080; 
+	color:#000000;
+	cursor : default;
+}
+/*text color for pressed and over items - top level*/
+ .menuButtondown .defaultMenuText, .menuButtonover .defaultMenuText{
+	border: 1px;
+	color:#000000;
+}
+/*plain button state - other levels*/
+ .menuButtonSecond {
+     height:25px;
+  
+	font:12px Arial,sans-serif;
+}
+/*mouse over button and down button states - other levels*/
+ .menuButtonSecondover, .menuButtonSeconddown {
+	padding:0 0 0 1;
+	margin: 0 1 0 1;
+	height:25px;
+    background-color : #F3F3F3;
+	color:navy;
+	cursor : default;
+	border:1px solid #316ac5;
+	font:12px Arial,sans-serif;
+}
+/*icon place style on button over/down - other levels
+.menuButtonSeconddownimg {
+	background-color : #C9D9F5;
+}*/
+
+/*text of mouse over button - other levels*/
+ .menuButtonSeconddown td {
+	color:navy;
+	 cursor:default;
+	 border:0px solid;
+}
+
+
+/*============ PANELS and DEVIDERS ===========================================*/
+
+/*manu panel - top level*/
+ .menuTable{
+     background-color : #F3F3F3;
+	        border-top : solid 1px #ffffff;
+			border-left: 1px solid #808080;
+			border-right:0px outset #808080;
+			border-bottom:1px outset #ffffff;
+			margin : 0px;
+			-moz-user-select : none;
+			padding : 0 1 0 2;
+			margin-top:0px;
+			background-repeat : repeat-y;
+
+	
+}
+/*menu panel - other levels*/
+ .secondMenuTable{
+	background-color : #F3F3F3;
+			border: 1px solid #808080;
+			border-right:2px outset #ffffff;
+			border-bottom:2px outset #ffffff;
+			margin : 0px;
+			-moz-user-select : none;
+			padding : 0 1 0 2;
+			margin-top:-1px;
+			background-repeat : repeat-y;
+			
+}
+
+/*devider - horizontal*/
+ .menudivider {
+	background-color : #ece9d8;
+	border-left : solid #808080 1px;
+	border-right : solid #FFFFFF 1px;
+	height : 100%;
+	margin-bottom : 2px;
+	margin-top : 1px;
+	overflow : hidden;
+	vertical-align : middle;
+	width : 2px;
+}
+/*devider - vertical*/
+ .menudividery {
+	background-color : #ece9d8;
+	border-bottom : solid #FFFFFF 1px;
+	border-top : solid #808080 1px;
+	height : 2px;
+	overflow : hidden;
+	width : 100%;
+}
+
+/*================== DRAG HANDLERS ==================*/
+
+/*drag handler for menu - horizontal*/
+ .menuhandle {
+	background-color : #ece9d8;
+	border-bottom : solid #808080 1px;
+	border-left : solid #FFFFFF 1px;
+	border-right : solid #808080 1px;
+	border-top : solid #FFFFFF 1px;
+	cursor : move;
+	height : 100%;
+	overflow : hidden;
+	width : 3px;
+}
+/*drag handler for menu - vertical*/
+ .vmenuhandle {
+	background-color : #ece9d8;
+	border-bottom : solid #808080 1px;
+	border-left : solid #FFFFFF 1px;
+	border-right : solid #808080 1px;
+	border-top : solid #FFFFFF 1px;
+	cursor : move;
+	height : 3px;
+}
+
+
+/*============ ICONS and SCROLLERS ====================*/
+
+/*disabled icon - all levels*/
+ .iconGray {
+	filter : BlendTrans(Percent=50) gray(); 
+	cursor: default; 
+	border:solid 1px #ece9d8;
+}
+
+/*enabled scroller*/
+ .menuscrollerenabled{
+	background-color:#CAC8D4;
+	 cursor: pointer;	
+	 text-align:center;
+}
+/*disabled scroller*/
+ .menuscrollerdisabled{
+	background-color: #CAC8D4;
+	cursor: default;
+	visibility:hidden;
+	text-align:center;
+}
+
+	.contextMenu{
+			font-family:arial; font-size:8pt;
+		padding:1 1 1 2;
+		margin: 0 1 0 1;
+			text-align:left;
+			cursor:default;
+
+		}
+		.contextMenuOver, .contextMenuDown{
+			font-family:arial; font-size:8pt;
+		padding:0 0 0 1;
+		margin: 0 1 0 1;
+		text-align:left;
+			background-color:#F3F3F3;
+			color:navy;
+			cursor:default;
+			border:1px solid #808080;
+		}
+		.contextMenuOver td{
+			color:navy;
+		}
+		.contextmenuTable{
+            background-color : #F3F3F3;
+			border: 1px solid #808080;
+			border-right:2px outset #ffffff;
+			border-bottom:2px outset #ffffff;
+			margin : 0px;
+			-moz-user-select : none;
+			padding : 0 1 0 2;
+			margin-top:-1px;
+			
+			background-repeat : repeat-y;
+			//background-image : url(codebase/imgs/toolbar/bg_grad.gif);
+		}
+		/*add vertical gradient to all levels of menu*/
+		 .contextsecondMenuTable{
+			background-color : #F3F3F3;
+			border: 1px solid #808080;
+			border-right:2px outset #ffffff;
+			border-bottom:2px outset #ffffff;
+			margin : 0px;
+			-moz-user-select : none;
+			padding : 0 1 0 2;
+			margin-top:-1px;
+			background-repeat : repeat-y;
+			background-image : url(/imgs/formDef/bg_grad.gif);
+		}

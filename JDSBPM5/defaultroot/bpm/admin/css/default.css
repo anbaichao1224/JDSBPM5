@@ -1,0 +1,71 @@
+BODY          { margin:0px; background-color:#ffffff; font-size:12px; line-height:18px; }
+TABLE,TD      { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; }
+INPUT         { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; border:1px solid #555555; }
+SELECT        { FONT-SIZE:12px; LINE-HEIGHT:14px; letter-spacing:0px; border:1px solid #555555; }
+IMAGE         { border:0px; }
+
+.title_1      { background-color:#D3D3D3; padding-top:3px; }
+.title_2      { background:url(../images/bgtitle.jpg) right; }
+.title_3      { background-color:#8B8B8B; }
+.title_4      { border-right:1px solid #8B8B8B; }
+.loginButton { background: url(../images/login_button.jpg);border:0px;width:41px;padding-top:2px;color:#444444;height:20px; }
+
+.welcome_1    { color:#333333; letter-spacing:2px; }
+.welcome_2    { color:#004B9E; letter-spacing:5px; }
+
+.topmenu_1    { background-color:#9A9A9A; padding-top:3px; padding-left:8px; padding-right:8px; font-size:12px; line-height:14px; color:#ffffff; letter-spacing:1px; }
+.topmenu_1a   { background-color:#004B9E; padding-top:3px; padding-left:8px; padding-right:8px; font-size:12px; line-height:14px; color:#ffffff; letter-spacing:1px; }
+
+.menuentry_1  { border:1px solid #8B8B8B; background-color:#D3D3D3; padding-right:20px; }
+.menuentry_2  { border:1px solid #9A9A9A; background-color:#EDEDED; color:black; white-space:nowrap; padding-left:8px; padding-right:8px; padding-top:4px; }
+.menuentry_2a { border:1px solid #ffffff; background-color:#004B9E; color:white; white-space:nowrap; padding-left:8px; padding-right:8px; padding-top:4px; }
+
+.menuBar      { position:absolute; z-index:1; visibility: hidden; margin-left:-8; margin-top:8px;}
+
+A.toplink_1:link    { COLOR:#ffffff; TEXT-DECORATION:none; letter-spacing:1px; }
+A.toplink_1:visited { COLOR:#ffffff; TEXT-DECORATION:none; letter-spacing:1px; }
+A.toplink_1:active  { COLOR:#ffffff; TEXT-DECORATION:none; letter-spacing:1px; }
+A.toplink_1:hover   { COLOR:#ffffff; TEXT-DECORATION:none; letter-spacing:1px; }
+
+A:link        { COLOR:#000000; TEXT-DECORATION:none; }
+A:visited     { COLOR:#000000; TEXT-DECORATION:none; }
+A:active      { COLOR:#000000; TEXT-DECORATION:none; }
+A:hover       { COLOR:#ff3300; TEXT-DECORATION:none; }
+
+.dateText     { font-size: 12px; }
+.windowTitle  { COLOR: #ffffff; font-size:14px; line-height:30px; font-weight:bold; }
+.myDiv        { display:none; position:absolute; filter:Shadow (Color=#333333, Direction=135); }
+.menuTd       { background:#94CF84; border:1px solid #555555; }
+
+.leftBlank    { padding-left:3px; }
+.topBlank1    { padding-top:5px; }
+.topBlank2    { padding-top:10px; }
+.loginInput   { border:1px solid #ff9400; height:21px; }
+
+.indexInput   { border:1px solid #000000; height:17px; }
+.indexButton2 { border:1px solid #000000; height:19px; color:#262A74; background-color:#dddddd; }
+.indexButton1 { background: url(../images/index_button1.gif); border:0px; width:60px; height:17px; padding-top:1px; color:#262A74; }
+.indexBottom  { color:#CDD4EA; }
+.indexMenu1-1 { font-size:13px; color:#000000; }
+.indexMenu1-2 { color:#777777; }
+.indexTd1     { padding-right:3px; }
+.indexTd2     { padding-left:13px; }
+.indexTable1  { border-collapse:collapse; border-left:1px solid #DEE2EC; border-right:1px solid #DEE2EC; border-top:1px solid black; border-bottom:1px solid black; }
+.indexTable2  { border-collapse:collapse; }
+
+
+
+A.indexNews:link     { COLOR:#122AA3; TEXT-DECORATION:none}
+A.indexNews:visited  { COLOR:#122AA3; TEXT-DECORATION:none}
+A.indexNews:active   { COLOR:#122AA3; TEXT-DECORATION:none}
+A.indexNews:hover    { COLOR:#DD4900; TEXT-DECORATION:none}
+
+A.indexLink2:link    { COLOR:#CDD4EA; TEXT-DECORATION:none}
+A.indexLink2:visited { COLOR:#CDD4EA; TEXT-DECORATION:none}
+A.indexLink2:active  { COLOR:#CDD4EA; TEXT-DECORATION:none}
+A.indexLink2:hover   { COLOR:#ffff00; TEXT-DECORATION:none}
+
+A.menuitem:link    { COLOR:#ffffff; TEXT-DECORATION:none}
+A.menuitem:visited { COLOR:#ffffff; TEXT-DECORATION:none}
+A.menuitem:active  { COLOR:#ffffff; TEXT-DECORATION:none}
+A.menuitem:hover   { COLOR:#ffffff; TEXT-DECORATION:none}

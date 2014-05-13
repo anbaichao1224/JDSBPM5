@@ -1,0 +1,38 @@
+<HTML><HEAD><TITLE>日期选择</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+
+<style type="text/css">
+<!--
+.inputbutton {
+	font-size: 12px;
+	border: 1px solid #0F0F0F; 
+	background: #F5F5F5;
+	cursor:hand;
+}
+
+-->
+</style>
+
+<BODY bgColor="#EEF4FF" onload=fload()>
+<SCRIPT src="date.script" >
+</SCRIPT>
+
+<SCRIPT>
+function fload()
+{
+	fPopCalendar(document.all.txt1, document.all.txt1);
+}
+
+function fkeydown()
+{
+	if(event.keyCode==27){
+		event.returnValue = null;
+		window.returnValue = null;
+		window.close();
+	}
+}
+
+document.onkeydown=fkeydown;
+</SCRIPT>
+<INPUT id=txt1 style="DISPLAY: none"> 
+</BODY></HTML>

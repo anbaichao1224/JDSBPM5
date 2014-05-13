@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+  <!-- If database connection profile enabled -->
+  <connectionProfile>true</connectionProfile>
+
+  <server>
+  	<dumpCache>true</dumpCache>
+  	<cacheDbUser>sa</cacheDbUser>
+  	<cacheDbPassword></cacheDbPassword>
+  	<cacheDbURL>jdbc:hsqldb:hsql://localhost</cacheDbURL>
+  </server>
+
+  <!-- WorkflowServer administration configuration -->
+  <admin>
+    <StartAdminThread>true</StartAdminThread>
+    <host>127.0.0.1</host>
+    <port>10523</port>
+    <key>wysiwyg</key>
+  </admin>
+  
+  <!-- Login configuration -->
+  <singleLogin>false</singleLogin>
+  <session>
+  	<enabled>true</enabled>
+  	<ExpireTime>30</ExpireTime>
+  	<CheckInterval>30</CheckInterval>
+  </session>
+  
+  <!-- TimeControl configuration -->
+  <TimeControl>
+  	<enabled>true</enabled>
+  	<CheckInterval>30</CheckInterval>
+  </TimeControl>
+  
+  <!-- Data infrastructure manager configuration -->
+  <ProcessDefManager>
+    <class>net.itjds.bpm.engine.database.DbProcessDefManager</class>
+  </ProcessDefManager>
+
+    <DataMapManager>
+    <class>net.itjds.bpm.data.mapdao.MapDAODataMap</class>
+  </DataMapManager>
+  <ProcessDefVersionManager>
+    <class>net.itjds.bpm.engine.database.DbProcessDefVersionManager</class>
+  </ProcessDefVersionManager>
+  <ProcessInstManager>
+  	<class>net.itjds.bpm.engine.database.DbProcessInstManager</class>
+  </ProcessInstManager>
+  <ActivityDefManager>
+    <class>net.itjds.bpm.engine.database.DbActivityDefManager</class>
+  </ActivityDefManager>
+  <ActivityInstManager>
+    <class>net.itjds.bpm.engine.database.DbActivityInstManager</class>
+  </ActivityInstManager>
+  <ActivityInstHistoryManager>
+    <class>net.itjds.bpm.engine.database.DbActivityInstHistoryManager</class>
+  </ActivityInstHistoryManager>
+  <AttributeDefManager>
+    <class>net.itjds.bpm.engine.database.DbAttributeDefManager</class>
+  </AttributeDefManager>
+  <AttributeInstManager>
+    <class>net.itjds.bpm.engine.database.DbAttributeInstManager</class>
+  </AttributeInstManager>
+  <RouteDefManager>
+    <class>net.itjds.bpm.engine.database.DbRouteDefManager</class>
+  </RouteDefManager>
+  <RouteInstManager>
+    <class>net.itjds.bpm.engine.database.DbRouteInstManager</class>
+  </RouteInstManager>
+
+  <!-- Core Event configuration -->
+  <event>
+      <ServerEventListeners>
+        <listener></listener>
+      </ServerEventListeners>
+     
+   
+  </event>
+
+  <!-- functions here-->
+  <functions>
+    <!-- org -->
+    <GetAllChildrenOrg>
+        <class>net.itjds.common.org.expression.org.GetAllChildrenOrg</class>
+    </GetAllChildrenOrg>
+    <GetAllChildrenOrgs>
+        <class>net.itjds.common.org.expression.org.GetAllChildrenOrgs</class>
+    </GetAllChildrenOrgs>
+    <GetAllChildrenPlusSelfOrg>
+        <class>net.itjds.common.org.expression.org.GetAllChildrenPlusSelfOrg</class>
+    </GetAllChildrenPlusSelfOrg>
+    <GetAllChildrenPlusSelfOrgs>
+        <class>net.itjds.common.org.expression.org.GetAllChildrenPlusSelfOrgs</class>
+    </GetAllChildrenPlusSelfOrgs>
+    <GetAllParentOrg>
+        <class>net.itjds.common.org.expression.org.GetAllParentOrg</class>
+    </GetAllParentOrg>
+    <GetAllParentOrgs>
+        <class>net.itjds.common.org.expression.org.GetAllParentOrgs</class>
+    </GetAllParentOrgs>
+    <GetAllParentPlusSelfOrg>
+        <class>net.itjds.common.org.expression.org.GetAllParentPlusSelfOrg</class>
+    </GetAllParentPlusSelfOrg>
+    <GetAllParentPlusSelfOrgs>
+        <class>net.itjds.common.org.expression.org.GetAllParentPlusSelfOrgs</class>
+    </GetAllParentPlusSelfOrgs>
+    <GetChildrenOrg>
+        <class>net.itjds.common.org.expression.org.GetChildrenOrg</class>
+    </GetChildrenOrg>
+    <GetChildrenOrgs>
+        <class>net.itjds.common.org.expression.org.GetChildrenOrgs</class>
+    </GetChildrenOrgs>
+    <GetOrgByID>
+        <class>net.itjds.common.org.expression.org.GetOrgByID</class>
+    </GetOrgByID>
+    <GetOrgByIDs>
+        <class>net.itjds.common.org.expression.org.GetOrgByIDs</class>
+    </GetOrgByIDs>
+    <GetOrgByOrgLevel>
+        <class>net.itjds.common.org.expression.org.GetOrgByOrgLevel</class>
+    </GetOrgByOrgLevel>
+    <GetOrgByOrgLevels>
+        <class>net.itjds.common.org.expression.org.GetOrgByOrgLevels</class>
+    </GetOrgByOrgLevels>
+    <GetOrgByOrgRole>
+        <class>net.itjds.common.org.expression.org.GetOrgByOrgRole</class>
+    </GetOrgByOrgRole>
+    <GetOrgByOrgRoles>
+        <class>net.itjds.common.org.expression.org.GetOrgByOrgRoles</class>
+    </GetOrgByOrgRoles>
+    <GetOrgByPerson>
+        <class>net.itjds.common.org.expression.org.GetOrgByPerson</class>
+    </GetOrgByPerson>
+    <GetOrgID>
+        <class>net.itjds.common.org.expression.org.GetOrgID</class>
+    </GetOrgID>
+    <GetOrgName>
+        <class>net.itjds.common.org.expression.org.GetOrgName</class>
+    </GetOrgName>
+    <GetParentOrg>
+        <class>net.itjds.common.org.expression.org.GetParentOrg</class>
+    </GetParentOrg>
+    <GetParentOrgs>
+        <class>net.itjds.common.org.expression.org.GetParentOrgs</class>
+    </GetParentOrgs>
+	<!-- person -->
+	<FilterPersonByPersonDuty>
+		<class>net.itjds.common.org.expression.person.FilterPersonByPersonDuty</class>
+	</FilterPersonByPersonDuty>
+	<FilterPersonByPersonGroup>
+		<class>net.itjds.common.org.expression.person.FilterPersonByPersonGroup</class>
+	</FilterPersonByPersonGroup>
+	<FilterPersonByPersonLevel>
+		<class>net.itjds.common.org.expression.person.FilterPersonByPersonLevel</class>
+	</FilterPersonByPersonLevel>
+	<FilterPersonByPersonPosition>
+		<class>net.itjds.common.org.expression.person.FilterPersonByPersonPosition</class>
+	</FilterPersonByPersonPosition>
+	<FilterPersonByPersonRole>
+		<class>net.itjds.common.org.expression.person.FilterPersonByPersonRole</class>
+	</FilterPersonByPersonRole>
+	<GetPersonByID>
+		<class>net.itjds.common.org.expression.person.GetPersonByID</class>
+	</GetPersonByID>
+	<GetPersonByIDs>
+		<class>net.itjds.common.org.expression.person.GetPersonByIDs</class>
+	</GetPersonByIDs>
+	<GetPersonByOrg>
+		<class>net.itjds.common.org.expression.person.GetPersonByOrg</class>
+	</GetPersonByOrg>
+	<GetPersonByOrgs>
+		<class>net.itjds.common.org.expression.person.GetPersonByOrgs</class>
+	</GetPersonByOrgs>
+	<GetPersonByPersonDuty>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonDuty</class>
+	</GetPersonByPersonDuty>
+	<GetPersonByPersonDutys>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonDutys</class>
+	</GetPersonByPersonDutys>
+	<GetPersonByPersonGroup>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonGroup</class>
+	</GetPersonByPersonGroup>
+	<GetPersonByPersonGroups>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonGroups</class>
+	</GetPersonByPersonGroups>
+	<GetPersonByPersonLevel>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonLevel</class>
+	</GetPersonByPersonLevel>
+	<GetPersonByPersonLevels>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonLevels</class>
+	</GetPersonByPersonLevels>
+	<GetPersonByPersonPosition>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonPosition</class>
+	</GetPersonByPersonPosition>
+	<GetPersonByPersonPositions>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonPositions</class>
+	</GetPersonByPersonPositions>
+	<GetPersonByPersonRole>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonRole</class>
+	</GetPersonByPersonRole>
+	<GetPersonByPersonRoles>
+		<class>net.itjds.common.org.expression.person.GetPersonByPersonRoles</class>
+	</GetPersonByPersonRoles>
+	<GetPersonID>
+		<class>net.itjds.common.org.expression.person.GetPersonID</class>
+	</GetPersonID>
+	<GetPersonName>
+		<class>net.itjds.common.org.expression.person.GetPersonName</class>
+	</GetPersonName>
+	<GetPersonPhone>
+		<class>net.itjds.common.org.expression.person.GetPersonPhone</class>
+	</GetPersonPhone>
+	<GetPersonMobile>
+		<class>net.itjds.common.org.expression.person.GetPersonMobile</class>
+	</GetPersonMobile>
+	<GetPersonEmail>
+		<class>net.itjds.common.org.expression.person.GetPersonEmail</class>
+	</GetPersonEmail>
+	<!-- personduty -->
+	<GetPersonDutyByID>
+		<class>net.itjds.common.org.expression.personduty.GetPersonDutyByID</class>
+	</GetPersonDutyByID>
+	<GetPersonDutyByName>
+		<class>net.itjds.common.org.expression.personduty.GetPersonDutyByName</class>
+	</GetPersonDutyByName>
+	<GetPersonDutyByNames>
+		<class>net.itjds.common.org.expression.personduty.GetPersonDutyByNames</class>
+	</GetPersonDutyByNames>
+	<GetPersonDutyByPerson>
+		<class>net.itjds.common.org.expression.personduty.GetPersonDutyByPerson</class>
+	</GetPersonDutyByPerson>
+	<!-- persongroup -->
+	<GetPersonGroupByID>
+		<class>net.itjds.common.org.expression.persongroup.GetPersonGroupByID</class>
+	</GetPersonGroupByID>
+	<GetPersonGroupByName>
+		<class>net.itjds.common.org.expression.persongroup.GetPersonGroupByName</class>
+	</GetPersonGroupByName>
+	<GetPersonGroupByNames>
+		<class>net.itjds.common.org.expression.persongroup.GetPersonGroupByNames</class>
+	</GetPersonGroupByNames>
+	<GetPersonGroupByPerson>
+		<class>net.itjds.common.org.expression.persongroup.GetPersonGroupByPerson</class>
+	</GetPersonGroupByPerson>
+	<!-- personlevel -->
+	<GetPersonLevelByID>
+		<class>net.itjds.common.org.expression.personlevel.GetPersonLevelByID</class>
+	</GetPersonLevelByID>
+	<GetPersonLevelByName>
+		<class>net.itjds.common.org.expression.personlevel.GetPersonLevelByName</class>
+	</GetPersonLevelByName>
+	<GetPersonLevelByNames>
+		<class>net.itjds.common.org.expression.personlevel.GetPersonLevelByNames</class>
+	</GetPersonLevelByNames>
+	<GetPersonLevelByPerson>
+		<class>net.itjds.common.org.expression.personlevel.GetPersonLevelByPerson</class>
+	</GetPersonLevelByPerson>
+	<!-- personposition -->
+	<GetPersonPositionByID>
+		<class>net.itjds.common.org.expression.personposition.GetPersonPositionByID</class>
+	</GetPersonPositionByID>
+	<GetPersonPositionByName>
+		<class>net.itjds.common.org.expression.personposition.GetPersonPositionByName</class>
+	</GetPersonPositionByName>
+	<GetPersonPositionByNames>
+		<class>net.itjds.common.org.expression.personposition.GetPersonPositionByNames</class>
+	</GetPersonPositionByNames>
+	<GetPersonPositionByPerson>
+		<class>net.itjds.common.org.expression.personposition.GetPersonPositionByPerson</class>
+	</GetPersonPositionByPerson>
+	<!-- personrole -->
+	<GetPersonRoleByID>
+		<class>net.itjds.common.org.expression.personrole.GetPersonRoleByID</class>
+	</GetPersonRoleByID>
+	<GetPersonRoleByName>
+		<class>net.itjds.common.org.expression.personrole.GetPersonRoleByName</class>
+	</GetPersonRoleByName>
+	<GetPersonRoleByNames>
+		<class>net.itjds.common.org.expression.personrole.GetPersonRoleByNames</class>
+	</GetPersonRoleByNames>
+	<GetPersonRoleByPerson>
+		<class>net.itjds.common.org.expression.personrole.GetPersonRoleByPerson</class>
+	</GetPersonRoleByPerson>
+
+
+<GetCurrentPerson>
+		<class>net.itjds.bpm.engine.expression.processinst.GetCurrentPerson</class>
+	</GetCurrentPerson>
+	<GetProcessStarter>
+		<class>net.itjds.bpm.engine.expression.processinst.GetProcessStarter</class>
+	</GetProcessStarter>
+     
+
+
+  </functions>
+</config>

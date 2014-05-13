@@ -1,0 +1,27 @@
+    body {
+        font: 11px arial;
+    }
+
+    .suggest_link {
+        background-color: #FFFFFF;
+        padding: 2px 6px 2px 6px;
+        OVERFLOW: auto;
+    }
+
+    .suggest_link_over {
+        background-color: #E8F2FE;
+        OVERFLOW: auto;
+        padding: 2px 6px 2px 6px;
+    }
+
+    #search_suggest {
+        position: absolute;
+        height: 200;
+        background-color: #FFFFFF;
+        text-align: left; /*OVERFLOW-X: hidden;*/
+        OVERFLOW: auto;
+    }
+
+    #body {
+        overflow: hidden;
+    }

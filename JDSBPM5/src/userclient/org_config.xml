@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrgConfig>
+	<Permissions>
+		<Permission name="selfOrgOnly" value="false"/>
+	</Permissions>
+	<Supports>
+		<Support name="supportPersonRole" value="true"/>
+		<Support name="supportOrgRole" value="false"/>
+		<Support name="supportOrgLevel" value="false"/>
+		<Support name="supportPersonLevel" value="false"/>
+		<Support name="supportPersonDuty" value="true"/>
+	    <Support name="supportOrgModule" value="true"/>
+		<Support name="supportPersonPosition" value="true"/>
+		<Support name="supportPersonGroup" value="true"/>
+        <Support name="supportPersonPrivateGroup" value="true"/>
+        <Support name="supportPersonMsg" value="true"/>
+		<Support name="supportModule" value="true"/>
+        <Support name="supportModelProperty" value="true"/>
+        <Support name="supportDeskTopProperty" value="true"/>
+		<Support name="supportApp" value="true"/>
+		<Support name="supportPersonModelProperty" value="true"/>
+	</Supports>
+	<Queries>
+		<Query type="Org">
+			<SqlClause type="basic">
+				<MainClause>SELECT OrgId, CNNAME,serialIndex, OrgLevel,ParentOrgId FROM RO_ORG</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY OrgId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="orgId" columnAlias="OrgId"/>
+					<ColumnMapping property="orgName" columnAlias="CNNAME"/>
+					<ColumnMapping property="parentOrgId" columnAlias="ParentOrgId"/>
+					<ColumnMapping property="orgTier" columnAlias="OrgLevel"/>
+                    <ColumnMapping property="index" columnAlias="serialIndex"/>
+				</ColumnMappings>
+			</SqlClause>
+			
+			<SqlClause type="top">
+				<MainClause>SELECT OrgId, CNNAME,OrgLevel,serialIndex, ParentOrgId FROM RO_ORG</MainClause>
+				<WhereClause>WHERE ParentOrgId='10000001'</WhereClause>
+				<OrderClause>ORDER BY OrgId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="orgId" columnAlias="OrgId"/>
+					<ColumnMapping property="orgName" columnAlias="CNNAME"/>
+					<ColumnMapping property="parentOrgId" columnAlias="ParentOrgId"/>
+                    <ColumnMapping property="serialIndex" columnAlias="serialIndex"/>
+					<ColumnMapping property="orgTier" columnAlias="OrgLevel"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="Person-Org">
+			<SqlClause type="basic">
+				<MainClause>SELECT PersonId, OrgId FROM RO_OrgPerson</MainClause>
+				<WhereClause>WHERE 1=1  and PersonId not in (select B.PersonId PersonId from RO_PERSONACCOUNT B where B.ACCOUNTSTAT=4)</WhereClause> 
+				<!--  28120：栾瑞霞  9906：李静 and A.PersonId not in ('28120','9906')-->
+				<OrderClause>ORDER BY OrgId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personId" columnAlias="PersonId"/>
+					<ColumnMapping property="orgId" columnAlias="OrgId"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+			
+		<Query type="PersonDuty">
+			<SqlClause type="basic">
+				<MainClause>SELECT DutyId, CNName FROM RO_DUTY</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY CNName</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personDutyId" columnAlias="DutyId"/>
+					<ColumnMapping property="personDutyName" columnAlias="CNName"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="PersonLevel">
+			<SqlClause type="basic">
+				<MainClause>SELECT LevelId, CNName FROM RO_LEVEL</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY CNName</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personLevelId" columnAlias="LevelId"/>
+					<ColumnMapping property="personLevelName" columnAlias="CNName"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="PersonPosition">
+			<SqlClause type="basic">
+				<MainClause>SELECT PositionId, PositionName  FROM ro_position  RO_POSITION</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY PositionId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personPositionId" columnAlias="PositionId"/>
+					<ColumnMapping property="personPositionName" columnAlias="PositionName"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+    <Query type="PersonModuleProperty">
+		
+			<SqlClause type="basic">
+				<MainClause> select T.ID ,T.LASTMODIFIED ,T.CREATTIME,T.MODULEID,MODULESTATUS,T.PATH,T.ICON,T.THUMB, T.PERSONID, T.NAME, T.KINDEX, T.TYPE, T.CHILDMODULE, T.URL, T.WINCONFIG, T.EXPROCESSION, T.SUBSYSTEMID FROM ro_privatemodule t </MainClause>
+				<InsertClause>insert into ro_privatemodule</InsertClause>
+                <DeleteClause>delete from ro_privatemodule</DeleteClause>
+                <WhereClause/>
+				<OrderClause>ORDER BY personid</OrderClause>
+		          <ColumnMappings>
+
+					<ColumnMapping property="ID" columnAlias="ID"/>
+                    <ColumnMapping property="moduleId" columnAlias="MODULEID" column="MODULEID"/>
+					<ColumnMapping property="personId" columnAlias="PERSONID"/>
+					<ColumnMapping property="index" columnAlias="KINDEX"/>
+					<ColumnMapping property="moduleStatus" columnAlias="MODULESTATUS"/>
+					<ColumnMapping property="path" columnAlias="PATH"/>
+					<ColumnMapping property="name" columnAlias="NAME"/>
+					<ColumnMapping property="type" columnAlias="TYPE"/>
+					<ColumnMapping property="childModule" columnAlias="CHILDMODULE"/>
+					<ColumnMapping property="url" columnAlias="URL"/>
+					<ColumnMapping property="winConfig" columnAlias="WINCONFIG"/>
+					<ColumnMapping property="exprocession" columnAlias="EXPROCESSION"/>
+					<ColumnMapping property="cls" columnAlias="CLS"/>
+					<ColumnMapping property="icon" columnAlias="ICON"/>
+					<ColumnMapping property="thumb" columnAlias="THUMB"/>
+				    <ColumnMapping property="creatTime" columnAlias="CREATTIME"/>
+					<ColumnMapping property="lastModified" columnAlias="LASTMODIFIED"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+
+     
+       <Query type="ModuleProperty">
+			<SqlClause type="basic">
+				<MainClause>select t.uuid,t.moduleid,t.personid, t.propertieswindowheight,t.propertieswindowwidth,t.propertieswindowx,t.propertieswindowy from ro_moduleproperties t</MainClause>
+				<InsertClause>insert into ro_moduleproperties</InsertClause>
+                <DeleteClause>delete from ro_moduleproperties</DeleteClause>
+                <WhereClause/>
+				<OrderClause>ORDER BY personid</OrderClause>
+		          <ColumnMappings>
+					<ColumnMapping property="ID" columnAlias="uuid"/>
+                    <ColumnMapping property="moduleId" columnAlias="moduleid" column="moduleid"/>
+					<ColumnMapping property="personId" columnAlias="personid"/>
+					<ColumnMapping property="x" columnAlias="propertieswindowx"/>
+					<ColumnMapping property="y" columnAlias="propertieswindowy"/>
+					<ColumnMapping property="width" columnAlias="propertieswindowwidth"/>
+					<ColumnMapping property="height" columnAlias="propertieswindowheight"/>
+				
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+
+
+    
+   <Query type="DeskTopProperty">
+			<SqlClause type="basic">
+				<MainClause>select t.personid,t.backgroundcolor,t.rightbar,t.fontcolor,t.theme_id,t.wallpaperid,t.autorun,t.quickstart ,t.shortcut ,t.openerwin,t.wallpaperposition from ro_settings t</MainClause>
+				<InsertClause>insert into ro_settings</InsertClause>
+                <DeleteClause>delete from ro_settings</DeleteClause>
+                <WhereClause/>
+				<OrderClause>ORDER BY creattime</OrderClause>
+		          <ColumnMappings>
+                    <ColumnMapping property="personId" columnAlias="personid"/>
+					<ColumnMapping property="fontColor" columnAlias="fontcolor"/>
+                    <ColumnMapping property="backGroundColor" columnAlias="backgroundcolor" column="backgroundcolor"/>
+					<ColumnMapping property="themeId" columnAlias="theme_id"/>
+					<ColumnMapping property="wallPaperId" columnAlias="wallPaperId"/>
+					<ColumnMapping property="shortcut" columnAlias="shortcut"/>
+					<ColumnMapping property="quickStart" columnAlias="quickStart"/>
+					  <ColumnMapping property="rightbar" columnAlias="rightbar"/>
+                    <ColumnMapping property="autorun" columnAlias="autorun"/>
+				    <ColumnMapping property="openerwin" columnAlias="openerwin"/>
+					<ColumnMapping property="wallPaperPosition" columnAlias="wallpaperposition"/>
+				 </ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+
+     <Query type="Person-ModuleProperty">
+			<SqlClause type="basic">
+				<MainClause>select t.personid, t.uuid from ro_moduleproperties t</MainClause>
+			
+                <WhereClause/>
+				<OrderClause>ORDER BY personid</OrderClause>
+		          <ColumnMappings>
+                    <ColumnMapping property="moduleId" columnAlias="uuid" column="uuid"/>
+					<ColumnMapping property="personId" columnAlias="personid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+
+       <Query type="PersonMsg">
+			<SqlClause type="basic">
+				<MainClause>select T.TITLE, T.PROCESSINSTID,T.ACTIVITYINSTID ,T.UUID,T.SEND,T.FORM,T.BODY,T.SENDTIME ,T.ARRIVEDTIME, T.TYPE,T.EVENT,T.STATUS from ro_msg t</MainClause>
+			
+				<InsertClause>insert into RO_MSG</InsertClause>
+                <DeleteClause>delete from RO_MSG</DeleteClause>
+                <WhereClause/>
+				<OrderClause>ORDER BY SEND</OrderClause>
+		          <ColumnMappings>
+					<ColumnMapping property="ID" columnAlias="UUID"/>
+                    <ColumnMapping property="send" columnAlias="SEND" column="SEND"/>
+					<ColumnMapping property="type" columnAlias="TYPE"/>
+                    <ColumnMapping property="title" columnAlias="TITLE"/>
+					<ColumnMapping property="body" columnAlias="BODY"/>
+					<ColumnMapping property="sendTime" columnAlias="SENDTIME"/>
+					<ColumnMapping property="arrivedTime" columnAlias="ARRIVEDTIME"/>
+					<ColumnMapping property="form" columnAlias="FORM"/>
+					<ColumnMapping property="status" columnAlias="STATUS"/>
+                    <ColumnMapping property="event" columnAlias="EVENT"/>
+	               <ColumnMapping property="activityInstId" columnAlias="ACTIVITYINSTID"/>
+                    <ColumnMapping property="processInstId" columnAlias="PROCESSINSTID"/>
+
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		
+		  <Query type="PersonMsg-Group">
+			<SqlClause type="basic">
+				<MainClause>select UUID from ro_msg </MainClause>
+	               <WhereClause/>
+				<OrderClause>ORDER BY SEND </OrderClause>
+		          <ColumnMappings>
+					<ColumnMapping property="ID" columnAlias="UUID"/>
+                    <ColumnMapping property="send" columnAlias="SEND" column="SEND"/>
+					<ColumnMapping property="type" columnAlias="TYPE"/>
+                    <ColumnMapping property="title" columnAlias="TITLE"/>
+					<ColumnMapping property="body" columnAlias="BODY"/>
+					<ColumnMapping property="sendTime" columnAlias="SENDTIME"/>
+					<ColumnMapping property="arrivedTime" columnAlias="ARRIVEDTIME"/>
+					<ColumnMapping property="form" columnAlias="FORM"/>
+					<ColumnMapping property="status" columnAlias="STATUS"/>
+                    <ColumnMapping property="event" columnAlias="EVENT"/>
+	               <ColumnMapping property="activityInstId" columnAlias="ACTIVITYINSTID"/>
+                    <ColumnMapping property="processInstId" columnAlias="PROCESSINSTID"/>
+
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		
+		<Query type="PersonRole">
+			<SqlClause type="basic">
+				<MainClause>SELECT RoleId, CnName FROM RO_ROLE</MainClause>
+				<!--<WhereClause>where sysid='10'</WhereClause>-->
+				<OrderClause>ORDER BY RoleId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personRoleId" column="RoleId" columnAlias="RoleId"/>
+					<ColumnMapping property="personRoleName" column="CnName" columnAlias="CnName"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+
+
+       <Query type="Person-PersonPrivateGroup">
+			<SqlClause type="basic">
+				<MainClause>select t.groupid, t.personid from ro_privategroup_ref_person t</MainClause>
+                <InsertClause>insert into ro_privategroup_ref_person</InsertClause>
+                <DeleteClause>delete from ro_privategroup_ref_person</DeleteClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY groupid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="uuid" column="uuid" columnAlias="uuid"/>
+					<ColumnMapping property="personGroupId" column="groupid" columnAlias="groupid"/>
+                    <ColumnMapping property="personId" column="PERSONID" columnAlias="PERSONID"/>
+                 
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+  
+      <Query type="PersonPrivateGroup">
+			<SqlClause type="basic">
+				<MainClause>select T.CTYPE, T.PERSONID, T.CINDEX,T.GROUPID,T.CNNAME from ro_personprivategroup t</MainClause>
+                <InsertClause>insert into ro_personprivategroup</InsertClause>
+                <DeleteClause>delete from ro_personprivategroup</DeleteClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY CTYPE</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personGroupId" column="GROUPID" columnAlias="GROUPID"/>
+					<ColumnMapping property="personGroupName" column="CNNAME" columnAlias="CNNAME"/>
+                    <ColumnMapping property="personId" column="PERSONID" columnAlias="PERSONID"/>
+                    <ColumnMapping property="type" column="CTYPE" columnAlias="CTYPE"/>
+                    <ColumnMapping property="index" column="CINDEX" columnAlias="CINDEX"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+		<Query type="PersonGroup">
+			<SqlClause type="basic">
+				<MainClause>SELECT GrpId, GrpName FROM RO_USERGROUP</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY GrpName</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personGroupId" column="GrpId" columnAlias="GrpId"/>
+					<ColumnMapping property="personGroupName" column="GrpName" columnAlias="GrpName"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		<Query type="Person">
+			<SqlClause type="basic">
+				<MainClause>SELECT A.PersonId PersonId,INDEXTYPE, CNNAME, USERID, PASSWORD, OFFICETEL, MOBILE, EMAIL1 FROM RO_PERSON A, RO_PERSONACCOUNT B</MainClause>
+				<WhereClause>where A.PersonId=B.PersonId </WhereClause>
+				<OrderClause/>
+				<ColumnMappings>
+					<ColumnMapping property="personId" columnAlias="PersonId" column="A.PersonId"/>
+					<ColumnMapping property="personName" columnAlias="CNNAME"/>
+					<ColumnMapping property="personAccount" columnAlias="USERID"/>
+					<ColumnMapping property="personPassword" columnAlias="PASSWORD"/>
+					<ColumnMapping property="personPhone" columnAlias="OFFICETEL"/>
+					<ColumnMapping property="personMobile" columnAlias="MOBILE"/>
+					<ColumnMapping property="personEmail" columnAlias="EMAIL1"/>
+                      <ColumnMapping property="index" columnAlias="INDEXTYPE"/>
+
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		<Query type="Person-PersonRole">
+			<SqlClause type="basic">
+				<MainClause>SELECT PersonId PERSONCODE, RoleId ROLECODE FROM RO_PersonRole</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY RoleId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personId" column="PersonId" columnAlias="PERSONCODE"/>
+					<ColumnMapping property="personRoleId" column="RoleId" columnAlias="ROLECODE"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		<Query type="Person-PersonLevel">
+			<SqlClause type="basic"/>
+		</Query>
+		<Query type="Person-PersonGroup">
+			<SqlClause type="basic">
+				<MainClause>SELECT PersonId PERSONCODE, GrpId GROUPCODE FROM ro_grpuser</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY GrpId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personId" column="PersonId" columnAlias="PERSONCODE"/>
+					<ColumnMapping property="personGroupId" column="GrpId" columnAlias="GROUPCODE"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		<Query type="Person-PersonDuty">
+			<SqlClause type="basic">
+				<MainClause>SELECT PersonId, DutyId FROM RO_PersonDuty</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY DutyId</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="personId" columnAlias="PersonId"/>
+					<ColumnMapping property="personDutyId" columnAlias="DutyId"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+
+
+
+
+        <Query type="App">
+			<SqlClause type="basic">
+				<MainClause>SELECT appcatalogid,serialIndex, CNNAME, parentappcatalogid FROM ro_application</MainClause>
+				<WhereClause/>
+				<OrderClause>ORDER BY serialIndex</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="appId" columnAlias="appcatalogid"/>
+					<ColumnMapping property="appName" columnAlias="CNNAME"/>
+					<ColumnMapping property="parentAppId" columnAlias="parentappcatalogid"/>
+					<!--<ColumnMapping property="orgTier" columnAlias="OrgLevel"/>-->
+                    <ColumnMapping property="index" columnAlias="serialIndex"/>
+				</ColumnMappings>
+			</SqlClause>
+			
+			<SqlClause type="top">
+				<MainClause>SELECT appcatalogid, serialIndex,CNNAME, parentappcatalogid FROM ro_application</MainClause>
+					<WhereClause>WHERE parentappcatalogid='00000000'</WhereClause>
+				<OrderClause>ORDER BY serialIndex</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="appId" columnAlias="appcatalogid"/>
+					<ColumnMapping property="appName" columnAlias="CNNAME"/>
+					<ColumnMapping property="parentAppId" columnAlias="parentappcatalogid"/>
+                     <ColumnMapping property="serialIndex" columnAlias="serialIndex"/>
+				<!--<ColumnMapping property="orgTier" columnAlias="OrgLevel"/>-->
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="Module-App">
+			<SqlClause type="basic">
+				<MainClause>select f.appcatalogid ,f.moduleid from ro_appcatalogmodule f </MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY serialindex</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleid"/>
+					<ColumnMapping property="appId" columnAlias="appcatalogid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+			
+		
+	<Query type="Module">
+			<SqlClause type="basic">
+				<MainClause>select t.moduleid,t.cnname,t.icon,t.thumb,t.needright,t.serialIndex,t.funcurl ,t.enname,t.enabled from ro_module t </MainClause>
+				<WhereClause></WhereClause>
+				<OrderClause>ORDER BY t.serialindex</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleId" column="moduleId"/>
+					<ColumnMapping property="moduleName" columnAlias="cnname"/>
+					<ColumnMapping property="moduleEnName" columnAlias="enname"/>
+					<ColumnMapping property="moduleUrl" columnAlias="funcurl"/>
+					<ColumnMapping property="icon" columnAlias="icon"/>
+					<ColumnMapping property="thumb" columnAlias="thumb"/>
+					<ColumnMapping property="moduleEnabled" columnAlias="enabled"/>
+	               <ColumnMapping property="moduleNeedRight" columnAlias="needright"/>
+                    <ColumnMapping property="index" columnAlias="serialIndex"/>
+				
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		
+		<Query type="Module-PersonRole">
+			<SqlClause type="basic">
+				<MainClause>select h.roleid, h.moduleid from ro_roleright h </MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY roleid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" column="moduleid" columnAlias="moduleid"/>
+					<ColumnMapping property="personRoleId" column="roleid" columnAlias="roleid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+	  <Query type="Org-Module">
+			<SqlClause type="basic">
+				<MainClause>select t.orgid, t.moduleid   from ro_orgright t </MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY orgid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" column="moduleid" columnAlias="moduleid"/>
+					<ColumnMapping property="orgId" column="orgid" columnAlias="orgid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+	 <Query type="Module-Org">
+			<SqlClause type="basic">
+				<MainClause>select t.orgid, t.moduleid   from ro_orgright t </MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY orgid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" column="moduleid" columnAlias="moduleid"/>
+					<ColumnMapping property="orgId" column="orgid" columnAlias="orgid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="Module-PeronGroup">
+			<SqlClause type="basic">
+				<MainClause>select h.grpid, h.moduleid from ro_usergroupright h</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY grpid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" column="moduleid" columnAlias="moduleid"/>
+					<ColumnMapping property="personGroupId" column="grpid" columnAlias="grpid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+		<Query type="Module-PersonDuty">
+			<SqlClause type="basic">
+				<MainClause>SELECT dutyid, moduleid FROM ro_dutyright</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY dutyid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleid"/>
+					<ColumnMapping property="personDutyId" columnAlias="dutyid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+		<Query type="Module-PersonPosition">
+			<SqlClause type="basic">
+				<MainClause>SELECT positionid, moduleid FROM ro_positionright</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY positionid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleid"/>
+					<ColumnMapping property="positionId" columnAlias="positionid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+		
+		<Query type="Module-Person">
+			<SqlClause type="basic">
+				<MainClause>SELECT personid, moduleid FROM ro_persononmoduleadd</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY personid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleid"/>
+					<ColumnMapping property="personId" columnAlias="personid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+
+		<Query type="Module-DisablePerson">
+			<SqlClause type="basic">
+				<MainClause>SELECT personid, moduleid FROM ro_persononmoduledisable</MainClause>
+				<WhereClause>WHERE 1=1</WhereClause>
+				<OrderClause>ORDER BY personid</OrderClause>
+				<ColumnMappings>
+					<ColumnMapping property="moduleId" columnAlias="moduleid"/>
+					<ColumnMapping property="personId" columnAlias="personid"/>
+				</ColumnMappings>
+			</SqlClause>
+		</Query>
+	</Queries>
+</OrgConfig>

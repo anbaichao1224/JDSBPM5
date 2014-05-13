@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+<!--start bean definition-->
+
+<!-- 角色权限临时表 -->
+	<bean id="roletempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.RoletempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="roletempManager"
+		class="net.itjds.usm.persistence.service.impl.RoletempManagerImpl">
+		<constructor-arg ref="roletempDao" />
+	</bean>
+	<bean id="postiontempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.PostionDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="postiontempManager"
+		class="net.itjds.usm.persistence.service.impl.PostiontempManagerImpl">
+		<constructor-arg ref="postiontempDao" />
+	</bean>
+
+	<bean id="baseroleDao"
+		class="net.itjds.usm.persistence.dao.hibernate.BaseroleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="baseroleManager"
+		class="net.itjds.usm.persistence.service.impl.BaseroleManagerImpl">
+		<constructor-arg ref="baseroleDao" />
+	</bean>
+
+	<bean id="dutytempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.DutytempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="dutytempManager"
+		class="net.itjds.usm.persistence.service.impl.DutytempManagerImpl">
+		<constructor-arg ref="dutytempDao" />
+	</bean>
+
+	<bean id="orgtempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.OrgtempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="orgtempManager"
+		class="net.itjds.usm.persistence.service.impl.OrgtempManagerImpl">
+		<constructor-arg ref="orgtempDao" />
+	</bean>
+
+	<bean id="leveltempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.LeveltempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="leveltempManager"
+		class="net.itjds.usm.persistence.service.impl.LeveltempManagerImpl">
+		<constructor-arg ref="leveltempDao" />
+	</bean>
+
+	<bean id="persontempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.PersontempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="persontempManager"
+		class="net.itjds.usm.persistence.service.impl.PersontempManagerImpl">
+		<constructor-arg ref="persontempDao" />
+	</bean>
+
+	<bean id="usergrouptempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.UsergrouptempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="usergrouptempManager"
+		class="net.itjds.usm.persistence.service.impl.UsergrouptempManagerImpl">
+		<constructor-arg ref="usergrouptempDao" />
+	</bean>
+
+	<bean id="moduletempDao"
+		class="net.itjds.usm.persistence.dao.hibernate.ModuletempDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="moduletempManager"
+		class="net.itjds.usm.persistence.service.impl.ModuletempManagerImpl">
+		<constructor-arg ref="moduletempDao" />
+	</bean>
+
+	<bean id="moduletempdisableDao"
+		class="net.itjds.usm.persistence.dao.hibernate.ModuletempdisableDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="moduletempdisableManager"
+		class="net.itjds.usm.persistence.service.impl.ModuletempdisableManagerImpl">
+		<constructor-arg ref="moduletempdisableDao" />
+	</bean>
+	<!-- 角色权限临时表结束 -->
+	<!-- 安全监控人员扩展 -->
+	<bean id="PersonsecureDao"
+		class="net.itjds.usm.persistence.dao.hibernate.PersonsecureDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="personsecureManager"
+		class="net.itjds.usm.persistence.service.impl.PersonsecureManagerImpl">
+		<constructor-arg ref="PersonsecureDao" />
+	</bean>
+	<!-- 安全监控人员扩展结束 -->
+	<bean id="personDao" class="net.itjds.usm.persistence.dao.hibernate.PersonDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personManager" class="net.itjds.usm.persistence.service.impl.PersonManagerImpl">
+		<constructor-arg ref="personDao"/>
+	</bean>
+	
+	<bean id="persononmoduleaddDao" class="net.itjds.usm.persistence.dao.hibernate.PersononmoduleaddDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="persononmoduleaddManager" class="net.itjds.usm.persistence.service.impl.PersononmoduleaddManagerImpl">
+		<constructor-arg ref="persononmoduleaddDao"/>
+	</bean>
+	
+	<bean id="persononmoduledisableDao" class="net.itjds.usm.persistence.dao.hibernate.PersononmoduledisableDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="persononmoduledisableManager" class="net.itjds.usm.persistence.service.impl.PersononmoduledisableManagerImpl">
+		<constructor-arg ref="persononmoduledisableDao"/>
+	</bean>
+	
+	<bean id="personrightDao" class="net.itjds.usm.persistence.dao.hibernate.PersonrightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personrightManager" class="net.itjds.usm.persistence.service.impl.PersonrightManagerImpl">
+		<constructor-arg ref="personrightDao"/>
+	</bean>
+
+	<bean id="rolerightmatrixDao" class="net.itjds.usm.persistence.dao.hibernate.RolerightmatrixDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="rolerightmatrixManager" class="net.itjds.usm.persistence.service.impl.RolerightmatrixManagerImpl">
+		<constructor-arg ref="rolerightmatrixDao"/>
+	</bean>
+
+	<bean id="orgDao" class="net.itjds.usm.persistence.dao.hibernate.OrgDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orgManager" class="net.itjds.usm.persistence.service.impl.OrgManagerImpl">
+		<constructor-arg ref="orgDao"/>
+	</bean>
+	
+	<bean id="orgrightDao" class="net.itjds.usm.persistence.dao.hibernate.OrgrightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orgrightManager" class="net.itjds.usm.persistence.service.impl.OrgrightManagerImpl">
+		<constructor-arg ref="orgrightDao"/>
+	</bean>
+
+	<bean id="grpuserDao" class="net.itjds.usm.persistence.dao.hibernate.GrpuserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="grpuserManager" class="net.itjds.usm.persistence.service.impl.GrpuserManagerImpl">
+		<constructor-arg ref="grpuserDao"/>
+	</bean>
+
+	<bean id="usergroupDao" class="net.itjds.usm.persistence.dao.hibernate.UsergroupDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="usergroupManager" class="net.itjds.usm.persistence.service.impl.UsergroupManagerImpl">
+		<constructor-arg ref="usergroupDao"/>
+	</bean>
+	
+	<bean id="usergrouprightDao" class="net.itjds.usm.persistence.dao.hibernate.UsergrouprightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="usergrouprightManager" class="net.itjds.usm.persistence.service.impl.UsergrouprightManagerImpl">
+		<constructor-arg ref="usergrouprightDao"/>
+	</bean>
+
+	<bean id="levelDao" class="net.itjds.usm.persistence.dao.hibernate.LevelDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="levelManager" class="net.itjds.usm.persistence.service.impl.LevelManagerImpl">
+		<constructor-arg ref="levelDao"/>
+	</bean>
+	
+	<bean id="levelrightDao" class="net.itjds.usm.persistence.dao.hibernate.LevelrightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="levelrightManager" class="net.itjds.usm.persistence.service.impl.LevelrightManagerImpl">
+		<constructor-arg ref="levelrightDao"/>
+	</bean>
+
+	<bean id="rightdisableDao" class="net.itjds.usm.persistence.dao.hibernate.RightdisableDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="rightdisableManager" class="net.itjds.usm.persistence.service.impl.RightdisableManagerImpl">
+		<constructor-arg ref="rightdisableDao"/>
+	</bean>
+
+	<bean id="systemDao" class="net.itjds.usm.persistence.dao.hibernate.SystemDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="systemManager" class="net.itjds.usm.persistence.service.impl.SystemManagerImpl">
+		<constructor-arg ref="systemDao"/>
+	</bean>
+
+	<bean id="positionroleDao" class="net.itjds.usm.persistence.dao.hibernate.PositionroleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="positionroleManager" class="net.itjds.usm.persistence.service.impl.PositionroleManagerImpl">
+		<constructor-arg ref="positionroleDao"/>
+	</bean>
+
+	<bean id="positionDao" class="net.itjds.usm.persistence.dao.hibernate.PositionDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="positionManager" class="net.itjds.usm.persistence.service.impl.PositionManagerImpl">
+		<constructor-arg ref="positionDao"/>
+	</bean>
+	
+	<bean id="positionrightDao" class="net.itjds.usm.persistence.dao.hibernate.PositionrightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="positionrightManager" class="net.itjds.usm.persistence.service.impl.PositionrightManagerImpl">
+		<constructor-arg ref="positionrightDao"/>
+	</bean>
+	
+
+	<bean id="sysorgDao" class="net.itjds.usm.persistence.dao.hibernate.SysorgDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="sysorgManager" class="net.itjds.usm.persistence.service.impl.SysorgManagerImpl">
+		<constructor-arg ref="sysorgDao"/>
+	</bean>
+
+	<bean id="modulegrpDao" class="net.itjds.usm.persistence.dao.hibernate.ModulegrpDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="modulegrpManager" class="net.itjds.usm.persistence.service.impl.ModulegrpManagerImpl">
+		<constructor-arg ref="modulegrpDao"/>
+	</bean>
+
+	<bean id="persondutyDao" class="net.itjds.usm.persistence.dao.hibernate.PersondutyDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="persondutyManager" class="net.itjds.usm.persistence.service.impl.PersondutyManagerImpl">
+		<constructor-arg ref="persondutyDao"/>
+	</bean>
+
+	<bean id="personextaccountDao" class="net.itjds.usm.persistence.dao.hibernate.PersonextaccountDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personextaccountManager" class="net.itjds.usm.persistence.service.impl.PersonextaccountManagerImpl">
+		<constructor-arg ref="personextaccountDao"/>
+	</bean>
+
+	<bean id="orgpersonDao" class="net.itjds.usm.persistence.dao.hibernate.OrgpersonDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orgpersonManager" class="net.itjds.usm.persistence.service.impl.OrgpersonManagerImpl">
+		<constructor-arg ref="orgpersonDao"/>
+	</bean>
+
+	<bean id="orgusergrpDao" class="net.itjds.usm.persistence.dao.hibernate.OrgusergrpDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orgusergrpManager" class="net.itjds.usm.persistence.service.impl.OrgusergrpManagerImpl">
+		<constructor-arg ref="orgusergrpDao"/>
+	</bean>
+
+	<bean id="sysmoduleDao" class="net.itjds.usm.persistence.dao.hibernate.SysmoduleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="sysmoduleManager" class="net.itjds.usm.persistence.service.impl.SysmoduleManagerImpl">
+		<constructor-arg ref="sysmoduleDao"/>
+	</bean>
+
+	<bean id="appmoduleDao" class="net.itjds.usm.persistence.dao.hibernate.AppmoduleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="appmoduleManager" class="net.itjds.usm.persistence.service.impl.AppmoduleManagerImpl">
+		<constructor-arg ref="appmoduleDao"/>
+	</bean>
+
+	<bean id="orgroleDao" class="net.itjds.usm.persistence.dao.hibernate.OrgroleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="orgroleManager" class="net.itjds.usm.persistence.service.impl.OrgroleManagerImpl">
+		<constructor-arg ref="orgroleDao"/>
+	</bean>
+
+	<bean id="modulerightDao" class="net.itjds.usm.persistence.dao.hibernate.ModulerightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="modulerightManager" class="net.itjds.usm.persistence.service.impl.ModulerightManagerImpl">
+		<constructor-arg ref="modulerightDao"/>
+	</bean>
+
+	<bean id="moduleDao" class="net.itjds.usm.persistence.dao.hibernate.ModuleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="moduleManager" class="net.itjds.usm.persistence.service.impl.ModuleManagerImpl">
+		<constructor-arg ref="moduleDao"/>
+	</bean>
+
+	<bean id="applicationDao" class="net.itjds.usm.persistence.dao.hibernate.ApplicationDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="applicationManager" class="net.itjds.usm.persistence.service.impl.ApplicationManagerImpl">
+		<constructor-arg ref="applicationDao"/>
+	</bean>
+
+	<bean id="personroleDao" class="net.itjds.usm.persistence.dao.hibernate.PersonroleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personroleManager" class="net.itjds.usm.persistence.service.impl.PersonroleManagerImpl">
+		<constructor-arg ref="personroleDao"/>
+	</bean>
+
+	<bean id="roleDao" class="net.itjds.usm.persistence.dao.hibernate.RoleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="roleManager" class="net.itjds.usm.persistence.service.impl.RoleManagerImpl">
+		<constructor-arg ref="roleDao"/>
+	</bean>
+    <!-- sso -->
+	<bean id="ssoDao" class="net.itjds.usm.persistence.dao.hibernate.SsoDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="ssoManager" class="net.itjds.usm.persistence.service.impl.SsoManagerImpl">
+		<constructor-arg ref="ssoDao"/>
+	</bean>
+
+	<bean id="rolerightDao" class="net.itjds.usm.persistence.dao.hibernate.RolerightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="rolerightManager" class="net.itjds.usm.persistence.service.impl.RolerightManagerImpl">
+		<constructor-arg ref="rolerightDao"/>
+	</bean>
+
+	<bean id="moduleright_propertiesDao" class="net.itjds.usm.persistence.dao.hibernate.Moduleright_propertiesDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="moduleright_propertiesManager" class="net.itjds.usm.persistence.service.impl.Moduleright_propertiesManagerImpl">
+		<constructor-arg ref="moduleright_propertiesDao"/>
+	</bean>
+
+	<bean id="dutyDao" class="net.itjds.usm.persistence.dao.hibernate.DutyDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="dutyManager" class="net.itjds.usm.persistence.service.impl.DutyManagerImpl">
+		<constructor-arg ref="dutyDao"/>
+	</bean>
+	
+	<bean id="dutyrightDao" class="net.itjds.usm.persistence.dao.hibernate.DutyrightDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="dutyrightManager" class="net.itjds.usm.persistence.service.impl.DutyrightManagerImpl">
+		<constructor-arg ref="dutyrightDao"/>
+	</bean>
+
+	<bean id="personlevelDao" class="net.itjds.usm.persistence.dao.hibernate.PersonlevelDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personlevelManager" class="net.itjds.usm.persistence.service.impl.PersonlevelManagerImpl">
+		<constructor-arg ref="personlevelDao"/>
+	</bean>
+
+	<bean id="personaccountDao" class="net.itjds.usm.persistence.dao.hibernate.PersonaccountDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="personaccountManager" class="net.itjds.usm.persistence.service.impl.PersonaccountManagerImpl">
+		<constructor-arg ref="personaccountDao"/>
+	</bean>
+
+	<bean id="grproleDao" class="net.itjds.usm.persistence.dao.hibernate.GrproleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="grproleManager" class="net.itjds.usm.persistence.service.impl.GrproleManagerImpl">
+		<constructor-arg ref="grproleDao"/>
+	</bean>
+
+	<bean id="positionpersonDao" class="net.itjds.usm.persistence.dao.hibernate.PositionpersonDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="positionpersonManager" class="net.itjds.usm.persistence.service.impl.PositionpersonManagerImpl">
+		<constructor-arg ref="positionpersonDao"/>
+	</bean>
+
+	<bean id="modulepropertiesDao" class="net.itjds.usm.persistence.dao.hibernate.ModulepropertiesDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="modulepropertiesManager" class="net.itjds.usm.persistence.service.impl.ModulepropertiesManagerImpl">
+		<constructor-arg ref="modulepropertiesDao"/>
+	</bean>
+
+	<bean id="appcatalogmoduleDao" class="net.itjds.usm.persistence.dao.hibernate.AppcatalogmoduleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="appcatalogmoduleManager" class="net.itjds.usm.persistence.service.impl.AppcatalogmoduleManagerImpl">
+		<constructor-arg ref="appcatalogmoduleDao"/>
+	</bean>
+
+
+
+<!-- 多人办理承办批办表 -->
+	<bean id="cbDao"
+		class="com.kzxd.cpbl.dao.impl.CbDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="cbManager"
+		class="com.kzxd.cpbl.service.impl.CbManagerImpl">
+		<constructor-arg ref="cbDao" />
+	</bean>	
+	
+	<bean id="pbDao"
+		class="com.kzxd.cpbl.dao.impl.PbDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="pbManager"
+		class="com.kzxd.cpbl.service.impl.PbManagerImpl">
+		<constructor-arg ref="pbDao" />
+	</bean>	
+	
+	<bean id="bbDao" class="com.kzxd.cpbl.dao.impl.BaseBeanDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="bbManager" class="com.kzxd.cpbl.service.impl.BaseBeanManagerImpl">
+		<constructor-arg ref="bbDao"></constructor-arg>
+	</bean>
+	<!-- 多人办理承办批办表结束 -->
+	
+	<!-- 终止流程列表 -->
+	<bean id="abortDao" class="com.kzxd.abortprocess.dao.impl.AbortProcessDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="abortMnager" class="com.kzxd.abortprocess.service.impl.AbortProcessManagerImpl">
+		<constructor-arg ref="abortDao"></constructor-arg>
+	</bean>
+	<!-- 终止流程列表结束 -->
+</beans>

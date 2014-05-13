@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Application code="oa" name="oa">
+	
+	<RightEngine>net.itjds.bpm.engine.OARightEngine</RightEngine>
+	<DataEngine>net.itjds.bpm.data.mapdao.ExplorerDataEngine</DataEngine>
+	<AdminService>net.itjds.bpm.engine.OAAdminService</AdminService>
+	<ProcessClassification>
+		net.itjds.userclient.common.FlowKindInfo
+	</ProcessClassification>	
+  <FlowType code="default" name="会议管理"   esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+   	
+	<BPDElements>
+		<BPDElement name="ActivityRight" type="Activity"
+			implementation="net.itjds.bpm.bpd.plugin.impl.activity.ActivityRight">
+			<Parameter name="Service" value="RightWebService" />
+		</BPDElement>
+	<BPDElement name="JDSForm" type="Activity" width="600" height="400" displayname="智能表单" implementation="net.itjds.bpm.bpd.plugin.impl.activity.jdsform.JDSForm">
+		<BrowserConfig  name="form1" displayname="智能表单" baseurl="/explorer/main.action" >
+		     <Parameter name="username" value="username"/>
+		     <Parameter name="processDefId" value="WorkflowProcess.ID"/>
+		     <Parameter name="activityDefId" value="Activity.ID"/>
+		      <Parameter name="flowType" value="WorkflowProcess.classifications"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+	       </BrowserConfig>
+	</BPDElement>
+
+
+<BPDElement name="FlowTypeConfig" type="FlowType" width="800" height="600" displayname="配置管理" implementation="net.itjds.bpm.bpd.plugin.impl.activity.jdsform.JDSForm">
+		 
+
+        <BrowserConfig  name="processDefConfig" displayname="流程定义配置" baseurl="/showAndEdit.jsp" >
+		     <Parameter name="username" value="username"/>
+		      <Parameter name="path" value="'/application/oa/application_config.xml'" />
+                <Parameter name="type" value="'xml'"/>
+			 <Parameter name="codeType" value="'gbk'"/>
+			 <Parameter name="pathType" value="'bpmhome'"/>
+      
+              <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	      </BrowserConfig>
+
+          <BrowserConfig  name="busConfig" displayname="总线定义配置" baseurl="/showAndEdit.jsp" >
+		     <Parameter name="username" value="username"/>
+		      <Parameter name="path" value="'/WEB-INF/classes/esbbean_config.xml'" />
+      			 <Parameter name="type" value="'xml'"/>
+			 <Parameter name="codeType" value="'gbk'"/>
+			 <Parameter name="pathType" value="'classpath'"/>
+              <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	      </BrowserConfig>
+         <BrowserConfig  name="orgConfig" displayname="组织机构应用配置" baseurl="/showAndEdit.jsp" >
+		     <Parameter name="username" value="username"/>
+		      <Parameter name="path" value="'/WEB-INF/classes/org_config.xml'"/>
+
+			 <Parameter name="type" value="'xml'"/>
+			 <Parameter name="codeType" value="'gbk'"/>
+			 <Parameter name="pathType" value="'classpath'"/>
+
+		      <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	      </BrowserConfig>
+
+
+	</BPDElement>
+
+		<BPDElement name="FlowTypeForm" type="FlowType" width="800" height="600" displayname="应用管理工具" implementation="net.itjds.bpm.bpd.plugin.impl.activity.jdsform.JDSForm">
+		  <BrowserConfig  name="form" displayname="表单模板库" baseurl="/explorer/main.action" >
+		     <Parameter name="username" value="username"/>
+		
+		      <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	      </BrowserConfig>
+		  <BrowserConfig  name="dbmanage" displayname="数据库管理" baseurl="/fdt/designer/tableShow.jsp" >
+		     <Parameter name="username" value="username"/>	
+		      <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	      </BrowserConfig>
+	     		  <BrowserConfig  name="worklisttool" displayname="列表工具" baseurl="/fdt/designer/formDefined.jsp" >
+		     <Parameter name="username" value="username"/>	
+		      <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="'worklist'"/>
+		      
+	      </BrowserConfig>
+       
+		  <BrowserConfig  name="bustool" displayname="总线调试" baseurl="/fdt/designer/designer.action" >
+		     <Parameter name="username" value="username"/>
+                   <Parameter name="buswin" value="'true'"/>
+
+		
+		      <Parameter name="flowType" value="FlowType.code"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	   </BrowserConfig>
+
+
+
+	</BPDElement>
+
+
+
+  <BPDElement name="ProcessJDSForm" type="Process" width="600" height="400" displayname="智能表单" 
+			implementation="net.itjds.bpm.bpd.plugin.impl.activity.jdsform.JDSForm">
+			
+				<BrowserConfig  name="form1" displayname="智能表单1" baseurl="/explorer/main.action" >
+		     <Parameter name="username" value="username"/>
+		     <Parameter name="processDefId" value="WorkflowProcess.ID"/>
+		    
+		      <Parameter name="flowType" value="WorkflowProcess.classifications"/>
+		      <Parameter name="esbKeyList" value="FlowType.esbkeylist"/>
+		      
+	       </BrowserConfig>
+
+			<Parameter name="url" value="RightWebService" />
+	</BPDElement>
+
+	</BPDElements>
+	
+	<ProcessListeners>
+		<Listener name="多人办理显示监听器">
+			net.itjds.userclient.bpm.listener.DrblShowListener
+		</Listener>
+	</ProcessListeners>
+	<ActivityListeners>
+       <Listener name="客户端消息监听器">
+		net.itjds.userclient.bpm.listener.ActivityMsgListener
+		</Listener>
+		  <Listener name="客户端消息监听器">
+		net.itjds.userclient.bpm.listener.ActivityMsgListener
+		</Listener>		
+		<Listener name="多人办理显示监听器">
+			net.itjds.userclient.bpm.listener.DrblShowListener
+		</Listener>
+		<Listener name="多人办理合并监听器">
+			net.itjds.userclient.bpm.listener.DrblActivityListener
+		</Listener>
+		<Listener name="测试活动监听器">
+			net.itjds.test.event.TestActivityListenerImpl
+		</Listener>
+	</ActivityListeners>
+	<ProcessClassification>
+		net.itjds.userclient.common.FlowKindInfo
+	</ProcessClassification>
+	
+	 </FlowType>
+	 
+	 <FlowType code="fawen" name="发文" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+	 
+	  <FlowType code="shouwen" name="收文" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+
+ <FlowType code="hytz" name="会议通知" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+
+ <FlowType code="documentdata" name="文件资料" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+
+ <FlowType code="xixiguanli" name="信息采集" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+
+
+ <FlowType code="shiwushenpi" name="事务审批" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+ <FlowType code="jiabandaoxiu" name="加班倒休" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+
+ <FlowType code="neibuliuzhuan" name="内部流转" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>	
+
+ <FlowType code="cheliangguanli" name="车辆管理" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>
+<FlowType code="xzcl" name="下载材料" esbKeyList="BPMINNER;FDTFORM;ZHIDIAN;ORG;SYSTEM">
+	 	
+	 	<ref>default</ref>
+ 	
+	 </FlowType>		
+</Application>
+

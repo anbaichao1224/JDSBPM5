@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>考察路线表单</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <link rel="stylesheet" type="text/css" href="/bsiirr/form/css/page.css" /><script type="text/javascript"> </script>
+    </head>
+    <body style="overflow-x: hidden; overflow: scroll">
+        <table border="1" cellspacing="0" bordercolorlight="#c4d4eb" bordercolordark="#ffffff" cellpadding="0" width="980" align="center">
+            <form id="form" method="post" action="" name="form">
+                <tbody>
+                    <tr class="trTitle">
+                        <td class="tdClass" colspan="4">考察路线表单</td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">编号</td>
+                        <td class="form_tv" width="35%" align="center"><input id="bh" class="text_s" basearr="{basearr:{cnname:'编号',isInstProcess:'',readonly:true,disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.bh',theoremexpression:'#bh=$currKclxPopForm.bh,(#bh==null||#bh==\'\') ? $kclxservice.bh:#bh'}}" pid="component_input_0" style="width: 80%" name="$currKclxPopForm.bh" type="text" / datatype="{TextType:{allowBlank:false,blankText:'编号不能为空',vtype:'',regexText:'',maxLength:'1000',maxLengthText:'',minLength:'0',minLengthText:''}}" advance=undefined></td>
+                        <td class="form_tl" width="15%">考察期限</td>
+                        <td class="form_tv" width="35%" align="center"><input id="kcqx" class="text_s" basearr="{basearr:{cnname:'考察期限',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.kcqx',theoremexpression:'$currKclxPopForm.kcqx'}}" pid="component_input_1" style="width: 80%" name="$currKclxPopForm.kcqx" type="text" / datatype="{NumberType:{allowBlank:'',blankText:'',scale:'2',align:'right',positiveNumberColor:'#000000',negtiveNumberColor:'#FF0000'}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">所在市州地</td>
+                        <td class="form_tv" width="35%" align="center"><input id="szd" class="text_s" basearr="{basearr:{cnname:'所在市州地',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.szd',theoremexpression:'$currKclxPopForm.szd'}}" pid="component_input_2" style="width: 80%" name="$currKclxPopForm.szd" type="text" /></td>
+                        <td class="form_tl" width="15%">登记人</td>
+                        <td class="form_tv" width="35%" align="center"><input id="djr" class="text_s" basearr="{basearr:{cnname:'登记人',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.djr',theoremexpression:'$currKclxPopForm.djr'}}" pid="component_input_3" style="width: 80%" name="$currKclxPopForm.djr" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">名称</td>
+                        <td class="form_tv" colspan="3" align="center"><input id="mc" class="text_s" basearr="{basearr:{cnname:'名称',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.mc',theoremexpression:'$currKclxPopForm.mc'}}" pid="component_input_4" style="width: 92%" name="$currKclxPopForm.mc" type="text" / datatype="{TextType:{allowBlank:false,blankText:'',vtype:'',regexText:'',maxLength:'1000',maxLengthText:'',minLength:'0',minLengthText:''}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">采集单位</td>
+                        <td class="form_tv" width="35%" align="center"><input id="cjdw" class="text_s" basearr="{basearr:{cnname:'采集单位',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.cjdw',theoremexpression:'$currKclxPopForm.cjdw'}}" pid="component_input_5" style="width: 80%" name="$currKclxPopForm.cjdw" type="text" /></td>
+                        <td class="form_tl" width="15%">采集人</td>
+                        <td class="form_tv" width="35%" align="center"><input id="cjr" class="text_s" basearr="{basearr:{cnname:'采集人',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.cjr',theoremexpression:'$currKclxPopForm.cjr'}}" pid="component_input_6" style="width: 80%" name="$currKclxPopForm.cjr" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">考察典型</td>
+                        <td class="form_tv" width="35%" align="center"><select basearr="{basearr:{cnname:'考察典型',isInstProcess:'',readonly:'',size:'',name:'$currKclxPopForm.kcdx',theoremexpression:'#{\'考察典型企业\':\'考察典型企业\',\'考察旅游资源\':\'考察旅游资源\'}'}}" pid="component_select_0" name="kcdx">
+                        <option value="考察典型企业" selected="selected">考察典型企业</option>
+                        <option value="考察旅游资源">考察旅游资源</option>
+                        </select></td>
+                        <td class="form_tl" width="15%">旅游景点</td>
+                        <td class="form_tv" width="35%" align="center"><select name="lyjd" pid=component_select_1 basearr="{basearr:{cnname:'旅游景点',isInstProcess:'',readonly:'',size:'27',name:'$currKclxPopForm.lyjd',theoremexpression:'$kclxservice.lyjd'}}" advance="#{}"></select></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">住宿宾馆</td>
+                        <td class="form_tv" width="35%" align="center"><input id="zsbg" class="text_s" basearr="{basearr:{cnname:'住宿宾馆',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.zsbg',theoremexpression:'$currKclxPopForm.zsbg'}}" pid="component_input_7" style="width: 80%" name="$currKclxPopForm.zsbg" type="text" /></td>
+                        <td class="form_tl" width="15%">就餐点</td>
+                        <td class="form_tv" width="35%" align="center"><input id="jcd" class="text_s" basearr="{basearr:{cnname:'就餐点',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.jcd',theoremexpression:'$currKclxPopForm.jcd'}}" pid="component_input_8" style="width: 80%" name="$currKclxPopForm.jcd" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">活动内容</td>
+                        <td class="form_tv" colspan="3" align="center"><textarea id="content" rows="5" basearr="{basearr:{cnname:'活动内容',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.content',theoremexpression:'$currKclxPopForm.content'}}" pid="component_textarea_0" datatype="{HtmlEditType:{vType:'',allowBlank:'',minLength:'0',maxLength:'1000'}}" style="width: 92%" name="$currKclxPopForm.content"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">导入日期</td>
+                        <td class="form_tv" width="35%" align="center"><input id="drrq" class="tdate_s" basearr="{basearr:{cnname:'导入日期',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.drrq',theoremexpression:'$currKclxPopForm.drrq'}}" pid="component_input_9" datatype="{DateType:{allowBlank:'',blankText:'',maxValue:'',maxLengthText:'',minValue:'',minLengthText:'',format:'Y-m-d'}}" style="width: 80%" name="$currKclxPopForm.drrq" type="text" /></td>
+                        <td class="form_tl" width="15%">审核人</td>
+                        <td class="form_tv" width="35%" align="center"><input id="shr" class="text_s" basearr="{basearr:{cnname:'审核人',isInstProcess:'',readonly:'',disabled:'',defaultText:'',size:'',name:'$currKclxPopForm.shr',theoremexpression:'$currKclxPopForm.shr'}}" pid="component_input_10" style="width: 80%" name="$currKclxPopForm.shr" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td class="form_tl" width="15%">附件</td>
+                        <td class="form_tv" colspan="3" align="center">
+                        <div class="myattach" contenteditable="false" custype="zattach" pid="component_div_0" style="display: inline" basearr="{basearr:{cnname:'',add:true,del:true,open:'',disabled:'',notable:'',onlyfname:'',filecount:''}}">
+                        <table id="attach" border="1" cellspacing="0" cellpadding="3" width="100%" bgcolor="#cccccc" align="center" style="font-size: 11pt">
+                            <tbody>
+                                <tr>
+                                    <td nowrap="nowrap">附件名称</td>
+                                    <td nowrap="nowrap">上传人</td>
+                                    <td nowrap="nowrap">上传时间</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </form>
+        </table>
+    </body>
+</html>

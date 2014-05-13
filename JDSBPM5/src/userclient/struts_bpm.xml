@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="bpm" extends="struts-default">
+    <action name="JSDEF" 
+			class="net.itjds.userclient.bpm.BPMClientProcessListAction" 
+			method="getJSDEF">
+			<result name="success">
+				/desktop/JSDEFURL.jsp
+			</result>
+	   </action>
+	 <action name="defaultWorklist"
+			class="net.itjds.userclient.bpm.BPMClientProcessListAction">
+			<result name="jsondata">
+				/desktop/widgets/worklist/activityinstlist/defaultWorkActivityInstList.jsp
+			</result>
+			<result name="error">/bpm/usermanager/error.jsp</result>
+		</action>
+	
+<!-- 正文配置 -->
+		 <action name="docinclude" class="net.itjds.userclient.document.DocInclude">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/docinclude.jsp
+			</result>
+		</action>
+		<action name="documentAction"
+			class="net.itjds.userclient.document.DocumentAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/default.jsp
+			</result>
+		</action>
+		<action name="openDocumentAction"
+			class="net.itjds.userclient.document.OpenDocumentAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/document/document.jsp
+			</result>
+		</action>
+		<action name="saveDocumentAction"
+			class="net.itjds.userclient.document.SaveDocumentAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<action name="saveAsDocumentAction"
+			class="net.itjds.userclient.document.SaveAsDocumentAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<action name="searchDocumentFile"
+			class="net.itjds.userclient.document.SearchDocumentAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+		<!-- 正文修改附件 -->
+		<action name="zwfileinclude"
+			class="kzxd.zwxg.attachment.FileIncludeAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/zwxg/fileinclude.jsp
+			</result>
+		</action>
+
+		<action name="zwfiledel"
+			class="kzxd.zwxg.attachment.DelFileAction">
+			<result name="input"></result>
+			<result name="success">/desktop/widgets/bpm/form/zwxg/filedel.jsp			
+			</result>
+		</action>
+		
+		<action name="zwfileList"
+			class="kzxd.zwxg.attachment.FileListAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/bpm/form/zwxg/filelist.jsp
+			</result>
+		</action>
+
+		<action name="zwattachUpload"
+			class="kzxd.zwxg.attachment.UploadAttachmentAction">			 
+			<result name="input">	
+			</result>
+			<result name="success">		
+			</result>
+		</action>
+		
+		<action name="zwdownloadfile" class="kzxd.zwxg.attachment.DownLoadAction"> 
+			<result name="success" type="stream"> 
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+			</result> 
+			<result name="error">
+				/desktop/widgets/bpm/form/zwxg/index.jsp
+			</result>
+		</action> 
+		<!-- 正文修改附件 -->
+		<!-- 正文配置 -->
+		<action name="attachUpload"
+			class="net.itjds.userclient.attachment.UploadAttachmentAction">			 
+			<result name="input">	
+			</result>
+			<result name="success">		
+			</result>
+		</action>
+		<action name="fileList"
+			class="net.itjds.userclient.attachment.FileListAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/bpm/form/attachment/filelist.jsp
+			</result>
+		</action>
+		<action name="filedisplay"
+			class="net.itjds.userclient.attachment.FileDisplayAction">
+			<result name="input"></result>
+			<result name="success">
+				/desktop/widgets/bpm/form/common/attachment/filedisplay.jsp
+			</result>
+		</action>
+		<action name="filedel"
+			class="net.itjds.userclient.attachment.DelFileAction">
+			<result name="input"></result>
+			<result name="success">/desktop/widgets/bpm/form/attachment/filedel.jsp			
+			</result>
+		</action>
+      
+		<action name="fileinclude"
+			class="net.itjds.userclient.attachment.FileIncludeAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/attachment/fileinclude.jsp
+			</result>
+		</action>
+		<action name="downloadfile" class="net.itjds.userclient.attachment.DownLoadAction"> 
+		<result name="success" type="stream"> 
+			<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+		</result> 
+		<result name="error">
+				/desktop/widgets/bpm/form/attachment/index.jsp
+			</result>
+		</action> 
+
+		
+		<action name="processDefListTmp"
+			class="net.itjds.userclient.bpm.BPMClientNewAction">
+			<result name="success">
+				/desktop/widgets/worklist/processlist/processDefListTmp.jsp
+			</result>
+		</action>
+		<action name="processDefListJSDEF"
+			class="net.itjds.userclient.bpm.BPMClientNewAction"
+			method="getJSDEF">
+			<result name="success">
+				/desktop/widgets/worklist/processlist/processDefListJSDEF.jsp
+			</result>
+		</action>
+		<action name="processDefListResult"
+			class="net.itjds.userclient.bpm.BPMClientNewAction">
+			<result name="success">
+				/desktop/widgets/worklist/processlist/processDefListResult.jsp
+			</result>
+		</action>
+
+		<action name="demosignfeceive"
+			class="net.itjds.userclient.bpm.BPMClientSignReceiveAction">
+			<result name="success">/desktop/widgets/bpm/form/display.jsp</result>
+			<result name="signall">
+				/desktop/widgets/worklist/processlist/signAll.jsp
+			</result>
+		</action>
+
+		<action name="formdisplay"
+			class="net.itjds.userclient.bpm.BPMClientDisplayAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+
+		</action>
+	
+		  <action name="formprint"
+			class="net.itjds.userclient.bpm.BPMClientPrintForm">
+			<result name="success">
+				/fdt/display/formPrint.jsp
+			</result>
+          </action>
+    <action name="demohisdisplay"
+			class="net.itjds.userclient.bpm.BPMClientHisDisplayAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/hisdisplay.jsp
+			</result>
+
+		</action>
+
+		<action name="BPMClientFormDisplayAction"
+			class="net.itjds.userclient.bpm.BPMClientFormDisplayAction">
+			<result name="success">/fdt/display/formDisplay.jsp</result>
+
+		</action>
+
+	  <action name="BPMClientFormHisDisplayAction"
+			class="net.itjds.userclient.bpm.BPMClientFormHisDisplayAction">
+			<result name="success">/fdt/display/hisformDisplay.jsp</result>
+
+		</action>
+
+
+		<action name="endRead"
+			class="net.itjds.userclient.bpm.BPMClientEndReadAction">
+		</action>
+
+
+
+		<action name="demoupdate"
+			class="net.itjds.userclient.bpm.updata.BPMClientUpdateAction">
+			<result name="perform">
+				/desktop/widgets/bpm/personselect/performNoSelectJSON.jsp
+			</result>
+
+			<result name="error">
+				<param name="location">demolist.action</param>
+			</result>
+
+		</action>
+
+		<action name="demodelete"
+			class="net.itjds.userclient.bpm.BPMClientDeleteAction">
+			<interceptor-ref name="validationWorkflowStack" />
+			
+			<result name="success">
+				/desktop/widgets/worklist/processlist/signAll.jsp
+			</result>
+		</action>
+		
+		<action name="democomplete"
+			class="net.itjds.userclient.bpm.BPMClientCompleteAction">
+			<interceptor-ref name="validationWorkflowStack" />
+			
+			<result name="success">
+				/desktop/widgets/worklist/processlist/signAll.jsp
+			</result>
+		</action>
+		
+		
+		<action name="demoAbort"
+			class="net.itjds.userclient.bpm.BPMClientAbortAction">
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+			<result name="success">
+				/desktop/widgets/worklist/processlist/signAll.jsp
+			</result>
+		</action>
+		
+		
+		<action name="demoResender"
+			class="net.itjds.userclient.bpm.BPMClientResenderAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+		<action name="demoInsert"
+			class="net.itjds.userclient.bpm.BPMClientInsertAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/initdisplay.jsp
+			</result>
+		</action>
+
+		<action name="demotakebackNONE"
+			class="net.itjds.userclient.bpm.BPMClientTakeBackAction"
+			method="getEvalAction">
+              <result name="success">
+				/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+
+		<action name="demotakeback"
+			class="net.itjds.userclient.bpm.BPMClientTakeBackAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+
+		<action name="demorouteback"
+			class="net.itjds.userclient.bpm.BPMClientRouteBackAction"
+			method="getEvalAction">
+			<result name="success">
+			/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+
+
+		<action name="MapDAOUpdateAction"
+			class="net.itjds.userclient.bpm.updata.MapDAOUpdateAction">
+			<result name="success">
+			/desktop/widgets/bpm/form/display/expression.jsp
+			</result>
+		</action>
+
+		<action name="putexpressAction"
+			class="net.itjds.userclient.bpm.updata.MapDAOUpdateAction"
+			method="putExpress">
+			<result name="success">
+			/desktop/widgets/bpm/form/expression/expression.jsp
+			</result>
+		</action>
+
+		<action name="updatacell"
+			class="net.itjds.userclient.bpm.updata.MapDAOUpdateAction"
+			method="updataCell">
+			<result name="updata">
+			/desktop/widgets/bpm/form/expression/expression.jsp
+			</result>
+		</action>
+
+
+
+		<action name="routelog" class="net.itjds.userclient.bpm.RouteLogAction">
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+			<result name="success">
+				/desktop/widgets/bpm/viewroute/BPMRouteLog.jsp
+			</result>
+		</action>
+		
+		<action name="routelog1"
+			class="net.itjds.userclient.bpm.RouteAction">
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+			<result name="success">
+				/desktop/widgets/bpm/viewroute/BPMRouteLog.jsp
+			</result>
+		</action>
+		
+		
+		<action name="routelogView"
+			class="net.itjds.userclient.bpm.RouteLogViewAction" >
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+				<result name="success" >
+				/desktop/widgets/bpm/viewroute/graph/graph.jsp
+			</result>
+		</action>
+		
+		
+		<action name="routelogViewData"
+			class="net.itjds.userclient.bpm.RouteLogViewAction"  method="view">
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+				<result name="success" >
+			  /explorer/xml.jsp
+			</result>
+		</action>
+		
+		
+		<action name="routelogViewCellData"
+			class="net.itjds.userclient.bpm.RouteLogViewAction"  method="viewCell">
+			<interceptor-ref name="validationWorkflowStack" />
+			<result name="input" type="redirect">
+				demodisplay.action
+			</result>
+				<result name="success" >
+			  /explorer/xml.jsp
+			</result>
+		</action>
+		
+		<action name="skipProcessInsert"
+			class="net.itjds.userclient.bpm.SkipProcessBPMClientInsertAction">
+			<result name="success">
+				<!-- /bpm/userclient/desktop/display/instdisplay.jsp -->
+				/desktop/widgets/bpm/form/display/display.jsp<!-- 收文跳转发文拟稿 -->
+			</result>
+		</action>
+		
+		<!-- 成文跳转收文
+		<action name="skipProcessInserts" class="net.itjds.userclient.bpm.SkipProcessBPMClientInsertAction1">
+			<result name="success">
+			/desktop/widgets/bpm/form/display/display.jsp
+			</result>
+		</action>
+		 -->
+		<action name="routelogJSDEF"
+			class="net.itjds.userclient.bpm.RouteLogAction">
+			<result name="success">
+				/desktop/widgets/bpm/viewroute/BPMRouteJSDEF.jsp
+			</result>
+		</action>
+		<action name="routelogDiagram"
+			class="net.itjds.userclient.bpm.RouteLogAction" method="getProcessDiagram">
+			<result name="success">
+				/desktop/widgets/bpm/viewroute/BPMRoteDiagram.jsp
+			</result>
+		</action>
+		<action name="SelectPerformerAction"
+			class="net.itjds.userclient.bpm.SelectPerformerAction">
+			<result name="success">
+				/desktop/widgets/bpm/personselect/preformSelectPerson.jsp
+			</result>
+		</action>
+
+		<action name="SelectPerformerJAON"
+			class="net.itjds.userclient.bpm.SelectPerformerAction">
+			<result name="success">
+				/desktop/widgets/bpm/personselect/preformSelectPersonJSON.jsp
+			</result>
+		</action>
+		<action name="SelectPerformerJAONBF"
+			class="net.itjds.userclient.bpm.SelectPerformerAction">
+			<result name="success">
+				/desktop/widgets/bpm/personselect/preformSelectPersonJSONBF.jsp
+			</result>
+		</action>
+		<action name="SelectPersonJSDEF"
+			class="net.itjds.userclient.bpm.SelectPerformerAction">
+			<result name="success">
+				/desktop/widgets/bpm/personselect/SelectPersonJSDEF.jsp
+			</result>
+		</action>
+		<action name="SelectPersonJSDEFBF"
+			class="net.itjds.userclient.bpm.SelectPerformerAction">
+			<result name="success">
+				/desktop/widgets/bpm/personselect/SelectPersonJSDEFBF.jsp
+			</result>
+		</action>
+	
+		
+		<!--意见处理-->
+
+
+        <action name="saveCommentsDef" class="net.itjds.userclient.comment.CommentsDefAction" method="saveCommentsDef">
+			<result name="success">/desktop/widgets/bpm/form/comments/success.jsp</result>
+		</action>
+		<action name="commentsDeflist" class="net.itjds.userclient.comment.CommentsDefAction" method="commentsDefList">
+			<result name="success">/desktop/widgets/bpm/form/comments/xml.jsp</result>
+		</action>
+		
+		<action name="removeCommentsDef" class="net.itjds.userclient.comment.CommentsDefAction" method="removeCommentsDef">
+			<result name="success">/desktop/widgets/bpm/form/comments/success.jsp</result>
+		</action>
+		
+		<action name="initcomments" class="net.itjds.userclient.comment.CommentsAction" >
+			<result name="success">/desktop/widgets/bpm/form/comments/commentsdata.jsp</result>
+		</action>
+		
+		<action name="editcomments" class="net.itjds.userclient.comment.CommentsAction" method="editData">
+			<result name="success">/desktop/widgets/bpm/form/comments/editdata.jsp</result>
+		</action>
+		
+		<action name="saveComments" class="net.itjds.userclient.comment.CommentsAction" method="saveComments">
+			<result name="success">/desktop/widgets/bpm/form/comments/success.jsp</result>
+		</action>
+		
+		<action name="delComments" class="net.itjds.userclient.comment.CommentsAction" method="delData">
+			<result name="success">/desktop/widgets/bpm/form/comments/success.jsp</result>
+		</action>
+		
+		<!--表单查询-->
+		<action name="searchInsert"
+			class="net.itjds.userclient.bpm.search.BPMClientNewSearchtAction">
+			<result name="success">
+				/desktop/widgets/bpm/form/search/display.jsp
+			</result>
+		</action>
+		
+		<action name="BPMClientSearchFormDisplayAction"
+		      class="net.itjds.userclient.bpm.search.BPMClientFormDisplayAction">
+		     <result name="success">/desktop/widgets/bpm/form/search/formDisplay.jsp</result>
+       </action>
+	   
+	   	<action name="searchupdate"
+		      class="net.itjds.userclient.bpm.search.SearchListAction" method="searchlist">
+		     <result name="success">/desktop/widgets/bpm/form/search/xml.jsp</result>
+       </action>
+	  
+		
+	</package>
+	
+	<package name="fileUpload" extends="struts-default"
+		namespace="/fileUpload">
+		<interceptors>
+			<interceptor name="fileUpload"
+				class="org.apache.struts2.interceptor.FileUploadInterceptor">
+				<param name="allowedTypes"></param>
+				<param name="maximumSize">7168</param>
+			</interceptor>
+			<interceptor-stack name="fileUploadStack">
+				<interceptor-ref name="fileUpload" />
+			</interceptor-stack>
+		</interceptors>
+	</package>
+
+  <package name="file" extends="struts-default" namespace="/file">
+		<action name="upload" class="net.itjds.userclient.file.UploadFileAction" method="execute">
+			<result name="success">/bpm/userclient/rtnJsp.jsp</result>
+		</action>
+  </package>
+	
+</struts>

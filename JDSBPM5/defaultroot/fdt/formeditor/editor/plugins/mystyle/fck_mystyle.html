@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>设置表单样式</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="noindex, nofollow" name="robots">
+    <style type="text/css">
+        .lpl {
+            PADDING-LEFT: 0px
+        }
+
+        .lpr {
+            PADDING-RIGHT: 10px;
+            PADDING-LEFT: 8px
+        }
+
+        .preview {
+            FONT-SIZE: 12pt;
+            OVERFLOW: auto;
+            WIDTH: 370px;
+            COLOR: #000000;
+            BACKGROUND-COLOR: #ffffef;
+            HEIGHT: 280px;
+            border: 1px solid gray;
+            padding: 5px;
+        }
+          .mystyle0{
+            border-top:none;
+            /*border-left:none;*/
+            /*border-bottom:1px solid #333333 ;*/
+            /*border-right:none;*/
+            /*background-color:#f9f9f9;*/
+            /*font-family:宋体;*/
+            /*font-size:11pt;*/
+        }
+        .mystyle1{
+            border-top:none;
+            border-left:none;
+            border-bottom:1px solid #333333 ;
+            border-right:none;
+            background-color:#f9f9f9;
+            font-family:宋体;
+            font-size:11pt;
+            
+        }
+        .mystyle2{
+            /*border-top:none;*/
+            /*border-left:none;*/
+            /*border-bottom:1px solid #333333 ;*/
+            /*border-right:none;*/
+            background-color:#f9f9f9;
+            font-family:楷体_gb2312;
+            font-size:11pt;
+        }
+    </style>
+    <script src="../../dialog/common/fck_dialog_common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var dialog = window.parent ;
+        var oEditor = dialog.InnerDialogLoaded() ;
+        var FCKobj = oEditor.FCKobj ;
+
+        window.onload = function ()
+        {
+
+            dialog.SetOkButton(true);
+        }
+
+        function DoPreview() {
+            var preview = $("preview");
+            preview.style.fontFamily = $("fontNameSel").value;
+            preview.style.fontSize = $("fontSizeSel").value;
+            preview.style.lineHeight = $("lineHeightSel").value;
+
+            var style;
+            switch ($('inputStyleSel').value){
+               case '0':style='mystyle0';break;
+               case '1':style='mystyle1';break;
+               case '2':style='mystyle2'; break;
+            }
+            var inputs = preview.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].className=style;
+            }
+            var textareas = preview.getElementsByTagName("textarea");
+            for (var j = 0; j < textareas.length; j++) {
+                 textareas[j].className=style;
+            }
+        }
+
+
+        //        var eSelected = dialog.Selection.GetSelectedElement() ;
+
+        //        function LoadSelected()
+        //        {
+        //            if ( !eSelected )
+        //                return ;
+        //
+        //            if ( eSelected.tagName == 'SPAN' && eSelected._fckplaceholder )
+        //                document.getElementById('txtName').value = eSelected._fckplaceholder ;
+        //            else
+        //                eSelected == null ;
+        //        }
+
+        function $(elementName) {
+            return document.getElementById(elementName);
+
+        }
+        function Ok()
+        {
+            var inputStyleSel = $('inputStyleSel').value ;
+            var fontNameSel = $('fontNameSel').value ;
+            var fontSizeSel = $('fontSizeSel').value ;
+            var lineHeightSel = $('lineHeightSel').value ;
+
+
+            FCKobj.Add(inputStyleSel,fontNameSel,fontSizeSel,lineHeightSel);
+            return true;
+        }
+
+    </script>
+</head>
+<body scroll="no" style="OVERFLOW: hidden">
+<table height="100%" cellSpacing="0" cellPadding="0" width="100%" border="0">
+    <tr>
+        <td width="30%" valign="top">
+            <table cellSpacing="0" cellPadding="3" align="center" border="0" width="80%" height="100%">
+                <tr>
+                    <td class="lpl"><b> 整体样式:</b><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <DIV style="BORDER: #cccccc 1px solid; PADDING: 3px;">
+                            <table height="100%" cellSpacing="0" cellPadding="4" width="100%" border="0">
+                                <tr>
+                                    <td class="lpl"><b>字体：</b></td>
+                                </tr>
+                                <tr>
+                                    <td class="lpr" nowrap>
+                                        <SELECT id=fontNameSel style="width:70px" onchange=DoPreview()>
+                                            <OPTION value="宋体" selected>宋体</OPTION>
+                                            <OPTION value="新宋体">新宋体</OPTION>
+                                            <OPTION value="楷体_GB2312">楷体_GB2312</OPTION>
+                                            <OPTION value="仿宋_GB2312">仿宋_GB2312</OPTION>
+                                            <OPTION value="黑体">黑体</OPTION>
+                                            <OPTION value="隶书">隶书</OPTION>
+                                            <OPTION value="Arial">Arial</OPTION>
+                                            <OPTION value="Courier New">Courier New</OPTION>
+                                            <OPTION value="Tahoma">Tahoma</OPTION>
+                                            <OPTION value="Verdana">Verdana</OPTION>
+                                        </SELECT>
+                                        <SELECT id=fontSizeSel style="width:50px" onchange=DoPreview()>
+                                            <OPTION value="9pt">小五</OPTION>
+                                            <OPTION value="10.5pt" selected>五号</OPTION>
+                                            <OPTION value="12pt" selected>小四</OPTION>
+                                            <OPTION value="14pt">四号</OPTION>
+                                            <OPTION value="15pt">小三</OPTION>
+                                            <OPTION value="16pt">三号</OPTION>
+                                            <OPTION value="18pt">小二</OPTION>
+                                            <OPTION value="22pt">二号</OPTION>
+                                            <OPTION value="24pt">小一</OPTION>
+                                            <OPTION value="26pt">一号</OPTION>
+                                            <OPTION value="36pt">小初</OPTION>
+                                            <OPTION value="42pt">初号</OPTION>
+                                        </SELECT>
+                                    </td>
+                                </tr>
+                                <TR>
+                                    <TD class=lpl noWrap><B>行距：</B></TD>
+                                </TR>
+                                <TR>
+                                    <TD class=lpr>
+                                        <SELECT id=lineHeightSel style="width:120px" onchange=DoPreview()>
+                                            <OPTION value="" selected>常规</OPTION>
+                                            <OPTION value=1>单倍行距</OPTION>
+                                            <OPTION value=1.5>1.5 倍行距</OPTION>
+                                            <OPTION value=2>两倍行距</OPTION>
+                                            <OPTION value=3>三倍行距</OPTION>
+                                        </SELECT>
+                                    </TD>
+                                </TR>
+                                <tr>
+                                    <td class="lpl"><b> 输入元素样式:</b></td>
+                                </tr>
+                                <tr>
+                                    <td class="lpr">
+                                        <select id="inputStyleSel" style="width:70px" onchange=DoPreview()>
+                                            <option value="0">无样式</option>
+                                            <option value="1">样式一</option>
+                                            <option value="2">样式二</option>
+                                            <!--<option value="3">样式三</option>-->
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <b>预览： </b>
+
+            <DIV style="BORDER: #cccccc 1px solid; PADDING: 3px;">
+                <DIV id=preview class="preview" >
+                    文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试
+                    <br>
+                    <input type="checkbox"/>选择&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio"/>是 <input type="radio"/>否
+                    <br>
+                    <input type="text" size="30" value="input"/>
+                    <br>
+                    <textarea rows="7" cols="40" style="width:300px;height:120px">字符域</textarea>
+                </DIV>
+            </DIV>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>

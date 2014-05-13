@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="usm" extends="struts-default" namespace="/usm">
+	    <action name="commitCache" class="net.itjds.usm.persistence.action.CommitAction">
+            <result name="success">/usm/success.jsp</result>
+        </action>
+        
+		<!-- 岗位的配置 -->
+        <action name="positionQery" class="PositionAction" method="positionQery">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <action name="posititionModify" class="PositionAction" method="posititionModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <action name="positionDel" class="PositionAction" method="positionDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <action name="postionSave" class="PositionAction" method="postionSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!-- 生成岗位树 -->
+        <action name="positiontreeJson" class="PositionAction" method="positiontreeJson">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 查询岗位详细信息 -->
+        <action name="positionInfo" class="PositionAction" method="positionInfo">
+            <result name="success">/usm/position/positiondetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--从岗位树中选中岗位出现在右边岗位详细信息界面 -->
+        <action name="getPositionDetailInfo" class="PositionAction" method="getPositionDetailInfo">
+            <result name="success">/usm/position/positionmodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+           <!--人员分配岗位,获取名字 -->
+        <action name="getPositionNameDetailInfo" class="PositionAction" method="getPositionNameDetailInfo">
+            <result name="success">/usm/position/personPositonListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--选择人员到岗位 -->
+        <action name="addPositionPersonSave" class="PositionAction" method="addPositionPersonSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+           <!--查看人员所在的岗位 -->
+        <action name="lookOverPersonPositionInfo" class="PositionAction" method="lookOverPersonPositionInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+     
+        
+        <!--   解除人员与职务的关系 -->
+        <action name="personPositionDel" class="PositionAction" method="personPositionDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+       <!--   查询角色下的无选择的所有岗位 -->
+        <action name="positionNotRoleQery" class="PositionAction" method="positionNotRoleQery">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+       
+       
+       
+         <!-- 职务的配置 -->
+        <action name="dutySave" class="DutyAction" method="dutySave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <action name="dutyModify" class="DutyAction" method="dutyModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <action name="dutyQueryAll" class="DutyAction" method="dutyQueryAll">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <action name="dutyPointDel" class="DutyAction" method="dutyPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!-- 生成职务树 -->
+        <action name="dutytreeJson" class="DutyAction" method="dutytreeJson">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 查询职务详细信息 -->
+        <action name="dutyInfo" class="DutyAction" method="dutyInfo">
+            <result name="success">/usm/duty/dutydetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--从职务树中选中职务出现在右边职务详细信息界面 -->
+        <action name="getdutyDetailInfo" class="DutyAction" method="getdutyDetailInfo">
+            <result name="success">/usm/duty/dutymodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!-- 人员分配职务,获取职务名称-->
+        <action name="getDutyNameDetailInfo" class="DutyAction" method="getDutyNameDetailInfo">
+            <result name="success">/usm/duty/personDutyListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+              
+        <!-- 获得查看人员分配到职务信息-->
+        <action name="lookOverPersonDutyInfo" class="DutyAction" method="lookOverPersonDutyInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+             
+        <!-- 选择人员到职务-->
+        <action name="addPersonDutySave" class="DutyAction" method="addPersonDutySave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 解除人员与职务的关系-->
+        <action name="personDutynDel" class="DutyAction" method="personDutynDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        
+        <!-- 用户组的配置 -->
+           <action name="userGroupSave" class="UserGroupAction" method="userGroupSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--获得用户组基本信息并显示在grid表格中 -->
+        <action name="getUserGroupInfo" class="UserGroupAction" method="getUserGroupInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--获得用户组基本信息并显示在grid表格中 -->
+        <action name="getUserGroupNotRoleInfo" class="UserGroupAction" method="getUserGroupNotRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        
+        <!--修改指定用户组-->
+         <action name="userGroupModify" class="UserGroupAction" method="userGroupModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--删除指定用户组-->
+        <action name="userGroupPointDel" class="UserGroupAction" method="userGroupPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--生成用户组树-->
+        <action name="userGrouptreeJson" class="UserGroupAction" method="userGrouptreeJson">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--查询用户组详细信息-->
+        <action name="usergroupInfo" class="UserGroupAction" method="usergroupInfo">
+            <result name="success">/usm/usergroup/usergroupdetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--从用户组树中选中用户组出现在右边用户组详细信息界面 -->
+        <action name="getuserGroupDetailInfo" class="UserGroupAction" method="getuserGroupDetailInfo">
+            <result name="success">/usm/usergroup/usergroupmodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--部门分配用户组,获取用户组名称 -->
+        <action name="getUserGroupNameDetailInfo" class="UserGroupAction" method="getUserGroupNameDetailInfo">
+            <result name="success">/usm/usergroup/orgUserGroupListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--人员分配用户组,获取用户组名称 -->
+        <action name="getpersonUserGroupNameDetailInfo" class="UserGroupAction" method="getpersonUserGroupNameDetailInfo">
+            <result name="success">/usm/usergroup/personUserGroupListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--选择部门人员到用户组 -->
+        <action name="addOrgUserGroupSave" class="UserGroupAction" method="addOrgUserGroupSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--选择部门人员到用户组 -->
+        <action name="addPersonUserGroupSave" class="UserGroupAction" method="addPersonUserGroupSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--获得查看部门分配到用户组信息 -->
+        <action name="lookOverOrgUserGroupInfo" class="UserGroupAction" method="lookOverOrgUserGroupInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--获得查看人员分配到用户组信息-->
+        <action name="lookOverPersonUserGroupInfo" class="UserGroupAction" method="lookOverPersonUserGroupInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--解除人员与用户组的关系 -->
+        <action name="orgUserGroupDel" class="UserGroupAction" method="orgUserGroupDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+          <!--解除人员与用户组的关系 -->
+        <action name="personUserGroupDel" class="UserGroupAction" method="personUserGroupDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+		<!-- 子系统的配置 -->
+		<action name="systemLeftMenus" class="SystemAction" method="systemLeftMenus">
+            <result name="success">/usm/systemLeftMenus.jsp</result>
+        </action>
+        <action name="systemGridview" class="SystemAction" method="systemGridview">
+            <result name="success">/usm/gridview.jsp</result>
+        </action>
+        <action name="systemisEnname" class="SystemAction" method="systemisEnname">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+		<action name="systemSave" class="SystemAction" method="systemSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="systemUpdate" class="SystemAction" method="systemUpdate">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="systemRemove" class="SystemAction" method="systemRemove">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="systemtreeJson" class="SystemAction" method="systemtreeJson">
+            <result name="success">/usm/resources/systemtreejson.jsp</result>
+        </action>
+        <action name="systemInfo" class="SystemAction" method="systemInfo">
+            <result name="success">/usm/resources/systemInfo.jsp</result>
+            <result name="input">/usm/resources/systemInfoApplication.jsp</result>
+        </action>
+        <action name="systemAll" class="SystemAction" method="systemAll">
+            <result name="success">/usm/resources/systemAll.jsp</result>
+        </action>
+        <action name="systemAndpersonSave" class="SystemAction" method="systemAndpersonSave">
+            <result name="success">/usm/success</result>
+        </action>
+        
+        <action name="systemSort" class="SystemAction" method="systemSort">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="sysorgSave" class="SystemAction" method="sysorgSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="sysorgGrid" class="SystemAction" method="sysorgGrid">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="systemGrid" class="SystemAction" method="systemGrid">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="sysorgpersonGrid" class="SystemAction" method="sysorgpersonGrid">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="sysorgRemove" class="SystemAction" method="sysorgRemove">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!-- 登入 -->
+        <action name="logon" class="LogonAction" method="logon">
+        	<result name="success">/usm/resources-index.jsp</result>
+        	<result name="input">/usm/directory-index.jsp</result>
+        	<result name="cancel">/usm/depart-index.jsp</result>
+        	<result name="error">/usm/login.jsp</result>
+        </action>
+        
+        <!-- 资源扩展属性 -->
+        <action name="modulepropertiesSave" class="ModulepropertiesAction" method="modulepropertiesSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 资源模块 -->
+        <action name="moduleGridview" class="ModuleAction" method="moduleGridview">
+            <result name="success">/usm/gridview.jsp</result>
+        </action>
+        <action name="moduleSave" class="ModuleAction" method="moduleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="moduleUpdate" class="ModuleAction" method="moduleUpdate">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="moduleRemove" class="ModuleAction" method="moduleRemove">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="moduleInfo" class="ModuleAction" method="moduleInfo">
+            <result name="success">/usm/resources/resourcesInfo.jsp</result>
+            <result name="input">/usm/resources/redresourcesInfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+          <action name="moduleAll" class="ModuleAction" method="moduleAll">
+            <result name="success">/usm/resources/resourcesAll.jsp</result>
+        </action>
+        <action name="moduletreeJson" class="ModuleAction" method="moduletreeJson">
+            <result name="success">/usm/resources/systemtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="moduleisEnname" class="ModuleAction" method="moduleisEnname">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+         <action name="moduleGrid" class="ModuleAction" method="moduleGrid">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+         <action name="sysmoduleInfo" class="ModuleAction" method="moduleInfo">
+            <result name="success">/usm/resources/sysresourcesInfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="sysmoduleSave" class="ModuleAction" method="sysmoduleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+         <action name="sysmoduleAllRemove" class="ModuleAction" method="sysmoduleAllRemove">
+            <result name="success">/usm/success.jsp</result>
+        </action>
+        <action name="sysmoduleRemove" class="ModuleAction" method="sysmoduleRemove">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+          <action name="sysmoduleAllGrid" class="ModuleAction" method="sysmoduleAllGrid">
+            <result name="success">/usm/resources/sysmodulegrid.jsp</result>
+        </action>
+        <action name="sysmoduleGrid" class="ModuleAction" method="sysmoduleGrid">
+            <result name="success">/usm/resources/systemgridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+ 		<!-- 应用目录 -->
+ 		
+ 		<action name="clienttest" class="ApplicationAction" method="clienttest">
+             <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+ 		<action name="rightTemplateSave" class="ApplicationAction" method="rightTemplateSave">
+             <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+ 		<action name="rightTemplate" class="ApplicationAction" method="rightTemplate">
+            <result name="success">/usm/righttemplate.jsp</result>
+            <result name="input">/usm/personrighttemplate.jsp</result>
+            <result name="login">/usm/persontree.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+ 		<action name="applicationTemplate" class="ApplicationAction" method="applicationTemplate">
+            <result name="success">/usm/gridview.jsp</result>
+        </action>
+ 		<action name="appSave" class="ApplicationAction" method="appSave">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appupdate" class="ApplicationAction" method="appupdate">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appremove" class="ApplicationAction" method="appremove">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		 <action name="appcatalogmoduleInfo" class="ApplicationAction" method="appcatalogmoduleInfo">
+        	<result name="success">/usm/resources/applicationtomoduleInfo.jsp</result>
+        </action>
+        <action name="applicationInfo" class="ApplicationAction" method="applicationInfo">
+        	<result name="success">/usm/resources/applicationInfo.jsp</result>
+        </action>
+ 		<action name="applicationtreeJson" class="ApplicationAction" method="applicationtreeJson">
+ 		 <result name="success">/usm/resources/systemtreejson.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="applicationGrid" class="ApplicationAction" method="applicationGrid">
+ 		 <result name="success">/usm/resources/systemgridjson.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appcatalogmoduleSaveSort" class="ApplicationAction" method="appcatalogmoduleSaveSort">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="applicationSaveSort" class="ApplicationAction" method="applicationSaveSort">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="applicationSort" class="ApplicationAction" method="applicationSort">
+ 		 <result name="success">/usm/resources/systemgridjson.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appcatalogmoduleGrid" class="ApplicationAction" method="appcatalogmoduleGrid">
+ 		 <result name="success">/usm/resources/systemgridjson.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appcatalogmoduleSave" class="ApplicationAction" method="appcatalogmoduleSave">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		<action name="appcatalogmoduleRemove" class="ApplicationAction" method="appcatalogmoduleRemove">
+ 		 <result name="success">/usm/success.jsp</result>
+         <result name="error">/usm/error.jsp</result>
+ 		</action>
+ 		
+        <!-- 管理员帐号 -->
+        <action name="personextaccountjson" class="PersonextaccountAction" method="personextaccountjson">
+            <result name="success">/usm/resources/personextaccountjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="personextaccountSave" class="PersonextaccountAction" method="personextaccountSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <action name="personextaccountRemove" class="PersonextaccountAction" method="personextaccountRemove">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+
+		 <!-- 查询部门 -->
+           <action name="orgQuery" class="departAction" method="orgQuery">
+             <result name="success">/usm/resources/personextaccountjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+            </action>
+        <!-- 部门添加 -->
+        <action name="orgSave" class="departAction" method="orgSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--获得部门基本信息并显示在grid表格中 -->
+        <action name="getDepartInfo" class="departAction" method="getDepartInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        
+         <!--查询用户组下的无选择的所有部门 -->
+        <action name="getUserGroupNotDepartInfo" class="departAction" method="getUserGroupNotDepartInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+         <!--查询角色下的无选择的所有部门 -->
+        <action name="getRoleNotDepartInfo" class="departAction" method="getRoleNotDepartInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--修改指定部门 -->
+        <action name="departModify" class="departAction" method="departModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+         <!--删除指定部门 -->
+        <action name="departPointDel" class="departAction" method="departPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+          <!--子部门列表 -->
+        <action name="childDepartListGrid" class="departAction" method="childDepartListGrid">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+          <!--子部门排序-->
+        <action name="departSaveSort" class="departAction" method="departSaveSort">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+          <!--按部门名称查询 -->
+        <action name="DepartNameQuery" class="departAction" method="DepartNameQuery">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        <!--从部门树中选中部门出现在右边部门详细信息界面 -->
+        <action name="departInfo" class="departAction" method="departInfo">
+            <result name="success">/usm/depart/departdetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--从部门树中选中部门出现在右边部门详细信息界面 -->
+        <action name="getDepartDetailInfo" class="departAction" method="getDepartDetailInfo">
+            <result name="success">/usm/depart/departmodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        <!-- 生成部门树形结构 -->
+ 		<action name="orgtreeJson" class="departAction" method="orgtreesuccess">
+            <result name="success">/usm/depart/treejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <action name="orgGrid" class="departAction" method="orgGrid">
+           	<result name="success">/usm/resources/personextaccountjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 个人信息返回信息 -->
+          <action name="gerenxinxi" class="personAction" method="getPersonDetailInfo">
+            <result name="success">/usm/person/gerenxinxi.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 个人信息修改 -->
+            <action name="gerenxinxixiougai" class="personAction" method="gerenxinxixiougai">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        <!-- 人员调动 -->
+            <action name="changeDepart" class="personAction" method="changeDepart">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        <!--人员信息及账户的添加 -->
+        <action name="personSave" class="personAction" method="personSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--获得人员账号信息 -->
+        <action name="getPersonAcountInfo" class="personAction" method="getPersonAcountInfo">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>  
+        
+        <!--获得人员基本信息并显示在grid表格中 -->
+        <action name="getPersonInfo" class="personAction" method="getPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        <!--删除指定人员 -->
+        <action name="personPointDel" class="personAction" method="personPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>   
+        
+        <!--修改指定人员 -->
+        <action name="personInfoModify" class="personAction" method="personInfoModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        
+        <!--生成人员树 -->
+        <action name="persontreeJson" class="personAction" method="persontreeJson">
+            <result name="success">/usm/person/persontreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--指定人员详细信息表单 -->
+        <action name="personDetailInfo" class="personAction" method="personDetailInfo">
+            <result name="success">/usm/person/persondetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--从部门人员树中选中人员出现在右边人员详细信息界面 -->
+        <action name="getPersonDetailInfo" class="personAction" method="getPersonDetailInfo">
+            <result name="success">/usm/person/personmodifywindow.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        <action name="getPersonDetail" class="personAction" method="getPersonDetailInfo">
+            <result name="success">/usm/person/persondetailwindow.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--部门下的人员 -->
+        <action name="orgPersonListGrid" class="personAction" method="orgPersonListGrid">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        <!--部门下的人员排序 -->
+        <action name="personSaveSort" class="personAction" method="personSaveSort">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>  
+         <!--查询岗位下还没有分配的所有人员 -->
+        <action name="getDutyLevelNotPersonInfo" class="personAction" method="getDutyLevelNotPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--查询职级下还没有分配的所有人员 -->
+        <action name="getPositionNotPersonInfo" class="personAction" method="getPositionNotPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--查询职位下还没有分配的所有人员 -->
+        <action name="getDutyNotPersonInfo" class="personAction" method="getDutyNotPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--查询角色下还没有分配的所有人员 -->
+        <action name="getRoleNotPersonInfo" class="personAction" method="getRoleNotPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--查询用户组下还没有分配的所有人员 -->
+        <action name="getGrpuNotPersonInfo" class="personAction" method="getGrpuNotPersonInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--职级的添加 -->
+        <action name="levelSave" class="dutyLevelAction" method="levelSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--获得职级基本信息并显示在grid表格中 -->
+         <action name="getDutyLevelInfo" class="dutyLevelAction" method="getDutyLevelInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--修改指定行 -->
+         <action name="dutyLevelModify" class="dutyLevelAction" method="dutyLevelModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--删除指定行 -->
+         <action name="dutylevelPointDel" class="dutyLevelAction" method="dutylevelPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!-- 生成职级树 -->
+        <action name="dutyLeveltreeJson" class="dutyLevelAction" method="dutyLeveltreeJson">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!-- 查询职级详细信息 -->
+        <action name="dutyLevelInfo" class="dutyLevelAction" method="dutyLevelInfo">
+            <result name="success">/usm/dutylevel/dutyleveldetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--从职级树中选中职级出现在右边职级详细信息界面 -->
+        <action name="getdutyLevelDetailInfo" class="dutyLevelAction" method="getdutyLevelDetailInfo">
+            <result name="success">/usm/dutylevel/dutylevelmodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--人员分配职级,获取职级名称 -->
+        <action name="getDutyLevelNameDetailInfo" class="dutyLevelAction" method="getDutyLevelNameDetailInfo">
+            <result name="success">/usm/dutylevel/personDutyLevelListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        <!--选择人员到职级 -->
+        <action name="addPersonDutyLevelSave" class="dutyLevelAction" method="addPersonDutyLevelSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+         <!--获得查看人员分配到职级信息 -->
+        <action name="lookOverPersonDutyLevelInfo" class="dutyLevelAction" method="lookOverPersonDutyLevelInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--解除人员与职级的关系 -->
+        <action name="personDutyLevelnDel" class="dutyLevelAction" method="personDutyLevelnDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        
+        <!--角色的添加 -->
+        <action name="roleSave" class="roleAction" method="roleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--获得角色基本信息并显示在grid表格中 -->
+         <action name="getRoleInfo" class="roleAction" method="getRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--修改角色指定行 -->
+        <action name="roleModify" class="roleAction" method="roleModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        <!--删除角色指定行-->
+        <action name="rolePointDel" class="roleAction" method="rolePointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+         <action name="demo" class="org.jds.usm.demo.webapp.action.Demo" method="hellowWorld">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        <!--生成角色树-->
+        <action name="roletreeJson" class="roleAction" method="roletreeJson">
+            <result name="success">/usm/depart/departtreejson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--查询角色详细信息-->
+        <action name="roleInfo" class="roleAction" method="roleInfo">
+            <result name="success">/usm/role/roledetailinfo.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>  
+        
+        <!--查询角色详细信息-->
+        <action name="getroleDetailInfo" class="roleAction" method="getroleDetailInfo">
+            <result name="success">/usm/role/rolemodify.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action> 
+        
+        
+        <!--人员分配角色,获取角色名称-->
+        <action name="getRoleNameDetailInfo" class="roleAction" method="getRoleNameDetailInfo">
+            <result name="success">/usm/role/personroleListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--选择人员到角色-->
+        <action name="addPersonRoleSave" class="roleAction" method="addPersonRoleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+
+        <!--选择岗位到角色-->
+        <action name="addPositionRoleSave" class="roleAction" method="addPositionRoleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>    
+        
+        
+         <!--获得查看人员分配到角色信息-->
+        <action name="lookOverPersonRoleInfo" class="roleAction" method="lookOverPersonRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--获得查看岗位分配到角色信息-->
+        <action name="lookOverPositionRoleInfo" class="roleAction" method="lookOverPositionRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+          <!--保存角色下人员排序信息-->
+        <action name="rolePersonSaveSort" class="roleAction" method="rolePersonSaveSort">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--解除人员与角色的关系-->
+        <action name="personRoleDel" class="roleAction" method="personRoleDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+          <!--解除岗位与角色的关系-->
+        <action name="positionRoleDel" class="roleAction" method="positionRoleDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--岗位分配角色,获取角色名称-->
+        <action name="getRolePositionNameDetailInfo" class="roleAction" method="getRolePositionNameDetailInfo">
+            <result name="success">/usm/role/positionroleListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--用户组分配角色,获取角色名称-->
+        <action name="getRoleUserGroupNameDetailInfo" class="roleAction" method="getRoleUserGroupNameDetailInfo">
+            <result name="success">/usm/role/userGrouproleListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        <!--获得查看用户组分配到角色信息-->
+        <action name="lookOverUserGroupRoleInfo" class="roleAction" method="lookOverUserGroupRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        
+        <!--选择用户组到角色-->
+        <action name="addUserGroupRoleSave" class="roleAction" method="addUserGroupRoleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+		  
+        
+        <!--解除用户组与角色的关系-->
+        <action name="userGroupRoleDel" class="roleAction" method="userGroupRoleDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--所在的部门分配角色,获取角色名称-->
+        <action name="getRoleOrgNameDetailInfo" class="roleAction" method="getRoleOrgNameDetailInfo">
+            <result name="success">/usm/role/orgroleListgrid.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--选择部门到角色-->
+        <action name="addOrgRoleSave" class="roleAction" method="addOrgRoleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!--获得查看部门分配到角色信息-->
+        <action name="lookOverOrgRoleInfo" class="roleAction" method="lookOverOrgRoleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+         <!--解除部门与角色的关系-->
+        <action name="orgRoleDel" class="roleAction" method="orgRoleDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        
+        <!-- 代理登录管理 -->
+        <!--获得SSO基本信息并显示在grid表格中 -->
+         <action name="getSsoInfo" class="ssoAction" method="getSsoInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 修改SSO信息 -->
+        <action name="ssoModify" class="ssoAction" method="ssoModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 删除SSO信息 -->
+        <action name="ssoPointDel" class="ssoAction" method="ssoPointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 添加SSO信息 -->
+        <action name="ssoSave" class="ssoAction" method="ssoSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 消息管理 -->
+        <!--获得信息并显示在grid表格中 -->
+         <action name="getMsgInfo" class="net.itjds.usm.persistence.action.MsgAction" method="getMsgInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!--发送信息 -->
+        <action name="msgSend" class="net.itjds.usm.persistence.action.MsgAction" method="msgSend">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!--查看信息 -->
+        <action name="hasSee" class="net.itjds.usm.persistence.action.MsgAction" method="hasSee">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+         <!-- 报表信息管理 -->
+        <!--获得报表基本信息并显示在grid表格中 -->
+         <action name="getReportModuleInfo" class="ModuleAction" method="getReportModuleInfo">
+            <result name="success">/usm/displaygridjson.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 添加报表、图表信息 -->
+        <action name="rcModuleSave" class="ModuleAction" method="rcModuleSave">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 修改报表、图表信息 -->
+        <action name="rcModuleModify" class="ModuleAction" method="rcModuleModify">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+        <!-- 删除报表、图表信息 -->
+        <action name="rcModulePointDel" class="ModuleAction" method="rcModulePointDel">
+            <result name="success">/usm/success.jsp</result>
+            <result name="error">/usm/error.jsp</result>
+        </action>
+    </package>
+    <!-- 图表设计工具 -->
+    <package name="charteditor" extends="struts-default" namespace="/fdt/formeditor">
+	   <action name="chartedit" method="chartedit" class="net.itjds.fdt.temp.FileOperateAction">
+			<result>/fdt/formeditor/chartformeditor.jsp</result>
+	   </action>
+	</package>
+    <!-- 图表绑定工具 -->
+    <package name="chartdesigner" extends="struts-default" namespace="/fdt/designer">
+		 <action name="chartDesigner" class="net.itjds.fdt.temp.FileOperateAction" method="edit">
+		            <result name="success">/fdt/designer/chartdesigner.jsp</result>
+		 </action>
+	</package>
+</struts>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="docpdf" extends="struts-default">
+		<!-- 工作列表  -->
+	   <action  name="toViewDocPdf" class="com.kzxd.pdf.DocumentPdf">
+	    <result name="success">/desktop/widgets/bpm/form/document/pdfTaoHongView.jsp</result>
+		</action>	
+		 <action  name="saveDocPdf" class="com.kzxd.pdf.DocumentPdf" method="savepdfth">
+	    <result name="success">/desktop/widgets/bpm/form/document/pdfTaoHongView.jsp</result>
+		</action>	
+		<action name="viewpdfthh" class="com.kzxd.pdf.PdfViewTh" method="writeResponse">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<!-- pdf打开 开始 -->
+	<action name="pdfview" class="com.kzxd.pdf.PdfViewAction"> 
+		<result name="success" type="stream"> 
+			<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+		</result> 
+	</action>
+	<action name="pdfgdview" class="com.kzxd.pdf.PdfViewGDAction"> 
+		<result name="success" type="stream"> 
+			<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+		</result> 
+	</action>
+	<!-- pdf打开 结束 -->
+	</package>
+	<package name="docttpackage" extends="struts-default">
+		 <action  name="toViewDocTT" class="com.kzxd.doctt.DocttAction" method="tottdoc">
+		    	<result name="success">/desktop/widgets/bpm/form/document/createDocumentTT.jsp</result>
+		 </action>
+		 <action  name="savettdoc" class="com.kzxd.doctt.DocttAction">
+		    	<result name="success">/desktop/widgets/bpm/form/document/createDocumentTT.jsp</result>
+		 </action>
+		  <action  name="todocttviewAction" class="com.kzxd.doctt.TodocTtView">
+		    	<result name="success">/desktop/widgets/bpm/form/document/createDocumentTTview.jsp</result>
+		 </action>
+		 <action name="openTTdoc" class="com.kzxd.doctt.OpenTTdoc"> 
+		<result name="success" type="stream"> 
+			<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">4096</param>
+		</result> 
+	</action>
+	
+	<action name="downTtModelAction" class="kzxd.ttinfo.action.downLoadfileAction">
+	
+	</action>
+	<action name="saveTtModel" class="kzxd.ttinfo.action.SaveTtModelAction">
+	</action>	
+	</package>
+</struts>

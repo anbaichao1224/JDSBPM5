@@ -1,0 +1,47 @@
+#help_frm {
+    position: absolute;
+    top: 200;
+    left: 200;
+    z-index: 9;
+    background: #D4D0C8;
+    border: 2px outset;
+    margin-top: 0px;
+    font-family: 宋 体;
+    font-size: 9pt
+}
+
+table.calendar {
+    font-family: 宋 体;
+    font-size: 9pt
+}
+
+.box1 {
+    background: #EEEEEE;
+    border-style: none solid solid none;
+    border-color: black;
+    border-width: 1px;
+    padding: 3px 0px 0px 0px
+}
+
+.box2 {
+    background: #EEEEEE;
+    border-style: none none solid none;
+    border-color: black;
+    border-width: 1px;
+    padding: 3px 0px 0px 0px
+}
+
+.box3 {
+    background: #FFFFFF;
+    border: 1px solid white;
+    padding: 0px 0px 0px 0px;
+    cursor: hand
+}
+
+.boxA {
+    height: 14px;
+    width:15px;
+    border: 0px;
+    padding: 0px;
+    text-align: center
+}

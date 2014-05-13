@@ -1,0 +1,1 @@
+FCKLang.Hello="字号";

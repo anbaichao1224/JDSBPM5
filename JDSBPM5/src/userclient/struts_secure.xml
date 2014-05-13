@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="secure" extends="struts-default">
+		<action name="personsecurejson" class="PersonsecureAction"
+			method="personsecurejson">
+			<result name="success">
+				/usm/resources/personsecureaccountjson.jsp
+			</result>
+			<result name="error">/usm/error.jsp</result>
+		</action>
+		<action name="personsecureRemove" class="PersonsecureAction"
+			method="personsecureRemove">
+			<result name="success">/usm/success.jsp</result>
+			<result name="error">/usm/error.jsp</result>
+		</action>
+		<action name="personsecureSave" class="PersonsecureAction"
+			method="personsecureSave">
+			<result name="success">/usm/success.jsp</result>
+			<result name="error">/usm/error.jsp</result>
+		</action>
+		<action name="roledata" class="RoletempAction"
+			method="roledata">
+		</action>
+		<action name="roleybdata" class="RoletempAction"
+			method="roleybdata">
+		</action>
+		<action name="roletree" class="RoletempAction"
+			method="roletree">
+		</action>
+		<action name="rolesave" class="RoletempAction"
+			method="roleSave">
+		</action>
+		<action name="roleupdate" class="RoletempAction"
+			method="roleUpdate">
+		</action>
+		<action name="deleteSecure" class="RoletempAction"
+			method="deleteSecure">
+		</action>
+
+		<action name="cpwork" class="CpAction" method="cpWork">
+			<result name="success">/cpswbl/index.jsp</result>
+		</action>
+		<!-- 多人办理 -->
+		<action name="zbchDatas" class="CpAction" method="zbchDatas"></action>
+		<action name="bjchDatas" class="CpAction" method="bjchDatas"></action>
+		<action name="updateCb" class="CpAction" method="updateCb"></action>
+
+		<action name="zbphDatas" class="CpAction" method="zbphDatas"></action>
+		<action name="bjphDatas" class="CpAction" method="bjphDatas"></action>
+		<action name="updatePb" class="CpAction" method="updatePb"></action>
+
+
+		<action name="deleteBb" class="CpAction" method="deleteBb"></action>
+		<!-- 多人办理 -->
+	</package>
+</struts>
