@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript">
+ 	var context = "/";
+ </script>
+
+<script type="text/javascript" src="/js/extAll.js"></script>
+    <script type="text/javascript">
+    	Ext.onReady(function(){
+
+	var pdfurl='';
+	var url='';
+	var query=location.search.substring(1);
+	var values=query.split("&");
+	for(var i=0;i<values.length;i++){
+		var pos=values[i].indexOf('=');
+			if(pos==-1) continue;
+			pdfurl=values[0].substring(pos+3);
+			url=values[1].substring(pos+1);
+		}
+    	var  sret = Ext.get("pdf").dom.OpenRemotePdf(url+"/pdfview.action?uuid="+pdfurl);
+		
+				       if (sret != 1) {
+						Ext.Msg.alert('Error!');
+				        }       
+
+    	});
+    	
+    </script>
+
+<div><object id="pdf" classid="clsid:3542AF22-FBBF-4799-9EE7-DB428ED59DE8" width="100%" height="100%" title="²âÊÔ"></object></div>
