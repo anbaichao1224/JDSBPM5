@@ -93,7 +93,7 @@ function refFileGridById(){
 			 
 	                   text:'添加文件',
 	                   handler: function(){
-	                   	var dia=new Ext.ux.UploadDialog.Dialog({upload_autostart:true,url:'/rattachUpload.action',base_params:{'recordid':sxxxid,'personId':personid}});
+	                  	var dia=new Ext.ux.UploadDialog.Dialog({upload_autostart:true,url:contextfile+'attachUpload.action',base_params:{'activityInstId':activityInstId,'formId':formid,'personId':personid}});
 	                     dia.on('hide',function(){refFileGridById();});
 	                     dia.show();
 	                    }

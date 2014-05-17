@@ -66,13 +66,14 @@ public class UploadAttachmentAction extends BPMActionBase{
 		//super();	
 	}
 	public String execute() throws Exception {
-
+		
 		HttpServletResponse response = ServletActionContext.getResponse();
 		
 		// TODO Auto-generated method stub  
 		try{
 
 		this.processInstId = this.getProcessInst().getProcessInstId();
+		//String fileserver = CommonConfig.getValue("bpm.fileServer");
 		Calendar c =  Calendar.getInstance() ;
 		int year = c.get(Calendar.YEAR);
 		int month = c.get(Calendar.MONTH)+1;
@@ -83,20 +84,52 @@ public class UploadAttachmentAction extends BPMActionBase{
 		String processInstPath = year+File.separator+month+File.separator+processInstId+File.separator+processInstId+formId;  //做为流程数据保存一份
 		String uploadActiveInstFolder = CatalogUtil.createFolder(realPath+activeInstPath);
 		String uploadProcessInstFolder = CatalogUtil.createFolder(realPath+processInstPath);
+		
+		//File[] srcFiles = this.getFiles(); 
+//		 处理每个要上传的文件
+		//fileName = new String( name.getBytes("ISO-8859-1"));
 		String fileid = saveFileInfo(rootPath+activeInstPath+File.separator,activityInstId,fileFileName);
 		writeFile(uploadActiveInstFolder+File.separator+fileid+"."+getFileExt(fileFileName),file);
-		
+		//if(getFileExt(fileFileName).equals("tif")){
+			/*if(!File2Pdf.tiftopdf(uploadActiveInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadActiveInstFolder+File.separator+fileid+".pdf")){
+				this.updateFileInfo(fileid, 2);
+			}*/
+			
+		//}else{
+		if(getFileExt(fileFileName).toLowerCase().equals("tif")){
+			if(!File2Pdf.tiftopdf(uploadActiveInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadActiveInstFolder+File.separator+fileid+"."+"pdf")){
+				this.updateFileInfo(fileid, 2);
+				
+			}
+		}else if(!getFileExt(fileFileName).equals("pdf")){
+			if(!File2Pdf.fileconvert(uploadActiveInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadActiveInstFolder+File.separator+fileid+"."+"pdf", getFileExt(fileFileName))){
+				this.updateFileInfo(fileid, 2);
+			}
+		}
+		//}
 		if(processInst.getCopyNumber()<=0)//在流程没分散前保存
 		{
 			fileid = saveFileInfo(rootPath+processInstPath+File.separator,processInstId,fileFileName);
-			writeFile(uploadProcessInstFolder+File.separator+fileid+"."+getFileExt(fileFileName),file);
 			
+			writeFile(uploadProcessInstFolder+File.separator+fileid+"."+getFileExt(fileFileName),file);
+			/*if(!File2Pdf.tiftopdf(uploadActiveInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadActiveInstFolder+File.separator+fileid+".pdf")){
+				this.updateFileInfo(fileid, 2);
+			}else{*/
+			if(getFileExt(fileFileName).toLowerCase().equals("tif")){
+				File2Pdf.tiftopdf(uploadProcessInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadProcessInstFolder+File.separator+fileid+"."+"pdf");
+			}else if(!getFileExt(fileFileName).equals("pdf")){
+				
+				File2Pdf.fileconvert(uploadProcessInstFolder+File.separator+fileid+"."+getFileExt(fileFileName), uploadProcessInstFolder+File.separator+fileid+"."+"pdf", getFileExt(fileFileName));
+			}
+		
+			//}
 		}
 		
 		response.setContentType("text/html;charset=utf-8");
 		 
 		}catch(Exception e)
 		{
+		//	session.put("FileUpload.Progress."+sessionId, "error");
 			response.getWriter().print("{success:false,msg:'文件上传失败'}");
 		}
 		response.getWriter().print("{success:true,msg:'上传成功'}");
@@ -196,7 +229,7 @@ public String  saveFileInfo(String path,String instId,String filename)
     	attdao.setFileindex(1);
     	
     	attdao.setIsToPdf(1);
-    	
+    	System.out.println("=====这是net.itjds.userclient.attachment下的UploadAttachmentAction,java========---");
     	attdao.setFormid( getFormName());
     	if(instId.equals(processInstId))
     	{
