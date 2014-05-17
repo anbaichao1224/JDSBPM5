@@ -18,7 +18,7 @@ datas:[
       uuid:"<ww:property value="uuid"/>",
      // filename:"<a href=\"javascript:downLoadFile('<ww:property value="filePath"/>downloadfile.action?uuid=<ww:property value="uuid"/>','<ww:property value="filename"/>')\"> <ww:property value="filename"/></a>",
      downloadfile:"<a href='<ww:property value="filePath"/>downloadfile.action?uuid=<ww:property value="uuid"/> ''>下载</a>",
-     <ww:if test ="isToPdf == 0">
+     <ww:if test ="isToPdf == 1">
       filename:"<a href=\"javascript:openpdf('<ww:property value="uuid"/>','<%=basePath %>')\"> <ww:property value="filename"/></a>", 
      
      </ww:if>

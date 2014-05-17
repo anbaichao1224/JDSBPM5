@@ -1548,13 +1548,20 @@ function  todoSSOUrl(){
     }
     
 function openpdf(pdfurl,url){
-		
+
+
+		if (window.screen) {//判断浏览器是否支持window.screen判断浏览器是否支持screen     
+      			var myw = screen.availWidth;   //定义一个myw，接受到当前全屏的宽     
+      			var myh = screen.availHeight;
+			}
+
+	/*var aa=window.open('test11.html?pdfurl='+pdfurl+'& url='+url,'positionWinl','toolbar=no,width='+myw+',height='+myh+',left=0,top=0,menubar=no,location=no,scrollbars=no,resizable=yes');
   		var win = new Ext.Window(
 			{
 				id :'positionWinl',
 				title :'查看详细信息',
-				width :930,
-				height:Ext.getBody().getHeight()-30,
+				width :Ext.getBody().getWidth(),
+				height:Ext.getBody().getHeight(),
 				//autoHeight: true,
 //				bodyStyle:'width:100%',   
 				loadMask:true,
@@ -1578,6 +1585,12 @@ function openpdf(pdfurl,url){
 				        if (sret != 1) {
 				        alert("打开文件错误");
 				       }
+
+*/
+
+    var fea='status:0;dialogWidth:'+myw+'px;dialogHeight:'+myh+'px;dialogTop:0px;dialogLeft:0px;resizable:yes'
+	window.showModelessDialog('test11.html?pdfurl='+pdfurl+'& url='+url,window,fea);
+
   }
   
   function djopenpdf(pdfurl,url){
