@@ -240,7 +240,7 @@ public class DrblActivityListener implements ActivityListener {
 				impending = "∆’Õ®";
 			}
 			cb.setImpending(impending);
-			cb.setLastNodePerson(getLastNodePerson(ai));
+			cb.setLastNodePerson(getLastNodePerson(activityInstId));
 			cb.setProcessname(processname);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -251,13 +251,13 @@ public class DrblActivityListener implements ActivityListener {
 		}
 	}
 	
-	
-	public String getLastNodePerson(ActivityInst ai) {
+	//(2014-05-16)ªÒ»°list  £®hcl£©
+	public String getLastNodePerson(String activityInstId) {
 		BPMUserClientUtil bpmUserClientUtil = new BPMUserClientUtil();
 		WorkflowClientService client = bpmUserClientUtil.getClient();
 		String pname = "";
 		try {
-			List<ActivityInstHistory> list = ai.getActivityInstHistoryListByActvityInst();
+			List<ActivityInstHistory> list = client.getLastActivityInstHistoryListByActvityInst(activityInstId, null);
 			ActivityInstHistory his = list.get(list.size() - 1);
 			List<Person> performers = (List<Person>) client
 					.getActivityInstHistoryRightAttribute(

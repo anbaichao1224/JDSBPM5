@@ -60,7 +60,6 @@ public class DrblActivityListener1 implements ActivityListener{
 
 	public void activityCompleting(ActivityEvent arg0) throws BPMException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void activityDisplay(ActivityEvent arg0) throws BPMException {
@@ -196,7 +195,7 @@ public class DrblActivityListener1 implements ActivityListener{
 				impending = "ÆÕÍ¨";
 			}
 			cb.setImpending(impending);
-			cb.setLastNodePerson(getLastNodePerson(ai));
+			cb.setLastNodePerson(getLastNodePerson(activityInstId));
 			cb.setProcessname(processname);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -206,8 +205,34 @@ public class DrblActivityListener1 implements ActivityListener{
 			return cb;
 		}
 	}
-	
-	public String getLastNodePerson(ActivityInst ai) {
+	//(2014-05-16)Åú°ì¼àÌýhcl
+	public String getLastNodePerson(String activityInstId) {
+		BPMUserClientUtil bpmUserClientUtil = new BPMUserClientUtil();
+		WorkflowClientService client = bpmUserClientUtil.getClient();
+		String pname = "";
+		try {
+			
+			List<ActivityInstHistory> list = client.getLastActivityInstHistoryListByActvityInst(activityInstId, null);
+			if(list.size() > 0){
+				ActivityInstHistory his = list.get(list.size() - 1);
+				List<Person> performers = (List<Person>) client
+						.getActivityInstHistoryRightAttribute(
+								his.getActivityHistoryId(),
+								OARightConstants.ACTIVITYINSTHISTORY_RIGHT_ATT_PERFORMER,
+								null);
+				if(performers.size()>0){
+					Person person = performers.get(0);
+					pname = person.getName();
+				}
+			}
+			
+		} catch (BPMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pname;
+	}
+	/*public String getLastNodePerson(ActivityInst ai) {
 		BPMUserClientUtil bpmUserClientUtil = new BPMUserClientUtil();
 		WorkflowClientService client = bpmUserClientUtil.getClient();
 		String pname = "";
@@ -226,7 +251,7 @@ public class DrblActivityListener1 implements ActivityListener{
 			e.printStackTrace();
 		}
 		return pname;
-	}
+	}*/
 
 	public void activityRouting(ActivityEvent arg0) throws BPMException {
 		// TODO Auto-generated method stub
