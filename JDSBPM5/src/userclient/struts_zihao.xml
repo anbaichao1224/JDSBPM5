@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="zihao" extends="struts-default">
+		<action name="tozihao" class="com.kzxd.zihao.action.ZiHaoAct" method="toZiHao">
+			<result name="success">/desktop/widgets/bpm/form/zihao/zihaocreate.jsp</result>
+		</action>
+		<action name="getzihaobywenzhong" class="com.kzxd.zihao.action.ZiHaoAct" method="getZiHaoByWenZhong">
+			<result name="success">/desktop/widgets/bpm/form/zihao/zihaocreate.jsp</result>
+		</action>
+		<action name="savezihao" class="com.kzxd.zihao.action.ZiHaoAct" method="saveZiHao">
+			<result name="success">/desktop/widgets/bpm/form/zihao/zihaocreate.jsp</result>
+		</action>
+		<action name="tottdocjsp" class="com.kzxd.doctt.DacTTZHAct" method="tottdoc">
+			<result name="success">/desktop/widgets/bpm/form/document/createDocumentTT.jsp</result>
+		</action>
+		
+		<!-- 文种管理 -->
+		<action name="wzlistAction" class="kzxd.ttinfo.action.WenZhongAction" method="list">
+			<result name="wzlist">/desktop/widgets/ttmanager/wenzhonglist.jsp</result>
+		</action>
+		<action name="wzsaveAction" class="kzxd.ttinfo.action.WenZhongAction" method="save">
+			
+		</action>
+		<action name="wzdeleteAction" class="WenzhongAction" method="delete">
+			
+		</action>
+	</package>
+</struts>
