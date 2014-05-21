@@ -70,7 +70,7 @@ public class TakebackRouteAction  extends BPMActionBase{
 		return SUCCESS;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	private String getSelfHistoryId(){
 		ActivityInstHistory retHis = null;
 		//return this.getActivityInstHistory().getActivityHistoryId();
@@ -107,7 +107,48 @@ public class TakebackRouteAction  extends BPMActionBase{
 		
 		
 		return retHis.getActivityHistoryId();
+	}*/
+	
+	private String getSelfHistoryId(){
+		ActivityInstHistory retHis = null;
+		//return this.getActivityInstHistory().getActivityHistoryId();
+		BPMUserClientUtil bpmUserClientUtil =  new BPMUserClientUtil();
+		WorkflowClientService client =  bpmUserClientUtil.getClient();
+		
+		try {
+			ActivityInstHistory activityInstHistory = client.getActivityInstHistory(activityInstHistoryId);
+			retHis = client.getActivityInstHistory(activityInstHistoryId);;
+			List actInstList = activityInstHistory.getProcessInst().getActivityInstList();
+			for(int j=0; j<actInstList.size();j++){
+				ActivityInst inst  =(ActivityInst)actInstList.get(j);
+				List historyList = client.getLastActivityInstHistoryListByActvityInst(inst.getActivityInstId(), null);
+				for(int i=0; i<historyList.size(); i++){
+					ActivityInstHistory his = (ActivityInstHistory) historyList.get(i);
+					if(his.getDealMethod()!=null && "SPLITED".equals(his.getDealMethod())){
+						List performers =  (List) client.getActivityInstHistoryRightAttribute(his.getActivityHistoryId(),  OARightConstants.ACTIVITYINSTHISTORY_RIGHT_ATT_PERFORMER, null);
+						if (performers.size()>0){
+							Person p = (Person) performers.get(0);
+						// 	System.out.println("historyId=" + his.getActivityHistoryId() + " and performer=" + p.getName());
+							Person currentPerson = (Person) ActionContext.getContext().getValueStack().findValue("$currPerson");
+							if(currentPerson.getID().equals(p.getID())){
+								retHis = his;
+							}
+						}
+					}
+					
+				}
+			}
+			
+		} catch (BPMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return retHis.getActivityHistoryId();
 	}
+	
 	
 	public void setActivityInstHistoryId(String activityInstHistoryId) {
 		this.activityInstHistoryId = activityInstHistoryId;

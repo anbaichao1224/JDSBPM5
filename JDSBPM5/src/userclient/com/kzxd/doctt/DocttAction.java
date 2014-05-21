@@ -19,11 +19,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kzxd.ttinfo.action.WenZhongAction;
 import kzxd.ttinfo.dao.WenZhongDAO;
 
 import org.apache.struts2.ServletActionContext;
 
 
+import com.kzxd.zihao.entity.ZiHao;
+import com.kzxd.zihao.service.WenZhongZiHaoService;
 import com.opensymphony.xwork2.ActionContext;
 
 import net.itjds.bpm.engine.BPMException;
@@ -49,7 +52,8 @@ public class DocttAction extends BPMActionBase{
 
     private String mubanid;
 
-
+    private WenZhongZiHaoService wzzhSer;
+    private ZiHao zihao;
     
 	private   String uuid;
 	private  String filefileName;
@@ -112,11 +116,7 @@ public class DocttAction extends BPMActionBase{
 		}else if(wenzhong.equals("neiwangfa")){
 			zihao.setWenzhong("ÄÚÍø·¢");
 		}*/
-		
 		taotouPerperties = TaoTouConfigReader.getTaotouProperties();
-		
-		
-		
 		return "success";
 	}
 	
@@ -316,6 +316,18 @@ public class DocttAction extends BPMActionBase{
 	}
 	public void setMubanid(String mubanid) {
 		this.mubanid = mubanid;
+	}
+	public WenZhongZiHaoService getWzzhSer() {
+		return wzzhSer;
+	}
+	public void setWzzhSer(WenZhongZiHaoService wzzhSer) {
+		this.wzzhSer = wzzhSer;
+	}
+	public ZiHao getZihao() {
+		return zihao;
+	}
+	public void setZihao(ZiHao zihao) {
+		this.zihao = zihao;
 	}
 	
 

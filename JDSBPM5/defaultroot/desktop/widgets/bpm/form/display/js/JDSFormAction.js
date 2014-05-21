@@ -492,7 +492,6 @@ JDS.bpm.Form.Action={
 	}*/
 	//多人承办(内蒙)
 	BPM_ShowSelectPersonPanelDrcb:function (module,routeId) {
-	alert(routeId);
 			var menuCfg={
 	        url:context+"SelectPersonJSDEF.action",
 	        params: $H({
@@ -502,7 +501,6 @@ JDS.bpm.Form.Action={
 			module:module,
 			activityInstId:module.activityInstId
 	      }
-	 alert(menuCfg);
      var SelectPerFormDat=new JDS.bpm.Form.SelectPerFormDataDrcb(menuCfg).load();		
 		return true;
 	}, 

@@ -520,9 +520,48 @@ public final class BPMUserClientUtil {
 //		  this.routeTo(activityInst.getActivityInstId(),ctx);
 //		
 //	}
+	
+	private String getSelfHistoryId(String activityInstId){
+		ActivityInstHistory retHis = null;
+		//return this.getActivityInstHistory().getActivityHistoryId();
+		BPMUserClientUtil bpmUserClientUtil =  new BPMUserClientUtil();
+		WorkflowClientService client =  bpmUserClientUtil.getClient();
+		
+		try {
+			ActivityInst ai=client.getActivityInst(activityInstId);
+			List actInstList = ai.getProcessInst().getActivityInstList();
+			for(int j=0; j<actInstList.size();j++){
+				ActivityInst inst  =(ActivityInst)actInstList.get(j);
+				List historyList = client.getLastActivityInstHistoryListByActvityInst(inst.getActivityInstId(), null);
+				for(int i=0; i<historyList.size(); i++){
+					ActivityInstHistory his = (ActivityInstHistory) historyList.get(i);
+					if(his.getDealMethod()!=null && "SPLITED".equals(his.getDealMethod())){
+						List performers =  (List) client.getActivityInstHistoryRightAttribute(his.getActivityHistoryId(),  OARightConstants.ACTIVITYINSTHISTORY_RIGHT_ATT_PERFORMER, null);
+						if (performers.size()>0){
+							Person p = (Person) performers.get(0);
+						// 	System.out.println("historyId=" + his.getActivityHistoryId() + " and performer=" + p.getName());
+							Person currentPerson = (Person) ActionContext.getContext().getValueStack().findValue("$currPerson");
+							if(currentPerson.getID().equals(p.getID())){
+								retHis = his;
+							}
+						}
+					}
+					
+				}
+			}
+			
+		} catch (BPMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return retHis.getActivityHistoryId();
+	}
 	private void reSend(String activityInstId) throws BPMException {
 		String activityInstHistoryId1=EsbUtil.getHttpParamsByName("activityInstHistoryId");
-		  String activityInstHistoryId=null;//EsbUtil.getHttpParamsByName("activityInstHistoryId");
+		  String activityInstHistoryId=getSelfHistoryId(activityInstId);//EsbUtil.getHttpParamsByName("activityInstHistoryId");
 		  if (activityInstHistoryId==null|| activityInstHistoryId.equals("")){			  
 				ActivityInst ai=client.getActivityInst(activityInstId);
 				WorkflowEngine engine=WorkflowEngine.getEngine("oa");

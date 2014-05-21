@@ -65,7 +65,7 @@ if(prlist!=null&&prlist.size()>0){
 			 <ww:if test="name=='办理完毕'">
 	           				,this.tzfawen()
 	           			</ww:if>
-	           			<ww:if test="name=='校对'">
+	           			<ww:if test="name=='归档'">
 	           				,this.ReadAction()
 	           			</ww:if>
 		</ww:iterator>

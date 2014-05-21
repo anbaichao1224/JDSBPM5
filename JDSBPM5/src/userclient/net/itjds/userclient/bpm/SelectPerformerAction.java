@@ -116,8 +116,11 @@ public class SelectPerformerAction extends BPMActionBase {
 			if (routeto.equals("reSend") && activityInstHistoryId != null
 					&& !activityInstHistoryId.equals("")) {
 
-				ActivityInstHistory his = client
-						.getActivityInstHistory(activityInstHistoryId);
+//				ActivityInstHistory his = client
+//						.getActivityInstHistory(activityInstHistoryId);
+				ActivityInstHistory his = client.getActivityInstHistory(this.getSelfHistoryId(activityInstHistoryId));
+				String hisId =this.getSelfHistoryId(activityInstHistoryId);
+				List<ActivityInst> insts = client.getActivityInstListByOutActvityInstHistory(hisId, null);
 				WorkflowEngine workflowEngine = WorkflowEngine.getEngine("oa");
 
 				@SuppressWarnings("unused")
@@ -127,14 +130,14 @@ public class SelectPerformerAction extends BPMActionBase {
 						.getLastActivityInstHistoryListByActvityInst(his
 								.getActivityInstId(), null);
 
-				for (int i = 0; i < historyList.size(); i++) {
-					ActivityInstHistory ahis = historyList.get(i);
-					System.out.println(ahis.getDealMethod());
-					if (ahis.getDealMethod().equals("SPLITED")) {
-						his = ahis;
-						startActivityDefId = ahis.getActivityDefId();
-					}
-				}
+//				for (int i = 0; i < historyList.size(); i++) {
+//					ActivityInstHistory ahis = historyList.get(i);
+//					System.out.println(ahis.getDealMethod());
+//					if (ahis.getDealMethod().equals("SPLITED")) {
+//						his = ahis;
+//						startActivityDefId = ahis.getActivityDefId();
+//					}
+//				}
 
 				List routeInList = workflowEngine
 						.getActivityInstHistoryOutRoute(his
@@ -230,7 +233,8 @@ public class SelectPerformerAction extends BPMActionBase {
 		}
 		return performTypeMap.get(routeDefId);
 	}
-	private String getSelfHistoryId(String activityInstHistoryId){
+	
+	/*private String getSelfHistoryId(String activityInstHistoryId){
 		ActivityInstHistory retHis = null;
 		//return this.getActivityInstHistory().getActivityHistoryId();
 		BPMUserClientUtil bpmUserClientUtil =  new BPMUserClientUtil();
@@ -257,6 +261,45 @@ public class SelectPerformerAction extends BPMActionBase {
 				}
 				
 			}
+		} catch (BPMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return retHis.getActivityHistoryId();
+	}*/
+	private String getSelfHistoryId(String activityInstHistoryId){
+		ActivityInstHistory retHis = null;
+		//return this.getActivityInstHistory().getActivityHistoryId();
+		BPMUserClientUtil bpmUserClientUtil =  new BPMUserClientUtil();
+		WorkflowClientService client =  bpmUserClientUtil.getClient();
+		
+		try {
+			ActivityInstHistory activityInstHistory = client.getActivityInstHistory(activityInstHistoryId);
+			retHis = client.getActivityInstHistory(activityInstHistoryId);;
+			List actInstList = activityInstHistory.getProcessInst().getActivityInstList();
+			for(int j=0; j<actInstList.size();j++){
+				ActivityInst inst  =(ActivityInst)actInstList.get(j);
+				List historyList = client.getLastActivityInstHistoryListByActvityInst(inst.getActivityInstId(), null);
+				for(int i=0; i<historyList.size(); i++){
+					ActivityInstHistory his = (ActivityInstHistory) historyList.get(i);
+					if(his.getDealMethod()!=null && "SPLITED".equals(his.getDealMethod())){
+						List performers =  (List) client.getActivityInstHistoryRightAttribute(his.getActivityHistoryId(),  OARightConstants.ACTIVITYINSTHISTORY_RIGHT_ATT_PERFORMER, null);
+						if (performers.size()>0){
+							Person p = (Person) performers.get(0);
+						// 	System.out.println("historyId=" + his.getActivityHistoryId() + " and performer=" + p.getName());
+							Person currentPerson = (Person) ActionContext.getContext().getValueStack().findValue("$currPerson");
+							if(currentPerson.getID().equals(p.getID())){
+								retHis = his;
+							}
+						}
+					}
+					
+				}
+			}
+			
 		} catch (BPMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

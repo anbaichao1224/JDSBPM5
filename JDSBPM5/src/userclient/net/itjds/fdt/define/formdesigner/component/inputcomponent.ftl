@@ -1,6 +1,10 @@
 <#if obj.datatype.curObjId??> 
 <#if obj.datatype.curObjId=='ZiHao'>
-	 <iframe id="iframeupss"  width="470" scrolling="no" frameborder=0 height="44" src="/tozihao.do?actid=<ww:property value="activityInstId"/>"></iframe>
+	<#if	obj.basearr.readonly??>
+	 	<iframe id="iframeupss"  width="470" scrolling="no" frameborder=0 height="44" src="/tozihao.do?actid=<ww:property value="activityInstId"/>&readonly=1"></iframe>
+	<#else>
+		 	<iframe id="iframeupss"  width="470" scrolling="no" frameborder=0 height="44" src="/tozihao.do?actid=<ww:property value="activityInstId"/>&readonly=0"></iframe>
+		</#if>
 	<#else>
 	<input 
 <#list zatts as att>

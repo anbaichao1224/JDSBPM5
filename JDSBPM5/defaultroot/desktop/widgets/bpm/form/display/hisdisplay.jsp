@@ -61,7 +61,7 @@
             <ww:if test="isCanResend()">
 			this.reSend(), '-',
 			  </ww:if>
-			  
+             this.tackBackAction(),'-',
 			  this.viewRouteLogAction()
 		]
       

@@ -298,6 +298,44 @@
 	<bean id="qjmxdao" class="com.kzxd.newkaoqin.dao.impl.QingJiaMingXiDaoImpl">
 	   <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>	
+		<!-- 字号act 开始 -->
+	<bean id="ZihaoAct" class="com.kzxd.zihao.action.ZiHaoAct">
+	  <property name="wzzhSer" ref="wzzhSer"></property>
+	  <property name="zhSer" ref="zhSer"></property>
+	</bean>
+	<bean id="WenzhongAction" class="kzxd.ttinfo.action.WenZhongAction">
+		<property name="zihaoAct" ref="ZihaoAct"></property>
+	</bean>
+	<!-- 字号act 结束 -->
+	<!-- 正文act开始 -->
+	<bean id="DacTTZHAct" class="com.kzxd.doctt.DacTTZHAct">
+	  <property name="wzzhSer" ref="wzzhSer"></property>
+	  <property name="zhSer" ref="zhSer"></property>
+	</bean>
+	<bean id="DocttAction" class="com.kzxd.doctt.DocttAction">
+		 <property name="wzzhSer" ref="wzzhSer"></property>
+	</bean>
+	<!-- 正文act结束 -->
+	
+	<!-- 瀛楀彿dao寮€濮?-->
+	<bean id="zhDao" class="com.kzxd.zihao.dao.impl.ZiHaoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="wzzhDao" class="com.kzxd.zihao.dao.impl.WenZhongZiHaoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+<!-- 瀛楀彿dao缁撴潫 -->
+
+<!-- 瀛楀彿Service寮€濮?-->
+	<bean id="wzzhSer" class="com.kzxd.zihao.service.impl.WenZhongZiHaoServiceImpl">
+		<constructor-arg ref="wzzhDao"/>
+		<property name="zhDao" ref="zhDao"></property>
+	</bean>
+	<bean id="zhSer" class="com.kzxd.zihao.service.impl.ZiHaoServiceImpl">
+		<constructor-arg ref="zhDao"/>
+		
+	</bean>
+	
 	<!-- 行政审批定时数据发送 
 	<bean id="checkEmail" class="com.kzxd.timertask.CheckEmailAddresses">
     	<property name="emailAddresses">

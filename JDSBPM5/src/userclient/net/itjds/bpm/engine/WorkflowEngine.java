@@ -775,21 +775,23 @@ public class WorkflowEngine
       activityDefId = activityInst.getActivityDefId();
     }
 
-    List hisList = getLastSplitActivityInstHistoryByActvityInst(actInstId);
+    List hisList = getLastSplitActivityInstHistoryByActvityInst1(actInstId);
     List activityInsts = new ArrayList();
 
     if (hisList.size() > 0) {
-      activityInsts = getActivityInstListByOutActvityInstHistory(((EIActivityInstHistory)hisList.get(hisList.size() - 1)).getActivityHistoryId());
+    	for(int i=0; i<hisList.size(); i++){
+    		activityInsts = getActivityInstListByOutActvityInstHistory(((EIActivityInstHistory)hisList.get(i)).getActivityHistoryId());
+    		for (Iterator iter = activityInsts.iterator(); iter.hasNext(); ) {
+		      EIActivityInst inst = (EIActivityInst)iter.next();
+
+		      if ((!inst.getActivityDefId()
+		        .equals(activityDefId)) && (!inst.getDealMethod().equals("SPLITED"))) {
+		        return "SUSPEND";
+		      }
+		    }
+    	}
     }
 
-    for (Iterator iter = activityInsts.iterator(); iter.hasNext(); ) {
-      EIActivityInst inst = (EIActivityInst)iter.next();
-
-      if ((!inst.getActivityDefId()
-        .equals(activityDefId)) && (!inst.getDealMethod().equals("SPLITED"))) {
-        return "SUSPEND";
-      }
-    }
 
     return "COMBINE";
   }
@@ -1344,6 +1346,26 @@ public class WorkflowEngine
     }
     return splitList;
   }
+  
+  public List<EIActivityInstHistory> getLastSplitActivityInstHistoryByActvityInst1(String activityInstId)
+  throws BPMException
+	{
+	 // List hisList = getLastActivityInstHistoryListByActvityInst(activityInstId, true);
+	  EIActivityInst actInst = this.activityInstMgr.loadByKey(activityInstId);
+	    if (actInst == null) {
+	      throw new BPMException("The activity instance '" + activityInstId + 
+	        "' not found!");
+	    }
+	  List hisList = this.getActivityInstHistoryListByProcessInst(actInst.getProcessInstId());
+	  List splitList = new ArrayList();
+	  for (int i = 0; i < hisList.size(); i++) {
+	    EIActivityInstHistory his = (EIActivityInstHistory)hisList.get(i);
+	    if (his.getDealMethod().equals("SPLITED")) {
+	      splitList.add(his);
+	    }
+	  }
+	  return splitList;
+	}
 
   public List<EIActivityInstHistory> getLastActivityInstHistoryListByActvityInst(String activityInstId)
     throws BPMException

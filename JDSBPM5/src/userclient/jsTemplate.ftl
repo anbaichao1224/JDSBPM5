@@ -1,4 +1,4 @@
-﻿function EVAL.getPanel(){
+function EVAL.getPanel(){
 var sm = new Ext.grid.CheckboxSelectionModel();
 var rn = new Ext.grid.RowNumberer();
 var colM=new Ext.grid.ColumnModel([

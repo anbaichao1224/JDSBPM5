@@ -48,7 +48,9 @@
         <mapping  class="net.itjds.usm.persistence.model.Usergroupright"/>
         <!-- 单点登录 -->
         <mapping  class="net.itjds.usm.persistence.model.Sso"/>
-      
+     	 <!-- 字号模块开始 -->
+		<mapping class="com.kzxd.zihao.entity.ZiHao" />
+		<mapping class="com.kzxd.zihao.entity.WenZhongZiHao" />
         <!-- 多人办理收文办理 -->
         <mapping class="com.kzxd.cpbl.module.BaseBean"></mapping>
         <mapping class="com.kzxd.cpbl.module.CbBean"></mapping>

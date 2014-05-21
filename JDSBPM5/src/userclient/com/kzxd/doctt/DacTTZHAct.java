@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.appfuse.webapp.action.BaseAction;
 
+import com.kzxd.zihao.service.WenZhongZiHaoService;
+import com.kzxd.zihao.service.ZiHaoService;
+
 
 
 public class DacTTZHAct extends BaseAction{ 
@@ -22,6 +25,9 @@ public class DacTTZHAct extends BaseAction{
 	
 	private String mubanid;
 	
+    private ZiHaoService zhSer;
+	
+	private WenZhongZiHaoService wzzhSer;
 
 	
 	public Map<String, String> getTaotouPerperties() {
@@ -101,6 +107,18 @@ public class DacTTZHAct extends BaseAction{
 	}
 	public void setMubanid(String mubanid) {
 		this.mubanid = mubanid;
+	}
+	public ZiHaoService getZhSer() {
+		return zhSer;
+	}
+	public void setZhSer(ZiHaoService zhSer) {
+		this.zhSer = zhSer;
+	}
+	public WenZhongZiHaoService getWzzhSer() {
+		return wzzhSer;
+	}
+	public void setWzzhSer(WenZhongZiHaoService wzzhSer) {
+		this.wzzhSer = wzzhSer;
 	}
 	
 	

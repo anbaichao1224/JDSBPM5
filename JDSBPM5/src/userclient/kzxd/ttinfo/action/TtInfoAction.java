@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,23 +21,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kzxd.documentmodel.servers.KzxdDocumentServer;
-import kzxd.documentmodel.servers.impl.KzxdDocumentServerImpl;
-import kzxd.electronicfile.dao.RecordCategoryDAO;
 import kzxd.ttinfo.dao.TtInfoDAO;
 import net.itjds.common.CommonConfig;
 import net.itjds.common.database.DBBeanBase;
-import net.itjds.common.org.base.Org;
-import net.itjds.common.org.base.Person;
 import net.itjds.j2ee.dao.DAOFactory;
 import net.itjds.j2ee.util.UUID;
-import net.itjds.userclient.common.util.CatalogUtil;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
 
 public class TtInfoAction implements Action {
+	  private String actid;
 	public String execute() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setCharacterEncoding("utf-8");
@@ -63,7 +60,33 @@ public class TtInfoAction implements Action {
 		//end
 		return SUCCESS;
 	}
-	
+	public void getwenzhongByActid() throws SQLException, IOException
+	  {
+	    HttpServletResponse response = ServletActionContext.getResponse();
+	    String wenzhong = "";
+	    DBBeanBase dbbase = new DBBeanBase("bpm", true);
+	    Connection con = dbbase.getConn();
+	    Statement stmt = null;
+	    ResultSet rs = null;
+	    try {
+	      stmt = con.createStatement();
+	      String sql = "select wenzhongid from kzxd_zihao t where actid='" + this.actid + "'";
+	      rs = stmt.executeQuery(sql);
+
+	      while (rs.next()) {
+	        wenzhong = rs.getString("wenzhongid");
+	      }
+	      response.getWriter().print("{success:true,wenzhong:'" + wenzhong + "'}");
+	    }
+	    catch (Exception e) {
+	      e.printStackTrace();
+	    } finally {
+	      rs.close();
+	      stmt.close();
+	      con.close();
+	    }
+	  }
+
 	public String selectlist(){
 		tlist = findByWz();
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -406,6 +429,14 @@ public class TtInfoAction implements Action {
 
 	public void setWenzhongid(String wenzhongid) {
 		this.wenzhongid = wenzhongid;
+	}
+
+	public String getActid() {
+		return actid;
+	}
+
+	public void setActid(String actid) {
+		this.actid = actid;
 	}
 	
  	
